@@ -6,7 +6,7 @@
 #    By: zwang <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/15 14:23:06 by zwang             #+#    #+#              #
-#    Updated: 2018/10/09 20:17:57 by zwang            ###   ########.fr        #
+#    Updated: 2018/10/13 13:16:18 by zwang            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,15 +47,15 @@ FIO = ft_putchar.c  ft_putendl.c ft_putnbr.c  ft_putstr.c ft_putlstr.c \
 	  ft_getchar.c nextchar_savechar.c ft_printf.c ft_dprintf.c \
 	  ft_readline.c ft_read.c
 #TRR:
-LST = ft_lstadd.c ft_lstdel.c ft_lstdelone.c ft_lstiter.c ft_lstmap.c \
-	  ft_lstnew.c
-GNT = ft_gntnew.c ft_gntnodecount.c ft_gntleafcount.c ft_gntheight.c \
-	  ft_gntarity.c
-BNT = ft_bntnew.c ft_bntview.c ft_bntiter_in.c ft_bntiter_pre.c \
-	  ft_bntiter_post.c ft_bntalter_in.c ft_bntalter_pre.c ft_bntalter_post.c
-BST = ft_bnt_to_bst/ft_bnt_to_bst.c ft_bnt_to_bst/int.c ft_bnt_to_bst/long.c \
-	  ft_bnt_to_bst/str.c \
-	  ft_isbst.c ft_bstinsert.c ft_bstsearch.c
+ LST = ft_lstadd.c ft_lstdel.c ft_lstdelone.c ft_lstiter.c ft_lstmap.c \
+	   ft_lstnew.c
+ GNT = ft_gntnew.c ft_gntnodecount.c ft_gntleafcount.c ft_gntheight.c \
+	   ft_gntarity.c
+ BNT = ft_bntnew.c ft_bntview.c ft_bntiter_in.c ft_bntiter_pre.c \
+	   ft_bntiter_post.c ft_bntalter_in.c ft_bntalter_pre.c ft_bntalter_post.c
+ BST = ft_bnt_to_bst/ft_bnt_to_bst.c ft_bnt_to_bst/int.c ft_bnt_to_bst/long.c \
+	   ft_bnt_to_bst/str.c \
+	   ft_isbst.c ft_bstinsert.c ft_bstsearch.c
 
 OBJ = *.o
 
