@@ -6,7 +6,7 @@
 /*   By: zwang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/16 19:34:06 by zwang             #+#    #+#             */
-/*   Updated: 2018/10/06 19:51:00 by zwang            ###   ########.fr       */
+/*   Updated: 2018/10/13 13:25:34 by zwang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int		new_getchar(void)
 {
-	static char	buf[BUFSIZE];
+	static char	buf[BUF_SIZ];
 	static char	*bufp = buf;
 	static int	n = 0;
 

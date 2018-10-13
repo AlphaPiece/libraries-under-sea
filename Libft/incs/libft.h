@@ -6,7 +6,7 @@
 /*   By: zwang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/11 11:20:28 by zwang             #+#    #+#             */
-/*   Updated: 2018/10/13 10:28:23 by zwang            ###   ########.fr       */
+/*   Updated: 2018/10/13 13:26:09 by zwang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,11 @@
 
 /*
 ** ABS:		absolute number
-** BUFSIZE: for ft_getchar and ft_savechar to store data from stdin
+** BUF_SIZ: for ft_getchar and ft_savechar to store data from stdin
 */
 
 # define ABS(x)		(((x) < 0) ? -(x) : (x))
-# define BUFSIZE	100
+# define BUF_SIZ	100
 
 typedef int			t_bool;
 enum				{false, true};

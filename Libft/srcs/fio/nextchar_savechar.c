@@ -6,7 +6,7 @@
 /*   By: zwang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/17 09:59:33 by zwang             #+#    #+#             */
-/*   Updated: 2018/09/19 10:50:26 by zwang            ###   ########.fr       */
+/*   Updated: 2018/10/13 13:24:42 by zwang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 ** g_bufpos: next free position in g_buf
 */
 
-static char	g_buf[BUFSIZE];
+static char	g_buf[BUF_SIZ];
 static int	g_bufpos = 0;
 
 int		ft_nextchar(void)
@@ -27,7 +27,7 @@ int		ft_nextchar(void)
 
 void	ft_savechar(int c)
 {
-	if (g_bufpos >= BUFSIZE)
+	if (g_bufpos >= BUF_SIZ)
 		ft_printf("ft_savechar: too many characters\n");
 	else
 		g_buf[g_bufpos++] = c;
