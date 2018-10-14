@@ -6,7 +6,7 @@
 /*   By: zwang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/13 15:23:24 by zwang             #+#    #+#             */
-/*   Updated: 2018/10/13 22:54:57 by zwang            ###   ########.fr       */
+/*   Updated: 2018/10/13 23:18:00 by zwang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 #define	PERMS	0666
 
-FILE	*ft_fopen(char *name, char *mode)
+FILE	*fopen(char *name, char *mode)
 {
 	int		fd;
 	FILE	*fp;
@@ -43,4 +43,9 @@ FILE	*ft_fopen(char *name, char *mode)
 	fp->base = NULL;
 	fp->flag = (*mode == 'r') ? _READ : _WRITE;
 	return (fp);
+}
+
+int		fclose(FILE *fp)
+{
+	return (777);
 }
