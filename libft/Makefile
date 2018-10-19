@@ -6,7 +6,7 @@
 #    By: zwang <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/15 14:23:06 by zwang             #+#    #+#              #
-#    Updated: 2018/10/13 13:16:18 by zwang            ###   ########.fr        #
+#    Updated: 2018/10/19 13:19:39 by zwang            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,11 +32,10 @@ STR = ft_atoi.c ft_atol.c ft_atoi_base.c ft_atol_base.c ft_atof.c \
 	  ft_strend.c ft_strscount.c ft_strarrsort.c
 MEM = ft_bzero.c ft_memalloc.c ft_memccpy.c ft_memchr.c ft_memcmp.c \
 	  ft_memcpy.c ft_memdel.c ft_memmove.c ft_memset.c ft_swap.c \
-	  ft_getbits.c ft_setbits.c ft_invertbits.c ft_memrealloc.c
+	  ft_getbits.c ft_setbits.c ft_invertbits.c ft_memrealloc.c ft_putbits.c
 FIO = ft_putchar.c  ft_putendl.c ft_putnbr.c  ft_putstr.c ft_putlstr.c \
 	  ft_putchar_fd.c ft_putendl_fd.c ft_putnbr_fd.c ft_putstr_fd.c \
 	  ft_putnchar_fd.c ft_putnchar.c ft_nextline.c \
-	  ft_putbits.c ft_putbitsln.c \
 	  ft_vdprintf/leaf/flag_handler.c ft_vdprintf/leaf/length_handler.c \
 	  ft_vdprintf/branch/signed_integer.c \
 	  ft_vdprintf/branch/unsigned_integer.c \

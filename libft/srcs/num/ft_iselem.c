@@ -6,42 +6,42 @@
 /*   By: zwang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/11 10:06:48 by zwang             #+#    #+#             */
-/*   Updated: 2018/09/22 15:38:59 by zwang            ###   ########.fr       */
+/*   Updated: 2018/10/19 12:38:56 by zwang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static void	set_type_short(t_ptr *array, t_ptr *number, void *arr, void *num)
+static void	set16b(t_ptr *ap, t_ptr *np, void *arr, void *num)
 {
-	array->short_ptr = (short *)arr;
-	number->short_ptr = (short *)num;
+	ap->uint16p = (uint16_t *)arr;
+	np->uint16p = (uint16_t *)num;
 }
 
-static void	set_type_int(t_ptr *array, t_ptr *number, void *arr, void *num)
+static void	set32b(t_ptr *ap, t_ptr *np, void *arr, void *num)
 {
-	array->int_ptr = (int *)arr;
-	number->int_ptr = (int *)num;
+	ap->uint32p = (uint32_t *)arr;
+	np->uint32p = (uint32_t *)num;
 }
 
-static void	set_type_long(t_ptr *array, t_ptr *number, void *arr, void *num)
+static void	set64b(t_ptr *ap, t_ptr *np, void *arr, void *num)
 {
-	array->long_ptr = (long *)arr;
-	number->long_ptr = (long *)num;
+	ap->uint64p = (uint64_t *)arr;
+	np->uint64p = (uint64_t *)num;
 }
 
-t_bool	ft_iselem(char byte, void *arr, size_t len, void *num)
+t_bool		ft_iselem(size_t byte, void *arr, size_t len, void *num)
 {
 	int		i;
-	t_ptr	array;
-	t_ptr	number;
+	t_ptr	ap;
+	t_ptr	np;
 
-	if (byte == 2)
-		set_type_short(&array, &number, arr, num);
-	else if (byte == 4)
-		set_type_int(&array, &number, arr, num);
-	else if (byte == 8)
-		set_type_long(&array, &number, arr, num);
+	if (byte == BIT16)
+		set16b(&ap, &np, arr, num);
+	else if (byte == BIT32)
+		set32b(&ap, &np, arr, num);
+	else if (byte == BIT64)
+		set64b(&ap, &np, arr, num);
 	else
 	{
 		ft_dprintf(2, "error: invalid input for byte\n");
@@ -49,20 +49,11 @@ t_bool	ft_iselem(char byte, void *arr, size_t len, void *num)
 	}
 	i = -1;
 	while ((size_t)(++i) < len)
-		if (byte == 2 && array.short_ptr[i] == *number.short_ptr)
+		if (byte == BIT16 && ap.uint16p[i] == *np.uint16p)
 			return (true);
-		else if (byte == 4 && array.int_ptr[i] == *number.int_ptr)
+		else if (byte == BIT32 && ap.uint32p[i] == *np.uint32p)
 			return (true);
-		else if (byte == 8 && array.long_ptr[i] == *number.long_ptr)
+		else if (byte == BIT64 && ap.uint64p[i] == *np.uint64p)
 			return (true);
 	return (false);
-}
-
-int		main()
-{
-	int	arr[] = {1, 2, 3, 4, 5};
-	int	num = 4;
-
-	ft_printf(ft_iselem(3, arr, 5, &num) ? "yes\n" : "no\n");
-	return (0);
 }

@@ -6,69 +6,69 @@
 /*   By: zwang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/25 08:48:15 by zwang             #+#    #+#             */
-/*   Updated: 2018/09/27 13:18:35 by zwang            ###   ########.fr       */
+/*   Updated: 2018/10/19 12:36:31 by zwang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static void	swapchar(t_ptr *ptr1, t_ptr *ptr2, void *n1, void *n2)
+static void	swap8b(t_ptr *ptr1, t_ptr *ptr2, void *n1, void *n2)
 {
-	char	tmp;
+	uint8_t		tmp;
 
-	ptr1->char_ptr = (char *)n1;
-	ptr2->char_ptr = (char *)n2;
-	tmp = *ptr1->char_ptr;
-	*ptr1->char_ptr = *ptr2->char_ptr;
-	*ptr2->char_ptr = tmp;
+	ptr1->uint8p = (uint8_t *)n1;
+	ptr2->uint8p = (uint8_t *)n2;
+	tmp = *ptr1->uint8p;
+	*ptr1->uint8p = *ptr2->uint8p;
+	*ptr2->uint8p = tmp;
 }
 
-static void	swapshort(t_ptr *ptr1, t_ptr *ptr2, void *n1, void *n2)
+static void	swap16b(t_ptr *ptr1, t_ptr *ptr2, void *n1, void *n2)
 {
-	short	tmp;
+	uint16_t	tmp;
 
-	ptr1->short_ptr = (short *)n1;
-	ptr2->short_ptr = (short *)n2;
-	tmp = *ptr1->short_ptr;
-	*ptr1->short_ptr = *ptr2->short_ptr;
-	*ptr2->short_ptr = tmp;
+	ptr1->uint16p = (uint16_t *)n1;
+	ptr2->uint16p = (uint16_t *)n2;
+	tmp = *ptr1->uint16p;
+	*ptr1->uint16p = *ptr2->uint16p;
+	*ptr2->uint16p = tmp;
 }
 
-static void	swapint(t_ptr *ptr1, t_ptr *ptr2, void *n1, void *n2)
+static void	swap32b(t_ptr *ptr1, t_ptr *ptr2, void *n1, void *n2)
 {
-	int		tmp;
+	uint32_t	tmp;
 	
-	ptr1->int_ptr = (int *)n1;
-	ptr2->int_ptr = (int *)n2;
-	tmp = *ptr1->int_ptr;
-	*ptr1->int_ptr = *ptr2->int_ptr;
-	*ptr2->int_ptr = tmp;
+	ptr1->uint32p = (uint32_t *)n1;
+	ptr2->uint32p = (uint32_t *)n2;
+	tmp = *ptr1->uint32p;
+	*ptr1->uint32p = *ptr2->uint32p;
+	*ptr2->uint32p = tmp;
 }
 
-static void	swaplong(t_ptr *ptr1, t_ptr *ptr2, void *n1, void *n2)
+static void	swap64b(t_ptr *ptr1, t_ptr *ptr2, void *n1, void *n2)
 {
-	long	tmp;
+	uint64_t	tmp;
 	
-	ptr1->long_ptr = (long *)n1;
-	ptr2->long_ptr = (long *)n2;
-	tmp = *ptr1->long_ptr;
-	*ptr1->long_ptr = *ptr2->long_ptr;
-	*ptr2->long_ptr = tmp;
+	ptr1->uint64p = (uint64_t *)n1;
+	ptr2->uint64p = (uint64_t *)n2;
+	tmp = *ptr1->uint64p;
+	*ptr1->uint64p = *ptr2->uint64p;
+	*ptr2->uint64p = tmp;
 }
 
-void		ft_swap(char byte, void *n1, void *n2)
+void		ft_swap(size_t byte, void *n1, void *n2)
 {
 	t_ptr	ptr1;
 	t_ptr	ptr2;
 
-	if (byte == sizeof(char))
-		swapchar(&ptr1, &ptr2, n1, n2);
-	else if (byte == sizeof(short))
-		swapshort(&ptr1, &ptr2, n1, n2);
-	else if (byte == sizeof(int))
-		swapint(&ptr1, &ptr2, n1, n2);
-	else if (byte == sizeof(long))
-		swaplong(&ptr1, &ptr2, n1, n2);
+	if (byte == BIT8)
+		swap8b(&ptr1, &ptr2, n1, n2);
+	else if (byte == BIT16)
+		swap16b(&ptr1, &ptr2, n1, n2);
+	else if (byte == BIT32)
+		swap32b(&ptr1, &ptr2, n1, n2);
+	else if (byte == BIT64)
+		swap64b(&ptr1, &ptr2, n1, n2);
 	else
 		ft_dprintf(2, "error: invalid input for byte\n");
 }
