@@ -6,7 +6,7 @@
 /*   By: zwang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/11 11:20:28 by zwang             #+#    #+#             */
-/*   Updated: 2018/10/19 13:21:03 by zwang            ###   ########.fr       */
+/*   Updated: 2018/10/20 10:26:03 by zwang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,8 @@ enum				{false, true};
 */
 
 # define ARRLEN(a)	(sizeof(a) / sizeof(a[0]))
-# define BITNUM		8
+# define BYTE		8
+# define WORD		32
 # define BIT8		(sizeof(uint8_t))
 # define BIT16		(sizeof(uint16_t))
 # define BIT32		(sizeof(uint32_t))
