@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fopen_fclose.c                                     :+:      :+:    :+:   */
+/*   fopen.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zwang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/13 15:23:24 by zwang             #+#    #+#             */
-/*   Updated: 2018/10/13 23:18:00 by zwang            ###   ########.fr       */
+/*   Created: 2018/10/25 17:03:30 by zwang             #+#    #+#             */
+/*   Updated: 2018/10/25 17:05:25 by zwang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libio.h"
 
-#define	PERMS	0666
+#define PERMS	0666
 
 FILE	*fopen(char *name, char *mode)
 {
@@ -43,9 +43,4 @@ FILE	*fopen(char *name, char *mode)
 	fp->base = NULL;
 	fp->flag = (*mode == 'r') ? _READ : _WRITE;
 	return (fp);
-}
-
-int		fclose(FILE *fp)
-{
-	return (777);
 }

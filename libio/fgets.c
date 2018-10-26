@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fgets_fputs.c                                      :+:      :+:    :+:   */
+/*   fgets.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zwang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/13 20:13:44 by zwang             #+#    #+#             */
-/*   Updated: 2018/10/13 21:01:29 by zwang            ###   ########.fr       */
+/*   Created: 2018/10/25 16:57:06 by zwang             #+#    #+#             */
+/*   Updated: 2018/10/25 16:59:30 by zwang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,18 +18,9 @@ char	*fgets(char *s, int n, FILE *iop)
 	register char	*cs;
 
 	cs = s;
-	while (--n > 0 && (c = getc(iop)) !- EOF)
+	while (--n > 0 && (c = getc(iop)) != EOF)
 		if ((*cs++ = c) == '\n')
 			break ;
 	*cs = '\0';
 	return ((c == EOF && cs == s) ? NULL : s);
-}
-
-int		fputs(char *s, FILE *iop)
-{
-	int c;
-
-	while ((c = *s++))
-		fputc(c, iop);
-	return ((ferror(iop)) ? EOF : 0);
 }
