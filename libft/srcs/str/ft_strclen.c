@@ -6,18 +6,18 @@
 /*   By: zwang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/15 20:26:27 by zwang             #+#    #+#             */
-/*   Updated: 2018/07/15 21:14:30 by zwang            ###   ########.fr       */
+/*   Updated: 2018/10/25 21:07:04 by zwang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strclen(const char *s, char c)
+size_t	ft_strclen(const char *s, char *delim)
 {
 	size_t	i;
 
 	i = 0;
-	while (s[i] && s[i] != c)
+	while (s[i] && !ft_strchr(delim, s[i]))
 		i++;
 	return (i);
 }

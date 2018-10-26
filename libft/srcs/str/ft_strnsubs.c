@@ -1,40 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strsplit.c                                      :+:      :+:    :+:   */
+/*   ft_strnsubs.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zwang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/07/11 16:30:13 by zwang             #+#    #+#             */
-/*   Updated: 2018/10/25 21:31:47 by zwang            ###   ########.fr       */
+/*   Created: 2018/09/20 16:13:17 by zwang             #+#    #+#             */
+/*   Updated: 2018/10/25 21:31:08 by zwang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	**ft_strsplit(const char *s, char *delim)
+/*
+** ft_strnsubs: count # of sub-strings of str which matches s
+*/
+
+int		ft_strnsubs(const char *str, const char *s)
 {
-	char	**arr;
+	int		count;
 	int		i;
 	int		j;
-	int		k;
-	int		str_num;
 
-	str_num = ft_strnsepc(s, delim);
-	if (!s || !(arr = (char **)malloc(sizeof(char *) * (str_num + 1))))
-		return (NULL);
 	i = 0;
-	k = 0;
-	while (i < str_num)
+	count = 0;
+	while (str[i])
 	{
-		arr[i] = ft_strnew(ft_strclen(&s[k], delim) + 1);
-		while (s[k] && ft_strchr(delim, s[k]))
-			k++;
-		j = 0;
-		while (s[k] && !ft_strchr(delim, s[k]))
-			arr[i][j++] = s[k++];
-		arr[i++][j] = '\0';
+		if (str[i] == s[0])
+		{
+			j = 1;
+			while (str[i + j] && s[j] && str[i + j] == s[j])
+				++j;
+			if (!s[j])
+				++count;
+		}
+		++i;
 	}
-	arr[i] = NULL;
-	return (arr);
+	return (count);
 }
