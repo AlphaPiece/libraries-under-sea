@@ -6,7 +6,7 @@
 /*   By: zwang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/27 10:47:03 by zwang             #+#    #+#             */
-/*   Updated: 2018/10/01 09:40:50 by zwang            ###   ########.fr       */
+/*   Updated: 2018/10/26 14:34:56 by zwang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #define COUNT	10
 
 void	bntview(t_btree *bnt, int space, char type)
-{	
+{
 	if (!bnt)
 		return ;
 	space += COUNT;

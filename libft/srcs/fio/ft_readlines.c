@@ -6,7 +6,7 @@
 /*   By: zwang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/20 11:03:33 by zwang             #+#    #+#             */
-/*   Updated: 2018/09/20 17:26:46 by zwang            ###   ########.fr       */
+/*   Updated: 2018/10/26 14:16:25 by zwang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,6 @@ int		ft_readlines(char *file_name, char ***lines)
 		i++;
 	(*lines)[i] = NULL;
 	if (close(fd) < 0)
-		return (-1);	
+		return (-1);
 	return (nl);
 }

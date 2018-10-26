@@ -6,7 +6,7 @@
 /*   By: zwang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/24 17:32:17 by zwang             #+#    #+#             */
-/*   Updated: 2018/09/24 18:28:14 by zwang            ###   ########.fr       */
+/*   Updated: 2018/10/26 14:03:03 by zwang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,6 @@ unsigned int	ft_invertbits(unsigned int x, int p, int n)
 
 	part1 = (x >> (p + 1)) << (p + 1);
 	part2 = ~x & (~(~0 << n) << (p + 1 - n));
-	part3 = x & ~(~0 << (p + 1 -n));
+	part3 = x & ~(~0 << (p + 1 - n));
 	return (part1 | part2 | part3);
 }

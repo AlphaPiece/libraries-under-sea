@@ -6,7 +6,7 @@
 /*   By: zwang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/16 19:34:06 by zwang             #+#    #+#             */
-/*   Updated: 2018/10/13 13:25:34 by zwang            ###   ########.fr       */
+/*   Updated: 2018/10/26 14:18:01 by zwang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,5 @@ int		new_getchar(void)
 		n = read(0, buf, sizeof(buf));
 		bufp = buf;
 	}
-	return ((--n >= 0) ? (unsigned char) *bufp++ : -1);
+	return ((--n >= 0) ? (unsigned char)*bufp++ : -1);
 }

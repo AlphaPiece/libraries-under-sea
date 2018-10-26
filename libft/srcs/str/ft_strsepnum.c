@@ -6,13 +6,11 @@
 /*   By: zwang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/11 16:38:22 by zwang             #+#    #+#             */
-/*   Updated: 2018/10/26 13:19:41 by zwang            ###   ########.fr       */
+/*   Updated: 2018/10/26 14:25:46 by zwang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-enum	e_state {OUT, IN};
 
 /*
 ** ft_strsepnum: return # of substrings of s separated by any character in delim
@@ -20,8 +18,8 @@ enum	e_state {OUT, IN};
 
 int		ft_strsepnum(const char *s, char *delim)
 {
-	int				count;
-	enum e_state	state;
+	int		count;
+	t_state	state;
 
 	if (!s || !*s)
 		return (0);

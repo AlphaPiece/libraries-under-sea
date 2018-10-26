@@ -6,7 +6,7 @@
 /*   By: zwang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/28 14:52:14 by zwang             #+#    #+#             */
-/*   Updated: 2018/09/28 16:27:17 by zwang            ###   ########.fr       */
+/*   Updated: 2018/10/26 14:18:35 by zwang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int		ft_gntleafcount(t_tree *gnt)
 	int		*leaf_arr;
 	int		i;
 	int		sum;
-	
+
 	if (!gnt->children)
 		return (1);
 	leaf_arr = (int *)malloc(sizeof(int) * gnt->child_nbr);

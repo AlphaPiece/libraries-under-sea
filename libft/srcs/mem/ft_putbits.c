@@ -6,7 +6,7 @@
 /*   By: zwang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/26 19:34:47 by zwang             #+#    #+#             */
-/*   Updated: 2018/10/20 10:26:58 by zwang            ###   ########.fr       */
+/*   Updated: 2018/10/26 14:15:10 by zwang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ static void	setb(void *x, size_t byte, t_ptr *p, t_uint *un)
 		ft_dprintf(2, "error: invalid input for byte\n");
 }
 
-static void putb(void *x, size_t byte, t_ptr *p, t_uint *un)
+static void	putb(void *x, size_t byte, t_ptr *p, t_uint *un)
 {
 	setb(x, byte, p, un);
 	if (byte == BIT64)
@@ -68,7 +68,7 @@ static void putb(void *x, size_t byte, t_ptr *p, t_uint *un)
 		}
 }
 
-void	ft_putbits(void *x, size_t bit)
+void		ft_putbits(void *x, size_t bit)
 {
 	t_ptr	p;
 	t_uint	un;

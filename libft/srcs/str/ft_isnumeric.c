@@ -6,13 +6,13 @@
 /*   By: zwang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/13 21:18:17 by zwang             #+#    #+#             */
-/*   Updated: 2018/09/11 10:21:34 by zwang            ###   ########.fr       */
+/*   Updated: 2018/10/26 14:26:45 by zwang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_isnumeric(char *s)
+t_bool	ft_isnumeric(char *s)
 {
 	s += (*s == '+' || *s == '-') ? 1 : 0;
 	while (*s)

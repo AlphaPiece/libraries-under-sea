@@ -6,7 +6,7 @@
 /*   By: zwang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/28 14:47:26 by zwang             #+#    #+#             */
-/*   Updated: 2018/09/28 14:49:36 by zwang            ###   ########.fr       */
+/*   Updated: 2018/10/26 14:36:01 by zwang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int		ft_min_intarr(int arr[], size_t len)
 {
 	int		min;
 	size_t	i;
-	
+
 	if (len == 0 || !arr)
 		return (0);
 	min = arr[0];

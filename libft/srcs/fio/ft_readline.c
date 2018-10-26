@@ -6,13 +6,13 @@
 /*   By: zwang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/20 11:14:37 by zwang             #+#    #+#             */
-/*   Updated: 2018/09/20 11:34:28 by zwang            ###   ########.fr       */
+/*   Updated: 2018/10/26 13:56:50 by zwang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_readline(int fd, char **line)
+int		ft_readline(const int fd, char **line)
 {
 	int		flag;
 	char	*ptr;

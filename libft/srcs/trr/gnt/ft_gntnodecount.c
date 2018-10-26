@@ -6,7 +6,7 @@
 /*   By: zwang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/28 15:31:56 by zwang             #+#    #+#             */
-/*   Updated: 2018/09/28 16:26:18 by zwang            ###   ########.fr       */
+/*   Updated: 2018/10/26 14:19:06 by zwang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,4 +27,4 @@ int		ft_gntnodecount(t_tree *gnt)
 	sum = ft_sum_intarr(node_arr, gnt->child_nbr);
 	free(node_arr);
 	return (1 + sum);
-}	
+}

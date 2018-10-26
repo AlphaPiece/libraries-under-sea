@@ -6,7 +6,7 @@
 /*   By: zwang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/25 08:48:15 by zwang             #+#    #+#             */
-/*   Updated: 2018/10/19 12:36:31 by zwang            ###   ########.fr       */
+/*   Updated: 2018/10/26 14:17:15 by zwang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ static void	swap16b(t_ptr *ptr1, t_ptr *ptr2, void *n1, void *n2)
 static void	swap32b(t_ptr *ptr1, t_ptr *ptr2, void *n1, void *n2)
 {
 	uint32_t	tmp;
-	
+
 	ptr1->uint32p = (uint32_t *)n1;
 	ptr2->uint32p = (uint32_t *)n2;
 	tmp = *ptr1->uint32p;
@@ -48,7 +48,7 @@ static void	swap32b(t_ptr *ptr1, t_ptr *ptr2, void *n1, void *n2)
 static void	swap64b(t_ptr *ptr1, t_ptr *ptr2, void *n1, void *n2)
 {
 	uint64_t	tmp;
-	
+
 	ptr1->uint64p = (uint64_t *)n1;
 	ptr2->uint64p = (uint64_t *)n2;
 	tmp = *ptr1->uint64p;
