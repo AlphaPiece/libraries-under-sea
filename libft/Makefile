@@ -6,7 +6,7 @@
 #    By: zwang <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/15 14:23:06 by zwang             #+#    #+#              #
-#    Updated: 2018/10/25 21:04:58 by zwang            ###   ########.fr        #
+#    Updated: 2018/10/26 13:20:44 by zwang            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,13 +26,13 @@ CHR = ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c ft_isspace.c \
 	  ft_isprint.c  ft_tolower.c ft_toupper.c ft_islower.c ft_isupper.c
 STR = ft_atoi.c ft_atol.c ft_atoi_base.c ft_atol_base.c ft_atof.c \
 	  ft_isnumeric.c ft_strcat.c ft_strchr.c ft_strclr.c ft_strcmp.c \
-	  ft_strclen.c ft_strnsepc.c ft_strcpy.c ft_strdel.c ft_strdup.c \
+	  ft_strclen.c ft_strsepnum.c ft_strcpy.c ft_strdel.c ft_strdup.c \
 	  ft_strequ.c ft_striter.c ft_striteri.c ft_strjoin.c ft_strlcat.c \
 	  ft_strlen.c ft_strmap.c ft_strmapi.c ft_strncat.c ft_strncmp.c \
 	  ft_strncpy.c ft_strnequ.c ft_strnew.c ft_strnstr.c ft_strrchr.c \
 	  ft_strsplit.c ft_strstr.c ft_strsub.c ft_strtrim.c ft_strcapitalize.c \
 	  ft_strarrlen.c ft_strarrdel.c ft_check_brackets.c ft_strstart.c \
-	  ft_strend.c ft_strnsubs.c ft_strarrsort.c
+	  ft_strend.c ft_count_subs.c ft_strarrsort.c
 FIO = ft_putchar.c  ft_putendl.c ft_putnbr.c  ft_putstr.c ft_putlstr.c \
 	  ft_putchar_fd.c ft_putendl_fd.c ft_putnbr_fd.c ft_putstr_fd.c \
 	  ft_putnchar_fd.c ft_putnchar.c ft_nextline.c \

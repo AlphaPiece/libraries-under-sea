@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnsepc.c                                      :+:      :+:    :+:   */
+/*   ft_strsepnum.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zwang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/11 16:38:22 by zwang             #+#    #+#             */
-/*   Updated: 2018/10/25 21:30:36 by zwang            ###   ########.fr       */
+/*   Updated: 2018/10/26 13:19:41 by zwang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 enum	e_state {OUT, IN};
 
 /*
-** ft_strnsepc: return # of substrings of s separated by any character in delim
+** ft_strsepnum: return # of substrings of s separated by any character in delim
 */
 
-int		ft_strnsepc(const char *s, char *delim)
+int		ft_strsepnum(const char *s, char *delim)
 {
 	int				count;
 	enum e_state	state;
