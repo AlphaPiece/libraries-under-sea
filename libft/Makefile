@@ -6,7 +6,7 @@
 #    By: zwang <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/15 14:23:06 by zwang             #+#    #+#              #
-#    Updated: 2018/10/26 13:20:44 by zwang            ###   ########.fr        #
+#    Updated: 2018/10/27 14:32:11 by zwang            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -55,6 +55,8 @@ FIO = ft_putchar.c  ft_putendl.c ft_putnbr.c  ft_putstr.c ft_putlstr.c \
  BST = ft_bnt_to_bst/ft_bnt_to_bst.c ft_bnt_to_bst/int.c ft_bnt_to_bst/long.c \
 	   ft_bnt_to_bst/str.c \
 	   ft_isbst.c ft_bstinsert.c ft_bstsearch.c
+HSH = ft_hash_str.c ft_pairnew.c ft_dictnew.c ft_dictadd.c ft_dictget.c \
+	  ft_dictremove.c ft_dictclear.c ft_dictdel.c
 
 OBJ = *.o
 
