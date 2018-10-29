@@ -6,7 +6,7 @@
 #    By: zwang <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/15 14:23:06 by zwang             #+#    #+#              #
-#    Updated: 2018/10/27 14:32:11 by zwang            ###   ########.fr        #
+#    Updated: 2018/10/29 10:52:43 by zwang            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,7 +32,7 @@ STR = ft_atoi.c ft_atol.c ft_atoi_base.c ft_atol_base.c ft_atof.c \
 	  ft_strncpy.c ft_strnequ.c ft_strnew.c ft_strnstr.c ft_strrchr.c \
 	  ft_strsplit.c ft_strstr.c ft_strsub.c ft_strtrim.c ft_strcapitalize.c \
 	  ft_strarrlen.c ft_strarrdel.c ft_check_brackets.c ft_strstart.c \
-	  ft_strend.c ft_count_subs.c ft_strarrsort.c
+	  ft_strend.c ft_count_subs.c ft_strarrsort.c ft_strcompose.c
 FIO = ft_putchar.c  ft_putendl.c ft_putnbr.c  ft_putstr.c ft_putlstr.c \
 	  ft_putchar_fd.c ft_putendl_fd.c ft_putnbr_fd.c ft_putstr_fd.c \
 	  ft_putnchar_fd.c ft_putnchar.c ft_nextline.c \
@@ -104,6 +104,10 @@ clean:
 fclean: clean
 	@rm -f $(NAME)
 	@printf "$(RED)[x] $(RESET)\x1B[31m$(NAME) deleted\n"
+
+update:
+	@cp -rf incs/ ../../UnixWizardSchool/ft_ls/libs/libft_incs/
+	@cp libft.a ../../UnixWizardSchool/ft_ls/libs/
 
 re: fclean all
 

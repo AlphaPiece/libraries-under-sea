@@ -6,13 +6,13 @@
 /*   By: zwang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/16 19:34:06 by zwang             #+#    #+#             */
-/*   Updated: 2018/10/26 14:18:01 by zwang            ###   ########.fr       */
+/*   Updated: 2018/10/27 16:36:14 by zwang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		new_getchar(void)
+int		ft_getchar(void)
 {
 	static char	buf[BUF_SIZ];
 	static char	*bufp = buf;
