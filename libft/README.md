@@ -1,6 +1,7 @@
 # libft
 
-### Memory
+## Memory
+
 | Function | Description |
 | --- | --- |
 | **ft_memalloc** | Allocates (with malloc(3)) and returns a "fresh" memory area. The memory allocated is initialized to 0. If the allocation fails, the function returns NULL. |
@@ -19,7 +20,8 @@
 | **ft_putbits** | Puts an amount of bits from the address that x points to. |
 | **ft_swap** | Swaps an amount of bits at two memory addresses. The acceptable inputs for the amount of bits are 1, 2, 4, and 8. |
 
-### Number
+## Number
+
 | Function | Description |
 | --- | --- |
 | **ft_itoa** | Converts an integer with type int to an ascii character string. |
@@ -45,7 +47,8 @@
 | **ft_factor_prime** | Facters a prime number. |
 | **ft_analyze_float** | Analyze the inner representation of a floating number in IEEE 754 standard. |
 
-### ASCII Character
+## ASCII Character
+
 | Function | Description |
 | --- | --- |
 | **ft_isalpha** | Checks if a character is an alphabet character. |
@@ -59,7 +62,8 @@
 | **ft_tolower** | Converts a uppercase alphabet character to a lowercase alphabet character. |
 | **ft_toupper** | Converts a lowercase alphabet character to a uppercase alphabet character. |
 
-### ASCII Character String
+## ASCII Character String
+
 | Function | Description |
 | --- | --- |
 | **ft_atoi** | Converts the initial portion of the string pointed to by str to int representation. |
@@ -107,7 +111,8 @@
 | **ft_check_brackets** | Checks if the brackets in a string match correctly. |
 | **ft_count_subs** | Counts the number of substrings in the string s that are identical to subs. |
 
-### File Input/Output
+## File Input/Output
+
 | Function | Description |
 | --- | --- |
 | **ft_putchar** | Outputs the character c to the standard output. |
@@ -134,7 +139,8 @@
 | **ft_read** | Obtains all the contents in a file and save them in a string. The file being read must contains less than 2^32 characters; otherwise an error happens. |
 | **ft_readlines** | Obtains all the contents in a file and save each line as an element of a string array. |
 
-### Tree: Linked List
+## Tree: Linked List
+
 | Function | Description |
 | --- | --- |
 | **ft_lstnew** | Allocates (with malloc(3)) and returns a "fresh" link. The variables content and content_size of the new link are initialized by copy of the parameters of the function. If the parameter content is null, the variable content is initialized to NULL and the variable content_size is initialized to 0 even if the parameter content_size isn’t. The variable next is initialized to NULL. If the allocation fails, the function returns NULL. |
@@ -144,7 +150,8 @@
 | **ft_lstiter** | Iterates the list lst and applies the function f to each link. |
 | **ft_lstmap** | Iterates a list lst and applies the function f to each link to create a "fresh" list (using malloc(3)) resulting from the successive applications of f. If the allocation fails, the function returns NULL. |
 
-### Tree: General Tree
+##  Tree: General Tree
+
 | Function | Description |
 | --- | --- |
 | **ft_gntnew** | Allocates (with malloc(3)) and sets everything to zero or NULL except for data (the data is set as the argument passed in). |
@@ -153,7 +160,8 @@
 | **ft_gntnodecount** | Counts the total nodes that a tree has. |
 | **ft_gntarity** | Gets the arity of a tree (which is the maximum arity of the tree's nodes). |
 
-### Tree: Binary Tree
+## Tree: Binary Tree
+
 | Function | Description |
 | --- | --- |
 | **ft_bntnew** | Allocates (with malloc(3)) and set everything to zero or NULL except for data (the data is set as the argument passed in). |
@@ -165,7 +173,8 @@
 | **ft_bntalter_pre** | Iterates and applies function f to all nodes (does modify the values of nodes) in a binary tree in preorder-traversal. |
 | **ft_bntalter_post** | Iterates and applies function f to all nodes (does modify the values of nodes) in a binary tree in postorder-traversal. |
 
-### Tree: Binary Tree : Binary Search Tree
+## Tree: Binary Tree : Binary Search Tree
+
 | Function | Description |
 | --- | --- |
 | **ft_isbst** | Determines whether a binary tree is a binary search tree. |
@@ -173,7 +182,8 @@
 | **ft_bstinsert** | Inserts a node into a binary search tree. The binary tree will still be a binary search tree after the insertion. |
 | **ft_bstsearch** | Searches a node that has the identical data as data_ref in a binary search tree. |
 
-### Hash-Based Structure: Hash Table
+## Hash-Based Structure: Hash Table
+
 | Function | Description |
 | --- | --- |
 | **ft_hash_str** | Hashes a character string and returns a hash value. |
