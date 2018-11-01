@@ -143,3 +143,29 @@
 | **ft_lstadd** | Adds the element new at the beginning of the list. |
 | **ft_lstiter** | Iterates the list lst and applies the function f to each link. |
 | **ft_lstmap** | Iterates a list lst and applies the function f to each link to create a "fresh" list (using malloc(3)) resulting from the successive applications of f. If the allocation fails, the function returns NULL. |
+
+### Tree: General Tree
+| Function | Description |
+| --- | --- |
+| **ft_gntnew** | Allocates (with malloc(3)) and sets everything to zero or NULL except for data (the data is set as the argument passed in). |
+| **ft_gntheight** | Gets the height of a tree structure. |
+| **ft_gntleafcount** | Counts the leaves that a tree has. |
+| **ft_gntnodecount** | Counts the total nodes that a tree has. |
+| **ft_gntarity** | Gets the arity of a tree (which is the maximum arity of the tree's nodes). |
+
+### Tree: Binary Tree
+| Function | Description |
+| --- | --- |
+| **ft_bntnew** | Allocates (with malloc(3)) and set everything to zero or NULL except for data (the data is set as the argument passed in). |
+| **ft_bntview** | Prints out the view of a binary tree. |
+| **ft_bntiter_in** | Iterates and applies function f to all nodes (does not modify the values of nodes) in a binary tree in inorder-traversal. |
+| **ft_bntiter_pre** | Iterates and applies function f to all nodes (does not modify the values of nodes) in a binary tree in preorder-traversal. |
+| **ft_bntiter_post** | Iterates and applies function f to all nodes (does not modify the values of nodes) in a binary tree in postorder-traversal. |
+| **ft_bntalter_in** | Iterates and applies function f to all nodes (does modify the values of nodes) in a binary tree in inorder-traversal. |
+| **ft_bntalter_pre** | Iterates and applies function f to all nodes (does modify the values of nodes) in a binary tree in preorder-traversal. |
+| **ft_bntalter_post** | Iterates and applies function f to all nodes (does modify the values of nodes) in a binary tree in postorder-traversal. |
+
+### Tree: Binary Tree
+| Function | Description |
+| --- | --- |
+| 
