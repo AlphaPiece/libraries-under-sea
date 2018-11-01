@@ -6,13 +6,13 @@
 /*   By: zwang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/11 12:05:14 by zwang             #+#    #+#             */
-/*   Updated: 2018/08/02 23:29:22 by zwang            ###   ########.fr       */
+/*   Updated: 2018/11/01 14:02:06 by zwang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putendl(char const *s)
+void	ft_putendl(const char *s)
 {
 	ft_putstr(s);
 	ft_putstr("\n");

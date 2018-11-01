@@ -6,13 +6,13 @@
 /*   By: zwang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/12 15:14:21 by zwang             #+#    #+#             */
-/*   Updated: 2018/09/13 20:41:30 by zwang            ###   ########.fr       */
+/*   Updated: 2018/11/01 14:02:38 by zwang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putstr_fd(char const *s, int fd)
+void	ft_putstr_fd(const char *s, int fd)
 {
 	while (s && *s)
 	{

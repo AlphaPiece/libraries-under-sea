@@ -1,22 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_putlstr_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zwang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/07/11 11:10:12 by zwang             #+#    #+#             */
-/*   Updated: 2018/11/01 14:03:08 by zwang            ###   ########.fr       */
+/*   Created: 2018/08/07 10:36:31 by zwang             #+#    #+#             */
+/*   Updated: 2018/11/01 13:59:56 by zwang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putstr(const char *s)
+void	ft_putlstr_fd(const char *str, unsigned int start, size_t len, int fd)
 {
-	while (s && *s)
-	{
-		ft_putchar(*s);
-		s++;
-	}
+	size_t	i;
+
+	i = 0;
+	while (str[start + i] && i < len)
+		ft_putchar_fd(str[start + i++], fd);
 }

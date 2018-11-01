@@ -6,7 +6,7 @@
 /*   By: zwang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/11 11:20:28 by zwang             #+#    #+#             */
-/*   Updated: 2018/10/29 10:48:46 by zwang            ###   ########.fr       */
+/*   Updated: 2018/11/01 14:35:40 by zwang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -222,13 +222,15 @@ void				ft_putchar_fd(char c, int fd);
 void				ft_putchar(char c);
 void				ft_putnchar_fd(char c, int n, int fd);
 void				ft_putnchar(char c, int n);
-void				ft_putendl_fd(char const *s, int fd);
-void				ft_putendl(char const *s);
+void				ft_putendl_fd(const char *s, int fd);
+void				ft_putendl(const char *s);
 void				ft_putnbr_fd(int n, int fd);
 void				ft_putnbr(int n);
-void				ft_putstr_fd(char const *s, int fd);
-void				ft_putstr(char const *s);
-void				ft_putlstr(char const *str, unsigned int start,
+void				ft_putstr_fd(const char *s, int fd);
+void				ft_putstr(const char *s);
+void				ft_putlstr_fd(const char *str, unsigned int start,
+									size_t len, int fd);
+void				ft_putlstr(const char *str, unsigned int start,
 								size_t len);
 int					ft_getchar(void);
 int					ft_nextchar(void);
