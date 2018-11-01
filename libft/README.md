@@ -59,7 +59,7 @@
 | **ft_factor_prime** | Facters a prime number. |
 | **ft_analyze_float** | Analyze the inner representation of a floating number in IEEE 754 standard. |
 
-## ASCII Character
+## [ASCII Character](https://github.com/AlphaPiece/LibrariesUnderSea/tree/master/libft/srcs/chr)
 
 | Function | Description |
 | --- | --- |
@@ -74,7 +74,7 @@
 | **ft_tolower** | Converts a uppercase alphabet character to a lowercase alphabet character. |
 | **ft_toupper** | Converts a lowercase alphabet character to a uppercase alphabet character. |
 
-## ASCII Character String
+## [ASCII Character String](https://github.com/AlphaPiece/LibrariesUnderSea/tree/master/libft/srcs/str)
 
 | Function | Description |
 | --- | --- |
@@ -123,7 +123,7 @@
 | **ft_check_brackets** | Checks if the brackets in a string match correctly. |
 | **ft_count_subs** | Counts the number of substrings in the string s that are identical to subs. |
 
-## File Input/Output
+## [File Input/Output](https://github.com/AlphaPiece/LibrariesUnderSea/tree/master/libft/srcs/fio)
 
 | Function | Description |
 | --- | --- |
@@ -151,7 +151,7 @@
 | **ft_read** | Obtains all the contents in a file and save them in a string. The file being read must contains less than 2^32 characters; otherwise an error happens. |
 | **ft_readlines** | Obtains all the contents in a file and save each line as an element of a string array. |
 
-## Tree: Linked List
+## [Tree: Linked List](https://github.com/AlphaPiece/LibrariesUnderSea/tree/master/libft/srcs/trr/lst)
 
 | Function | Description |
 | --- | --- |
@@ -162,7 +162,7 @@
 | **ft_lstiter** | Iterates the list lst and applies the function f to each link. |
 | **ft_lstmap** | Iterates a list lst and applies the function f to each link to create a "fresh" list (using malloc(3)) resulting from the successive applications of f. If the allocation fails, the function returns NULL. |
 
-##  Tree: General Tree
+## [Tree: General Tree](https://github.com/AlphaPiece/LibrariesUnderSea/tree/master/libft/srcs/trr/gnt)
 
 | Function | Description |
 | --- | --- |
@@ -172,7 +172,7 @@
 | **ft_gntnodecount** | Counts the total nodes that a tree has. |
 | **ft_gntarity** | Gets the arity of a tree (which is the maximum arity of the tree's nodes). |
 
-## Tree: Binary Tree
+## [Tree: Binary Tree](https://github.com/AlphaPiece/LibrariesUnderSea/tree/master/libft/srcs/trr/bnt)
 
 | Function | Description |
 | --- | --- |
@@ -185,7 +185,7 @@
 | **ft_bntalter_pre** | Iterates and applies function f to all nodes (does modify the values of nodes) in a binary tree in preorder-traversal. |
 | **ft_bntalter_post** | Iterates and applies function f to all nodes (does modify the values of nodes) in a binary tree in postorder-traversal. |
 
-## Tree: Binary Tree: Binary Search Tree
+## [Tree: Binary Tree: Binary Search Tree](https://github.com/AlphaPiece/LibrariesUnderSea/tree/master/libft/srcs/trr/bnt/bst)
 
 | Function | Description |
 | --- | --- |
@@ -194,7 +194,7 @@
 | **ft_bstinsert** | Inserts a node into a binary search tree. The binary tree will still be a binary search tree after the insertion. |
 | **ft_bstsearch** | Searches a node that has the identical data as data_ref in a binary search tree. |
 
-## Hash-Based Structure: Hash Table
+## [Hash-Based Structure: Hash Table](https://github.com/AlphaPiece/LibrariesUnderSea/tree/master/libft/srcs/hsh)
 
 | Function | Description |
 | --- | --- |
