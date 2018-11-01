@@ -106,3 +106,27 @@
 | **ft_strarrdel** | Frees an array and the strings in the array (with free(3)). |
 | **ft_check_brackets** | Checks if the brackets in a string match correctly. |
 | **ft_count_subs** | Counts the number of substrings in the string s that are identical to subs. |
+
+###File Input\Output
+| Function | Description |
+| --- | --- |
+| **ft_putchar** | Outputs the character c to the standard output. |
+| **ft_putchar_fd** | Outputs the char c to the file descriptor fd. |
+| **ft_putstr** | Outputs the string s to the standard output. |
+| **ft_putstr_fd** | Outputs the string s to the file descriptor fd. |
+| **ft_putendl** | Outputs the string s to the standard output followed by a '\n'. |
+| **ft_putendl_fd** | Outputs the string s to the file descriptor fd followed by a '\n'. |
+| **ft_putnbr** | Outputs the integer n to the standard output. |
+| **ft_putnbr_fd** | Outputs the integer n to the file descriptor fd. |
+| **ft_printf** | Writes output to stdout, the standard output stream, under the control of a format string that specifies how subsequent arguments (or arguments accessed via the variable-length argument facilities of stdarg(3)) are converted for output. |
+| **ft_dprintf** | Performs the same as ft_printf, except it writes output to the given file descriptor. |
+| **ft_vdprintf** | Performs the same as ft_dprintf, except it expects a va_list argument instead of variable-length argument after the string format. |
+| **ft_getchar** | Obtains the next input character from the standard input. |
+| **ft_nextchar** | Gets the next character from the stack buffer. If the stack buffer is empty, gets the next character from the stdin, the standard input stream. |
+| **ft_savechar** | Saves a character in the stack buffer which is shared between ft_nextchar and ft_savechar. |
+| **ft_nextword** | Obtains and saves a word in the argument buffer word. A word is either a string of letters and digits beginning with a letter, or a single non-white-space character. The function returns the first character of the word, or EOF, or character ifself if it is not alpbetical. |
+| **ft_nextline** | Obtains and saves a line in the argument pointer line without '\n'. A line is a succession of characters that end with '\n' (ascii code 0x0a) or with End Of File (EOF). The return value can be 1, 0 or -1 depending on whether a line has been read, when the reading has been completed, or if an error has happened respectively. |
+| **ft_readline** | Performs the same as ft_nextline, except it saves the result with a '\n'. |
+| **ft_read** | Obtains all the contents in a file and save them in a string. The file being read must contains less than 2^32 characters; otherwise an error happens. |
+| **ft_readlines** | Obtains all the contents in a file and save each line in an element of a string array. 
+
