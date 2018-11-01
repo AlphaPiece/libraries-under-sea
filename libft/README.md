@@ -3,7 +3,7 @@
 ### Memory
 | Function | Description |
 | --- | --- |
-| **ft_memalloc** | Allocates (with malloc(3)) and returns a “fresh” memory area. The memory allocated is initialized to 0. If the allocation fails, the function returns NULL. |
+| **ft_memalloc** | Allocates (with malloc(3)) and returns a "fresh" memory area. The memory allocated is initialized to 0. If the allocation fails, the function returns NULL. |
 | **ft_memrealloc** | Frees (with free(3)) and allocates (with malloc(3)) and returns a "fresh" memory area with the new size. The data in the previous memory location will be copied to the new one. The rest of the memory allocated is initialized to 0. If the allocation fails, the function returns NULL. |
 | **ft_memset** | Writes len bytes of value c (converted to an unsigned char) to the string b. |
 | **ft_bzero** | Writes n zeroed bytes to the string s. If n is zero, bzero() does nothing. |
@@ -68,41 +68,41 @@
 | **ft_atoi_base** | Converts the initial portion of the string pointed to by str to int represention based on the given base (2 ~ 16). |
 | **ft_atol_base** | Converts the initial portion of the string pointed to by str to long represention based on the given base (2 ~ 16). |
 | **ft_isnumeric** | Checks if a string is an integer. |
-| **ft_strnew** | Allocates (with malloc(3)) and returns a “fresh” string end- ing with '\0'. Each character of the string is initialized at '\0'. If the allocation fails the function returns NULL.
+| **ft_strnew** | Allocates (with malloc(3)) and returns a "fresh" string end- ing with '\0'. Each character of the string is initialized at '\0'. If the allocation fails the function returns NULL.
 | **ft_strcapitalize** | Capitalizes the first letter of each word and transforms all other letters to lowercase. |
-| **ft_strsqueeze** | 
+| **ft_strsqueeze** | Delete all the occurrences of character c in the string s. |
 | **ft_strcat** | Appends a copy of the null-terminated string s2 to the end of the null-terminated string s1, then add a terminating '\0'. The string s1 must have sufficient space to hold the result. The source and destination strings should not overlap, as the behavior is undefined.|
-| **ft_strlcat** |
-| **ft_strncat** |
+| **ft_strlcat** | Appends string src to the end of dst. It will append at most dstsize - strlen(dst) - 1 characters. It will then NUL-terminate, unless dstsize is 0 or the original dst string was longer than dstsize (in practice this should not happen as it means that either dstsize is incorrect or that dst is not a proper string). |
+| **ft_strncat** | Appends not more than n characters from s2, and then adds a terminating '\0'. |
 | **ft_strchr** | Locates the first occurrence of c (converted to a char) in the string pointed to by s. The terminating null character is considered to be part of the string; therefore if c is '\0', the functions locate the terminating '\0'. |
-| **ft_strrchr** |
-| **ft_strstr** |
-| **ft_strnstr** |
-| **ft_strdel** |
+| **ft_strrchr** | Performs the same as ft_strchr, except it locates the last occurrence of c. |
+| **ft_strstr** | Locates the first occurrence of the null-terminated string needle in the null-terminated string haystack. |
+| **ft_strnstr** | Locates the first occurrence of the null-terminated string needle in the string haystack, where not more than len characters are searched. Characters that appear after a '\0' character are not searched. | 
+| **ft_strdel** | Takes as a parameter the address of a string that need to be freed with free(3), then sets its pointer to NULL.
 | **ft_strclr** | Sets every character of the string to the value '\0'. |
 | **ft_strlen** | Computes the length of the string s. |
 | **ft_strclen** | Counts the number of characters before the first character c in the string s. |
 | **ft_strcmp** | Compares lexicographically the null-terminated strings s1 and s2. |
-| **ft_strncmp** |
-| **ft_strequ** |
-| **ft_strnequ** |
+| **ft_strncmp** | Performs the same as ft_strcmp, except it compares not more than n characters. Because ft_strncmp is designed for comparing strings rather than binary data, characters that appear after a '\0' character are not compared. |
+| **ft_strequ** | Compares lexicographically s1 and s2. If the two strings are identical the function return true (1), or false (0) otherwise. |
+| **ft_strnequ** | Compares lexicographically s1 and s2 up to n characters or until a '\0' is reached. If the two strings are identical, the function returns true (1), or false (0) otherwise. |
 | **ft_strcpy** | Copies the string src to dst (including the terminating '\0' character.) |
-| **ft_strncpy** |
-| **ft_strdup** |
-| **ft_strstart** |
-| **ft_strend** |
-| **ft_striter** |
-| **ft_striteri** |
-| **ft_strmap** |
-| **ft_strmapi** |
-| **ft_strtrim** |
-| **ft_strjoin** |
-| **ft_strcompose** | 
-| **ft_strsub** |
-| **ft_strsepnum** |
-| **ft_strsplit** |
-| **ft_strarrlen** |
-| **ft_strarrsort** |
-| **ft_strarrdel** |
-| **ft_check_brackets** |
-| **ft_count_subs** |
+| **ft_strncpy** | Copies at most len characters from src into dst. If src is less than len characters long, the remainder of dst is filled with '\0' characters. Otherwise, dst is not terminated. |
+| **ft_strdup** | Allocates sufficient memory for a copy of the string s1, does the copy, and returns a pointer to it. |
+| **ft_strstart** | Determines whether a string begins with the characters of a specified string, returning true or false as appropriate. |
+| **ft_strend** | Determines whether a string ends with the characters of a specified string, returning true or false as appropriate. |
+| **ft_striter** | Applies the function f to each character of the string passed as argument. Each character is passed by address to f to be modified if necessary. |
+| **ft_striteri** | Applies the function f to each character of the string passed as argument, and passing its index as first argument. Each character is passed by address to f to be modified if necessary. |
+| **ft_strmap** | Applies the function f to each character of the string given as argument to create a "fresh" new string (with malloc(3)) resulting from the successive applications of f. |
+| **ft_strmapi** | Applies the function f to each character of the string passed as argument by giving its index as first argument to create a "fresh" new string (with malloc(3)) resulting from the successive applications of f. |
+| **ft_strtrim** | Allocates (with malloc(3)) and returns a copy of the string given as argument without white-spaces at the beginning or at the end of the string. If s has no white-spaces at the beginning or at the end, the function returns a copy of s. If the allocation fails the function returns NULL. |
+| **ft_strjoin** | Allocates (with malloc(3)) and returns a "fresh" string ending with '\0', result of the concatenation of s1 and s2. If the allocation fails the function returns NULL. |
+| **ft_strcompose** | Allocates (with malloc(3)) and returns a "fresh" string ending with '\0', result of the concatenation of all strings that are passed in as arguments after str_num. If the allocation fails the function returns NULL. |
+| **ft_strsub** | Allocates (with malloc(3)) and returns a "fresh" substring from the string given as argument. The substring begins at indexstart and is of size len. If start and len aren’t refering to a valid substring, the behavior is undefined. If the allocation fails, the function returns NULL. |
+| **ft_strsepnum** | Counts the number of substrings that are seperated by any character in the string delim. |
+| **ft_strsplit** | Splits a string to an array of substrings that are seperated by any character in the string delim. The array and the substrings in the array are allocated (with malloc(3)). If the allocation fails, the function returns NULL. |
+| **ft_strarrlen** | Counts the number of elements in an array. |
+| **ft_strarrsort** | Sorts a string array by using the comparing function passed in as argument. |
+| **ft_strarrdel** | Frees an array and the strings in the array (with free(3)). |
+| **ft_check_brackets** | Checks if the brackets in a string match correctly. |
+| **ft_count_subs** | Counts the number of substrings in the string s that are identical to subs. |
