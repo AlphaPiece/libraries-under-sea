@@ -1,16 +1,16 @@
 # libft
 
 ## Index
-* [Memory](#Memory)
-* [Number](#Number)
-* [ASCII Character](#ASCII-Character)
+* [Memory](#memory)
+* [Number](#number)
+* [ASCII Character](#ascii-character)
 * [ASCII Character String](#ascii-character-string)
 * [File Input/Output](#file-inputoutput)
 * [Tree: Linked List](#tree-linked-list)
 * [Tree: General Tree](#tree-general-tree)
 * [Tree: Binary Tree](#tree-binary-tree)
 * [Tree: Binary Tree: Binary Search Tree](#tree-binary-tree-binary-search-tree)
-* [Hash-Based Structure: Hash Table](#hashbase-structure-hash-table)
+* [Hash-Based Structure: Hash Table](#hash-base-structure-hash-table)
 
 ## Memory
 
@@ -185,7 +185,7 @@
 | **ft_bntalter_pre** | Iterates and applies function f to all nodes (does modify the values of nodes) in a binary tree in preorder-traversal. |
 | **ft_bntalter_post** | Iterates and applies function f to all nodes (does modify the values of nodes) in a binary tree in postorder-traversal. |
 
-## Tree: Binary Tree : Binary Search Tree
+## Tree: Binary Tree: Binary Search Tree
 
 | Function | Description |
 | --- | --- |
