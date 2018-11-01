@@ -20,28 +20,30 @@
 | **ft_swap** | Swaps an amount of bits at two memory addresses. The acceptable inputs for the amount of bits are 1, 2, 4, and 8. |
 
 ### Number
-* ft_itoa
-* ft_ltoa
-* ft_ntoa
-* ft_untoa
-* ft_numlen
-* ft_unumlen
-* ft_ntoa_base
-* ft_untoa_base
-* ft_sqrt
-* ft_pow
-* ft_ceil
-* ft_floor
-* ft_max
-* ft_min
-* ft_sum
-* ft_max_intarr
-* ft_min_intarr
-* ft_sum_intarr
-* ft_iselem
-* ft_numarrcpy
-* ft_factor_prime
-* ft_analyze_float
+| Function | Description |
+| --- | --- |
+| **ft_itoa** | Converts an integer with type int to an ascii character string. |
+| **ft_ltoa** | Converts an integer with type long to an ascii character string. |
+| **ft_ntoa** | Converts a signed integer with type intmax_t (which should be the largest signed integer type on the current using computer) defined in stddef.h to an ascii character string. |
+| **ft_untoa** | Converts an unsigned integer with type uintmax_t (which should be the largest unsigned integer type on the current using computer) defined in stddef.h to an ascii character string. |
+| **ft_numlen** | Counts the number of digits of a signed integer. |
+| **ft_unumlen** | Counts the number of digits of an unsigned integer. |
+| **ft_ntoa_base** | Performs the same as ft_ntoa, but the string is in the given base (2 ~ 16). The acceptable inputs for the third parameter is 'a' and 'A' (which decides the case of the letters in the string). |
+| **ft_untoa_base** | Performs the same as ft_untoa, but the string is in the given base (2 ~ 16). The acceptable inputs for the third parameter is 'a' and 'A' (which decides the case of the letters in the string). |
+| **ft_sqrt** | Gets the square root of a floating point number. |
+| **ft_pow** | Gets the power of a floating point number. |
+| **ft_ceil** | Gets the ceiling of a floating point number. |
+| **ft_floor** | Gets the floor of a floating point number. |
+| **ft_max** | Gets the maximum number among input numbers. The first parameter expects the number of input numbers. |
+| **ft_min** | Gets the minimum number among input numbers. The first parameter expects the number of input numbers. |
+| **ft_sum** | Gets the sum of input numbers. The first parameter expects the number of input numbers. |
+| **ft_max_intarr** | Gets the maximum number in a integer array. |
+| **ft_min_intarr** | Gets the minimum number in a integer array. |
+| **ft_sum_intarr** | Gets the sum of all integers in a integer array. |
+| **ft_iselem** | Checks if a integer is an element of an array. The acceptable inputs for byte is 1, 2, 4, and 8. |
+| **ft_numarrcpy** | Copies all integers from src to dst. |
+| **ft_factor_prime** | Facters a prime number. |
+| **ft_analyze_float** | Analyze the inner representation of a floating number in IEEE 754 standard. |
 
 ### ASCII Character
 * ft_isalpha
