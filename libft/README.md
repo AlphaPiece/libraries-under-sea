@@ -128,5 +128,4 @@
 | **ft_nextline** | Obtains and saves a line in the argument pointer line without '\n'. A line is a succession of characters that end with '\n' (ascii code 0x0a) or with End Of File (EOF). The return value can be 1, 0 or -1 depending on whether a line has been read, when the reading has been completed, or if an error has happened respectively. |
 | **ft_readline** | Performs the same as ft_nextline, except it saves the result with a '\n'. |
 | **ft_read** | Obtains all the contents in a file and save them in a string. The file being read must contains less than 2^32 characters; otherwise an error happens. |
-| **ft_readlines** | Obtains all the contents in a file and save each line in an element of a string array. 
-
+| **ft_readlines** | Obtains all the contents in a file and save each line as an element of a string array. |
