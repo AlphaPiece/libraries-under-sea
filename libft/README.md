@@ -46,15 +46,17 @@
 | **ft_analyze_float** | Analyze the inner representation of a floating number in IEEE 754 standard. |
 
 ### ASCII Character
-* ft_isalpha
-* ft_isdigit
-* ft_isalnum
-* ft_isascii
-* ft_isspace
-* ft_isprint
-* ft_islower
-* ft_isupper
-* ft_tolower
+| Function | Description |
+| --- | --- |
+| **ft_isalpha** | Checks if a character is an alphabet character. |
+| **ft_isdigit** | Checks if a character is a digit character. |
+| **ft_isalnum** | Checks if a character either an alphabet character or a digit character. |
+| **ft_isascii** | Checks if a character is in ascii table. |
+| **ft_isspace** | Checks if a character is a white-space character. |
+| **ft_isprint** | Checks if a character is a printable character. |
+| **ft_islower** | Checks if a character is an lower-case alphabet character. |
+| **ft_isupper** | Checks if a character is an upper-case alphabet character. |
+| **ft_tolower** | Converts a upper-case alphabet character to a lower-case alphabet character
 * ft_toupper
 
 ### ASCII Character String
