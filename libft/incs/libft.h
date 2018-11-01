@@ -6,7 +6,7 @@
 /*   By: zwang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/11 11:20:28 by zwang             #+#    #+#             */
-/*   Updated: 2018/11/01 14:35:40 by zwang            ###   ########.fr       */
+/*   Updated: 2018/11/01 15:14:11 by zwang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -285,6 +285,8 @@ typedef struct		s_tree
 t_tree				*ft_gntnew(void *data);
 int					ft_gntheight(t_tree *gnt);
 int					ft_gntleafcount(t_tree *gnt);
+int					ft_gntnodecount(t_tree *gnt);
+int					ft_gntarity(t_tree *gnt);
 
 /*
 ** =========================
