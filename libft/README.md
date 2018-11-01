@@ -107,7 +107,7 @@
 | **ft_check_brackets** | Checks if the brackets in a string match correctly. |
 | **ft_count_subs** | Counts the number of substrings in the string s that are identical to subs. |
 
-###File Input\Output
+### File Input\Output
 | Function | Description |
 | --- | --- |
 | **ft_putchar** | Outputs the character c to the standard output. |
