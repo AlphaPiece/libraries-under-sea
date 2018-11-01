@@ -1,8 +1,6 @@
 # libft
 
-[Memory](https://github.com/AlphaPiece/LibrariesUnderSea/blob/master/libft/README.md#memory-1)
-#### Number
-[#### ASCII Character](https://github.com/AlphaPiece/LibrariesUnderSea/blob/master/libft/README.md#ascii-character-1)
+* [Memory](#Memory)
 
 ## Memory
 
