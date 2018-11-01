@@ -1,5 +1,9 @@
 # libft
 
+#### Memory
+#### Number
+#### ASCII Character
+
 ## Memory
 
 | Function | Description |
