@@ -112,8 +112,12 @@
 | --- | --- |
 | **ft_putchar** | Outputs the character c to the standard output. |
 | **ft_putchar_fd** | Outputs the char c to the file descriptor fd. |
+| **ft_putnchar** | Outputs the character c to the standard output n times. |
+| **ft_putnchar_fd** | Outpus the character c to the file descriptor n times. |
 | **ft_putstr** | Outputs the string s to the standard output. |
 | **ft_putstr_fd** | Outputs the string s to the file descriptor fd. |
+| **ft_putlstr** | Outputs a portion of a string to the standard output. |
+| **ft_putlstr_fd** | Outputs a portion of a string to a file descriptor. |
 | **ft_putendl** | Outputs the string s to the standard output followed by a '\n'. |
 | **ft_putendl_fd** | Outputs the string s to the file descriptor fd followed by a '\n'. |
 | **ft_putnbr** | Outputs the integer n to the standard output. |
