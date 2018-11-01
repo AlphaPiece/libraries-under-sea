@@ -3,9 +3,9 @@
 ## Index
 * [Memory](#Memory)
 * [Number](#Number)
-* [ASCII Character](#ASCII Character)
-* [ASCII Character String](#ASCII Character String)
-* [File Input/Output](#File Input/Output)
+* [ASCII Character](#ASCII-Character)
+* [ASCII Character String](#ASCII-Character-String)
+* [File Input/Output](#File-Input/Output)
 
 ## Memory
 
