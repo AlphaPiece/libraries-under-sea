@@ -6,7 +6,7 @@
 #    By: zwang <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/15 14:23:06 by zwang             #+#    #+#              #
-#    Updated: 2018/10/29 10:52:43 by zwang            ###   ########.fr        #
+#    Updated: 2018/10/29 11:11:42 by zwang            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -108,6 +108,12 @@ fclean: clean
 update:
 	@cp -rf incs/ ../../UnixWizardSchool/ft_ls/libs/libft_incs/
 	@cp libft.a ../../UnixWizardSchool/ft_ls/libs/
+	@cp -rf incs/ ../../UnixWizardSchool/minishell/libs/libft_incs/
+	@cp libft.a ../../UnixWizardSchool/minishell/libs/
+	@cp -rf incs/ ../../DancesWithAlgorithms/Fillit/libs/libft_incs/
+	@cp libft.a ../../DancesWithAlgorithms/Fillit/libs/
+	@cp -rf incs/ ../../DancesWithAlgorithms/PushSwap/libs/libft_incs/
+	@cp libft.a ../../DancesWithAlgorithms/PushSwap/libs/
 
 re: fclean all
 
