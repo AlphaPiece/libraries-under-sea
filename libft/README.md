@@ -165,7 +165,22 @@
 | **ft_bntalter_pre** | Iterates and applies function f to all nodes (does modify the values of nodes) in a binary tree in preorder-traversal. |
 | **ft_bntalter_post** | Iterates and applies function f to all nodes (does modify the values of nodes) in a binary tree in postorder-traversal. |
 
-### Tree: Binary Tree
+### Tree: Binary Tree : Binary Search Tree
 | Function | Description |
 | --- | --- |
-| 
+| **ft_isbst** | Determines whether a binary tree is a binary search tree. |
+| **ft_bnt_to_bst** | Transforms a binary tree to a binary search tree. |
+| **ft_bstinsert** | Inserts a node into a binary search tree. The binary tree will still be a binary search tree after the insertion. |
+| **ft_bstsearch** | Searches a node that has the identical data as data_ref in a binary search tree. |
+
+### Hash-Based Structure: Hash Table
+| Function | Description |
+| --- | --- |
+| **ft_hash_str** | Hashes a character string and returns a hash value. |
+| **ft_pairnew** | Allocates (with malloc(3)) a new element for a dictionary (hash table).  The element of a dictionary contains a key and a value. |
+| **ft_dictnew** | Allocates (with malloc(3)) a new dictionary (hash table) and sets every member in it as 0 or NULL. |
+| **ft_dictadd** | Allocates (with ft_pairnew) a new pair (element) and adds it into the dictionary dict. |
+| **ft_dictget** | Gets the corresponding value of the key given as an argument in the dictionary dict. |
+| **ft_dictremove** | Removes a pair in the dictionary dict (frees with free(3)).
+| **ft_dictclear** | Clears (frees with free(3)) all pairs in the dicionary dict and sets every member in dict as 0 or NULL. |
+| **ft_dictdel** | Clears all pairs (with ft_dictclear) in the dictionary and frees dict (with free(3)). |
