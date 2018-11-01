@@ -32,7 +32,7 @@
 | **ft_putbits** | Puts an amount of bits from the address that x points to. |
 | **ft_swap** | Swaps an amount of bits at two memory addresses. The acceptable inputs for the amount of bits are 1, 2, 4, and 8. |
 
-## Number
+## [Number](https://github.com/AlphaPiece/LibrariesUnderSea/tree/master/libft/srcs/num)
 
 | Function | Description |
 | --- | --- |
