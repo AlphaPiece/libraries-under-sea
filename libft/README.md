@@ -133,3 +133,13 @@
 | **ft_readline** | Performs the same as ft_nextline, except it saves the result with a '\n'. |
 | **ft_read** | Obtains all the contents in a file and save them in a string. The file being read must contains less than 2^32 characters; otherwise an error happens. |
 | **ft_readlines** | Obtains all the contents in a file and save each line as an element of a string array. |
+
+### Tree: Linked List
+| Function | Description |
+| --- | --- |
+| **ft_lstnew** | Allocates (with malloc(3)) and returns a "fresh" link. The variables content and content_size of the new link are initialized by copy of the parameters of the function. If the parameter content is null, the variable content is initialized to NULL and the variable content_size is initialized to 0 even if the parameter content_size isn’t. The variable next is initialized to NULL. If the allocation fails, the function returns NULL. |
+| **ft_lstdelone** | Takes as a parameter a link’s pointer address and frees the memory of the link’s content using the function del given as a parameter, then frees the link’s memory using free(3). The memory of next must not be freed under any circumstance. Finally, the pointer to the link that was just freed must be set to NULL (quite similar to the function ft_memdel in the mandatory part). |
+| **ft_lstdel** | Takes as a parameter the adress of a pointer to a link and frees the memory of this link and every successors of that link using the functions del and free(3). Finally the pointer to the link that was just freed must be set to NULL (quite similar to the function ft_memdel from the mandatory part). |
+| **ft_lstadd** | Adds the element new at the beginning of the list. |
+| **ft_lstiter** | Iterates the list lst and applies the function f to each link. |
+| **ft_lstmap** | Iterates a list lst and applies the function f to each link to create a "fresh" list (using malloc(3)) resulting from the successive applications of f. If the allocation fails, the function returns NULL. |
