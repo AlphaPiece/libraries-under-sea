@@ -1,5 +1,7 @@
 # libft
 
+* A C library constructed in 42.
+
 ## Index
 * [Memory](#memory)
 * [Number](#number)
