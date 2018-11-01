@@ -10,7 +10,7 @@
 * [Tree: General Tree](#tree-general-tree)
 * [Tree: Binary Tree](#tree-binary-tree)
 * [Tree: Binary Tree: Binary Search Tree](#tree-binary-tree-binary-search-tree)
-* [Hash-Based Structure: Hash Table](#hash-base-structure-hash-table)
+* [Hash-Based Structure: Hash Table](#hash-based-structure-hash-table)
 
 ## Memory
 
