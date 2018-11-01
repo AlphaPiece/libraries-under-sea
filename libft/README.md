@@ -54,18 +54,24 @@
 | **ft_isascii** | Checks if a character is in ascii table. |
 | **ft_isspace** | Checks if a character is a white-space character. |
 | **ft_isprint** | Checks if a character is a printable character. |
-| **ft_islower** | Checks if a character is an lower-case alphabet character. |
-| **ft_isupper** | Checks if a character is an upper-case alphabet character. |
-| **ft_tolower** | Converts a upper-case alphabet character to a lower-case alphabet character. |
-| **ft_toupper** | Converts a lower-case alphabet character to a upper-case alphabet character. |
+| **ft_islower** | Checks if a character is an lowercase alphabet character. |
+| **ft_isupper** | Checks if a character is an uppercase alphabet character. |
+| **ft_tolower** | Converts a uppercase alphabet character to a lowercase alphabet character. |
+| **ft_toupper** | Converts a lowercase alphabet character to a uppercase alphabet character. |
 
 ### ASCII Character String
-* ft_atoi
-* ft_atol
-* ft_atof
-* ft_atoi_base
-* ft_atol_base
-* ft_isnumeric
-* ft_strcat
-* ft_strchr
-* ft_strclr
+| Function | Description |
+| --- | --- |
+| **ft_atoi** | Converts the initial portion of the string pointed to by str to int representation. |
+| **ft_atol** | Converts the initial portion of the string pointed to by str to long integer representation. |
+| **ft_atof** | Converts the initial portion of the string pointed to by str to double representation. |
+| **ft_atoi_base** | Converts the initial portion of the string pointed to by str to int represention based on the given base (2 ~ 16). |
+| **ft_atol_base** | Converts the initial portion of the string pointed to by str to long represention based on the given base (2 ~ 16). |
+| **ft_isnumeric** | Checks if a string is an integer. |
+| **ft_strcapitalize** | Capitalizes the first letter of each word and transforms all other letters to lowercase. |
+| **ft_strcat** | Appends a copy of the null-terminated string s2 to the end of the null-terminated string s1, then add a terminating '\0'. The string s1 must have sufficient space to hold the result. The source and destination strings should not overlap, as the behavior is undefined.|
+| **ft_strchr** | Locates the first occurrence of c (converted to a char) in the string pointed to by s. The terminating null character is considered to be part of the string; therefore if c is '\0', the functions locate the terminating '\0'. |
+| **ft_strclr** | Sets every character of the string to the value '\0'. |
+| **ft_strlen** | Computes the length of the string s. |
+| **ft_strclen** | Counts the number of characters before the first character c in the string s. |
+| **ft_
