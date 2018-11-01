@@ -56,8 +56,8 @@
 | **ft_isprint** | Checks if a character is a printable character. |
 | **ft_islower** | Checks if a character is an lower-case alphabet character. |
 | **ft_isupper** | Checks if a character is an upper-case alphabet character. |
-| **ft_tolower** | Converts a upper-case alphabet character to a lower-case alphabet character
-* ft_toupper
+| **ft_tolower** | Converts a upper-case alphabet character to a lower-case alphabet character. |
+| **ft_toupper** | Converts a lower-case alphabet character to a upper-case alphabet character. |
 
 ### ASCII Character String
 * ft_atoi
