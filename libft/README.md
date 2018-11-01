@@ -1,6 +1,6 @@
 # libft
 
-* A C library constructed in 42.
+*A C library constructed in 42.
 
 ## Index
 * [Memory](#memory)
