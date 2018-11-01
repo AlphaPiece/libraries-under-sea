@@ -68,10 +68,41 @@
 | **ft_atoi_base** | Converts the initial portion of the string pointed to by str to int represention based on the given base (2 ~ 16). |
 | **ft_atol_base** | Converts the initial portion of the string pointed to by str to long represention based on the given base (2 ~ 16). |
 | **ft_isnumeric** | Checks if a string is an integer. |
+| **ft_strnew** | Allocates (with malloc(3)) and returns a “fresh” string end- ing with '\0'. Each character of the string is initialized at '\0'. If the allocation fails the function returns NULL.
 | **ft_strcapitalize** | Capitalizes the first letter of each word and transforms all other letters to lowercase. |
+| **ft_strsqueeze** | 
 | **ft_strcat** | Appends a copy of the null-terminated string s2 to the end of the null-terminated string s1, then add a terminating '\0'. The string s1 must have sufficient space to hold the result. The source and destination strings should not overlap, as the behavior is undefined.|
+| **ft_strlcat** |
+| **ft_strncat** |
 | **ft_strchr** | Locates the first occurrence of c (converted to a char) in the string pointed to by s. The terminating null character is considered to be part of the string; therefore if c is '\0', the functions locate the terminating '\0'. |
+| **ft_strrchr** |
+| **ft_strstr** |
+| **ft_strnstr** |
+| **ft_strdel** |
 | **ft_strclr** | Sets every character of the string to the value '\0'. |
 | **ft_strlen** | Computes the length of the string s. |
 | **ft_strclen** | Counts the number of characters before the first character c in the string s. |
-| **ft_
+| **ft_strcmp** | Compares lexicographically the null-terminated strings s1 and s2. |
+| **ft_strncmp** |
+| **ft_strequ** |
+| **ft_strnequ** |
+| **ft_strcpy** | Copies the string src to dst (including the terminating '\0' character.) |
+| **ft_strncpy** |
+| **ft_strdup** |
+| **ft_strstart** |
+| **ft_strend** |
+| **ft_striter** |
+| **ft_striteri** |
+| **ft_strmap** |
+| **ft_strmapi** |
+| **ft_strtrim** |
+| **ft_strjoin** |
+| **ft_strcompose** | 
+| **ft_strsub** |
+| **ft_strsepnum** |
+| **ft_strsplit** |
+| **ft_strarrlen** |
+| **ft_strarrsort** |
+| **ft_strarrdel** |
+| **ft_check_brackets** |
+| **ft_count_subs** |
