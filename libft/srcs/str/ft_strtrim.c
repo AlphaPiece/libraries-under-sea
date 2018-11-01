@@ -6,7 +6,7 @@
 /*   By: zwang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/16 13:04:45 by zwang             #+#    #+#             */
-/*   Updated: 2018/08/21 20:37:43 by zwang            ###   ########.fr       */
+/*   Updated: 2018/11/01 10:21:53 by zwang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,10 @@ char	*ft_strtrim(const char *s)
 	if (!(*s))
 		return ("");
 	i = 0;
-	while (s[i] == ' ' || s[i] == '\t' || s[i] == '\n')
+	while (ft_isspace(s[i]))
 		i++;
 	len = ft_strlen(s) - 1;
-	while (len > i && (s[len] == ' ' || s[len] == '\t' || s[len] == '\n'))
+	while (len > i && ft_isspace(s[len]))
 		len--;
 	if (len < i)
 		return (ft_strdup(""));
