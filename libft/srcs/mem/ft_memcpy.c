@@ -6,7 +6,7 @@
 /*   By: zwang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/10 10:29:30 by zwang             #+#    #+#             */
-/*   Updated: 2018/10/05 15:09:50 by zwang            ###   ########.fr       */
+/*   Updated: 2018/11/02 11:22:09 by zwang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 
 	ldst = dst;
 	lsrc = src;
-	while (n > sizeof(long))
+	while (n >= sizeof(long))
 	{
 		*ldst++ = *lsrc++;
 		n -= sizeof(long);
