@@ -6,7 +6,7 @@
 #    By: zwang <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/15 14:23:06 by zwang             #+#    #+#              #
-#    Updated: 2018/11/03 21:12:58 by zwang            ###   ########.fr        #
+#    Updated: 2018/11/04 14:20:16 by zwang            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,7 +32,7 @@ STR = ft_atoi.c ft_atol.c ft_atof.c ft_atoi_base.c ft_atol_base.c \
 	  ft_striteri.c ft_strmap.c ft_strmapi.c ft_strtrim.c ft_strjoin.c \
 	  ft_strcompose.c ft_strsub.c ft_strsepnum.c ft_strsplit.c ft_strarrlen.c \
 	  ft_strarrsort.c ft_strarrdel.c ft_check_brackets.c ft_count_subs.c \
-	  ft_strarrdup.c
+	  ft_strarrdup.c ft_strclen.c
 FIO = ft_putchar.c  ft_putendl.c ft_putnbr.c  ft_putstr.c ft_putlstr.c \
 	  ft_putchar_fd.c ft_putendl_fd.c ft_putnbr_fd.c ft_putstr_fd.c \
 	  ft_putlstr_fd.c ft_putnchar_fd.c ft_putnchar.c ft_nextline.c \
@@ -44,7 +44,7 @@ FIO = ft_putchar.c  ft_putendl.c ft_putnbr.c  ft_putstr.c ft_putlstr.c \
 	  ft_vdprintf/core/str_handler.c ft_vdprintf/core/strblock.c \
 	  ft_vdprintf/root/ft_vdprintf.c \
 	  ft_getchar.c nextchar_savechar.c ft_printf.c ft_dprintf.c \
-	  ft_readline.c ft_read.c
+	  ft_readline.c ft_read.c ft_readlines.c ft_putlstr.c
 #TRR:
  LST = ft_lstadd.c ft_lstdel.c ft_lstdelone.c ft_lstiter.c ft_lstmap.c \
 	   ft_lstnew.c
