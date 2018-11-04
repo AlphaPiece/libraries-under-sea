@@ -6,7 +6,7 @@
 /*   By: zwang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/05 14:07:46 by zwang             #+#    #+#             */
-/*   Updated: 2018/11/04 14:54:22 by zwang            ###   ########.fr       */
+/*   Updated: 2018/11/04 15:35:41 by zwang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	*ft_memrealloc(void **ptr, size_t size)
 {
 	void	*newptr;
 
-	if (!(newptr = malloc(size)))
+	if (!(newptr = ft_memalloc(size)))
 		return (NULL);
 	newptr = ft_memcpy(newptr, *ptr, size);
 	ft_memfree(ptr);
