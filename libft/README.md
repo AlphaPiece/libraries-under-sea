@@ -128,84 +128,84 @@
 
 ## [File Input/Output](https://github.com/AlphaPiece/LibrariesUnderSea/tree/master/libft/srcs/fio)
 
-| Function | Description |
-| --- | --- |
-| **ft_putchar** | Outputs the character c to the standard output. |
-| **ft_putchar_fd** | Outputs the char c to the file descriptor fd. |
-| **ft_putnchar** | Outputs the character c to the standard output n times. |
-| **ft_putnchar_fd** | Outpus the character c to the file descriptor n times. |
-| **ft_putstr** | Outputs the string s to the standard output. |
-| **ft_putstr_fd** | Outputs the string s to the file descriptor fd. |
-| **ft_putlstr** | Outputs a portion of a string to the standard output. |
-| **ft_putlstr_fd** | Outputs a portion of a string to a file descriptor. |
-| **ft_putendl** | Outputs the string s to the standard output followed by a '\n'. |
-| **ft_putendl_fd** | Outputs the string s to the file descriptor fd followed by a '\n'. |
-| **ft_putnbr** | Outputs the integer n to the standard output. |
-| **ft_putnbr_fd** | Outputs the integer n to the file descriptor fd. |
-| **ft_printf** | Writes output to stdout, the standard output stream, under the control of a format string that specifies how subsequent arguments (or arguments accessed via the variable-length argument facilities of stdarg(3)) are converted for output. |
-| **ft_dprintf** | Performs the same as ft_printf, except it writes output to the given file descriptor. |
-| **ft_vdprintf** | Performs the same as ft_dprintf, except it expects a va_list argument instead of variable-length argument after the string format. |
-| **ft_getchar** | Obtains the next input character from the standard input. |
-| **ft_nextchar** | Gets the next character from the stack buffer. If the stack buffer is empty, gets the next character from the stdin, the standard input stream. |
-| **ft_savechar** | Saves a character in the stack buffer which is shared between ft_nextchar and ft_savechar. |
-| **ft_nextword** | Obtains and saves a word in the argument buffer word. A word is either a string of letters and digits beginning with a letter, or a single non-white-space character. The function returns the first character of the word, or EOF, or character ifself if it is not alpbetical. |
-| **ft_nextline** | Obtains and saves a line in the argument pointer line without '\n'. A line is a succession of characters that end with '\n' (ascii code 0x0a) or with End Of File (EOF). The return value can be 1, 0 or -1 depending on whether a line has been read, when the reading has been completed, or if an error has happened respectively. |
-| **ft_readline** | Performs the same as ft_nextline, except it saves the result with a '\n'. |
-| **ft_read** | Obtains all the contents in a file and save them in a string. The file being read must contains less than 2^32 characters; otherwise an error happens. |
-| **ft_readlines** | Obtains all the contents in a file and save each line as an element of a string array. |
+| No. | Function | Description |
+| --- | --- | --- |
+| 1 | **ft_putchar** | Outputs the character c to the standard output. |
+| 2 | **ft_putchar_fd** | Outputs the char c to the file descriptor fd. |
+| 3 | **ft_putnchar** | Outputs the character c to the standard output n times. |
+| 4 | **ft_putnchar_fd** | Outpus the character c to the file descriptor n times. |
+| 5 | **ft_putstr** | Outputs the string s to the standard output. |
+| 6 | **ft_putstr_fd** | Outputs the string s to the file descriptor fd. |
+| 7 | **ft_putlstr** | Outputs a portion of a string to the standard output. |
+| 8 | **ft_putlstr_fd** | Outputs a portion of a string to a file descriptor. |
+| 9 | **ft_putendl** | Outputs the string s to the standard output followed by a '\n'. |
+| 10 | **ft_putendl_fd** | Outputs the string s to the file descriptor fd followed by a '\n'. |
+| 11 | **ft_putnbr** | Outputs the integer n to the standard output. |
+| 12 | **ft_putnbr_fd** | Outputs the integer n to the file descriptor fd. |
+| 13 | **ft_printf** | Writes output to stdout, the standard output stream, under the control of a format string that specifies how subsequent arguments (or arguments accessed via the variable-length argument facilities of stdarg(3)) are converted for output. |
+| 14 | **ft_dprintf** | Performs the same as ft_printf, except it writes output to the given file descriptor. |
+| 15 | **ft_vdprintf** | Performs the same as ft_dprintf, except it expects a va_list argument instead of variable-length argument after the string format. |
+| 16 | **ft_getchar** | Obtains the next input character from the standard input. |
+| 17 | **ft_nextchar** | Gets the next character from the stack buffer. If the stack buffer is empty, gets the next character from the stdin, the standard input stream. |
+| 18 | **ft_savechar** | Saves a character in the stack buffer which is shared between ft_nextchar and ft_savechar. |
+| 19 | **ft_nextword** | Obtains and saves a word in the argument buffer word. A word is either a string of letters and digits beginning with a letter, or a single non-white-space character. The function returns the first character of the word, or EOF, or character ifself if it is not alpbetical. |
+| 20 | **ft_nextline** | Obtains and saves a line in the argument pointer line without '\n'. A line is a succession of characters that end with '\n' (ascii code 0x0a) or with End Of File (EOF). The return value can be 1, 0 or -1 depending on whether a line has been read, when the reading has been completed, or if an error has happened respectively. |
+| 21 | **ft_readline** | Performs the same as ft_nextline, except it saves the result with a '\n'. |
+| 22 | **ft_read** | Obtains all the contents in a file and save them in a string. The file being read must contains less than 2^32 characters; otherwise an error happens. |
+| 23 | **ft_readlines** | Obtains all the contents in a file and save each line as an element of a string array. |
 
 ## [Tree: Linked List](https://github.com/AlphaPiece/LibrariesUnderSea/tree/master/libft/srcs/trr/lst)
 
-| Function | Description |
-| --- | --- |
-| **ft_lstnew** | Allocates (with malloc(3)) and returns a "fresh" link. The variables content and content_size of the new link are initialized by copy of the parameters of the function. If the parameter content is null, the variable content is initialized to NULL and the variable content_size is initialized to 0 even if the parameter content_size isn’t. The variable next is initialized to NULL. If the allocation fails, the function returns NULL. |
-| **ft_lstdelone** | Takes as a parameter a link’s pointer address and frees the memory of the link’s content using the function del given as a parameter, then frees the link’s memory using free(3). The memory of next must not be freed under any circumstance. Finally, the pointer to the link that was just freed must be set to NULL (quite similar to the function ft_memdel in the mandatory part). |
-| **ft_lstdel** | Takes as a parameter the adress of a pointer to a link and frees the memory of this link and every successors of that link using the functions del and free(3). Finally the pointer to the link that was just freed must be set to NULL (quite similar to the function ft_memdel from the mandatory part). |
-| **ft_lstadd** | Adds the element new at the beginning of the list. |
-| **ft_lstiter** | Iterates the list lst and applies the function f to each link. |
-| **ft_lstmap** | Iterates a list lst and applies the function f to each link to create a "fresh" list (using malloc(3)) resulting from the successive applications of f. If the allocation fails, the function returns NULL. |
+| No. | Function | Description |
+| --- | --- | --- |
+| 1 | **ft_lstnew** | Allocates (with malloc(3)) and returns a "fresh" link. The variables content and content_size of the new link are initialized by copy of the parameters of the function. If the parameter content is null, the variable content is initialized to NULL and the variable content_size is initialized to 0 even if the parameter content_size isn’t. The variable next is initialized to NULL. If the allocation fails, the function returns NULL. |
+| 2 | **ft_lstdelone** | Takes as a parameter a link’s pointer address and frees the memory of the link’s content using the function del given as a parameter, then frees the link’s memory using free(3). The memory of next must not be freed under any circumstance. Finally, the pointer to the link that was just freed must be set to NULL (quite similar to the function ft_memdel in the mandatory part). |
+| 3 | **ft_lstdel** | Takes as a parameter the adress of a pointer to a link and frees the memory of this link and every successors of that link using the functions del and free(3). Finally the pointer to the link that was just freed must be set to NULL (quite similar to the function ft_memdel from the mandatory part). |
+| 4 | **ft_lstadd** | Adds the element new at the beginning of the list. |
+| 5 | **ft_lstiter** | Iterates the list lst and applies the function f to each link. |
+| 6 | **ft_lstmap** | Iterates a list lst and applies the function f to each link to create a "fresh" list (using malloc(3)) resulting from the successive applications of f. If the allocation fails, the function returns NULL. |
 
 ## [Tree: General Tree](https://github.com/AlphaPiece/LibrariesUnderSea/tree/master/libft/srcs/trr/gnt)
 
-| Function | Description |
-| --- | --- |
-| **ft_gntnew** | Allocates (with malloc(3)) and sets everything to zero or NULL except for data (the data is set as the argument passed in). |
-| **ft_gntheight** | Gets the height of a tree structure. |
-| **ft_gntleafcount** | Counts the leaves that a tree has. |
-| **ft_gntnodecount** | Counts the total nodes that a tree has. |
-| **ft_gntarity** | Gets the arity of a tree (which is the maximum arity of the tree's nodes). |
+| No. | Function | Description |
+| --- | --- | --- |
+| 1 | **ft_gntnew** | Allocates (with malloc(3)) and sets everything to zero or NULL except for data (the data is set as the argument passed in). |
+| 2 | **ft_gntheight** | Gets the height of a tree structure. |
+| 3 | **ft_gntleafcount** | Counts the leaves that a tree has. |
+| 4 | **ft_gntnodecount** | Counts the total nodes that a tree has. |
+| 5 | **ft_gntarity** | Gets the arity of a tree (which is the maximum arity of the tree's nodes). |
 
 ## [Tree: Binary Tree](https://github.com/AlphaPiece/LibrariesUnderSea/tree/master/libft/srcs/trr/bnt)
 
-| Function | Description |
-| --- | --- |
-| **ft_bntnew** | Allocates (with malloc(3)) and set everything to zero or NULL except for data (the data is set as the argument passed in). |
-| **ft_bntview** | Prints out the view of a binary tree. |
-| **ft_bntiter_in** | Iterates and applies function f to all nodes (does not modify the values of nodes) in a binary tree in inorder-traversal. |
-| **ft_bntiter_pre** | Iterates and applies function f to all nodes (does not modify the values of nodes) in a binary tree in preorder-traversal. |
-| **ft_bntiter_post** | Iterates and applies function f to all nodes (does not modify the values of nodes) in a binary tree in postorder-traversal. |
-| **ft_bntalter_in** | Iterates and applies function f to all nodes (does modify the values of nodes) in a binary tree in inorder-traversal. |
-| **ft_bntalter_pre** | Iterates and applies function f to all nodes (does modify the values of nodes) in a binary tree in preorder-traversal. |
-| **ft_bntalter_post** | Iterates and applies function f to all nodes (does modify the values of nodes) in a binary tree in postorder-traversal. |
+| No. | Function | Description |
+| --- | --- | --- |
+| 1 | **ft_bntnew** | Allocates (with malloc(3)) and set everything to zero or NULL except for data (the data is set as the argument passed in). |
+| 2 | **ft_bntview** | Prints out the view of a binary tree. |
+| 3 | **ft_bntiter_in** | Iterates and applies function f to all nodes (does not modify the values of nodes) in a binary tree in inorder-traversal. |
+| 4 | **ft_bntiter_pre** | Iterates and applies function f to all nodes (does not modify the values of nodes) in a binary tree in preorder-traversal. |
+| 5 | **ft_bntiter_post** | Iterates and applies function f to all nodes (does not modify the values of nodes) in a binary tree in postorder-traversal. |
+| 6 | **ft_bntalter_in** | Iterates and applies function f to all nodes (does modify the values of nodes) in a binary tree in inorder-traversal. |
+| 7 | **ft_bntalter_pre** | Iterates and applies function f to all nodes (does modify the values of nodes) in a binary tree in preorder-traversal. |
+| 8 | **ft_bntalter_post** | Iterates and applies function f to all nodes (does modify the values of nodes) in a binary tree in postorder-traversal. |
 
 ## [Tree: Binary Tree: Binary Search Tree](https://github.com/AlphaPiece/LibrariesUnderSea/tree/master/libft/srcs/trr/bnt/bst)
 
-| Function | Description |
-| --- | --- |
-| **ft_isbst** | Determines whether a binary tree is a binary search tree. |
-| **ft_bnt_to_bst** | Transforms a binary tree to a binary search tree. |
-| **ft_bstinsert** | Inserts a node into a binary search tree. The binary tree will still be a binary search tree after the insertion. |
-| **ft_bstsearch** | Searches a node that has the identical data as data_ref in a binary search tree. |
+| No. | Function | Description |
+| --- | --- | --- |
+| 1 | **ft_isbst** | Determines whether a binary tree is a binary search tree. |
+| 2 | **ft_bnt_to_bst** | Transforms a binary tree to a binary search tree. |
+| 3 | **ft_bstinsert** | Inserts a node into a binary search tree. The binary tree will still be a binary search tree after the insertion. |
+| 4 | **ft_bstsearch** | Searches a node that has the identical data as data_ref in a binary search tree. |
 
 ## [Hash-Based Structure: Hash Table](https://github.com/AlphaPiece/LibrariesUnderSea/tree/master/libft/srcs/hsh)
 
-| Function | Description |
-| --- | --- |
-| **ft_hash_str** | Hashes a character string and returns a hash value. |
-| **ft_pairnew** | Allocates (with malloc(3)) a new element for a dictionary (hash table).  The element of a dictionary contains a key and a value. |
-| **ft_dictnew** | Allocates (with malloc(3)) a new dictionary (hash table) and sets every member in it as 0 or NULL. |
-| **ft_dictadd** | Allocates (with ft_pairnew) a new pair (element) and adds it into the dictionary dict. |
-| **ft_dictget** | Gets the corresponding value of the key given as an argument in the dictionary dict. |
-| **ft_dictremove** | Removes a pair in the dictionary dict (frees with free(3)).
-| **ft_dictclear** | Clears (frees with free(3)) all pairs in the dicionary dict and sets every member in dict as 0 or NULL. |
-| **ft_dictdel** | Clears all pairs (with ft_dictclear) in the dictionary and frees dict (with free(3)). |
+| No. | Function | Description |
+| --- | --- | --- |
+| 1 | **ft_hash_str** | Hashes a character string and returns a hash value. |
+| 2 | **ft_pairnew** | Allocates (with malloc(3)) a new element for a dictionary (hash table).  The element of a dictionary contains a key and a value. |
+| 3 | **ft_dictnew** | Allocates (with malloc(3)) a new dictionary (hash table) and sets every member in it as 0 or NULL. |
+| 4 | **ft_dictadd** | Allocates (with ft_pairnew) a new pair (element) and adds it into the dictionary dict. |
+| 5 | **ft_dictget** | Gets the corresponding value of the key given as an argument in the dictionary dict. |
+| 6 | **ft_dictremove** | Removes a pair in the dictionary dict (frees with free(3)).
+| 7 | **ft_dictclear** | Clears (frees with free(3)) all pairs in the dicionary dict and sets every member in dict as 0 or NULL. |
+| 8 | **ft_dictdel** | Clears all pairs (with ft_dictclear) in the dictionary and frees dict (with free(3)). |
