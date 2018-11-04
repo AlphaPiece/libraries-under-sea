@@ -6,7 +6,7 @@
 /*   By: zwang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/11 11:20:28 by zwang             #+#    #+#             */
-/*   Updated: 2018/11/01 15:14:11 by zwang            ###   ########.fr       */
+/*   Updated: 2018/11/03 21:11:56 by zwang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -199,8 +199,9 @@ char				*ft_strsub(const char *s, unsigned int start, size_t len);
 char				*ft_strtrim(const char *s);
 char				*ft_strcapitalize(char *s);
 t_bool				ft_check_brackets(const char *s);
-size_t				ft_strarrlen(const char **arr);
-void				ft_strarrdel(char **arr);
+size_t				ft_strarrlen(const char *arr[]);
+char				**ft_strarrdup(char *dst[], const char *src[]);
+void				ft_strarrdel(char *arr[]);
 t_bool				ft_strstart(const char *str, const char *substr);
 t_bool				ft_strend(const char *str, const char *substr);
 void				ft_strsqueeze(char str[], int c);

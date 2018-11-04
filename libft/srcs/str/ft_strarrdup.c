@@ -1,27 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strarrdel.c                                     :+:      :+:    :+:   */
+/*   ft_strarrdup.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zwang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/01 10:51:17 by zwang             #+#    #+#             */
-/*   Updated: 2018/11/03 21:12:08 by zwang            ###   ########.fr       */
+/*   Created: 2018/11/03 20:59:05 by zwang             #+#    #+#             */
+/*   Updated: 2018/11/03 21:10:13 by zwang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/*
-** Precondition: arr is null-terminated and every element is mallocked
-*/
-
-void	ft_strarrdel(char *arr[])
+char	**ft_strarrdup(char *dst[], const char *src[])
 {
-	size_t	i;
+	size_t	len;
+	int		i;
 
-	i = 0;
-	while (arr[i])
-		free(arr[i++]);
-	free(arr);
+	len = ft_strarrlen(src);
+	if (!(dst = (char **)malloc(sizeof(char *) * (len + 1))))
+		return (NULL);
+	i = -1;
+	while (src[++i])
+		dst[i] = ft_strdup(src[i]);
+	dst[i] = NULL;
+	return (dst);
 }
