@@ -19,20 +19,21 @@
 | No. | Function | Description |
 | --- | --- | --- |
 | 1 | **ft_memalloc** | Allocates (with malloc(3)) and returns a "fresh" memory area. The memory allocated is initialized to 0. If the allocation fails, the function returns NULL. |
-| 2 | **ft_memrealloc** | Frees (with free(3)) and allocates (with malloc(3)) and returns a "fresh" memory area with the new size. The data in the previous memory location will be copied to the new one. The rest of the memory allocated is initialized to 0. If the allocation fails, the function returns NULL. |
-| 3 | **ft_memset** | Writes len bytes of value c (converted to an unsigned char) to the string b. |
-| 4 | **ft_bzero** | Writes n zeroed bytes to the string s. If n is zero, bzero() does nothing. |
-| 5 | **ft_memcpy** | Copies n bytes from memory area src to memory area dst. If dst and src overlap, behavior is undefined. Applications in which dst and src might overlap should use ft_memmove instead.
-| 6 | **ft_memccpy** | Copies bytes from string src to string dst. If the character c (as converted to an unsigned char) occurs in the string src, the copy stops and a pointer to the byte after the copy of c in the string dstis returned. Otherwise, n bytes are copied, and a NULL pointer is returned. |
-| 7 | **ft_memmove** | Copies len bytes from string src to string dst. The two strings may overlap; the copy is always done in a non-destructive manner. |
-| 8 | **ft_memchr** | Locates the first occurrence of c (converted to an unsigned char) in string s. |
-| 9 | **ft_memcmp** | Compares byte string s1 against byte string s2. Both strings are assumed to be n bytes long. |
-| 10 | **ft_memdel** | Takes as a parameter the address of a memory area that needs to be freed with free(3), then puts the pointer to NULL. |
-| 11 | **ft_getbits** | Returns the (right-adjusted) n-bit field of x from position p. Bit position 0 is at the right end. |
-| 12 | **ft_setbits** | Returns with the n bits that begin at position p set to the rightmost n bits of y, leaving the other bits unchanged. Bit position 0 is at the right end. |
-| 13 | **ft_invertbits** | Inverts the n bits that begin at position p. Bit position 0 is at the right end. |
-| 14 | **ft_putbits** | Puts an amount of bits from the address that x points to. |
-| 15 | **ft_swap** | Swaps an amount of bits at two memory addresses. The acceptable inputs for the amount of bits are 1, 2, 4, and 8. |
+| 2 | **ft_memfree** | Deallocates the memory allocation pointed to by the pointer that ptr points to, and set that pointer to point to NULL. |
+| 3 | **ft_memrealloc** | Frees (with free(3)) and allocates (with malloc(3)) and returns a "fresh" memory area with the new size. The data in the previous memory location will be copied to the new one. The rest of the memory allocated is initialized to 0. If the allocation fails, the function returns NULL. |
+| 4 | **ft_memset** | Writes len bytes of value c (converted to an unsigned char) to the string b. |
+| 5 | **ft_bzero** | Writes n zeroed bytes to the string s. If n is zero, bzero() does nothing. |
+| 6 | **ft_memcpy** | Copies n bytes from memory area src to memory area dst. If dst and src overlap, behavior is undefined. Applications in which dst and src might overlap should use ft_memmove instead.
+| 7 | **ft_memccpy** | Copies bytes from string src to string dst. If the character c (as converted to an unsigned char) occurs in the string src, the copy stops and a pointer to the byte after the copy of c in the string dstis returned. Otherwise, n bytes are copied, and a NULL pointer is returned. |
+| 8 | **ft_memmove** | Copies len bytes from string src to string dst. The two strings may overlap; the copy is always done in a non-destructive manner. |
+| 9 | **ft_memchr** | Locates the first occurrence of c (converted to an unsigned char) in string s. |
+| 10 | **ft_memcmp** | Compares byte string s1 against byte string s2. Both strings are assumed to be n bytes long. |
+| 11 | **ft_memdel** | Takes as a parameter the address of a memory area that needs to be freed with free(3), then puts the pointer to NULL. |
+| 12 | **ft_getbits** | Returns the (right-adjusted) n-bit field of x from position p. Bit position 0 is at the right end. |
+| 13 | **ft_setbits** | Returns with the n bits that begin at position p set to the rightmost n bits of y, leaving the other bits unchanged. Bit position 0 is at the right end. |
+| 14 | **ft_invertbits** | Inverts the n bits that begin at position p. Bit position 0 is at the right end. |
+| 15 | **ft_putbits** | Puts an amount of bits from the address that x points to. |
+| 16 | **ft_swap** | Swaps an amount of bits at two memory addresses. The acceptable inputs for the amount of bits are 1, 2, 4, and 8. |
 
 ## [Number](https://github.com/AlphaPiece/LibrariesUnderSea/tree/master/libft/srcs/num)
 
