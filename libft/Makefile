@@ -6,7 +6,7 @@
 #    By: zwang <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/15 14:23:06 by zwang             #+#    #+#              #
-#    Updated: 2018/11/04 14:43:33 by zwang            ###   ########.fr        #
+#    Updated: 2018/11/05 10:43:23 by zwang            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -115,6 +115,8 @@ update:
 	@cp libft.a ../../DancesWithAlgorithms/Fillit/libs/
 	@cp -rf incs/ ../../DancesWithAlgorithms/PushSwap/libs/libft_incs/
 	@cp libft.a ../../DancesWithAlgorithms/PushSwap/libs/
+	@cp -rf incs/ ../../InformationGuardian/ft_ssl/libs/libft_incs/
+	@cp libft.a ../../InformationGuardian/ft_ssl/libs/
 
 re: fclean all
 
