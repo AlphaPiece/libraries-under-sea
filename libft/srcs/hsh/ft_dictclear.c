@@ -6,13 +6,13 @@
 /*   By: zwang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/27 11:03:33 by zwang             #+#    #+#             */
-/*   Updated: 2018/10/27 14:28:26 by zwang            ###   ########.fr       */
+/*   Updated: 2018/11/07 13:02:33 by zwang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static void dictclear(t_dict *dict)
+static void	dictclear(t_dict *dict)
 {
 	int		i;
 	t_pair	*pair;
