@@ -6,7 +6,7 @@
 #    By: zwang <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/15 14:23:06 by zwang             #+#    #+#              #
-#    Updated: 2018/11/05 10:43:23 by zwang            ###   ########.fr        #
+#    Updated: 2018/11/08 18:53:33 by zwang            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ CC = gcc
 CFLAGS = -Wall -Werror -Wextra
 
 MEM = ft_bzero.c ft_memalloc.c ft_memccpy.c ft_memchr.c ft_memcmp.c \
-	  ft_memcpy.c ft_memdel.c ft_memmove.c ft_memset.c ft_swap.c \
+	  ft_memcpy.c ft_memdel.c ft_memmove.c ft_memset.c ft_memswap.c \
 	  ft_getbits.c ft_setbits.c ft_invertbits.c ft_memrealloc.c ft_putbits.c \
 	  ft_memfree.c
 NUM = ft_itoa.c ft_ltoa.c ft_ntoa.c ft_untoa.c ft_numlen.c ft_unumlen.c \

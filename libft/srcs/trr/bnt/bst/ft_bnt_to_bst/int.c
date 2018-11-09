@@ -6,7 +6,7 @@
 /*   By: zwang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/26 12:48:16 by zwang             #+#    #+#             */
-/*   Updated: 2018/10/26 14:33:46 by zwang            ###   ########.fr       */
+/*   Updated: 2018/11/08 18:54:44 by zwang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,5 +50,5 @@ int			cmp_int(int i, int j)
 
 void		swap_int(int i, int j)
 {
-	ft_swap(sizeof(g_int_arr[0]), &g_int_arr[i], &g_int_arr[j]);
+	ft_memswap(&g_int_arr[i], &g_int_arr[j], sizeof(g_int_arr[0]));
 }
