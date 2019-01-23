@@ -6,7 +6,7 @@
 /*   By: zwang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/21 18:37:03 by zwang             #+#    #+#             */
-/*   Updated: 2019/01/07 21:28:07 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/01/16 23:39:50 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static char match(char open)
     return (close);
 }
 
-t_bool    check(char *s, int *i, char close1)
+t_bool    check(const char *s, int *i, char close1)
 {
     char    close2;
     
@@ -51,7 +51,7 @@ t_bool    check(char *s, int *i, char close1)
     return (false);   
 }
 
-t_bool    ft_check_brackets(char *s)
+t_bool    ft_check_brackets(const char *s)
 {
     int     i;
     char    close;

@@ -1,20 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_swappair.c                                      :+:      :+:    :+:   */
+/*   ft_swappairs.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/16 23:02:55 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/01/16 23:05:01 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/01/16 23:33:29 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-struct s_list	*swapPairs(struct s_list *head)
+#include "libft.h"
+
+t_list	*ft_swappairs(t_list *head)
 {
-    struct s_list	*node0;
-    struct s_list	*node1;
-    struct s_list	*node2;
+    t_list	*node0;
+    t_list	*node1;
+    t_list	*node2;
     
     if (!head || !head->next)
         return (head);

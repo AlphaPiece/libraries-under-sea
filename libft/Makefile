@@ -6,7 +6,7 @@
 #    By: zwang <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/15 14:23:06 by zwang             #+#    #+#              #
-#    Updated: 2018/11/08 18:53:33 by zwang            ###   ########.fr        #
+#    Updated: 2019/01/16 23:31:34 by Zexi Wang        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,7 +48,7 @@ FIO = ft_putchar.c  ft_putendl.c ft_putnbr.c  ft_putstr.c ft_putlstr.c \
 	  ft_readline.c ft_read.c ft_readlines.c ft_putlstr.c
 #TRR:
  LST = ft_lstadd.c ft_lstdel.c ft_lstdelone.c ft_lstiter.c ft_lstmap.c \
-	   ft_lstnew.c
+	   ft_lstnew.c ft_swappairs.c
  GNT = ft_gntnew.c ft_gntnodecount.c ft_gntleafcount.c ft_gntheight.c \
 	   ft_gntarity.c
  BNT = ft_bntnew.c ft_bntview.c ft_bntiter_in.c ft_bntiter_pre.c \
