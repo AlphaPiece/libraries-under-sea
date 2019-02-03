@@ -6,7 +6,7 @@
 /*   By: zwang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/11 11:20:28 by zwang             #+#    #+#             */
-/*   Updated: 2019/01/16 23:32:49 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/02/02 21:06:20 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <stddef.h>
 # include <fcntl.h>
 # include <stdint.h>
+# include <time.h>
 # include "ft_nextline.h"
 # include "ft_vdprintf.h"
 # include "ft_bnt_to_bst.h"
@@ -134,6 +135,7 @@ int					ft_sum(int total_num, ...);
 int					ft_max_intarr(int arr[], size_t len);
 int					ft_min_intarr(int arr[], size_t	len);
 int					ft_sum_intarr(int arr[], size_t len);
+int                 ft_randint(int lower, int upper);
 
 /*
 ** =======================

@@ -6,13 +6,13 @@
 /*   By: zwang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/19 09:53:15 by zwang             #+#    #+#             */
-/*   Updated: 2019/01/22 22:35:41 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/02/02 21:07:38 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-double	ft_pow(double n, int pow)
+double	ft_pow(double x, int n)
 {
 	double	m;
 
