@@ -6,7 +6,7 @@
 /*   By: zwang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/11 11:20:28 by zwang             #+#    #+#             */
-/*   Updated: 2019/02/02 21:52:19 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/02/03 12:36:51 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -226,6 +226,7 @@ void				ft_putchar_fd(char c, int fd);
 void				ft_putchar(char c);
 void				ft_putnchar_fd(char c, int n, int fd);
 void				ft_putnchar(char c, int n);
+void				ft_putncharln(char c, int n);
 void				ft_putendl_fd(const char *s, int fd);
 void				ft_putendl(const char *s);
 void				ft_putnbr_fd(int n, int fd);
