@@ -6,7 +6,7 @@
 #    By: zwang <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/15 14:23:06 by zwang             #+#    #+#              #
-#    Updated: 2019/02/02 21:07:02 by Zexi Wang        ###   ########.fr        #
+#    Updated: 2019/02/02 21:54:12 by Zexi Wang        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ NUM = ft_itoa.c ft_ltoa.c ft_ntoa.c ft_untoa.c ft_numlen.c ft_unumlen.c \
 	  ft_ntoa_base.c ft_untoa_base.c ft_sqrt.c ft_pow.c ft_ceil.c ft_floor.c \
 	  ft_numarrcpy.c ft_iselem.c ft_max.c ft_min.c ft_sum.c ft_max_intarr.c \
 	  ft_min_intarr.c ft_sum_intarr.c ft_factor_prime.c ft_analyze_float.c \
-      ft_randint.c
+      ft_randintarr.c
 CHR = ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c ft_isspace.c \
 	  ft_isprint.c  ft_tolower.c ft_toupper.c ft_islower.c ft_isupper.c
 STR = ft_atoi.c ft_atol.c ft_atof.c ft_atoi_base.c ft_atol_base.c \
@@ -118,6 +118,8 @@ update:
 	@cp libft.a ../../DancesWithAlgorithms/PushSwap/libs/
 	@cp -rf incs/ ../../InformationGuardian/ft_ssl/libs/libft_incs/
 	@cp libft.a ../../InformationGuardian/ft_ssl/libs/
+	@cp -rf incs/ ../../TypingRobot/libs/libft_incs/
+	@cp libft.a ../../TypingRobot/libs/
 
 re: fclean all
 
