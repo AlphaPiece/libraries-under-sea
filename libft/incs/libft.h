@@ -6,7 +6,7 @@
 /*   By: zwang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/11 11:20:28 by zwang             #+#    #+#             */
-/*   Updated: 2019/02/03 12:36:51 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/02/04 22:43:58 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,7 +123,7 @@ char				*ft_ntoa_base(intmax_t n, int base, char hex_case_a);
 char				*ft_untoa_base(uintmax_t un, int base, char hex_case_a);
 double				ft_sqrt(double n);
 double				ft_pow(double n, int pow);
-void				ft_factor_prime(int n);
+void				ft_prime_factors(int n);
 double				ft_ceil(double n);
 double				ft_floor(double n);
 t_fcompo			*ft_analyze_float(float n);
