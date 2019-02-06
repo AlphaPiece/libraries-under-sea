@@ -6,7 +6,7 @@
 #    By: zwang <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/15 14:23:06 by zwang             #+#    #+#              #
-#    Updated: 2019/02/06 18:12:47 by Zexi Wang        ###   ########.fr        #
+#    Updated: 2019/02/06 18:31:50 by Zexi Wang        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,7 +46,8 @@ FIO = ft_putchar.c  ft_putendl.c ft_putnbr.c  ft_putstr.c ft_putlstr.c \
 	  ft_vdprintf/core/str_handler.c ft_vdprintf/core/strblock.c \
 	  ft_vdprintf/root/ft_vdprintf.c \
 	  ft_getchar.c next_save_char.c ft_printf.c ft_dprintf.c \
-	  ft_readline.c ft_read.c ft_readlines.c ft_putlstr.c ft_putncharln.c
+	  ft_readline.c ft_read.c ft_readlines.c ft_putlstr.c ft_putncharln.c \
+	  ft_clearchar.c
 #TRR:
  LST = ft_lstadd.c ft_lstdel.c ft_lstdelone.c ft_lstiter.c ft_lstmap.c \
 	   ft_lstnew.c ft_swappairs.c

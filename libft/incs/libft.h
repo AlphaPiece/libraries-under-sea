@@ -6,7 +6,7 @@
 /*   By: zwang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/11 11:20:28 by zwang             #+#    #+#             */
-/*   Updated: 2019/02/04 22:43:58 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/02/06 18:31:33 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -238,6 +238,7 @@ void				ft_putlstr_fd(const char *str, unsigned int start,
 void				ft_putlstr(const char *str, unsigned int start,
 								size_t len);
 int					ft_getchar(void);
+void				ft_clearchar(void);
 int					ft_nextchar(void);
 void				ft_savechar(int c);
 int					ft_nextword(char *word, int limit);
