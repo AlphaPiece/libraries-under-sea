@@ -1,23 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_clearchar.c                                     :+:      :+:    :+:   */
+/*   ft_getonechar.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/06 18:28:15 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/02/06 18:30:48 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/02/06 18:45:11 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /*
-** ft_clearchar: clear all char between first char and next '\n'
+** ft_getonechar: get only the first char in a line of stdin
 */
 
-void	ft_clearchar(void)
+int	ft_getonechar(void)
 {
+	int	c;
+
+	c = ft_getchar();
 	while (ft_getchar() != '\n')
 		;
+	return (c);
 }
