@@ -6,7 +6,7 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/06 18:28:15 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/02/06 18:45:11 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/02/06 20:17:43 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,7 @@ int	ft_getonechar(void)
 	c = ft_getchar();
 	while (ft_getchar() != '\n')
 		;
+	if (c == '\n')
+		return (0);
 	return (c);
 }
