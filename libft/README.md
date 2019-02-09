@@ -151,9 +151,6 @@
 | 18 | **ft_savechar** | Saves a character in the stack buffer which is shared between ft_nextchar and ft_savechar. |
 | 19 | **ft_nextword** | Obtains and saves a word in the argument buffer word. A word is either a string of letters and digits beginning with a letter, or a single non-white-space character. The function returns the first character of the word, or EOF, or character ifself if it is not alpbetical. |
 | 20 | **ft_nextline** | Obtains and saves a line in the argument pointer line without '\n'. A line is a succession of characters that end with '\n' (ascii code 0x0a) or with End Of File (EOF). The return value can be 1, 0 or -1 depending on whether a line has been read, when the reading has been completed, or if an error has happened respectively. |
-| 21 | **ft_readline** | Performs the same as ft_nextline, except it saves the result with a '\n'. |
-| 22 | **ft_read** | Obtains all the contents in a file and save them in a string. The file being read must contains less than 2^32 characters; otherwise an error happens. |
-| 23 | **ft_readlines** | Obtains all the contents in a file and save each line as an element of a string array. |
 
 ## [Tree: Linked List](https://github.com/AlphaPiece/LibrariesUnderSea/tree/master/libft/srcs/trr/lst)
 
