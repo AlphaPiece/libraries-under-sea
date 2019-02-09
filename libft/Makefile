@@ -6,7 +6,7 @@
 #    By: zwang <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/15 14:23:06 by zwang             #+#    #+#              #
-#    Updated: 2019/02/06 18:46:03 by Zexi Wang        ###   ########.fr        #
+#    Updated: 2019/02/09 12:43:56 by Zexi Wang        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -109,18 +109,18 @@ fclean: clean
 	@printf "$(RED)[x] $(RESET)\x1B[31m$(NAME) deleted\n"
 
 update:
-	@cp -rf incs/ ../../UnixWizardSchool/ft_ls/libs/libft_incs/
-	@cp libft.a ../../UnixWizardSchool/ft_ls/libs/
-	@cp -rf incs/ ../../UnixWizardSchool/minishell/libs/libft_incs/
-	@cp libft.a ../../UnixWizardSchool/minishell/libs/
-	@cp -rf incs/ ../../DancesWithAlgorithms/Fillit/libs/libft_incs/
-	@cp libft.a ../../DancesWithAlgorithms/Fillit/libs/
-	@cp -rf incs/ ../../DancesWithAlgorithms/PushSwap/libs/libft_incs/
-	@cp libft.a ../../DancesWithAlgorithms/PushSwap/libs/
-	@cp -rf incs/ ../../InformationGuardian/ft_ssl/libs/libft_incs/
-	@cp libft.a ../../InformationGuardian/ft_ssl/libs/
-	@cp -rf incs/ ../../TypingRobot/libs/libft_incs/
-	@cp libft.a ../../TypingRobot/libs/
+	@cp -rf incs/ ../../UnixWizardSchool/ft_ls/libs/libft/incs/
+	@cp libft.a ../../UnixWizardSchool/ft_ls/libs/libft/
+	@cp -rf incs/ ../../UnixWizardSchool/minishell/libs/libft/incs/
+	@cp libft.a ../../UnixWizardSchool/minishell/libs/libft/
+	@cp -rf incs/ ../../DancesWithAlgorithms/Fillit/libs/libft/incs/
+	@cp libft.a ../../DancesWithAlgorithms/Fillit/libs/libft/
+	@cp -rf incs/ ../../DancesWithAlgorithms/PushSwap/libs/libft/incs/
+	@cp libft.a ../../DancesWithAlgorithms/PushSwap/libs/libft/
+	@cp -rf incs/ ../../InformationGuardian/ft_ssl/libs/libft/incs/
+	@cp libft.a ../../InformationGuardian/ft_ssl/libs/libft/
+	@cp -rf incs/ ../../TypingRobot/libs/libft/incs/
+	@cp libft.a ../../TypingRobot/libs/libft/
 
 re: fclean all
 
