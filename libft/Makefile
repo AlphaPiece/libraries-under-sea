@@ -6,7 +6,7 @@
 #    By: zwang <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/15 14:23:06 by zwang             #+#    #+#              #
-#    Updated: 2019/02/09 15:10:26 by Zexi Wang        ###   ########.fr        #
+#    Updated: 2019/02/10 22:22:38 by Zexi Wang        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -121,6 +121,8 @@ update:
 	@cp libft.a ../../InformationGuardian/ft_ssl/libs/libft/
 	@cp -rf incs/ ../../TypingRobot/libs/libft/incs/
 	@cp libft.a ../../TypingRobot/libs/libft/
+	@cp -rf incs/ ../../BigNumbersCalculator/libs/libft/incs/
+	@cp libft.a ../../BigNumbersCalculator/libs/libft/
 
 re: fclean all
 
