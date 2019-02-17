@@ -6,7 +6,7 @@
 /*   By: zwang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/11 11:20:28 by zwang             #+#    #+#             */
-/*   Updated: 2019/02/09 15:09:48 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/02/17 11:13:10 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,13 @@ typedef enum		e_state
 */
 
 /*
-** ARRLEN: len of an array; only for stack array
-** BITNUM: num of bit of 1 byte
+** ARRLEN:	len of an array; only for stack array
+** BYTE:	# of bit for a byte
+** WORD:	# of bit for a word
+** BIT8:	# of byte for type uint8_t
+** BIT16:	# of byte for type uint16_t
+** BIT32:	# of byte for type uint32_t
+** BIT64:	# of byte for type uint64_t
 */
 
 # define ARRLEN(a)	(sizeof(a) / sizeof(a[0]))
@@ -97,7 +102,14 @@ void				ft_putbits(void *x, size_t bit);
 ** ==============
 */
 
-# define ABS(x)		(((x) < 0) ? -(x) : (x))
+/*
+** F_PREC:	double float decimal digits of precision
+** ABS:		absolute value
+*/
+
+# define F_PREC	15	
+
+# define ABS(x)	(((x) < 0) ? -(x) : (x))
 
 /*
 ** t_fcompo:	contains all the parts of a single float type data
@@ -113,14 +125,15 @@ typedef struct		s_fcompo
 	long			mantissa;
 }					t_fcompo;
 
+int					ft_numlen(intmax_t n);
+int					ft_unumlen(uintmax_t un);
 char				*ft_itoa(int n);
 char				*ft_ltoa(long n);
 char				*ft_ntoa(intmax_t n);
 char				*ft_untoa(uintmax_t un);
-size_t				ft_numlen(intmax_t n);
-size_t				ft_unumlen(uintmax_t un);
 char				*ft_ntoa_base(intmax_t n, int base, char hex_case_a);
 char				*ft_untoa_base(uintmax_t un, int base, char hex_case_a);
+char				*ft_ftoa(double n);
 double				ft_sqrt(double n);
 double				ft_pow(double n, int pow);
 void				ft_prime_factors(int n);
@@ -356,11 +369,11 @@ typedef struct		s_rbtree
 }					t_rbtree;
 
 /*
-** ========================================
-** >                                      <
-** >>> HASH-BASED STRUCTURE: HASH TABLE <<<
-** >                                      <
-** ========================================
+** =======================================
+** >                                     <
+** >>> ASSOCIATIVE ARRAY (HASH TABLE)  <<<
+** >                                     <
+** =======================================
 */
 
 unsigned int		ft_hash_str(const char *s, unsigned int hashsize);

@@ -6,7 +6,7 @@
 /*   By: zwang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/16 10:51:15 by zwang             #+#    #+#             */
-/*   Updated: 2018/08/16 12:27:00 by zwang            ###   ########.fr       */
+/*   Updated: 2019/02/16 20:26:52 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 char	*ft_ntoa(intmax_t n)
 {
 	char		*str;
-	size_t		i;
+	int			i;
 	uintmax_t	nbr;
 
 	i = ft_numlen(n);

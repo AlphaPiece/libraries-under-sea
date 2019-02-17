@@ -6,15 +6,15 @@
 /*   By: zwang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/08 12:08:24 by zwang             #+#    #+#             */
-/*   Updated: 2018/08/30 19:05:35 by zwang            ###   ########.fr       */
+/*   Updated: 2019/02/16 20:26:15 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_numlen(intmax_t n)
+int	ft_numlen(intmax_t n)
 {
-	size_t		len;
+	int			len;
 	uintmax_t	un;
 
 	if (n == 0)
