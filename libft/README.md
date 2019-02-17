@@ -61,6 +61,7 @@
 | 20 | **ft_numarrcpy** | Copies all integers from src to dst. |
 | 21 | **ft_factor_prime** | Facters a prime number. |
 | 22 | **ft_analyze_float** | Analyze the inner representation of a floating number in IEEE 754 standard. |
+| 23 | **ft_ftoa** | Convert double floating point number to an ascii character string. |
 
 ## [ASCII Character](https://github.com/AlphaPiece/LibrariesUnderSea/tree/master/libft/srcs/chr)
 
