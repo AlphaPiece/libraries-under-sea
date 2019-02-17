@@ -6,26 +6,39 @@
 /*   By: zwang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/19 18:16:00 by zwang             #+#    #+#             */
-/*   Updated: 2019/02/16 19:31:50 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/02/17 12:08:59 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-double	ft_atof(const char *str)
+double	ft_atof(const char *s)
 {
-	double	int_part;
-	double	dec_part;
-	int		len;
+	double	rez;
+	double	e10;
+	t_bool	point_seen;
 
-	int_part = (double)ft_atoi(str);
-	while (*str && *(str - 1) != '.')
-		str++;
-	dec_part = (double)ft_atoi(str);
-	len = 0;
-	while (ft_isdigit(str[len]))
-		len++;
-	while (len--)
-		dec_part /= 10;
-	return (int_part + ((int_part > 0) ? dec_part : -dec_part));
+	while (ft_isspace(*s))
+		s++;
+	e10 = (*s == '-') ? -1 : 1;
+	if (*s == '+' || *s == '-')
+		s++;
+	point_seen = false;
+	while (*s)
+	{
+		if (!point_seen && *s == '.')
+			point_seen = true;
+		else if (ft_isdigit(*s))
+		{
+			if (point_seen)
+				e10 /= 10.0;
+			rez = rez * 10.0 + *s - '0';
+		}
+		else
+			break ;
+		s++;
+	}
+	return (rez * e10);
 }
+
+
