@@ -12,7 +12,7 @@
 * [Tree: General Tree](#tree-general-tree)
 * [Tree: Binary Tree](#tree-binary-tree)
 * [Tree: Binary Tree: Binary Search Tree](#tree-binary-tree-binary-search-tree)
-* [Associative Array (Hash Table)](#associative-array-(hash-table))
+* [Associative Array (Hash Table)](#associative-array-hash-table)
 
 ## [Memory](https://github.com/AlphaPiece/LibrariesUnderSea/tree/master/libft/srcs/mem)
 
