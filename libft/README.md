@@ -12,7 +12,7 @@
 * [Tree: General Tree](#tree-general-tree)
 * [Tree: Binary Tree](#tree-binary-tree)
 * [Tree: Binary Tree: Binary Search Tree](#tree-binary-tree-binary-search-tree)
-* [Hash-Based Structure: Hash Table](#hash-based-structure-hash-table)
+* [Associative Array (Hash Table)](#associative-array-(hash-table))
 
 ## [Memory](https://github.com/AlphaPiece/LibrariesUnderSea/tree/master/libft/srcs/mem)
 
@@ -59,9 +59,10 @@
 | 18 | **ft_sum_intarr** | Gets the sum of all integers in a integer array. |
 | 19 | **ft_iselem** | Checks if a integer is an element of an array. The acceptable inputs for byte is 1, 2, 4, and 8. |
 | 20 | **ft_numarrcpy** | Copies all integers from src to dst. |
-| 21 | **ft_factor_prime** | Facters a prime number. |
-| 22 | **ft_analyze_float** | Analyze the inner representation of a floating number in IEEE 754 standard. |
-| 23 | **ft_ftoa** | Convert double floating point number to an ascii character string. |
+| 21 | **ft_prime_factors** | Gets a prime factors representation of a natual number. |
+| 22 | **ft_analyze_float** | Analyzes the inner representation of a floating number in IEEE 754 standard. |
+| 23 | **ft_ftoa** | Converts double floating point number to an ascii character string. |
+| 24 | **ft_randintarr** | Gets an array of random integers. |
 
 ## [ASCII Character](https://github.com/AlphaPiece/LibrariesUnderSea/tree/master/libft/srcs/chr)
 
