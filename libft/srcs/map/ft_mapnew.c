@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_dictnew.c                                       :+:      :+:    :+:   */
+/*   ft_mapnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zwang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/26 14:54:59 by zwang             #+#    #+#             */
-/*   Updated: 2018/10/27 10:12:17 by zwang            ###   ########.fr       */
+/*   Updated: 2019/02/17 12:36:26 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_dict	*ft_dictnew(void)
+t_map	*ft_mapnew(void)
 {
-	t_dict	*dict;
+	t_map	*map;
 
-	if (!(dict = (t_dict *)malloc(sizeof(t_dict))))
+	if (!(map = (t_map *)malloc(sizeof(t_map))))
 		return (NULL);
-	if (!(dict->set = (t_pair **)ft_memalloc(sizeof(t_pair *) * DICT_SPACE)))
+	if (!(map->map = (t_pair **)ft_memalloc(sizeof(t_pair *) * MAP_SPACE)))
 	{
-		free(dict);
+		free(map);
 		return (NULL);
 	}
-	dict->pair_num = 0;
-	return (dict);
+	map->pair_no = 0;
+	return (map);
 }

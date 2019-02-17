@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_dictclear.c                                     :+:      :+:    :+:   */
+/*   ft_mapclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zwang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/27 11:03:33 by zwang             #+#    #+#             */
-/*   Updated: 2018/11/07 13:02:33 by zwang            ###   ########.fr       */
+/*   Updated: 2019/02/17 12:45:05 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static void	dictclear(t_dict *dict)
+static void	mapclear(t_map *map)
 {
 	int		i;
 	t_pair	*pair;
@@ -21,11 +21,11 @@ static void	dictclear(t_dict *dict)
 	i = 0;
 	while (true)
 	{
-		while (i < DICT_SPACE && !dict->set[i])
+		while (i < MAP_SPACE && !map->map[i])
 			i++;
-		if (i >= DICT_SPACE)
+		if (i >= MAP_SPACE)
 			break ;
-		pair = dict->set[i];
+		pair = map->map[i];
 		while (pair->next)
 		{
 			tmp = pair;
@@ -35,15 +35,15 @@ static void	dictclear(t_dict *dict)
 		}
 		free(pair->key);
 		free(pair);
-		dict->set[i] = NULL;
+		map->map[i] = NULL;
 		i++;
 	}
-	dict->pair_num = 0;
+	map->pair_no = 0;
 }
 
-void		ft_dictclear(t_dict *dict)
+void		ft_mapclear(t_map *map)
 {
-	if (!dict)
+	if (!map)
 		return ;
-	dictclear(dict);
+	mapclear(map);
 }

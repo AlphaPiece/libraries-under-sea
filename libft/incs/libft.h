@@ -6,7 +6,7 @@
 /*   By: zwang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/11 11:20:28 by zwang             #+#    #+#             */
-/*   Updated: 2019/02/17 11:13:10 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/02/17 12:35:15 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -376,30 +376,30 @@ typedef struct		s_rbtree
 ** =======================================
 */
 
-unsigned int		ft_hash_str(const char *s, unsigned int hashsize);
+unsigned int		ft_hashstr(const char *s, unsigned int mapsize);
 
 typedef struct		s_pair
 {
 	char			*key;
-	void			*value;
+	void			*val;
 	struct s_pair	*next;
 }					t_pair;
 
-t_pair				*ft_pairnew(char *key, void *value);
+t_pair				*ft_pairnew(char *key, void *val);
 
-# define DICT_SPACE	512
+# define MAP_SPACE	512
 
-typedef struct		s_dict
+typedef struct		s_map
 {
-	t_pair			**set;
-	int				pair_num;
-}					t_dict;
+	t_pair			**map;
+	int				pair_no;
+}					t_map;
 
-t_dict				*ft_dictnew(void);
-void				ft_dictadd(t_dict *dict, char *key, void *value);
-void				*ft_dictget(t_dict *dict, char *key);
-void				ft_dictremove(t_dict *dict, char *key);
-void				ft_dictclear(t_dict *dict);
-void				ft_dictdel(t_dict **dict);
+t_map				*ft_mapnew(void);
+void				ft_mapadd(t_map *map, char *key, void *value);
+void				*ft_mapget(t_map *map, char *key);
+void				ft_mapremove(t_map *map, char *key);
+void				ft_mapclear(t_map *map);
+void				ft_mapdel(t_map **map);
 
 #endif

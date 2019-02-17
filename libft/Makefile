@@ -6,7 +6,7 @@
 #    By: zwang <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/15 14:23:06 by zwang             #+#    #+#              #
-#    Updated: 2019/02/17 11:19:17 by Zexi Wang        ###   ########.fr        #
+#    Updated: 2019/02/17 13:07:18 by Zexi Wang        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -58,8 +58,8 @@ FIO = ft_putchar.c  ft_putendl.c ft_putnbr.c  ft_putstr.c ft_putlstr.c \
  BST = ft_bnt_to_bst/ft_bnt_to_bst.c ft_bnt_to_bst/int.c ft_bnt_to_bst/long.c \
 	   ft_bnt_to_bst/str.c \
 	   ft_isbst.c ft_bstinsert.c ft_bstsearch.c
-HSH = ft_hash_str.c ft_pairnew.c ft_dictnew.c ft_dictadd.c ft_dictget.c \
-	  ft_dictremove.c ft_dictclear.c ft_dictdel.c
+MAP = ft_hashstr.c ft_pairnew.c ft_mapnew.c ft_mapadd.c ft_mapget.c \
+	  ft_mapremove.c ft_mapclear.c ft_mapdel.c
 
 OBJ = *.o
 
@@ -72,6 +72,7 @@ LST_DIR = ./srcs/trr/lst/
 GNT_DIR = ./srcs/trr/gnt/
 BNT_DIR = ./srcs/trr/bnt/
 BST_DIR = ./srcs/trr/bnt/bst/
+MAP_DIR = ./srcs/map/
 
 OBJS_DIR = ./objs/
 
@@ -80,7 +81,7 @@ SRCS = $(addprefix $(NUM_DIR), $(NUM)) $(addprefix $(CHR_DIR), $(CHR)) \
 	   $(addprefix $(STR_DIR), $(STR)) $(addprefix $(MEM_DIR), $(MEM)) \
 	   $(addprefix $(FIO_DIR), $(FIO)) $(addprefix $(LST_DIR), $(LST)) \
 	   $(addprefix $(GNT_DIR), $(GNT)) $(addprefix $(BNT_DIR), $(BNT)) \
-	   $(addprefix $(BST_DIR), $(BST))
+	   $(addprefix $(BST_DIR), $(BST)) $(addprefix $(MAP_DIR), $(MAP))
 OBJS = $(addprefix $(OBJS_DIR), $(OBJ))
 
 RESET = \033[0m

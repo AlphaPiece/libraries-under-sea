@@ -1,23 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_dictdel.c                                       :+:      :+:    :+:   */
+/*   ft_mapadd.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zwang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/27 13:57:47 by zwang             #+#    #+#             */
-/*   Updated: 2018/10/27 14:29:21 by zwang            ###   ########.fr       */
+/*   Created: 2018/10/26 15:04:18 by zwang             #+#    #+#             */
+/*   Updated: 2019/02/17 12:39:10 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_dictdel(t_dict **dict)
+void	ft_mapadd(t_map *map, char *key, void *val)
 {
-	if (!*dict)
+	t_pair			*pair;
+	t_pair			*head_pair;
+	unsigned int	hashval;
+
+	if (!map || !key || !*key)
 		return ;
-	ft_dictclear(*dict);
-	free((*dict)->set);
-	free(*dict);
-	*dict = NULL;
+	pair = ft_pairnew(key, val);
+	hashval = ft_hashstr(key, MAP_SPACE);
+	head_pair = map->map[hashval];
+	map->map[hashval] = pair;
+	pair->next = head_pair;
+	map->pair_no++;
 }

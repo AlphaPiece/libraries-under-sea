@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_hash_str.c                                      :+:      :+:    :+:   */
+/*   ft_mapdel.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zwang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/26 15:26:48 by zwang             #+#    #+#             */
-/*   Updated: 2018/10/26 17:30:49 by zwang            ###   ########.fr       */
+/*   Created: 2018/10/27 13:57:47 by zwang             #+#    #+#             */
+/*   Updated: 2019/02/17 12:46:23 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-unsigned int	ft_hash_str(const char *s, unsigned int hashsize)
+void	ft_mapdel(t_map **map)
 {
-	unsigned int	hashval;
-
-	hashval = 0;
-	while (*s)
-		hashval = *s++ + (hashsize / 3 + 1) * hashval;
-	return (hashval % hashsize);
+	if (!*map)
+		return ;
+	ft_mapclear(*map);
+	free((*map)->map);
+	free(*map);
+	*map = NULL;
 }
