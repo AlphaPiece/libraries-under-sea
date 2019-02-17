@@ -201,11 +201,11 @@
 
 | No. | Function | Description |
 | --- | --- | --- |
-| 1 | **ft_hash_str** | Hashes a character string and returns a hash value. |
-| 2 | **ft_pairnew** | Allocates (with malloc(3)) a new element for a dictionary (hash table).  The element of a dictionary contains a key and a value. |
-| 3 | **ft_dictnew** | Allocates (with malloc(3)) a new dictionary (hash table) and sets every member in it as 0 or NULL. |
-| 4 | **ft_dictadd** | Allocates (with ft_pairnew) a new pair (element) and adds it into the dictionary dict. |
-| 5 | **ft_dictget** | Gets the corresponding value of the key given as an argument in the dictionary dict. |
-| 6 | **ft_dictremove** | Removes a pair in the dictionary dict (frees with free(3)).
-| 7 | **ft_dictclear** | Clears (frees with free(3)) all pairs in the dicionary dict and sets every member in dict as 0 or NULL. |
-| 8 | **ft_dictdel** | Clears all pairs (with ft_dictclear) in the dictionary and frees dict (with free(3)). |
+| 1 | **ft_hashstr** | Hashes a character string and returns a hash value. |
+| 2 | **ft_pairnew** | Allocates (with malloc(3)) a new element for a map (hash table).  The element of a map contains a key and a value. |
+| 3 | **ft_mapnew** | Allocates (with malloc(3)) a new map (hash table) and sets every member in it as 0 or NULL. |
+| 4 | **ft_mapadd** | Allocates (with ft_pairnew) a new pair (element) and adds it into the map. |
+| 5 | **ft_mapget** | Gets the corresponding value of the key given as an argument in the map. |
+| 6 | **ft_mapremove** | Removes a pair in the map (frees with free(3)).
+| 7 | **ft_mapclear** | Clears (frees with free(3)) all pairs in the map and sets every member in map as 0 or NULL. |
+| 8 | **ft_mapdel** | Clears all pairs (with ft_mapclear) in the map and frees map (with free(3)). |
