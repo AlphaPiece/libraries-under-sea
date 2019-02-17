@@ -197,7 +197,7 @@
 | 3 | **ft_bstinsert** | Inserts a node into a binary search tree. The binary tree will still be a binary search tree after the insertion. |
 | 4 | **ft_bstsearch** | Searches a node that has the identical data as data_ref in a binary search tree. |
 
-## [Hash-Based Structure: Hash Table](https://github.com/AlphaPiece/LibrariesUnderSea/tree/master/libft/srcs/hsh)
+## [Associative Array (Hash Table)](https://github.com/AlphaPiece/LibrariesUnderSea/tree/master/libft/srcs/hsh)
 
 | No. | Function | Description |
 | --- | --- | --- |
