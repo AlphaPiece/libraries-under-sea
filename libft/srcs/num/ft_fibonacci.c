@@ -1,31 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_factorial.c                                     :+:      :+:    :+:   */
+/*   ft_fibonacci.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/23 16:18:16 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/02/24 16:57:42 by Zexi Wang        ###   ########.fr       */
+/*   Created: 2019/02/24 16:16:37 by Zexi Wang         #+#    #+#             */
+/*   Updated: 2019/02/24 16:56:33 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/*
-** Precondition: 0 <= n <= 20
-*/
+long long	tab[93] = {0, 1};
 
-long long	ft_factorial(int n)
+long long	ft_fibonacci(int n)
 {
-	long long	tab[22];
-	int			i;
-
-	if (n < 0 || n > 21)
+	if (n < 0 || n > 92)
 		return (-1);
-	tab[0] = 1;
-	i = 0;
-	while (++i <= n)
-		tab[i] = tab[i - 1] * i;
-	return (tab[n]);
+	if (n == 0 || n == 1)
+		return (n);
+	if (tab[n])
+		return (tab[n]);
+	return ((tab[n] = ft_fibonacci(n - 1) + ft_fibonacci(n - 2)));
 }
