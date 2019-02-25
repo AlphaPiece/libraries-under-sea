@@ -6,25 +6,25 @@
 /*   By: zwang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/10 22:41:52 by zwang             #+#    #+#             */
-/*   Updated: 2018/09/11 09:34:50 by zwang            ###   ########.fr       */
+/*   Updated: 2019/02/24 21:10:38 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_max(int total_num, ...)
+long	ft_max(int total_num, ...)
 {
 	va_list	num_list;
+	long	max;
+	long	num;
 	int		i;
-	int		num;
-	int		max;
 
 	va_start(num_list, total_num);
 	i = 0;
-	max = va_arg(num_list, int);
+	max = va_arg(num_list, long);
 	while (++i < total_num)
 	{
-		num = va_arg(num_list, int);
+		num = va_arg(num_list, long);
 		if (num > max)
 			max = num;
 	}
