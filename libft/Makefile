@@ -6,7 +6,7 @@
 #    By: zwang <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/15 14:23:06 by zwang             #+#    #+#              #
-#    Updated: 2019/02/24 21:21:19 by Zexi Wang        ###   ########.fr        #
+#    Updated: 2019/03/09 17:22:15 by Zexi Wang        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -110,20 +110,20 @@ fclean: clean
 	@printf "$(RED)[x] $(RESET)\x1B[31m$(NAME) deleted\n"
 
 update:
-	@cp -rf incs/ ../../UnixWizardSchool/ft_ls/libs/libft/incs/
-	@cp libft.a ../../UnixWizardSchool/ft_ls/libs/libft/
-	@cp -rf incs/ ../../UnixWizardSchool/minishell/libs/libft/incs/
-	@cp libft.a ../../UnixWizardSchool/minishell/libs/libft/
-	@cp -rf incs/ ../../DancesWithAlgorithms/Fillit/libs/libft/incs/
-	@cp libft.a ../../DancesWithAlgorithms/Fillit/libs/libft/
-	@cp -rf incs/ ../../DancesWithAlgorithms/PushSwap/libs/libft/incs/
-	@cp libft.a ../../DancesWithAlgorithms/PushSwap/libs/libft/
-	@cp -rf incs/ ../../InformationGuardian/ft_ssl/libs/libft/incs/
-	@cp libft.a ../../InformationGuardian/ft_ssl/libs/libft/
-	@cp -rf incs/ ../../TypingRobot/libs/libft/incs/
-	@cp libft.a ../../TypingRobot/libs/libft/
-	@cp -rf incs/ ../../BigNumbersCalculator/libs/libft/incs/
-	@cp libft.a ../../BigNumbersCalculator/libs/libft/
+	@cp -rf incs/ ../../unix/ft_ls/libs/libft/incs/
+	@cp libft.a ../../unix/ft_ls/libs/libft/
+	@cp -rf incs/ ../../unix/minishell/libs/libft/incs/
+	@cp libft.a ../../unix/minishell/libs/libft/
+	@cp -rf incs/ ../../algo/Fillit/libs/libft/incs/
+	@cp libft.a ../../algo/Fillit/libs/libft/
+	@cp -rf incs/ ../../algo/PushSwap/libs/libft/incs/
+	@cp libft.a ../../algo/PushSwap/libs/libft/
+	@cp -rf incs/ ../../ssl/ft_ssl/libs/libft/incs/
+	@cp libft.a ../../ssl/ft_ssl/libs/libft/
+	@cp -rf incs/ ../../tybot/libs/libft/incs/
+	@cp libft.a ../../tybot/libs/libft/
+	@cp -rf incs/ ../../bnc/libs/libft/incs/
+	@cp libft.a ../../bnc/libs/libft/
 
 re: fclean all
 
