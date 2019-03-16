@@ -196,6 +196,10 @@
 | 2 | **ft_bnt_to_bst** | Transforms a binary tree to a binary search tree. |
 | 3 | **ft_bstinsert** | Inserts a node into a binary search tree. The binary tree will still be a binary search tree after the insertion. |
 | 4 | **ft_bstsearch** | Searches a node that has the identical data as data_ref in a binary search tree. |
+| 5 | **ft_bstdelroot** | Deletes the root of a binary search tree. |
+| 6 | **ft_bstdel** | Deletes a specific node in a binary search tree. If the node is not in the tree, ft_bstdel does nothing. After deleting, the tree will remain sorted. |
+| 7 | **ft_bstpopmax** | Pop the rightmost node in a binary search tree. |
+| 8 | **ft_bstpopmin** | Pop the leftmost node in a binary search tree. |
 
 ## [Associative Array (Hash Table)](https://github.com/AlphaPiece/LibrariesUnderSea/tree/master/libft/srcs/hsh)
 
