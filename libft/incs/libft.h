@@ -6,7 +6,7 @@
 /*   By: zwang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/11 11:20:28 by zwang             #+#    #+#             */
-/*   Updated: 2019/02/24 21:21:08 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/03/16 09:16:19 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -326,6 +326,12 @@ typedef struct		s_btree
 
 t_btree				*ft_bntnew(void *data);
 void				ft_bntview(t_btree *bt, char type);
+void				ft_bntdel(t_btree **node);
+
+/*
+** DEPTH FIRST SEARCH
+*/
+
 void				ft_bntiter_in(t_btree *node, void (*f)(void *));
 void				ft_bntiter_pre(t_btree *node, void (*f)(void *));
 void				ft_bntiter_post(t_btree *node, void (*f)(void *));
@@ -343,6 +349,11 @@ void				ft_bntalter_post(t_btree *node, void *(*f)(void *));
 
 t_bool				ft_isbst(t_btree *bt, char *data_type);
 t_btree				*ft_bnt_to_bst(t_btree *bnt, int node_amt, char *data_type);
+void				ft_bstdelroot(t_btree **root);
+void				ft_bstdel(t_btree **root, void *item,
+								int (*cmp)(void *, void *));
+void				*ft_bstpopmax(t_btree **root);
+void				*ft_bstpopmin(t_btree **root);
 t_btree				*ft_bstinsert(t_btree *bst, void *item,
 									int (*cmp)(void *, void *));
 void				*ft_bstsearch(t_btree *bst, void *data_ref,

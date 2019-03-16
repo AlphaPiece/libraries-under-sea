@@ -6,7 +6,7 @@
 #    By: zwang <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/15 14:23:06 by zwang             #+#    #+#              #
-#    Updated: 2019/03/09 18:14:21 by Zexi Wang        ###   ########.fr        #
+#    Updated: 2019/03/16 09:48:26 by Zexi Wang        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -53,12 +53,13 @@ FIO = ft_putchar.c  ft_putendl.c ft_putnbr.c  ft_putstr.c ft_putlstr.c \
 	   ft_lstnew.c ft_swappairs.c
  GNT = ft_gntnew.c ft_gntnodecount.c ft_gntleafcount.c ft_gntheight.c \
 	   ft_gntarity.c
- BNT = ft_bntnew.c ft_bntview.c \
+ BNT = ft_bntnew.c ft_bntview.c ft_bntdel.c \
  	   dfs/ft_bntiter_in.c dfs/ft_bntiter_pre.c dfs/ft_bntiter_post.c \
 	   dfs/ft_bntalter_in.c dfs/ft_bntalter_pre.c dfs/ft_bntalter_post.c
  BST = ft_bnt_to_bst/ft_bnt_to_bst.c ft_bnt_to_bst/int.c ft_bnt_to_bst/long.c \
 	   ft_bnt_to_bst/str.c \
-	   ft_isbst.c ft_bstinsert.c ft_bstsearch.c
+	   ft_isbst.c ft_bstinsert.c ft_bstsearch.c ft_bstdel.c ft_bstdelroot.c \
+	   ft_bstpopmax.c ft_bstpopmin.c
 MAP = ft_hashstr.c ft_pairnew.c ft_mapnew.c ft_mapadd.c ft_mapget.c \
 	  ft_mapremove.c ft_mapclear.c ft_mapdel.c
 
