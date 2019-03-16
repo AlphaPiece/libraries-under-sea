@@ -6,7 +6,7 @@
 #    By: zwang <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/15 14:23:06 by zwang             #+#    #+#              #
-#    Updated: 2019/03/09 17:22:15 by Zexi Wang        ###   ########.fr        #
+#    Updated: 2019/03/09 18:14:21 by Zexi Wang        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -53,8 +53,9 @@ FIO = ft_putchar.c  ft_putendl.c ft_putnbr.c  ft_putstr.c ft_putlstr.c \
 	   ft_lstnew.c ft_swappairs.c
  GNT = ft_gntnew.c ft_gntnodecount.c ft_gntleafcount.c ft_gntheight.c \
 	   ft_gntarity.c
- BNT = ft_bntnew.c ft_bntview.c ft_bntiter_in.c ft_bntiter_pre.c \
-	   ft_bntiter_post.c ft_bntalter_in.c ft_bntalter_pre.c ft_bntalter_post.c
+ BNT = ft_bntnew.c ft_bntview.c \
+ 	   dfs/ft_bntiter_in.c dfs/ft_bntiter_pre.c dfs/ft_bntiter_post.c \
+	   dfs/ft_bntalter_in.c dfs/ft_bntalter_pre.c dfs/ft_bntalter_post.c
  BST = ft_bnt_to_bst/ft_bnt_to_bst.c ft_bnt_to_bst/int.c ft_bnt_to_bst/long.c \
 	   ft_bnt_to_bst/str.c \
 	   ft_isbst.c ft_bstinsert.c ft_bstsearch.c
