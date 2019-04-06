@@ -6,7 +6,7 @@
 /*   By: zwang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/27 11:03:33 by zwang             #+#    #+#             */
-/*   Updated: 2019/04/06 14:59:26 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/04/06 15:56:37 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,11 @@ static void	hmapclear(t_hmap *hmap)
 			tmp = pair;
 			pair = pair->next;
 			free(tmp->key);
+			free(tmp->val);
 			free(tmp);
 		}
 		free(pair->key);
+		free(pair->val);
 		free(pair);
 		hmap->pairs[i] = NULL;
 		i++;

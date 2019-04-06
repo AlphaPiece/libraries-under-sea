@@ -6,13 +6,13 @@
 /*   By: zwang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/27 10:04:39 by zwang             #+#    #+#             */
-/*   Updated: 2019/04/06 14:58:53 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/04/06 15:54:20 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libhmap.h"
 
-void	*ft_hmapget(t_hmap *hmap, char *key)
+char	*ft_hmapget(t_hmap *hmap, char *key)
 {
 	t_pair	*pair;
 

@@ -6,7 +6,7 @@
 /*   By: zwang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/27 09:58:17 by zwang             #+#    #+#             */
-/*   Updated: 2019/04/06 14:59:07 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/04/06 15:55:30 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ void	ft_hmapremove(t_hmap *hmap, char *key)
 	{
 		hmap->pairs[hashval] = pair->next;
 		free(pair->key);
+		free(pair->val);
 		free(pair);
 		return ;
 	}
@@ -36,6 +37,7 @@ void	ft_hmapremove(t_hmap *hmap, char *key)
 		tmp = pair->next;
 		pair->next = tmp->next;
 		free(tmp->key);
+		free(tmp->val);
 		free(tmp);
 	}
 }
