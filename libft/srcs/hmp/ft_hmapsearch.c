@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_pairnew.c                                       :+:      :+:    :+:   */
+/*   ft_hmapsearch.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zwang <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/26 17:10:36 by zwang             #+#    #+#             */
-/*   Updated: 2019/02/17 12:58:51 by Zexi Wang        ###   ########.fr       */
+/*   Created: 2019/04/06 14:32:59 by Zexi Wang         #+#    #+#             */
+/*   Updated: 2019/04/06 14:34:44 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libhmap.h"
 
-t_pair	*ft_pairnew(char *key, void *val)
+t_pair	*ft_hmapsearch(t_hmap *hmap, char *key)
 {
 	t_pair	*pair;
 
-	if ((pair = (t_pair *)malloc(sizeof(t_pair))))
-	{
-		pair->key = ft_strdup(key);
-		pair->val = val;
-	}
+	if (!hmap || !key || !*key)
+		return (NULL);
+	pair = hmap->pairs[ft_hashstr(key, HASH_SPACE)];
+	while (pair && !ft_strequ(pair->key, key))
+		pair = pair->next;
 	return (pair);
 }

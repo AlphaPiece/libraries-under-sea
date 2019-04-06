@@ -6,7 +6,7 @@
 /*   By: zwang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/11 11:20:28 by zwang             #+#    #+#             */
-/*   Updated: 2019/03/16 09:16:19 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/04/06 14:17:04 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 # include "ft_nextline.h"
 # include "ft_vdprintf.h"
 # include "ft_bnt_to_bst.h"
+# include "libhmap.h"
 
 typedef enum		e_bool
 {
@@ -91,7 +92,7 @@ unsigned int		ft_getbits(unsigned int x, int p, int n);
 unsigned int		ft_setbits(unsigned int x, int p, int n, unsigned int y);
 unsigned int		ft_invertbits(unsigned int x, int p, int n);
 void				ft_memswap(void *p1, void *p2, size_t byte);
-void				*ft_memrealloc(void **ptr, size_t size);
+void				*ft_memrealloc(void **ptr, size_t oldsize, size_t newsize);
 void				ft_putbits(void *x, size_t bit);
 
 /*
@@ -381,39 +382,5 @@ typedef struct		s_rbtree
 	struct s_rbtree	*right;
 	enum e_rbcolor	color;
 }					t_rbtree;
-
-/*
-** =======================================
-** >                                     <
-** >>> ASSOCIATIVE ARRAY (HASH TABLE)  <<<
-** >                                     <
-** =======================================
-*/
-
-unsigned int		ft_hashstr(const char *s, unsigned int mapsize);
-
-typedef struct		s_pair
-{
-	char			*key;
-	void			*val;
-	struct s_pair	*next;
-}					t_pair;
-
-t_pair				*ft_pairnew(char *key, void *val);
-
-# define MAP_SPACE	512
-
-typedef struct		s_map
-{
-	t_pair			**map;
-	int				pair_no;
-}					t_map;
-
-t_map				*ft_mapnew(void);
-void				ft_mapadd(t_map *map, char *key, void *value);
-void				*ft_mapget(t_map *map, char *key);
-void				ft_mapremove(t_map *map, char *key);
-void				ft_mapclear(t_map *map);
-void				ft_mapdel(t_map **map);
 
 #endif

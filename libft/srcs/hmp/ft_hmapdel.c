@@ -1,23 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_mapdel.c                                        :+:      :+:    :+:   */
+/*   ft_hmapdel.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zwang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/27 13:57:47 by zwang             #+#    #+#             */
-/*   Updated: 2019/02/17 12:46:23 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/04/06 14:59:37 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libhmap.h"
 
-void	ft_mapdel(t_map **map)
+void	ft_hmapdel(t_hmap **hmap)
 {
-	if (!*map)
+	if (!*hmap)
 		return ;
-	ft_mapclear(*map);
-	free((*map)->map);
-	free(*map);
-	*map = NULL;
+	ft_hmapclear(*hmap);
+	free((*hmap)->pairs);
+	ft_memfree((void **)hmap);
 }

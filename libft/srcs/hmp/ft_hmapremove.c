@@ -1,30 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_mapremove.c                                     :+:      :+:    :+:   */
+/*   ft_hmapremove.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zwang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/27 09:58:17 by zwang             #+#    #+#             */
-/*   Updated: 2019/02/17 12:42:41 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/04/06 14:59:07 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libhmap.h"
 
-void	ft_mapremove(t_map *map, char *key)
+void	ft_hmapremove(t_hmap *hmap, char *key)
 {
 	unsigned int	hashval;
 	t_pair			*pair;
 	t_pair			*tmp;
 
-	if (!map || !key || !*key)
+	if (!hmap || !key || !*key)
 		return ;
-	hashval = ft_hashstr(key, MAP_SPACE);
-	pair = map->map[hashval];
+	hashval = ft_hashstr(key, HASH_SPACE);
+	pair = hmap->pairs[hashval];
 	if (ft_strequ(pair->key, key))
 	{
-		map->map[hashval] = pair->next;
+		hmap->pairs[hashval] = pair->next;
 		free(pair->key);
 		free(pair);
 		return ;

@@ -6,11 +6,11 @@
 /*   By: zwang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/26 15:26:48 by zwang             #+#    #+#             */
-/*   Updated: 2019/02/17 13:07:41 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/04/06 14:36:53 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libhmap.h"
 
 unsigned int	ft_hashstr(const char *s, unsigned int hashsize)
 {

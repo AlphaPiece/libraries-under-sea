@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_mapclear.c                                      :+:      :+:    :+:   */
+/*   ft_hmapclear.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zwang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/27 11:03:33 by zwang             #+#    #+#             */
-/*   Updated: 2019/02/17 12:45:05 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/04/06 14:59:26 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libhmap.h"
 
-static void	mapclear(t_map *map)
+static void	hmapclear(t_hmap *hmap)
 {
 	int		i;
 	t_pair	*pair;
@@ -21,11 +21,11 @@ static void	mapclear(t_map *map)
 	i = 0;
 	while (true)
 	{
-		while (i < MAP_SPACE && !map->map[i])
+		while (i < HASH_SPACE && !hmap->pairs[i])
 			i++;
-		if (i >= MAP_SPACE)
+		if (i >= HASH_SPACE)
 			break ;
-		pair = map->map[i];
+		pair = hmap->pairs[i];
 		while (pair->next)
 		{
 			tmp = pair;
@@ -35,15 +35,15 @@ static void	mapclear(t_map *map)
 		}
 		free(pair->key);
 		free(pair);
-		map->map[i] = NULL;
+		hmap->pairs[i] = NULL;
 		i++;
 	}
-	map->pair_no = 0;
+	hmap->count = 0;
 }
 
-void		ft_mapclear(t_map *map)
+void		ft_hmapclear(t_hmap *hmap)
 {
-	if (!map)
+	if (!hmap)
 		return ;
-	mapclear(map);
+	hmapclear(hmap);
 }
