@@ -201,15 +201,15 @@
 | 7 | **ft_bstpopmax** | Pop the rightmost node in a binary search tree. |
 | 8 | **ft_bstpopmin** | Pop the leftmost node in a binary search tree. |
 
-## [Associative Array (Hash Table)](https://github.com/AlphaPiece/LibrariesUnderSea/tree/master/libft/srcs/hsh)
+## [Associative Array (Hash Map)](https://github.com/AlphaPiece/LibrariesUnderSea/tree/master/libft/srcs/hsh)
 
 | No. | Function | Description |
 | --- | --- | --- |
 | 1 | **ft_hashstr** | Hashes a character string and returns a hash value. |
-| 2 | **ft_pairnew** | Allocates (with malloc(3)) a new element for a map (hash table).  The element of a map contains a key and a value. |
-| 3 | **ft_mapnew** | Allocates (with malloc(3)) a new map (hash table) and sets every member in it as 0 or NULL. |
-| 4 | **ft_mapadd** | Allocates (with ft_pairnew) a new pair (element) and adds it into the map. |
-| 5 | **ft_mapget** | Gets the corresponding value of the key given as an argument in the map. |
-| 6 | **ft_mapremove** | Removes a pair in the map (frees with free(3)).
-| 7 | **ft_mapclear** | Clears (frees with free(3)) all pairs in the map and sets every member in map as 0 or NULL. |
-| 8 | **ft_mapdel** | Clears all pairs (with ft_mapclear) in the map and frees map (with free(3)). |
+| 3 | **ft_hmapnew** | Allocates (with malloc(3)) a new map (hash table) and sets every member in it as 0 or NULL. |
+| 3 | **ft_hmapsearch** | Searches the pair with the key given. If not found, return NULL; otherwise, return a pointer of that pair.
+| 4 | **ft_hmapset** | Sets the already existing pair a new val or allocates (with ft_pairnew) a new pair (element) and adds it into the map. |
+| 5 | **ft_hmapget** | Gets the corresponding value of the key given as an argument in the map. |
+| 6 | **ft_hmapremove** | Removes a pair in the map (frees with free(3)).
+| 7 | **ft_hmapclear** | Clears (frees with free(3)) all pairs in the map and sets every member in map as 0 or NULL. |
+| 8 | **ft_hmapdel** | Clears all pairs (with ft_mapclear) in the map and frees map (with free(3)). |
