@@ -6,7 +6,7 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/02 20:55:31 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/04/07 12:27:12 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/04/07 15:09:53 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,7 @@ int *ft_randintarr(int lower, int upper, int len)
 	if (!(arr = (int *)malloc(sizeof(int) * len)))
 		return (NULL);
 	if (lower > upper)
-	{
-		i = lower;
-		lower = upper;
-		upper = i;
-	}	
+		ft_swap(&lower, &upper);
 	range = upper - lower + 1;
     srand((unsigned int)time(&t));
 	i = 0;

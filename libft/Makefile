@@ -6,7 +6,7 @@
 #    By: zwang <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/15 14:23:06 by zwang             #+#    #+#              #
-#    Updated: 2019/04/06 14:40:41 by Zexi Wang        ###   ########.fr        #
+#    Updated: 2019/04/07 15:01:53 by Zexi Wang        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,8 @@ NUM = ft_itoa.c ft_ltoa.c ft_ntoa.c ft_untoa.c ft_numlen.c ft_unumlen.c \
 	  ft_ntoa_base.c ft_untoa_base.c ft_sqrt.c ft_pow.c ft_ceil.c ft_floor.c \
 	  ft_numarrcpy.c ft_iselem.c ft_max.c ft_min.c ft_sum.c ft_max_intarr.c \
 	  ft_min_intarr.c ft_sum_intarr.c ft_prime_factors.c ft_analyze_float.c \
-      ft_randintarr.c ft_ftoa.c ft_factorial.c ft_fibonacci.c ft_uglynum.c
+      ft_randintarr.c ft_ftoa.c ft_factorial.c ft_fibonacci.c ft_uglynum.c \
+	  ft_swap.c
 CHR = ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c ft_isspace.c \
 	  ft_isprint.c  ft_tolower.c ft_toupper.c ft_islower.c ft_isupper.c
 STR = ft_atoi.c ft_atol.c ft_atof.c ft_atoi_base.c ft_atol_base.c \
@@ -126,6 +127,8 @@ update:
 	@cp libft.a ../../tybot/libs/libft/
 	@cp -rf incs/ ../../bnc/libs/libft/incs/
 	@cp libft.a ../../bnc/libs/libft/
+	@cp -rf incs/ ../../game/2048/libs/libft/incs/
+	@cp libft.a ../../game/2048/libs/libft/
 
 re: fclean all
 
