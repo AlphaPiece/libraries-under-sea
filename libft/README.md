@@ -137,22 +137,24 @@
 | 2 | **ft_putchar_fd** | Outputs the char c to the file descriptor fd. |
 | 3 | **ft_putnchar** | Outputs the character c to the standard output n times. |
 | 4 | **ft_putnchar_fd** | Outpus the character c to the file descriptor n times. |
-| 5 | **ft_putstr** | Outputs the string s to the standard output. |
-| 6 | **ft_putstr_fd** | Outputs the string s to the file descriptor fd. |
-| 7 | **ft_putlstr** | Outputs a portion of a string to the standard output. |
-| 8 | **ft_putlstr_fd** | Outputs a portion of a string to a file descriptor. |
-| 9 | **ft_putendl** | Outputs the string s to the standard output followed by a '\n'. |
-| 10 | **ft_putendl_fd** | Outputs the string s to the file descriptor fd followed by a '\n'. |
-| 11 | **ft_putnbr** | Outputs the integer n to the standard output. |
-| 12 | **ft_putnbr_fd** | Outputs the integer n to the file descriptor fd. |
-| 13 | **ft_printf** | Writes output to stdout, the standard output stream, under the control of a format string that specifies how subsequent arguments (or arguments accessed via the variable-length argument facilities of stdarg(3)) are converted for output. |
-| 14 | **ft_dprintf** | Performs the same as ft_printf, except it writes output to the given file descriptor. |
-| 15 | **ft_vdprintf** | Performs the same as ft_dprintf, except it expects a va_list argument instead of variable-length argument after the string format. |
-| 16 | **ft_getchar** | Obtains the next input character from the standard input. |
-| 17 | **ft_nextchar** | Gets the next character from the stack buffer. If the stack buffer is empty, gets the next character from the stdin, the standard input stream. |
-| 18 | **ft_savechar** | Saves a character in the stack buffer which is shared between ft_nextchar and ft_savechar. |
-| 19 | **ft_nextword** | Obtains and saves a word in the argument buffer word. A word is either a string of letters and digits beginning with a letter, or a single non-white-space character. The function returns the first character of the word, or EOF, or character ifself if it is not alpbetical. |
-| 20 | **ft_nextline** | Obtains and saves a line in the argument pointer line without '\n'. A line is a succession of characters that end with '\n' (ascii code 0x0a) or with End Of File (EOF). The return value can be 1, 0 or -1 depending on whether a line has been read, when the reading has been completed, or if an error has happened respectively. |
+| 5 | **ft_putncharln** | Outputs the character c to the standard output n times with a newline character at the end. |
+| 6 | **ft_putstr** | Outputs the string s to the standard output. |
+| 7 | **ft_putstr_fd** | Outputs the string s to the file descriptor fd. |
+| 8 | **ft_putlstr** | Outputs a portion of a string to the standard output. |
+| 9 | **ft_putlstr_fd** | Outputs a portion of a string to a file descriptor. |
+| 10 | **ft_putendl** | Outputs the string s to the standard output followed by a '\n'. |
+| 11 | **ft_putendl_fd** | Outputs the string s to the file descriptor fd followed by a '\n'. |
+| 12 | **ft_putnbr** | Outputs the integer n to the standard output. |
+| 13 | **ft_putnbr_fd** | Outputs the integer n to the file descriptor fd. |
+| 14 | **ft_printf** | Writes output to stdout, the standard output stream, under the control of a format string that specifies how subsequent arguments (or arguments accessed via the variable-length argument facilities of stdarg(3)) are converted for output. |
+| 15 | **ft_dprintf** | Performs the same as ft_printf, except it writes output to the given file descriptor. |
+| 16 | **ft_vdprintf** | Performs the same as ft_dprintf, except it expects a va_list argument instead of variable-length argument after the string format. |
+| 17 | **ft_getchar** | Obtains the next input character from the standard input. |
+| 18 | **ft_nextchar** | Gets the next character from the stack buffer. If the stack buffer is empty, gets the next character from the stdin, the standard input stream. |
+| 19 | **ft_savechar** | Saves a character in the stack buffer which is shared between ft_nextchar and ft_savechar. |
+| 20 | **ft_nextword** | Obtains and saves a word in the argument buffer word. A word is either a string of letters and digits beginning with a letter, or a single non-white-space character. The function returns the first character of the word, or EOF, or character ifself if it is not alpbetical. |
+| 21 | **ft_nextline** | Obtains and saves a line in the argument pointer line without '\n'. A line is a succession of characters that end with '\n' (ascii code 0x0a) or with End Of File (EOF). The return value can be 1, 0 or -1 depending on whether a line has been read, when the reading has been completed, or if an error has happened respectively. |
+| 22 | **ft_getonechar** | Gets only the first character in a line of standard input. |
 
 ## [Tree: Linked List](https://github.com/AlphaPiece/LibrariesUnderSea/tree/master/libft/srcs/trr/lst)
 
