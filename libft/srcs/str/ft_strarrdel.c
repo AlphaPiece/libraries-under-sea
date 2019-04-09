@@ -6,7 +6,7 @@
 /*   By: zwang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/01 10:51:17 by zwang             #+#    #+#             */
-/*   Updated: 2019/04/06 19:22:15 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/04/08 20:19:40 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@
 
 void	ft_strarrdel(char *arr[])
 {
-	size_t	i;
+	int	i;
 
 	i = 0;
 	while (arr[i])
-		ft_memfree((void **)&arr[i]);
+		ft_memfree((void **)&arr[i++]);
 	free(arr);
 }

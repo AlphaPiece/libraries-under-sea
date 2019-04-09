@@ -6,7 +6,7 @@
 #    By: zwang <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/15 14:23:06 by zwang             #+#    #+#              #
-#    Updated: 2019/04/07 15:01:53 by Zexi Wang        ###   ########.fr        #
+#    Updated: 2019/04/08 20:20:47 by Zexi Wang        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -129,6 +129,8 @@ update:
 	@cp libft.a ../../bnc/libs/libft/
 	@cp -rf incs/ ../../game/2048/libs/libft/incs/
 	@cp libft.a ../../game/2048/libs/libft/
+	@cp -rf incs/ ../../game/TicTacToe/libs/libft/incs/
+	@cp libft.a ../../game/TicTacToe/libs/libft/
 
 re: fclean all
 
