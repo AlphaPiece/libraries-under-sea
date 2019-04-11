@@ -6,7 +6,7 @@
 /*   By: zwang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/28 15:15:35 by zwang             #+#    #+#             */
-/*   Updated: 2018/09/28 15:25:57 by zwang            ###   ########.fr       */
+/*   Updated: 2019/04/11 18:02:49 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int		ft_gntarity(t_tree *gnt)
 	i = -1;
 	while (++i < gnt->child_nbr)
 		arity_arr[i] = ft_gntarity(gnt->children[i]);
-	max = ft_max_intarr(arity_arr, gnt->child_nbr);
+	max = ft_intarrmax(arity_arr, gnt->child_nbr);
 	free(arity_arr);
 	return (ft_max(max, gnt->child_nbr));
 }

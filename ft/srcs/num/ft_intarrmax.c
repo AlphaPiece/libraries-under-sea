@@ -1,21 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_max_intarr.c                                    :+:      :+:    :+:   */
+/*   ft_intarrmax.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zwang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/28 14:42:59 by zwang             #+#    #+#             */
-/*   Updated: 2018/09/28 14:46:55 by zwang            ###   ########.fr       */
+/*   Updated: 2019/04/11 17:57:26 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_max_intarr(int arr[], size_t len)
+int		ft_intarrmax(int arr[], int len)
 {
-	int		max;
-	size_t	i;
+	int	max;
+	int	i;
 
 	if (len == 0 || !arr)
 		return (0);

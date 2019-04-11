@@ -6,7 +6,7 @@
 /*   By: zwang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/28 14:52:14 by zwang             #+#    #+#             */
-/*   Updated: 2018/10/26 14:18:35 by zwang            ###   ########.fr       */
+/*   Updated: 2019/04/11 18:01:52 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int		ft_gntleafcount(t_tree *gnt)
 	i = -1;
 	while (++i < gnt->child_nbr)
 		leaf_arr[i] = ft_gntleafcount(gnt->children[i]);
-	sum = ft_sum_intarr(leaf_arr, gnt->child_nbr);
+	sum = ft_intarrsum(leaf_arr, gnt->child_nbr);
 	free(leaf_arr);
 	return (sum);
 }

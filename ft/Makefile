@@ -6,7 +6,7 @@
 #    By: zwang <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/15 14:23:06 by zwang             #+#    #+#              #
-#    Updated: 2019/04/08 20:20:47 by Zexi Wang        ###   ########.fr        #
+#    Updated: 2019/04/11 17:59:58 by Zexi Wang        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,8 +20,8 @@ MEM = ft_bzero.c ft_memalloc.c ft_memccpy.c ft_memchr.c ft_memcmp.c \
 	  ft_memfree.c
 NUM = ft_itoa.c ft_ltoa.c ft_ntoa.c ft_untoa.c ft_numlen.c ft_unumlen.c \
 	  ft_ntoa_base.c ft_untoa_base.c ft_sqrt.c ft_pow.c ft_ceil.c ft_floor.c \
-	  ft_numarrcpy.c ft_iselem.c ft_max.c ft_min.c ft_sum.c ft_max_intarr.c \
-	  ft_min_intarr.c ft_sum_intarr.c ft_prime_factors.c ft_analyze_float.c \
+	  ft_numarrcpy.c ft_iselem.c ft_max.c ft_min.c ft_sum.c ft_intarrmin.c \
+	  ft_intarrmin.c ft_intarrsum.c ft_prime_factors.c ft_analyze_float.c \
       ft_randintarr.c ft_ftoa.c ft_factorial.c ft_fibonacci.c ft_uglynum.c \
 	  ft_swap.c
 CHR = ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c ft_isspace.c \

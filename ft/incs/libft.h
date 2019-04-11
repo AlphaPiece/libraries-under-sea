@@ -6,7 +6,7 @@
 /*   By: zwang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/11 11:20:28 by zwang             #+#    #+#             */
-/*   Updated: 2019/04/07 17:54:44 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/04/11 17:59:27 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -146,9 +146,9 @@ t_bool				ft_iselem(size_t byte, void *arr, size_t len, void *num);
 int					ft_max(int total_no, ...);
 int					ft_min(int total_no, ...);
 int					ft_sum(int total_no, ...);
-int					ft_max_intarr(int arr[], size_t len);
-int					ft_min_intarr(int arr[], size_t	len);
-int					ft_sum_intarr(int arr[], size_t len);
+int					ft_intarrmax(int arr[], int len);
+int					ft_intarrmin(int arr[], int	len);
+int					ft_intarrsum(int arr[], int len);
 int                 *ft_randintarr(int lower, int upper, int len);
 long long			ft_factorial(int n);
 long long			ft_fibonacci(int n);

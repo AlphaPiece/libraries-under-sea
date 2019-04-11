@@ -1,28 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_min_intarr.c                                    :+:      :+:    :+:   */
+/*   ft_intarrsum.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zwang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/28 14:47:26 by zwang             #+#    #+#             */
-/*   Updated: 2018/10/26 14:36:01 by zwang            ###   ########.fr       */
+/*   Created: 2018/09/28 15:05:41 by zwang             #+#    #+#             */
+/*   Updated: 2019/04/11 17:56:26 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_min_intarr(int arr[], size_t len)
+int		ft_intarrsum(int arr[], int len)
 {
-	int		min;
-	size_t	i;
+	int	i;
+	int	sum;
 
-	if (len == 0 || !arr)
-		return (0);
-	min = arr[0];
 	i = 0;
-	while (++i < len)
-		if (min > arr[i])
-			min = arr[i];
-	return (min);
+	sum = 0;
+	while (i < len)
+		sum += arr[i++];
+	return (sum);
 }
