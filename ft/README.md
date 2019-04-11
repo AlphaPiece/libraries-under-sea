@@ -1,4 +1,4 @@
-# libft
+# Libft
 
 *A C library constructed in 42.*
 
