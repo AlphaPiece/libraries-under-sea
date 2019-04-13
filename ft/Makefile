@@ -6,7 +6,7 @@
 #    By: zwang <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/15 14:23:06 by zwang             #+#    #+#              #
-#    Updated: 2019/04/11 20:42:28 by Zexi Wang        ###   ########.fr        #
+#    Updated: 2019/04/12 10:42:32 by Zexi Wang        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,20 +49,6 @@ FIO = ft_putchar.c  ft_putendl.c ft_putnbr.c  ft_putstr.c ft_putlstr.c \
 	  ft_getchar.c next_save_char.c ft_printf.c ft_dprintf.c \
 	  ft_putlstr.c ft_putncharln.c \
 	  ft_getonechar.c
-#TRR:
- LST = ft_lstadd.c ft_lstdel.c ft_lstdelone.c ft_lstiter.c ft_lstmap.c \
-	   ft_lstnew.c ft_swappairs.c
- GNT = ft_gntnew.c ft_gntnodecount.c ft_gntleafcount.c ft_gntheight.c \
-	   ft_gntarity.c
- BNT = ft_bntnew.c ft_bntview.c ft_bntdel.c \
- 	   dfs/ft_bntiter_in.c dfs/ft_bntiter_pre.c dfs/ft_bntiter_post.c \
-	   dfs/ft_bntalter_in.c dfs/ft_bntalter_pre.c dfs/ft_bntalter_post.c
- BST = ft_bnt_to_bst/ft_bnt_to_bst.c ft_bnt_to_bst/int.c ft_bnt_to_bst/long.c \
-	   ft_bnt_to_bst/str.c \
-	   ft_isbst.c ft_bstinsert.c ft_bstsearch.c ft_bstdel.c ft_bstdelroot.c \
-	   ft_bstpopmax.c ft_bstpopmin.c
-HMP = ft_hashstr.c ft_hmapnew.c ft_hmapsearch.c ft_hmapset.c ft_hmapget.c \
-	  ft_hmapremove.c ft_hmapclear.c ft_hmapdel.c
 
 OBJ = *.o
 
@@ -71,20 +57,13 @@ CHR_DIR = ./srcs/chr/
 STR_DIR = ./srcs/str/
 MEM_DIR = ./srcs/mem/
 FIO_DIR = ./srcs/fio/
-LST_DIR = ./srcs/trr/lst/
-GNT_DIR = ./srcs/trr/gnt/
-BNT_DIR = ./srcs/trr/bnt/
-BST_DIR = ./srcs/trr/bnt/bst/
-HMP_DIR = ./srcs/hmp/
 
 OBJS_DIR = ./objs/
 
 INCS = ./incs/
 SRCS = $(addprefix $(NUM_DIR), $(NUM)) $(addprefix $(CHR_DIR), $(CHR)) \
 	   $(addprefix $(STR_DIR), $(STR)) $(addprefix $(MEM_DIR), $(MEM)) \
-	   $(addprefix $(FIO_DIR), $(FIO)) $(addprefix $(LST_DIR), $(LST)) \
-	   $(addprefix $(GNT_DIR), $(GNT)) $(addprefix $(BNT_DIR), $(BNT)) \
-	   $(addprefix $(BST_DIR), $(BST)) $(addprefix $(HMP_DIR), $(HMP))
+	   $(addprefix $(FIO_DIR), $(FIO))
 OBJS = $(addprefix $(OBJS_DIR), $(OBJ))
 
 RESET = \033[0m
@@ -113,26 +92,33 @@ fclean: clean
 	@printf "$(RED)[x] $(RESET)\x1B[31m$(NAME) deleted\n"
 
 update:
-	@cp -rf incs/ ../../unix/ft_ls/libs/libft/incs/
-	@cp libft.a ../../unix/ft_ls/libs/libft/
-	@cp -rf incs/ ../../unix/minishell/libs/libft/incs/
-	@cp libft.a ../../unix/minishell/libs/libft/
-	@cp -rf incs/ ../../algo/Fillit/libs/libft/incs/
-	@cp libft.a ../../algo/Fillit/libs/libft/
-	@cp -rf incs/ ../../algo/PushSwap/libs/libft/incs/
-	@cp libft.a ../../algo/PushSwap/libs/libft/
-	@cp -rf incs/ ../../ssl/ft_ssl/libs/libft/incs/
-	@cp libft.a ../../ssl/ft_ssl/libs/libft/
-	@cp -rf incs/ ../../tybot/libs/libft/incs/
-	@cp libft.a ../../tybot/libs/libft/
-	@cp -rf incs/ ../../bnc/libs/libft/incs/
-	@cp libft.a ../../bnc/libs/libft/
-	@cp -rf incs/ ../../game/2048/libs/libft/incs/
-	@cp libft.a ../../game/2048/libs/libft/
-	@cp -rf incs/ ../../algo/TicTacToe/libs/libft/incs/
-	@cp libft.a ../../algo/TicTacToe/libs/libft/
-	@cp -rf incs/ ../../algo/Gomoku/libs/libft/incs/
-	@cp libft.a ../../algo/Gomoku/libs/libft/
+	# unix
+	@rm -rf ../../unix/ft_ls/libs/libft/incs
+	@cp -rf incs libft.a ../../unix/ft_ls/libs/libft/
+	# algo
+	@rm -rf  ../../algo/Fillit/libs/libft/incs
+	@cp -rf incs libft.a ../../algo/Fillit/libs/libft/
+	@rm -rf ../../algo/PushSwap/libs/libft/incs
+	@cp -rf incs libft.a ../../algo/PushSwap/libs/libft/
+	@rm -rf ../../algo/TicTacToe/libs/libft/incs
+	@cp -rf incs libft.a ../../algo/TicTacToe/libs/libft/
+	@rm -rf ../../algo/Gomoku/libs/libft/incs
+	@cp -rf incs libft.a ../../algo/Gomoku/libs/libft/
+	# tybot
+	@rm -rf ../../tybot/libs/libft/incs
+	@cp -rf incs libft.a ../../tybot/libs/libft/
+	# bnc
+	@rm -rf ../../bnc/libs/libft/incs
+	@cp -rf incs libft.a ../../bnc/libs/libft/
+	# game
+	@rm -rf ../../game/2048/libs/libft/incs
+	@cp -rf incs libft.a ../../game/2048/libs/libft/
+	@rm -rf ../../game/Minesweeper/libs/libft/incs
+	@cp -rf incs libft.a ../../game/Minesweeper/libs/libft/
+	@rm -rf ../../game/Nim/libs/libft/incs
+	@cp -rf incs libft.a ../../game/Nim/libs/libft/
+	@rm -rf ../../game/Sastantua/libs/libft/incs
+	@cp -rf incs libft.a ../../game/Sastantua/libs/libft/
 
 re: fclean all
 
