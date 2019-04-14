@@ -6,53 +6,28 @@
 /*   By: zwang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/27 10:06:31 by zwang             #+#    #+#             */
-/*   Updated: 2019/04/12 11:16:58 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/04/13 19:45:49 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libds.h"
 
-static t_bool	check_int_node(t_btree *bt)
+t_bool	isbst(t_btree *root, int (*cmp)(void *, void *),
+				void *maxval, void *minval);
 {
-	if (!bt)
+	if (!root)
 		return (true);
-	if ((bt->left && *((int *)bt->data) < *((int *)bt->left->data)) ||
-		(bt->right && *((int *)bt->data) > *((int *)bt->right->data)))
+	else if ((maxval && cmp(root->val, maxval) > 0) ||
+				(minval && cmp(root->val, minval) < 0)
 		return (false);
-	return (check_int_node(bt->left) && check_int_node(bt->right));
-}
-
-static t_bool	check_long_node(t_btree *bt)
-{
-	if (!bt)
-		return (true);
-	if ((bt->left && *((long *)bt->data) < *((long *)bt->left->data)) ||
-		(bt->right && *((long *)bt->data) > *((long *)bt->right->data)))
-		return (false);
-	return (check_long_node(bt->left) && check_long_node(bt->right));
-}
-
-static t_bool	check_str_node(t_btree *bt)
-{
-	if (!bt)
-		return (true);
-	if ((bt->left && ft_strcmp((char *)bt->left->data, (char *)bt->data) > 0) ||
-		(bt->right && ft_strcmp((char *)bt->right->data, (char *)bt->data) < 0))
-		return (false);
-	return (check_str_node(bt->left) && check_str_node(bt->right));
-}
-
-t_bool			ft_isbst(t_btree *bt, char *data_type)
-{
-	if (ft_strcmp(data_type, "int") == 0)
-		return (check_int_node(bt));
-	else if (ft_strcmp(data_type, "long") == 0)
-		return (check_long_node(bt));
-	else if (ft_strcmp(data_type, "str") == 0)
-		return (check_str_node(bt));
 	else
-	{
-		ft_printf("error: unknown data type %s\n", data_type);
+		return (isbst(root->left, cmp, root->val, minval) &&
+				isbst(root->right, cmp, maxval, root->val));
+}
+
+t_bool	ft_isbst(t_btree *root, int (*cmp)(void *, void *))
+{
+	if (!cmp)
 		return (false);
-	}
+	return (isbst(root, cmp, NULL, NULL));
 }

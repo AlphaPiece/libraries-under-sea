@@ -6,7 +6,7 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/12 10:18:54 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/04/12 10:19:53 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/04/13 20:31:27 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,7 @@ typedef struct		s_btree
 }					t_btree;
 
 t_btree				*ft_bntnew(void *data);
+int					ft_bntnodeno(t_btree *root);
 void				ft_bntview(t_btree *bt, char type);
 void				ft_bntdel(t_btree **node);
 void				ft_bntiter_in(t_btree *node, void (*f)(void *));
@@ -94,8 +95,8 @@ void				ft_bntalter_post(t_btree *node, void *(*f)(void *));
 ** ==========================
 */
 
-t_bool				ft_isbst(t_btree *bt, char *data_type);
-t_btree				*ft_bnt_to_bst(t_btree *bnt, int node_amt, char *data_type);
+t_bool				ft_isbst(t_btree *root, int (*cmp)(void *, void *));
+t_btree				*ft_bnt_to_bst(t_btree *root, int (*cmp)(void *, void *));
 void				ft_bstdelroot(t_btree **root);
 void				ft_bstdel(t_btree **root, void *item,
 								int (*cmp)(void *, void *));
@@ -105,6 +106,16 @@ t_btree				*ft_bstinsert(t_btree *bst, void *item,
 									int (*cmp)(void *, void *));
 void				*ft_bstsearch(t_btree *bst, void *data_ref,
 									int (*cmp)(void *, void *));
+
+/*
+** ================
+** >              <
+** >>> AVL TREE <<<
+** >              <
+** ================
+*/
+
+t_bool				ft_isavlt(t_btree *bt);
 
 /*
 ** ======================
@@ -129,6 +140,7 @@ typedef struct		s_rbtree
 	enum e_rbcolor	color;
 }					t_rbtree;
 
+t_bool				ft_isrbt(t_rbtree *root);
 void				ft_rbtinsert(t_rbtree **root, void *data,
 									int (*cmp)(void *, void *));
 t_rbtree			*ft_rbtsearch(t_rbtree *root, void *data,
@@ -136,13 +148,6 @@ t_rbtree			*ft_rbtsearch(t_rbtree *root, void *data,
 void				ft_rbtremove(t_rbtree **root, void *data,
 									int (*cmp)(void *, void *));
 
-/*
-** ================
-** >              <
-** >>> AVL TREE <<<
-** >              <
-** ================
-*/
 
 
 /*
