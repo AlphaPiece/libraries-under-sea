@@ -6,7 +6,7 @@
 #    By: zwang <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/15 14:23:06 by zwang             #+#    #+#              #
-#    Updated: 2019/04/12 10:42:32 by Zexi Wang        ###   ########.fr        #
+#    Updated: 2019/04/14 21:12:15 by Zexi Wang        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -104,6 +104,8 @@ update:
 	@cp -rf incs libft.a ../../algo/TicTacToe/libs/libft/
 	@rm -rf ../../algo/Gomoku/libs/libft/incs
 	@cp -rf incs libft.a ../../algo/Gomoku/libs/libft/
+	@rm -rf ../../algo/Minesweeper/libs/libft/incs
+	@cp -rf incs libft.a ../../algo/Minesweeper/libs/libft/
 	# tybot
 	@rm -rf ../../tybot/libs/libft/incs
 	@cp -rf incs libft.a ../../tybot/libs/libft/
@@ -113,8 +115,6 @@ update:
 	# game
 	@rm -rf ../../game/2048/libs/libft/incs
 	@cp -rf incs libft.a ../../game/2048/libs/libft/
-	@rm -rf ../../game/Minesweeper/libs/libft/incs
-	@cp -rf incs libft.a ../../game/Minesweeper/libs/libft/
 	@rm -rf ../../game/Nim/libs/libft/incs
 	@cp -rf incs libft.a ../../game/Nim/libs/libft/
 	@rm -rf ../../game/Sastantua/libs/libft/incs
