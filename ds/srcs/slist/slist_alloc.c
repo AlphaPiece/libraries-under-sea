@@ -1,26 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_gtnew.c                                         :+:      :+:    :+:   */
+/*   slist_alloc.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zwang <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/28 13:34:46 by zwang             #+#    #+#             */
-/*   Updated: 2019/04/13 21:17:51 by Zexi Wang        ###   ########.fr       */
+/*   Created: 2019/04/15 17:07:44 by Zexi Wang         #+#    #+#             */
+/*   Updated: 2019/04/15 17:20:51 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libds.h"
 
-t_tree	*ft_gtnew(void *data)
+t_slist	*slist_alloc(void)
 {
-	t_tree		*node;
+	t_slist	*node;
 
-	if (!(node = (t_tree *)malloc(sizeof(t_tree))))
-		return (NULL);
-	node->data = data;
-	node->parent = NULL;
-	node->children = NULL;
-	node->child_nbr = 0;
+	if (!(node = (t_slist *)malloc(sizeof(t_slist))))
+		exit(1);
 	return (node);
 }
