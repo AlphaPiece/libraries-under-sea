@@ -6,7 +6,7 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/12 10:18:54 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/04/13 20:31:27 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/04/13 21:16:46 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,11 +54,11 @@ typedef struct		s_tree
 	int				child_nbr;
 }					t_tree;
 
-t_tree				*ft_gntnew(void *data);
-int					ft_gntheight(t_tree *gnt);
-int					ft_gntleafcount(t_tree *gnt);
-int					ft_gntnodecount(t_tree *gnt);
-int					ft_gntarity(t_tree *gnt);
+t_tree				*ft_gtnew(void *data);
+int					ft_gtheight(t_tree *gt);
+int					ft_gtleafno(t_tree *gt);
+int					ft_gtnodeno(t_tree *gt);
+int					ft_gtarity(t_tree *gt);
 
 /*
 ** ===================
@@ -76,16 +76,10 @@ typedef struct		s_btree
 	struct s_btree	*left;
 }					t_btree;
 
-t_btree				*ft_bntnew(void *data);
-int					ft_bntnodeno(t_btree *root);
-void				ft_bntview(t_btree *bt, char type);
-void				ft_bntdel(t_btree **node);
-void				ft_bntiter_in(t_btree *node, void (*f)(void *));
-void				ft_bntiter_pre(t_btree *node, void (*f)(void *));
-void				ft_bntiter_post(t_btree *node, void (*f)(void *));
-void				ft_bntalter_in(t_btree *node, void *(*f)(void *));
-void				ft_bntalter_pre(t_btree *node, void *(*f)(void *));
-void				ft_bntalter_post(t_btree *node, void *(*f)(void *));
+t_btree				*ft_btnew(void *data);
+int					ft_btnodeno(t_btree *root);
+void				ft_btview(t_btree *root, void (*print)(void));
+void				ft_btdel(t_btree **node);
 
 /*
 ** ==========================
@@ -96,7 +90,7 @@ void				ft_bntalter_post(t_btree *node, void *(*f)(void *));
 */
 
 t_bool				ft_isbst(t_btree *root, int (*cmp)(void *, void *));
-t_btree				*ft_bnt_to_bst(t_btree *root, int (*cmp)(void *, void *));
+t_btree				*ft_bt_to_bst(t_btree *root, int (*cmp)(void *, void *));
 void				ft_bstdelroot(t_btree **root);
 void				ft_bstdel(t_btree **root, void *item,
 								int (*cmp)(void *, void *));
@@ -115,7 +109,7 @@ void				*ft_bstsearch(t_btree *bst, void *data_ref,
 ** ================
 */
 
-t_bool				ft_isavlt(t_btree *bt);
+t_bool				ft_isavlt(t_btree *root, int (*cmp)(void *, void *));
 
 /*
 ** ======================
