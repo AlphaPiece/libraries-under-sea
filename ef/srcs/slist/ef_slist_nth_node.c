@@ -1,28 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libds.h                                            :+:      :+:    :+:   */
+/*   ef_slist_nth_node.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/15 16:00:55 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/04/15 16:11:50 by Zexi Wang        ###   ########.fr       */
+/*   Created: 2019/04/16 16:46:42 by Zexi Wang         #+#    #+#             */
+/*   Updated: 2019/04/23 22:27:41 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBDS_H
-# define LIBDS_H
+#include "libef.h"
 
-# include "libft.h"
-
-/*
-** slist
-*/
-
-typedef struct		s_slist
+t_slist	*ef_slist_nth_node(t_slist *list, int n)
 {
-	void			*data;
-	struct s_slist	*next;
-}					t_slist;
-
-
+	for ( ; list && n > 0; list = list->next, n--)
+		;
+	return (list);
+}

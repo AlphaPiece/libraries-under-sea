@@ -1,33 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   slist_insert.c                                     :+:      :+:    :+:   */
+/*   ef_slist_insert.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/15 17:26:08 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/04/15 17:36:32 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/04/16 16:43:01 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libds.h"
+#include "libef.h"
 
-t_slist	*slist_insert(t_slist *list, void *data, int position)
+t_slist	*ef_slist_insert(t_slist *list, void *data, int position)
 {
 	t_slist	*new_node;
 	t_slist	*node;
 	int		i;
 
-	if (position < 0)
-		return (slist_append(list, data));
+	if (position < 0 || !list)
+		return (ef_slist_append(list, data));
 	else if (position == 0)
-		return (slist_prepend(list, data));
+		return (ef_slist_prepend(list, data));
 	else
 	{
-		new_node = slist_alloc();
+		new_node = ef_slist_alloc();
 		new_node->data = data;
 		node = list;
-		for (i = 0; i < position && node->next; i++)
+		for (i = 0; i < position - 1 && node->next; i++)
 			node = node->next;
 		new_node->next = node->next;
 		node->next = new_node;

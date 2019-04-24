@@ -6,7 +6,7 @@
 #    By: zwang <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/15 14:23:06 by zwang             #+#    #+#              #
-#    Updated: 2019/04/14 21:12:15 by Zexi Wang        ###   ########.fr        #
+#    Updated: 2019/04/16 16:28:48 by Zexi Wang        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -73,11 +73,13 @@ RED = \033[1;31m
 
 all: $(NAME)
 
-$(NAME): 
-	@printf "\n\x1B[38;5;208mCompiling $(NAME)...\n\x1b[37m"
+compile:
+	@printf "\n\x1B[38;5;208mCompiling...\n\x1b[37m"
 	@$(CC) -g $(CFLAGS) -c $(SRCS) -I $(INCS)
 	@mkdir -p $(OBJS_DIR)
 	@mv $(OBJ) $(OBJS_DIR)
+
+$(NAME): compile
 	@ar rcs $(NAME) $(OBJS)
 	@ranlib $(NAME)
 	@printf "\n$(GREEN)[✓] $(RESET)\x1B[32m$(NAME) ready!\n\x1b[37m"
