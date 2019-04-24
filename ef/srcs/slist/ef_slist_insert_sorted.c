@@ -6,7 +6,7 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/16 22:34:27 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/04/16 22:43:10 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/04/24 15:39:57 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,8 @@ t_slist	*ef_slist_insert_sorted(t_slist *list, void *data,
 		return (ef_slist_prepend(list, data));
 	new_node = ef_slist_alloc();
 	new_node->data = data;
-	for (node = list; node->next && cmp(node->next->data, data) < 0;
-			node = node->next)
-		;
+	for (node = list; node->next && cmp(node->next->data, data) < 0; )
+		node = node->next;
 	new_node->next = node->next;
 	node->next = new_node;
 	return (list);
