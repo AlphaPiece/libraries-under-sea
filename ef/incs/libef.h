@@ -6,7 +6,7 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/15 16:00:55 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/04/23 22:28:23 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/04/24 08:38:06 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,10 @@ t_slist				*ef_slist_insert_sorted(t_slist *list, void *data,
 											int (*cmp)(void *, void *));
 t_slist				*ef_slist_remove(t_slist *list, void *data);
 t_slist				*ef_slist_remove_all(t_slist *list, void *data);
+t_slist				*ef_slist_remove_custom(t_slist *list, void *data,
+											int (*cmp)(void *, void *));
+t_slist				*ef_slist_remove_all_custom(t_slist *list, void *data,
+												int (*cmp)(void *, void *));
 t_slist				*ef_slist_remove_link(t_slist *list, t_slist *node_link);
 t_slist				*ef_slist_delete_link(t_slist *list, t_slist *node_link);
 void				ef_slist_free_node(t_slist *node);

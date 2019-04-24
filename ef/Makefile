@@ -6,7 +6,7 @@
 #    By: zwang <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/15 14:23:06 by zwang             #+#    #+#              #
-#    Updated: 2019/04/23 22:32:10 by Zexi Wang        ###   ########.fr        #
+#    Updated: 2019/04/24 08:39:19 by Zexi Wang        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,7 @@ CFLAGS = -Wall -Werror -Wextra
 SLIST = ef_slist_alloc.c ef_slist_append.c ef_slist_prepend.c \
 		ef_slist_insert.c ef_slist_insert_before.c ef_slist_insert_sorted.c \
 		ef_slist_sort.c ef_slist_remove.c ef_slist_remove_all.c \
+		ef_slist_remove_custom.c ef_slist_remove_all_custom.c \
 		ef_slist_remove_link.c ef_slist_delete_link.c ef_slist_free_node.c \
 		ef_slist_free_list.c ef_slist_free_all.c ef_slist_length.c \
 		ef_slist_copy.c ef_slist_copy_deep.c ef_slist_reverse.c \
