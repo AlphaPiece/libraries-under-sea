@@ -6,14 +6,13 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/16 18:04:24 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/04/24 19:57:56 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/04/24 22:36:52 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libef.h"
 
-static t_slist	*merge_slist(t_slist *list1, t_slist *list2,
-								int (*cmp)(void *, void *))
+static t_slist	*merge_slist(t_slist *list1, t_slist *list2, f_cmp cmp)
 {
 	t_slist	*origin;
 	t_slist	*node;
@@ -38,7 +37,7 @@ static t_slist	*merge_slist(t_slist *list1, t_slist *list2,
 	return (node);
 }		
 
-t_slist			*ef_slist_sort(t_slist *list, int (*cmp)(void *, void *))
+t_slist			*ef_slist_sort(t_slist *list, f_cmp cmp)
 {
 	t_slist	*fast;
 	t_slist	*slow;

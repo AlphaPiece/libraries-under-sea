@@ -6,14 +6,13 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/24 11:25:10 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/04/24 15:22:39 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/04/24 22:40:25 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libef.h"
 
-static t_dlist	*merge_dlist(t_dlist *list1, t_dlist *list2,
-								int (*cmp)(void *, void *))
+static t_dlist	*merge_dlist(t_dlist *list1, t_dlist *list2, f_cmp cmp)
 {
 	t_dlist	*origin;
 	t_dlist	*node;

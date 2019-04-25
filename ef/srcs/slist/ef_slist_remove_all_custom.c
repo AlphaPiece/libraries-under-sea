@@ -6,14 +6,13 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/24 08:34:10 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/04/24 08:36:13 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/04/24 22:38:11 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libef.h"
 
-t_slist	*ef_slist_remove_all_custom(t_slist *list, void *data,
-									int (*cmp)(void *, void *))
+t_slist	*ef_slist_remove_all_custom(t_slist *list, void *data, f_cmp cmp)
 {
 	t_slist	*origin;
 	t_slist	*node;

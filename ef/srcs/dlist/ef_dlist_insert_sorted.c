@@ -6,14 +6,13 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/24 15:23:24 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/04/24 15:46:54 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/04/24 22:40:39 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libef.h"
 
-t_dlist	*ef_dlist_insert_sorted(t_dlist *list, void *data,
-								int (*cmp)(void *, void *))
+t_dlist	*ef_dlist_insert_sorted(t_dlist *list, void *data, f_cmp cmp)
 {
 	t_dlist	*new_node;
 	t_dlist	*node;

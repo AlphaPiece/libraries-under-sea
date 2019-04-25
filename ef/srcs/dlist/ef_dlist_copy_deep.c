@@ -6,13 +6,13 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/24 17:56:32 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/04/24 18:07:33 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/04/24 22:42:07 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libef.h"
 
-t_dlist	*ef_dlist_copy_deep(t_dlist *list, void *(*cpy)(void *))
+t_dlist	*ef_dlist_copy_deep(t_dlist *list, f_cpy cpy)
 {
 	t_dlist	*new_list;
 	t_dlist	*node;
