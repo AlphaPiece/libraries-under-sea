@@ -6,7 +6,7 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/15 17:37:30 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/04/23 22:22:51 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/04/24 19:58:25 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,12 +59,12 @@ void	test(void)
 	list = ef_slist_insert(list, &arr[3], 3);
 //	printf("insert\n");
 
-	node = ef_slist_nth(list, 4);
-/*	if (node)
+/*	node = ef_slist_nth_node(list, 4);
+	if (node)
 		printf("%d\n", *(int *)node->data);
 	else
 		printf("NULL\n");
-//	printf("nth\n");
+	printf("nth_node\n");
 */
 /*	data = ef_slist_nth_data(list, 3);
 	printf("%d\n", *(int *)data);

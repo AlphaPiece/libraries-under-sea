@@ -6,7 +6,7 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/24 15:55:14 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/04/24 17:29:06 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/04/24 21:34:12 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,24 @@
 
 t_dlist	*ef_dlist_remove_link(t_dlist *list, t_dlist *node_link)
 {
-	t_dlist	*origin;
-	t_dlist	*node;
-
-	node = origin = ef_dlist_alloc();
-	origin->next = list;
-	while (node->next && node->next != node_link)
-		node = node->next;
-	if (node->next)
+	if (!node_link)
+		return (list);
+	if (node_link->prev)
 	{
-		node->next = node->next->next;
-		if (node->next)
-			node->next->prev = node;
-		node_link->prev = NULL;
-		node_link->next = NULL;
+		if (node_link->prev->next == node_link)
+			node_link->prev->next = node_link->next;
+		else
+			ft_dprintf(2, "Warning: corrupted doubly-linked list detected\n");
 	}
-	node = origin->next;
-	if (node)
-		node->prev = NULL;
-	ef_dlist_free_node(origin);
-	return (node);
+	if (node_link->next)
+	{
+		if (node_link->next->prev == node_link)
+			node_link->next->prev = node_link->prev;
+		else
+			ft_dprintf(2, "Warning: corrupted doubly-linked list detected\n");
+	}
+	if (node_link == list)
+		list = list->next;
+	node_link->prev = node_link->next = NULL;
+	return (list);
 }

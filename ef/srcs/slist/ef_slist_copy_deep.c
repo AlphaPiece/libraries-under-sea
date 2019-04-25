@@ -6,7 +6,7 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/23 20:36:20 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/04/23 21:21:37 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/04/24 17:56:25 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ t_slist	*ef_slist_copy_deep(t_slist *list, void *(*cpy)(void *))
 	if (!list)
 		return (NULL);
 	node = ef_slist_alloc();
-	node->data = cpy(list->data);
+	node->data = (cpy) ? cpy(list->data) : list->data;
 	node->next = ef_slist_copy_deep(list->next, cpy);
 	return (node);
 }

@@ -1,26 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ef_slist_length.c                                  :+:      :+:    :+:   */
+/*   ef_dlist_free_list.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/22 22:58:44 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/04/24 17:47:11 by Zexi Wang        ###   ########.fr       */
+/*   Created: 2019/04/24 17:35:35 by Zexi Wang         #+#    #+#             */
+/*   Updated: 2019/04/24 17:36:55 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libef.h"
 
-int	ef_slist_length(t_slist *list)
+void	ef_dlist_free_list(t_dlist *list)
 {
-	int	len;
+	t_dlist	*next;
 
-	len = 0;
 	while (list)
 	{
-		len++;
-		list = list->next;
+		next = list->next;
+		ef_dlist_free_node(list);
+		list = next;
 	}
-	return (len);
 }

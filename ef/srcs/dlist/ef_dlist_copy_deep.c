@@ -1,26 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ef_slist_length.c                                  :+:      :+:    :+:   */
+/*   ef_dlist_copy_deep.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/22 22:58:44 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/04/24 17:47:11 by Zexi Wang        ###   ########.fr       */
+/*   Created: 2019/04/24 17:56:32 by Zexi Wang         #+#    #+#             */
+/*   Updated: 2019/04/24 18:07:33 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libef.h"
 
-int	ef_slist_length(t_slist *list)
+t_dlist	*ef_dlist_copy_deep(t_dlist *list, void *(*cpy)(void *))
 {
-	int	len;
+	t_dlist	*new_list;
+	t_dlist	*node;
 
-	len = 0;
+	if (!list)
+		return (NULL);
+	new_list = ef_dlist_alloc();
+	new_list->data = (cpy) ? cpy(list->data) : list->data;
+	new_list->prev = NULL;
+	node = new_list;
+	list = list->next;
 	while (list)
 	{
-		len++;
+		node->next = ef_dlist_alloc();
+		node->next->data = (cpy) ? cpy(list->data) : list->data;
+		node->next->prev = node;
+		node = node->next;
 		list = list->next;
 	}
-	return (len);
+	node->next = NULL;
+	return (new_list);
 }

@@ -6,11 +6,17 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/24 14:21:07 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/04/24 17:34:25 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/04/24 21:39:43 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libef.h"
+
+void	*add_one(void *n)
+{
+	(*(int *)n)++;
+	return (n);
+}
 
 int		cmp_int(void *n1, void *n2)
 {
@@ -41,9 +47,9 @@ void	print_list(t_dlist *list)
 	ft_printf("\n");
 }
 
-int	main(void)
+void	test(void)
 {
-	t_dlist	*list = NULL;
+	t_dlist	*list = NULL, *new_list = NULL;
 	t_dlist	*node, *first, *last;
 	int		arr[] = {1, 3, 5, 7, 2, 4, 6, 8, 0};
 	int		num;
@@ -102,6 +108,35 @@ int	main(void)
 	list = ef_dlist_remove_link(list, last);
 	print_list(list);
 */
+//	print_list(list);
+//	new_list = ef_dlist_copy(list);
+//	print_list(new_list);
 
+	list = ef_dlist_sort(list, cmp_int);
+	new_list = ef_dlist_copy(list);
+	new_list = ef_dlist_reverse(new_list);
+	print_list(list);
+	print_list(new_list);
+
+	ef_dlist_for_each(new_list, add_one);
+	print_list(new_list);
+
+	node = ef_dlist_nth_node(new_list, 3);
+	print_list(node);
+
+	n = ef_dlist_length(new_list);
+	ft_printf("%d\n", n);
+	
+	ef_dlist_free_list(new_list);
+	ef_dlist_free_list(list);
+}
+
+
+int	main(void)
+{
+	test();
+
+//	while (1);
+	
 	return (0);
 }

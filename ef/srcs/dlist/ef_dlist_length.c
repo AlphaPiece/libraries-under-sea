@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ef_slist_length.c                                  :+:      :+:    :+:   */
+/*   ef_dlist_length.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/22 22:58:44 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/04/24 17:47:11 by Zexi Wang        ###   ########.fr       */
+/*   Created: 2019/04/24 17:41:37 by Zexi Wang         #+#    #+#             */
+/*   Updated: 2019/04/24 17:47:31 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libef.h"
 
-int	ef_slist_length(t_slist *list)
+int	ef_dlist_length(t_dlist *list)
 {
 	int	len;
 

@@ -1,26 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ef_slist_length.c                                  :+:      :+:    :+:   */
+/*   ef_dlist_reverse.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/22 22:58:44 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/04/24 17:47:11 by Zexi Wang        ###   ########.fr       */
+/*   Created: 2019/04/24 19:24:05 by Zexi Wang         #+#    #+#             */
+/*   Updated: 2019/04/24 19:51:28 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libef.h"
 
-int	ef_slist_length(t_slist *list)
+t_dlist	*ef_dlist_reverse(t_dlist *list)
 {
-	int	len;
+	t_dlist	*prev;
 
-	len = 0;
+	prev = NULL;
 	while (list)
 	{
-		len++;
+		prev = list;
 		list = list->next;
+		prev->next = prev->prev;
+		prev->prev = list;
 	}
-	return (len);
+	return (prev);
 }

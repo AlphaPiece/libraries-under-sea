@@ -1,26 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ef_slist_length.c                                  :+:      :+:    :+:   */
+/*   ef_dlist_nth_node.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/22 22:58:44 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/04/24 17:47:11 by Zexi Wang        ###   ########.fr       */
+/*   Created: 2019/04/24 20:14:03 by Zexi Wang         #+#    #+#             */
+/*   Updated: 2019/04/24 21:11:47 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libef.h"
 
-int	ef_slist_length(t_slist *list)
+t_dlist	*ef_dlist_nth_node(t_dlist *list, int n)
 {
-	int	len;
-
-	len = 0;
-	while (list)
-	{
-		len++;
-		list = list->next;
-	}
-	return (len);
+	for ( ; list && n > 0; list = list->next, n--)
+		;
+	return (list);
 }
