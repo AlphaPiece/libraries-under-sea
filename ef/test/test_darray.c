@@ -6,7 +6,7 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/25 13:34:17 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/04/25 20:38:57 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/04/25 21:16:54 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,12 @@ void	print_array(t_darray *darr)
 {
 	int	len;
 	int	i;
-
+	
+	if (!darr)
+	{
+		ft_printf("null\n");
+		return ;
+	}
 	len = ef_darray_length(darr);
 	for (i = 0; i < len; i++)
 		ft_printf("%d, ", ef_darray_index(darr, int, i));
@@ -41,11 +46,12 @@ void	test(void)
 	int			arr[5] = {0,1,2,3,4};
 	int			brr[7] = {11,12,13,14,15,16,17};
 	void		*ptr;
+	t_darray	*partition;
 
 	darr = ef_darray_sized_new(sizeof(int), sizeof(int) * 50);
 	rdarr = (t_rdarray *)darr;
 
-	ptr = (void *)arr;
+/*	ptr = (void *)arr;
 	ef_darray_insert_array(darr, 0, ptr, 5);
 	ef_darray_insert_array(darr, 0, ptr, 5);
 
@@ -55,10 +61,10 @@ void	test(void)
 	ef_darray_append_array(darr, ptr, 7);
 
 	print_array(darr);
-
-/*	for (i = 0; i < 9; i++)
-		ef_darray_prepend(darr, i);
-	print_array(darr);*/
+*/
+	for (i = 0; i < 9; i++)
+		ef_darray_append(darr, i);
+	print_array(darr);
 /*
 	ef_darray_remove(darr, 3);
 	print_array(darr);
@@ -89,6 +95,24 @@ void	test(void)
 	ef_darray_reverse(darr);
 	print_array(darr);
 */
+	partition = ef_darray_partition(darr, 3, 6);
+	print_array(partition);
+	ef_darray_free(partition);
+	partition = ef_darray_partition(darr, -1, 6);
+	print_array(partition);
+	ef_darray_free(partition);
+	partition = ef_darray_partition(darr, 3, 20);
+	print_array(partition);
+	ef_darray_free(partition);
+	partition = ef_darray_partition(darr, 4, 4);
+	print_array(partition);
+	ef_darray_free(partition);
+	partition = ef_darray_partition(darr, 0, ef_darray_length(darr));
+	print_array(partition);
+	ef_darray_free(partition);
+
+
+
 	ef_darray_free(darr);
 }
 

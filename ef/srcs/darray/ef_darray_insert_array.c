@@ -6,7 +6,7 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/25 11:12:47 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/04/25 20:32:21 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/04/25 21:00:24 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	ef_darray_insert_array(t_darray *darr, int index, void *arr,
 	if (!darr || !arr || !arr_len)
 		return ;
 	rdarr = (t_rdarray *)darr;
-	if (index >= rdarr->elem_no - 1)
+	if (index >= rdarr->elem_no)
 	{
 		ef_darray_append_array(darr, arr, arr_len);
 		return ;

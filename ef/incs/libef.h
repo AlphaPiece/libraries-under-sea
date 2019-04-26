@@ -6,7 +6,7 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/15 16:00:55 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/04/24 22:36:06 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/04/25 21:11:13 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,63 @@
 
 # include "libft.h"
 
+# define MALLOC_ERROR	1
+
 typedef int			(*f_cmp)(void *, void *);
 typedef void		(*f_del)(void *);
 typedef void		*(*f_cpy)(void *);
 typedef void		*(f_mfy)(void *);
+
+/*
+** ======================
+** >                    <
+** >>> DYNAMIC ARRARY <<<
+** >                    <
+** ======================
+*/
+
+# define MIN_SIZE		16
+
+# define ef_darray_append(a,v)		ef_darray_append_array(a, &(v), 1)
+# define ef_darray_prepend(a,v)		ef_darray_prepend_array(a, &(v), 1)
+# define ef_darray_insert(a,i,v)	ef_darray_insert_array(a, i, &(v), 1)
+# define ef_darray_index(a,t,i)		(((t *)(a)->data)[(i)])
+
+typedef struct		s_rdarray
+{
+	void			*data;
+	int				elem_no;
+	int				capacity;
+	size_t			elem_size;
+}					t_rdarray;
+
+typedef struct		s_darray
+{
+	void			*data;
+	int				elem_no;
+}					t_darray;
+
+t_darray			*ef_darray_new(size_t elem_size);
+t_darray			*ef_darray_sized_new(size_t elem_size, size_t arr_size);
+t_darray			*ef_darray_increment(t_darray *darr);
+t_darray			*ef_darray_decrement(t_darray *darr);
+int					ef_darray_length(t_darray *darr);
+size_t				ef_darray_elem_size(t_darray *darr);
+void				ef_darray_expand_capacity(t_darray *darr, int elem_no);
+void				ef_darray_append_array(t_darray *darr, void *arr,
+											int arr_len);
+void				ef_darray_prepend_array(t_darray *darr, void *arr,
+												int arr_len);
+void				ef_darray_insert_array(t_darray *darr, int index,
+											void *arr, int arr_len);
+void				ef_darray_remove(t_darray *darr, int index);
+void				ef_darray_remove_last_elem(t_darray *darr);
+void				ef_darray_remove_range(t_darray *darr, int index, int len);
+void				ef_darray_swap(t_darray *darr, int index1, int index2);
+void				ef_darray_sort(t_darray *darr, f_cmp cmp);
+void				ef_darray_reverse(t_darray *darr);
+t_darray			*ef_darray_partition(t_darray *darr, int start, int end);
+void				ef_darray_free(t_darray *darr);
 
 /*
 ** ==========================
@@ -117,5 +170,15 @@ t_dlist				*ef_dlist_find(t_dlist *list, void *data);
 t_dlist				*ef_dlist_find_custom(t_dlist *list, void *data, f_cmp cmp);
 int					ef_dlist_position(t_dlist *list, t_dlist *node_link);
 int					ef_dlist_index(t_dlist *list, void *data);
+
+/*
+** ==================
+** >                <
+** >>> HASH TABLE <<<
+** >                <
+** ==================
+*/
+
+
 
 #endif
