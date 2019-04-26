@@ -6,7 +6,7 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/15 17:37:30 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/04/24 19:58:25 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/04/26 11:26:56 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,6 @@ void	test(void)
 	t_slist	*node;
 	void	*data;
 
-
 	for (i = 4; i < 7; i++)
 		list = ef_slist_append(list, &arr[i]);
 //	printf("append\n");
@@ -58,6 +57,8 @@ void	test(void)
 
 	list = ef_slist_insert(list, &arr[3], 3);
 //	printf("insert\n");
+
+	
 
 /*	node = ef_slist_nth_node(list, 4);
 	if (node)
@@ -83,12 +84,6 @@ void	test(void)
 	list = ef_slist_remove(list, &arr[3]);
 	print_list(list);
 */
-/*
-//	list = ef_slist_remove_link(list, node);
-	list = ef_slist_delete_link(list, node);
-	print_list(list);
-	print_list(node);
-*/
 
 /*	list = ef_slist_append(list, &arr[1]);
 	list = ef_slist_prepend(list, &arr[1]);
@@ -111,19 +106,15 @@ void	test(void)
 	new_list = ef_slist_reverse(new_list);
 	print_list(new_list);
 /*	
-	list = ef_slist_concat(list, new_list);
-	print_list(list);
-
 	node = ef_slist_last_node(list);
 	print_list(node);
 
 	node = ef_slist_find_custom(list, &arr[4], cmp_int);
 	print_list(node);
 */
-	n = ef_slist_position(list, node);
-	printf("%d\n", n);
-	n = ef_slist_index(list, node->data);
-	printf("%d\n", n);
+
+	list = ef_slist_insert_list(list, new_list, 4);
+	print_list(list);
 
 	ef_slist_free_list(list);
 }

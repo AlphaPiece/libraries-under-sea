@@ -6,7 +6,7 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/24 14:21:07 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/04/24 21:39:43 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/04/26 12:21:56 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,17 +118,21 @@ void	test(void)
 	print_list(list);
 	print_list(new_list);
 
-	ef_dlist_for_each(new_list, add_one);
+/*	ef_dlist_for_each(new_list, add_one);
+	print_list(new_list);
+*/
+	node = ef_dlist_nth_node(new_list, 0);
+//	print_list(node);
+
+	new_list = ef_dlist_insert_list_before(new_list, list, node);
 	print_list(new_list);
 
-	node = ef_dlist_nth_node(new_list, 3);
-	print_list(node);
-
-	n = ef_dlist_length(new_list);
+/*	n = ef_dlist_length(new_list);
 	ft_printf("%d\n", n);
 	
 	ef_dlist_free_list(new_list);
 	ef_dlist_free_list(list);
+*/
 }
 
 
