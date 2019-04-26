@@ -6,7 +6,7 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/15 16:00:55 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/04/25 21:11:13 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/04/25 23:33:04 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,6 @@ typedef void		*(f_mfy)(void *);
 
 # define MIN_SIZE		16
 
-# define ef_darray_append(a,v)		ef_darray_append_array(a, &(v), 1)
-# define ef_darray_prepend(a,v)		ef_darray_prepend_array(a, &(v), 1)
-# define ef_darray_insert(a,i,v)	ef_darray_insert_array(a, i, &(v), 1)
-# define ef_darray_index(a,t,i)		(((t *)(a)->data)[(i)])
-
 typedef struct		s_rdarray
 {
 	void			*data;
@@ -50,6 +45,11 @@ typedef struct		s_darray
 	void			*data;
 	int				elem_no;
 }					t_darray;
+
+# define ef_darray_append(a,v)		ef_darray_append_array(a, &(v), 1)
+# define ef_darray_prepend(a,v)		ef_darray_prepend_array(a, &(v), 1)
+# define ef_darray_insert(a,i,v)	ef_darray_insert_array(a, i, &(v), 1)
+# define ef_darray_index(a,t,i)		(((t *)(a)->data)[(i)])
 
 t_darray			*ef_darray_new(size_t elem_size);
 t_darray			*ef_darray_sized_new(size_t elem_size, size_t arr_size);
@@ -170,6 +170,15 @@ t_dlist				*ef_dlist_find(t_dlist *list, void *data);
 t_dlist				*ef_dlist_find_custom(t_dlist *list, void *data, f_cmp cmp);
 int					ef_dlist_position(t_dlist *list, t_dlist *node_link);
 int					ef_dlist_index(t_dlist *list, void *data);
+
+/*
+** ==================
+** >                <
+** >>> N-ARY TREE <<<
+** >                <
+** ==================
+*/
+
 
 /*
 ** ==================
