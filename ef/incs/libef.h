@@ -6,7 +6,7 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/15 16:00:55 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/04/27 10:16:12 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/04/27 14:23:17 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -206,6 +206,23 @@ typedef struct		s_ntree
 	struct s_ntree	*children;
 }					t_ntree;
 
+typedef int			t_traverse_flag;
+
+enum				e_traverse_order
+{
+	IN_ORDER,
+	PRE_ORDER,
+	POST_ORDER,
+	LEVEL_ORDER
+};
+
+enum				e_traverse_part
+{
+	LEAF,
+	NON_LEAF,
+	ALL
+};
+
 t_ntree				*ef_ntree_alloc(void);
 t_ntree				*ef_ntree_new(void *data);
 
@@ -220,6 +237,31 @@ void				ef_ntree_insert_child_after(t_ntree *parent, t_ntree *child,
 
 t_ntree				*ef_ntree_last_child(t_ntree *parent);
 
+void				ef_ntree_reverse_children(t_ntree *parent);
+
+void				ef_ntree_in_order_traverse(t_ntree *tree, f_mfy mfy,
+												t_traverse_flag part);
+void				ef_ntree_in_order_depth_traverse(t_ntree *tree, int depth,
+														f_mfy mfy,
+														t_traverse_flag part);
+void				ef_ntree_pre_order_traverse(t_ntree *tree, f_mfy mfy,
+												t_traverse_flag part);
+void				ef_ntree_pre_order_depth_traverse(t_ntree *tree, int depth,
+														f_mfy mfy,
+														t_traverse_flag part);
+void				ef_ntree_post_order_traverse(t_ntree *tree, f_mfy mfy,
+													t_traverse_flag part);
+void				ef_ntree_post_order_depth_traverse(t_ntree *tree, int depth,
+														f_mfy mfy,
+														t_traverse_flag part);
+void				ef_ntree_level_order_traverse(t_ntree *tree, f_mfy mfy,
+													t_traverse_flag part);
+void				ef_ntree_level_order_depth_traverse(t_ntree *tree, int depth,
+														f_mfy mfy,
+														t_traverse_flag part);
+void				ef_ntree_traverse(t_ntree *tree, int depth, f_mfy mfy,
+										t_traverse_flag order,
+										t_traverse_flag part);
 
 t_ntree				*ef_ntree_copy(t_ntree *tree);
 t_ntree				*ef_ntree_copy_deep(t_ntree *tree, f_cpy cpy);

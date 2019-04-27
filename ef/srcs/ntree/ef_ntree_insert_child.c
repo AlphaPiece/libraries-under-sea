@@ -6,7 +6,7 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/26 17:32:42 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/04/27 09:50:37 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/04/27 10:30:05 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,6 @@ void	ef_ntree_insert_child(t_ntree *parent, t_ntree *child, int index)
 		prev->next = child;
 		if (child->next)
 			child->next->prev = child;
+		child->parent = parent;
 	}
 }

@@ -1,30 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ef_ntree_insert_child_after.c                      :+:      :+:    :+:   */
+/*   ef_ntree_level_order_traverse.c                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/27 10:03:37 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/04/27 10:30:47 by Zexi Wang        ###   ########.fr       */
+/*   Created: 2019/04/27 14:46:34 by Zexi Wang         #+#    #+#             */
+/*   Updated: 2019/04/27 14:53:38 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libef.h"
 
-void	ef_ntree_insert_child_after(t_ntree *parent, t_ntree *child,
-									t_ntree *sibling)
+void	ef_ntree_level_order_traverse(t_ntree *tree, f_mfy mfy,
+										t_traverse_flag part)
 {
-	if (!parent || !child)
-		return ;
-	else if (!sibling)
-		ef_ntree_prepend_child(parent, child);
-	else
-	{
-		sibling->next->prev = child;
-		child->next = sibling->next;
-		child->prev = sibling;
-		sibling->next->prev = child;
-		child->parent = parent;
-	}
+
 }
