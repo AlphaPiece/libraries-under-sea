@@ -6,7 +6,7 @@
 #    By: zwang <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/15 14:23:06 by zwang             #+#    #+#              #
-#    Updated: 2019/04/26 13:38:17 by Zexi Wang        ###   ########.fr        #
+#    Updated: 2019/04/27 10:15:13 by Zexi Wang        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,6 +14,13 @@ NAME = libef.a
 CC = gcc
 CFLAGS = -Wall -Werror -Wextra
 
+DARRAY = ef_darray_new.c ef_darray_sized_new.c ef_darray_increment.c \
+		 ef_darray_decrement.c ef_darray_length.c ef_darray_elem_size.c \
+		 ef_darray_expand_capacity.c ef_darray_append_array.c \
+		 ef_darray_prepend_array.c ef_darray_insert_array.c \
+		 ef_darray_remove.c ef_darray_remove_last_elem.c \
+		 ef_darray_remove_range.c ef_darray_swap.c ef_darray_sort.c \
+		 ef_darray_reverse.c ef_darray_partition.c ef_darray_free.c
 SLIST = ef_slist_alloc.c ef_slist_new.c ef_slist_append.c ef_slist_prepend.c \
 		ef_slist_insert.c ef_slist_append_list.c ef_slist_prepend_list.c \
 		ef_slist_insert_list.c ef_slist_insert_sorted.c \

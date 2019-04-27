@@ -6,7 +6,7 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/15 16:00:55 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/04/26 13:26:17 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/04/27 10:16:12 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -206,7 +206,24 @@ typedef struct		s_ntree
 	struct s_ntree	*children;
 }					t_ntree;
 
+t_ntree				*ef_ntree_alloc(void);
 t_ntree				*ef_ntree_new(void *data);
+
+void				ef_ntree_append_child(t_ntree *parent, t_ntree *child);
+void				ef_ntree_prepend_child(t_ntree *parent, t_ntree *child);
+void				ef_ntree_insert_child(t_ntree *parent, t_ntree *child);
+void				ef_ntree_insert_child_before(t_ntree *parent,
+													t_ntree *child,
+													t_ntree *sibling);
+void				ef_ntree_insert_child_after(t_ntree *parent, t_ntree *child,
+													t_ntree *sibling);
+
+t_ntree				*ef_ntree_last_child(t_ntree *parent);
+
+
+t_ntree				*ef_ntree_copy(t_ntree *tree);
+t_ntree				*ef_ntree_copy_deep(t_ntree *tree, f_cpy cpy);
+
 
 /*
 ** ==================

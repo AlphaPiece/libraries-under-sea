@@ -1,26 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ef_ntree_new.c                                     :+:      :+:    :+:   */
+/*   ef_ntree_copy.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/26 09:14:14 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/04/26 13:41:45 by Zexi Wang        ###   ########.fr       */
+/*   Created: 2019/04/26 14:10:15 by Zexi Wang         #+#    #+#             */
+/*   Updated: 2019/04/26 14:22:56 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libef.h"
 
-t_ntree	*ef_ntree_new(void *data)
+static t_ntree	*ntree_copy(t_ntree *parent, t_ntree *tree)
 {
-	t_ntree	*node;
+	t_ntree	*new_tree;
 
-	node = ef_ntree_alloc();
-	node->data = data;
-	node->prev = NULL;
-	node->next = NULL;
-	node->parent = NULL;
-	node->children = NULL;
-	return (node);
-}
+	if (!tree)
+		return (NULL);
+	new_tree = ef_ntree_alloc();
+	new_tree->data = tree->data;
+	
+
+t_ntree		*ef_ntree_copy(t_ntree *tree)
+{
+

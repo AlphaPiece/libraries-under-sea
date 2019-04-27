@@ -1,26 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ef_ntree_new.c                                     :+:      :+:    :+:   */
+/*   ef_ntree_append_child.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/26 09:14:14 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/04/26 13:41:45 by Zexi Wang        ###   ########.fr       */
+/*   Created: 2019/04/26 14:23:06 by Zexi Wang         #+#    #+#             */
+/*   Updated: 2019/04/27 09:52:53 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libef.h"
 
-t_ntree	*ef_ntree_new(void *data)
+void	ef_ntree_append_child(t_ntree *parent, t_ntree *child)
 {
-	t_ntree	*node;
+	t_ntree	*last;
 
-	node = ef_ntree_alloc();
-	node->data = data;
-	node->prev = NULL;
-	node->next = NULL;
-	node->parent = NULL;
-	node->children = NULL;
-	return (node);
+	if (!parent || !child)
+		return ;
+	else if (!parent->children)
+	{
+		parent->children = child;
+		child->prev = NULL;
+	}
+	else
+	{
+		last = ef_ntree_last(parent);
+		last->next = child;
+		child->prev = last;
+	}
+	child->parent = parent;
+	child->next = NULL;
 }
