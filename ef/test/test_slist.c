@@ -6,7 +6,7 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/15 17:37:30 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/04/26 11:26:56 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/04/28 09:27:13 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,13 +98,13 @@ void	test(void)
 	printf("n: %d\n", n);
 */
 	print_list(list);
-	new_list = ef_slist_copy(list);
+//	new_list = ef_slist_copy(list);
 //	print_list(list);
 //	print_list(new_list);
 //	print_list(list);
 
-	new_list = ef_slist_reverse(new_list);
-	print_list(new_list);
+//	new_list = ef_slist_reverse(new_list);
+//	print_list(new_list);
 /*	
 	node = ef_slist_last_node(list);
 	print_list(node);
@@ -113,7 +113,10 @@ void	test(void)
 	print_list(node);
 */
 
-	list = ef_slist_insert_list(list, new_list, 4);
+//	list = ef_slist_insert_list(list, new_list, 4);
+//	print_list(list);
+
+	list = ef_slist_rotate(list, 0);
 	print_list(list);
 
 	ef_slist_free_list(list);

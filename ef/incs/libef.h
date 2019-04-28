@@ -6,7 +6,7 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/15 16:00:55 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/04/27 23:49:48 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/04/28 09:28:07 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,6 +119,7 @@ t_slist				*ef_slist_find_custom(t_slist *list, void *data, f_cmp cmp);
 
 t_slist				*ef_slist_sort(t_slist *list, f_cmp cmp);
 t_slist				*ef_slist_reverse(t_slist *list);
+t_slist				*ef_slist_rotate(t_slist *list, int n);
 
 int					ef_slist_length(t_slist *list);
 t_slist				*ef_slist_copy(t_slist *list);
@@ -187,6 +188,7 @@ t_dlist				*ef_dlist_find_custom(t_dlist *list, void *data, f_cmp cmp);
 
 t_dlist				*ef_dlist_sort(t_dlist *list, f_cmp cmp);
 t_dlist				*ef_dlist_reverse(t_dlist *list);
+t_dlist				*ef_dlist_rotate(t_dlist *list, int n);
 
 int					ef_dlist_length(t_dlist *list);
 t_dlist				*ef_dlist_copy(t_dlist *list);
