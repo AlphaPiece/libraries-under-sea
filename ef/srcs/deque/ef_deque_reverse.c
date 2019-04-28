@@ -1,22 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ef_deque_push_head.c                               :+:      :+:    :+:   */
+/*   ef_deque_reverse.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/27 16:09:48 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/04/27 20:37:07 by Zexi Wang        ###   ########.fr       */
+/*   Created: 2019/04/27 21:51:29 by Zexi Wang         #+#    #+#             */
+/*   Updated: 2019/04/27 21:54:41 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libef.h"
 
-void	ef_deque_push_head(t_deque *queue, void *data)
+void	ef_deque_reverse(t_deque *queue)
 {
-	if (!queue)
-		return ;
-	queue->head = ef_dlist_prepend(queue->head, data);
-	if (queue->length++ == 0)
+	t_dlist	*list;
+
+	if (queue && queue->length > 1)
+	{
+		list = ef_dlist_reverse(queue->head);
 		queue->tail = queue->head;
+		queue->head = list;
+	}
 }

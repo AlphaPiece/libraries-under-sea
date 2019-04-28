@@ -1,22 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ef_deque_push_head.c                               :+:      :+:    :+:   */
+/*   ef_deque_pop_head.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/27 16:09:48 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/04/27 20:37:07 by Zexi Wang        ###   ########.fr       */
+/*   Created: 2019/04/27 20:32:11 by Zexi Wang         #+#    #+#             */
+/*   Updated: 2019/04/27 20:45:35 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libef.h"
 
-void	ef_deque_push_head(t_deque *queue, void *data)
+void	*ef_deque_pop_head(t_deque *queue)
 {
-	if (!queue)
-		return ;
-	queue->head = ef_dlist_prepend(queue->head, data);
-	if (queue->length++ == 0)
-		queue->tail = queue->head;
+	t_dlist	*head;
+	void	*data;
+
+	if (!queue || queue->length == 0)
+		return (NULL);
+	head = queue->head;
+	queue->head = ef_dlist_remove_node(queue->head, head);
+	queue->length--;
+	data = head->data;
+	ef_dlist_free_node(head);
+	return (data);
 }

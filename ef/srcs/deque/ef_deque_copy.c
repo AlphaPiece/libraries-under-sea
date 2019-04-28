@@ -1,22 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ef_deque_push_head.c                               :+:      :+:    :+:   */
+/*   ef_deque_copy.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/27 16:09:48 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/04/27 20:37:07 by Zexi Wang        ###   ########.fr       */
+/*   Created: 2019/04/27 23:38:16 by Zexi Wang         #+#    #+#             */
+/*   Updated: 2019/04/27 23:41:13 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libef.h"
 
-void	ef_deque_push_head(t_deque *queue, void *data)
+t_deque	*ef_deque_copy(t_deque *queue)
 {
+	t_deque	*new_queue;
+
 	if (!queue)
-		return ;
-	queue->head = ef_dlist_prepend(queue->head, data);
-	if (queue->length++ == 0)
-		queue->tail = queue->head;
+		return (NULL);
+	new_queue = ef_deque_alloc();
+	new_queue->head = ef_dlist_copy(queue->head);
+	new_queue->tail = ef_dlist_last_node(new_queue->head);
+	new_queue->length = queue->length;
+	return (new_queue);
 }
