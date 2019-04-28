@@ -6,7 +6,7 @@
 #    By: zwang <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/15 14:23:06 by zwang             #+#    #+#              #
-#    Updated: 2019/04/27 10:15:13 by Zexi Wang        ###   ########.fr        #
+#    Updated: 2019/04/27 20:15:11 by Zexi Wang        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,9 @@ SLIST = ef_slist_alloc.c ef_slist_new.c ef_slist_append.c ef_slist_prepend.c \
 		ef_slist_copy.c ef_slist_copy_deep.c ef_slist_reverse.c \
 		ef_slist_for_each.c ef_slist_last_node.c ef_slist_nth_node.c \
 		ef_slist_nth_data.c ef_slist_find.c ef_slist_find_custom.c \
-		ef_slist_node_index.c ef_slist_data_index.c
+		ef_slist_node_index.c ef_slist_data_index.c \
+		ef_slist_insert_before.c ef_slist_insert_after.c \
+		ef_slist_insert_list_before.c ef_slist_insert_list_after.c
 DLIST = ef_dlist_alloc.c ef_dlist_new.c ef_dlist_append.c ef_dlist_prepend.c \
 		ef_dlist_insert.c ef_dlist_append_list.c ef_dlist_prepend_list.c \
 		ef_dlist_insert_list.c ef_dlist_insert_sorted.c \
@@ -43,16 +45,21 @@ DLIST = ef_dlist_alloc.c ef_dlist_new.c ef_dlist_append.c ef_dlist_prepend.c \
 		ef_dlist_for_each.c ef_dlist_last_node.c ef_dlist_first_node.c \
 		ef_dlist_nth_node.c ef_dlist_nth_data.c ef_dlist_find.c \
 		ef_dlist_find_custom.c ef_dlist_node_index.c ef_dlist_data_index.c \
+		ef_dlist_insert_before.c ef_dlist_insert_after.c \
+		ef_dlist_insert_list_before.c ef_dlist_insert_list_after.c
 
 OBJ = *.o
 
+DARRAY_DIR = srcs/darray/
 SLIST_DIR = srcs/slist/
 DLIST_DIR = srcs/dlist/
 
 OBJS_DIR = objs/
 
 INCS = -I incs
-SRCS = $(addprefix $(SLIST_DIR), $(SLIST)) $(addprefix $(DLIST_DIR), $(DLIST))
+SRCS = $(addprefix $(DARRAY_DIR), $(DARRAY)) \
+	   $(addprefix $(SLIST_DIR), $(SLIST)) \
+	   $(addprefix $(DLIST_DIR), $(DLIST))
 LIBS = libs/libft/libft.a
 OBJS = $(addprefix $(OBJS_DIR), $(OBJ))
 

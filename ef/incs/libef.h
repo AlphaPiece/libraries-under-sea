@@ -6,7 +6,7 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/15 16:00:55 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/04/27 14:23:17 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/04/27 20:09:22 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ void				ef_darray_free(t_darray *darr);
 /*
 ** ==========================
 ** >                        <
-** >>> SINGLY-LINKED LIST <<<
+** >>> SINGLY LINKED LIST <<<
 ** >                        <
 ** ==========================
 */
@@ -98,6 +98,17 @@ t_slist				*ef_slist_prepend_list(t_slist *list1, t_slist *list2);
 t_slist				*ef_slist_insert_list(t_slist *list1, t_slist *list2,
 											int index);
 
+t_slist				*ef_slist_insert_before(t_slist *list, void *data,
+											t_slist *node);
+t_slist				*ef_slist_insert_after(t_slist *list, void *data,
+											t_slist *node);
+t_slist				*ef_slist_insert_list_before(t_slist *list1, t_slist *list2,
+              			                          t_slist *node);
+t_slist				*ef_slist_insert_list_after(t_slist *list1, t_slist *list2,
+                    			                t_slist *node);
+t_slist				*ef_slist_insert_sorted(t_slist *list, void *data,
+											f_cmp cmp);
+
 int					ef_slist_node_index(t_slist *list, t_slist *node);
 int					ef_slist_data_index(t_slist *list, void *data);
 t_slist				*ef_slist_last_node(t_slist *list);
@@ -108,8 +119,6 @@ t_slist				*ef_slist_find_custom(t_slist *list, void *data, f_cmp cmp);
 
 t_slist				*ef_slist_sort(t_slist *list, f_cmp cmp);
 t_slist				*ef_slist_reverse(t_slist *list);
-t_slist				*ef_slist_insert_sorted(t_slist *list, void *data,
-											f_cmp cmp);
 
 int					ef_slist_length(t_slist *list);
 t_slist				*ef_slist_copy(t_slist *list);
@@ -133,7 +142,7 @@ void				ef_slist_free_all(t_slist *list, f_del del);
 /*
 ** ==========================
 ** >                        <
-** >>> DOUBLY-LINKED LIST <<<
+** >>> DOUBLY LINKED LIST <<<
 ** >                        <
 ** ==========================
 */
@@ -156,6 +165,17 @@ t_dlist				*ef_dlist_prepend_list(t_dlist *list1, t_dlist *list2);
 t_dlist				*ef_dlist_insert_list(t_dlist *list1, t_dlist *list2,
 											int index);
 
+t_dlist				*ef_dlist_insert_before(t_dlist *list, void *data,
+											t_dlist *node);
+t_dlist				*ef_dlist_insert_after(t_dlist *list, void *data,
+											t_dlist *node);
+t_dlist				*ef_dlist_insert_list_before(t_dlist *list1, t_dlist *list2,
+			                                        t_dlist *node);
+t_dlist				*ef_dlist_insert_list_after(t_dlist *list1, t_dlist *list2,
+			                                    t_dlist *node);
+t_dlist				*ef_dlist_insert_sorted(t_dlist *list, void *data,
+											f_cmp cmp);
+
 int					ef_dlist_node_index(t_dlist *list, t_dlist *node);
 int					ef_dlist_data_index(t_dlist *list, void *data);
 t_dlist				*ef_dlist_first_node(t_dlist *list);
@@ -167,8 +187,6 @@ t_dlist				*ef_dlist_find_custom(t_dlist *list, void *data, f_cmp cmp);
 
 t_dlist				*ef_dlist_sort(t_dlist *list, f_cmp cmp);
 t_dlist				*ef_dlist_reverse(t_dlist *list);
-t_dlist				*ef_dlist_insert_sorted(t_dlist *list, void *data,
-											f_cmp cmp);
 
 int					ef_dlist_length(t_dlist *list);
 t_dlist				*ef_dlist_copy(t_dlist *list);
@@ -188,6 +206,29 @@ t_dlist				*ef_dlist_delete_node(t_dlist *list, t_dlist *node);
 void				ef_dlist_free_node(t_dlist *node);
 void				ef_dlist_free_list(t_dlist *list);
 void				ef_dlist_free_all(t_dlist *list, f_del del);
+
+/*
+** ==========================
+** >                        <
+** >>> DOUBLE-ENDED QUEUE <<<
+** >                        <
+** ==========================
+*/
+
+typedef struct		s_deque
+{
+	t_dlist			*head;
+	t_dlist			*tail;
+	int				length;
+}					t_deque;
+
+t_deque				*ef_deque_alloc(void);
+t_deque				*ef_deque_new(t_dlist *list);
+
+t_bool				ef_deque_is_empty(t_deque *queue);
+void				ef_deque_push_head(t_deque *queue, void *data);
+void				ef_deque_push_tail(t_deque *queue, void *data);
+void				ef_deque_push_nth(t_deque *queue, void *data);
 
 /*
 ** ==================
