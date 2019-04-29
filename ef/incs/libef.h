@@ -6,7 +6,7 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/15 16:00:55 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/04/28 11:22:12 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/04/29 14:24:41 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -292,7 +292,8 @@ t_ntree				*ef_ntree_new(void *data);
 
 void				ef_ntree_append_child(t_ntree *parent, t_ntree *child);
 void				ef_ntree_prepend_child(t_ntree *parent, t_ntree *child);
-void				ef_ntree_insert_child(t_ntree *parent, t_ntree *child);
+void				ef_ntree_insert_child(t_ntree *parent, t_ntree *child,
+											int index);
 void				ef_ntree_insert_child_before(t_ntree *parent,
 													t_ntree *child,
 													t_ntree *sibling);
@@ -320,7 +321,8 @@ void				ef_ntree_post_order_depth_traverse(t_ntree *tree, int depth,
 														t_traverse_flag part);
 void				ef_ntree_level_order_traverse(t_ntree *tree, f_mfy mfy,
 													t_traverse_flag part);
-void				ef_ntree_level_order_depth_traverse(t_ntree *tree, int depth,
+void				ef_ntree_level_order_depth_traverse(t_ntree *tree,
+														int depth,
 														f_mfy mfy,
 														t_traverse_flag part);
 void				ef_ntree_traverse(t_ntree *tree, int depth, f_mfy mfy,

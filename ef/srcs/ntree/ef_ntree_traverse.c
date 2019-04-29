@@ -6,7 +6,7 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/27 12:46:45 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/04/27 14:04:46 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/04/29 14:22:18 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ef_ntree_traverse(t_ntree *tree, int depth, f_mfy mfy,
 							t_traverse_flag order, t_traverse_flag part)
 {
 	if (!tree || !(IN_ORDER <= order && order <= LEVEL_ORDER) || 
-			!(LEAF <= part <= ALL) || !mfy)
+			!(LEAF <= part && part <= ALL) || !mfy)
 		return ;
 	switch (order)
 	{
