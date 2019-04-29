@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ef_ntree_pre_order_depth_traverse.c                :+:      :+:    :+:   */
+/*   ef_ntree_pre_order_traverse.c                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/27 14:20:18 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/04/27 14:37:48 by Zexi Wang        ###   ########.fr       */
+/*   Created: 2019/04/27 13:51:23 by Zexi Wang         #+#    #+#             */
+/*   Updated: 2019/04/27 14:20:04 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libef.h"
 
-void	ef_ntree_pre_order_depth_traverse(t_ntree *tree, int depth, f_mfy mfy,
-											t_traverse_flag part)
+void	ef_ntree_pre_order_traverse(t_ntree *tree, f_mfy mfy,
+									t_traverse_flag part)
 {
 	t_ntree	*subtree;
 
-	if (!tree || depth == 0)
+	if (!tree)
 		return ;
 	switch (part)
 	{
@@ -33,6 +33,6 @@ void	ef_ntree_pre_order_depth_traverse(t_ntree *tree, int depth, f_mfy mfy,
 			tree->data = mfy(tree->data);
 			break ;
 	}
-	for (--depth, subtree = tree->children; subtree; subtree = subtree->next)
-		ef_ntree_pre_order_depth_traverse(subtree, depth, mfy, part);
+	for (subtree = tree->children; subtree; subtree = subtree->next)
+		ef_ntree_pre_order_traverse(subtree, mfy, part);
 }

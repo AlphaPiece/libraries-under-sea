@@ -6,7 +6,7 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/22 22:53:22 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/04/24 22:38:39 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/04/29 19:47:26 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,9 @@ void	ef_slist_free_all(t_slist *list, f_del del)
 	while (list)
 	{
 		next = list->next;
-		del(list->data);
-		ef_slist_free_node(list);
+		if (del)
+			del(list->data);
+		ef_slist_free_one(list);
 		list = next;
 	}
 }

@@ -1,23 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ef_deque_free_queue.c                              :+:      :+:    :+:   */
+/*   ef_dlist_free_one.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/27 16:01:08 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/04/27 16:05:08 by Zexi Wang        ###   ########.fr       */
+/*   Created: 2019/04/24 14:31:16 by Zexi Wang         #+#    #+#             */
+/*   Updated: 2019/04/29 19:23:19 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libef.h"
 
-void	ef_deque_free_queue(t_deque *queue)
+void	ef_dlist_free_one(t_dlist *node)
 {
-	if (queue)
-	{
-		if (queue->head)
-			ef_dlist_free_list(queue->head);
-		free(queue);
-	}
-}	
+	if (node)
+		free(node);
+}

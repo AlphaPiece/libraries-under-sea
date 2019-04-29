@@ -6,7 +6,7 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/17 22:02:09 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/04/26 10:14:17 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/04/29 19:57:46 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,6 @@ t_slist	*ef_slist_remove_node(t_slist *list, t_slist *node)
 		node->next = NULL;
 	}
 	list = origin->next;
-	ef_slist_free_node(origin);
+	ef_slist_free_one(origin);
 	return (list);
 }

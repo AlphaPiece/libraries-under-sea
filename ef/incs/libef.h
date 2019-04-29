@@ -6,7 +6,7 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/15 16:00:55 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/04/29 14:24:41 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/04/29 19:54:02 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,30 +114,23 @@ int					ef_slist_data_index(t_slist *list, void *data);
 t_slist				*ef_slist_last_node(t_slist *list);
 t_slist				*ef_slist_nth_node(t_slist *list, int n);
 void				*ef_slist_nth_data(t_slist *list, int n);
-t_slist				*ef_slist_find(t_slist *list, void *data);
-t_slist				*ef_slist_find_custom(t_slist *list, void *data, f_cmp cmp);
+t_slist				*ef_slist_find(t_slist *list, void *data, f_cmp cmp);
 
 t_slist				*ef_slist_sort(t_slist *list, f_cmp cmp);
 t_slist				*ef_slist_reverse(t_slist *list);
 t_slist				*ef_slist_rotate(t_slist *list, int n);
 
 int					ef_slist_length(t_slist *list);
-t_slist				*ef_slist_copy(t_slist *list);
-t_slist				*ef_slist_copy_deep(t_slist *list, f_cpy cpy);
+t_slist				*ef_slist_copy(t_slist *list, f_cpy cpy);
 void				ef_slist_for_each(t_slist *list, f_mfy mfy);
 
-t_slist				*ef_slist_remove(t_slist *list, void *data);
-t_slist				*ef_slist_remove_custom(t_slist *list, void *data,
-											f_cmp cmp);
-t_slist				*ef_slist_remove_all(t_slist *list, void *data);
-t_slist				*ef_slist_remove_all_custom(t_slist *list, void *data,
-												f_cmp cmp);
+t_slist				*ef_slist_remove(t_slist *list, void *data, f_cmp cmp);
+t_slist				*ef_slist_remove_all(t_slist *list, void *data, f_cmp cmp);
 
 t_slist				*ef_slist_remove_node(t_slist *list, t_slist *node);
 t_slist				*ef_slist_delete_node(t_slist *list, t_slist *node);
 
-void				ef_slist_free_node(t_slist *node);
-void				ef_slist_free_list(t_slist *list);
+void				ef_slist_free_one(t_slist *node);
 void				ef_slist_free_all(t_slist *list, f_del del);
 
 /*
@@ -183,30 +176,23 @@ t_dlist				*ef_dlist_first_node(t_dlist *list);
 t_dlist				*ef_dlist_last_node(t_dlist *list);
 t_dlist				*ef_dlist_nth_node(t_dlist *list, int n);
 void				*ef_dlist_nth_data(t_dlist *list, int n);
-t_dlist				*ef_dlist_find(t_dlist *list, void *data);
-t_dlist				*ef_dlist_find_custom(t_dlist *list, void *data, f_cmp cmp);
+t_dlist				*ef_dlist_find(t_dlist *list, void *data, f_cmp cmp);
 
 t_dlist				*ef_dlist_sort(t_dlist *list, f_cmp cmp);
 t_dlist				*ef_dlist_reverse(t_dlist *list);
 t_dlist				*ef_dlist_rotate(t_dlist *list, int n);
 
 int					ef_dlist_length(t_dlist *list);
-t_dlist				*ef_dlist_copy(t_dlist *list);
-t_dlist				*ef_dlist_copy_deep(t_dlist *list, f_cpy cpy);
+t_dlist				*ef_dlist_copy(t_dlist *list, f_cpy cpy);
 void				ef_dlist_for_each(t_dlist *list, f_mfy mfy);
 
-t_dlist				*ef_dlist_remove(t_dlist *list, void *data);
-t_dlist				*ef_dlist_remove_custom(t_dlist *list, void *data,
-											f_cmp cmp);
-t_dlist				*ef_dlist_remove_all(t_dlist *list, void *data);
-t_dlist				*ef_dlist_remove_all_custom(t_dlist *list, void *data,
-												f_cmp cmp);
+t_dlist				*ef_dlist_remove(t_dlist *list, void *data, f_cmp cmp);
+t_dlist				*ef_dlist_remove_all(t_dlist *list, void *data, f_cmp cmp);
 
 t_dlist				*ef_dlist_remove_node(t_dlist *list, t_dlist *node);
 t_dlist				*ef_dlist_delete_node(t_dlist *list, t_dlist *node);
 
-void				ef_dlist_free_node(t_dlist *node);
-void				ef_dlist_free_list(t_dlist *list);
+void				ef_dlist_free_one(t_dlist *node);
 void				ef_dlist_free_all(t_dlist *list, f_del del);
 
 /*
@@ -245,13 +231,10 @@ void				*ef_deque_peek_nth(t_deque *queue, int n);
 void				ef_deque_sort(t_deque *queue, f_cmp cmp);
 void				ef_deque_reverse(t_deque *queue);
 void				ef_deque_rotate(t_deque *queue, int n);
-t_deque				*ef_deque_copy(t_deque *queue);
+t_deque				*ef_deque_copy(t_deque *queue, f_cpy cpy);
 
-void				ef_deque_clear_queue(t_deque *queue);
-void				ef_deque_clear_all(t_deque *queue, f_del del);
-
-void				ef_deque_free_queue(t_deque *queue);
-void				ef_deque_free_all(t_deque *queue, f_del del);
+void				ef_deque_clear(t_deque *queue, f_del del);
+void				ef_deque_free(t_deque *queue, f_del del);
 
 /*
 ** ==================
@@ -304,27 +287,18 @@ t_ntree				*ef_ntree_last_child(t_ntree *parent);
 
 void				ef_ntree_reverse_children(t_ntree *parent);
 
-void				ef_ntree_in_order_traverse(t_ntree *tree, f_mfy mfy,
+void				ef_ntree_in_order_traverse(t_ntree *tree, int depth,
+												f_mfy mfy,
 												t_traverse_flag part);
-void				ef_ntree_in_order_depth_traverse(t_ntree *tree, int depth,
-														f_mfy mfy,
-														t_traverse_flag part);
-void				ef_ntree_pre_order_traverse(t_ntree *tree, f_mfy mfy,
+void				ef_ntree_pre_order_traverse(t_ntree *tree, int depth,
+												f_mfy mfy,
 												t_traverse_flag part);
-void				ef_ntree_pre_order_depth_traverse(t_ntree *tree, int depth,
-														f_mfy mfy,
-														t_traverse_flag part);
-void				ef_ntree_post_order_traverse(t_ntree *tree, f_mfy mfy,
+void				ef_ntree_post_order_traverse(t_ntree *tree, int depth,
+													f_mfy mfy,
 													t_traverse_flag part);
-void				ef_ntree_post_order_depth_traverse(t_ntree *tree, int depth,
-														f_mfy mfy,
-														t_traverse_flag part);
-void				ef_ntree_level_order_traverse(t_ntree *tree, f_mfy mfy,
+void				ef_ntree_level_order_traverse(t_ntree *tree, int depth,
+													f_mfy mfy,
 													t_traverse_flag part);
-void				ef_ntree_level_order_depth_traverse(t_ntree *tree,
-														int depth,
-														f_mfy mfy,
-														t_traverse_flag part);
 void				ef_ntree_traverse(t_ntree *tree, int depth, f_mfy mfy,
 										t_traverse_flag order,
 										t_traverse_flag part);
