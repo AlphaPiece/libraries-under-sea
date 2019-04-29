@@ -6,7 +6,7 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/27 20:38:15 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/04/27 20:43:15 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/04/28 11:33:55 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	*ef_deque_pop_tail(t_deque *queue)
 {
-	t_dlist	*tail
+	t_dlist	*tail;
 	void	*data;
 
 	if (!queue || queue->length == 0)

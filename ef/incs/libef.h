@@ -6,7 +6,7 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/15 16:00:55 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/04/28 09:28:07 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/04/28 11:22:12 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -232,15 +232,15 @@ int					ef_deque_length(t_deque *queue);
 
 void				ef_deque_push_head(t_deque *queue, void *data);
 void				ef_deque_push_tail(t_deque *queue, void *data);
-void				ef_deque_push_nth(t_deque *queue, void *data);
+void				ef_deque_push_nth(t_deque *queue, void *data, int n);
 
 void				*ef_deque_pop_head(t_deque *queue);
 void				*ef_deque_pop_tail(t_deque *queue);
-void				*ef_deque_pop_nth(t_deque *queue);
+void				*ef_deque_pop_nth(t_deque *queue, int n);
 
 void				*ef_deque_peek_head(t_deque *queue);
 void				*ef_deque_peek_tail(t_deque *queue);
-void				*ef_deque_peek_nth(t_deque *queue);
+void				*ef_deque_peek_nth(t_deque *queue, int n);
 
 void				ef_deque_sort(t_deque *queue, f_cmp cmp);
 void				ef_deque_reverse(t_deque *queue);
