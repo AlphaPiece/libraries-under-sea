@@ -6,7 +6,7 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/15 16:00:55 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/04/29 19:54:02 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/04/29 20:08:13 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,7 +122,7 @@ t_slist				*ef_slist_rotate(t_slist *list, int n);
 
 int					ef_slist_length(t_slist *list);
 t_slist				*ef_slist_copy(t_slist *list, f_cpy cpy);
-void				ef_slist_for_each(t_slist *list, f_mfy mfy);
+void				ef_slist_traverse(t_slist *list, f_mfy mfy);
 
 t_slist				*ef_slist_remove(t_slist *list, void *data, f_cmp cmp);
 t_slist				*ef_slist_remove_all(t_slist *list, void *data, f_cmp cmp);
@@ -184,7 +184,7 @@ t_dlist				*ef_dlist_rotate(t_dlist *list, int n);
 
 int					ef_dlist_length(t_dlist *list);
 t_dlist				*ef_dlist_copy(t_dlist *list, f_cpy cpy);
-void				ef_dlist_for_each(t_dlist *list, f_mfy mfy);
+void				ef_dlist_traverse(t_dlist *list, f_mfy mfy);
 
 t_dlist				*ef_dlist_remove(t_dlist *list, void *data, f_cmp cmp);
 t_dlist				*ef_dlist_remove_all(t_dlist *list, void *data, f_cmp cmp);
