@@ -6,7 +6,7 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/15 16:00:55 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/04/29 22:32:27 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/04/30 07:24:00 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,7 +124,7 @@ t_slist				*ef_slist_rotate(t_slist *list, int n);
 
 int					ef_slist_length(t_slist *list);
 t_slist				*ef_slist_copy(t_slist *list, f_cpy cpy);
-void				ef_slist_traverse(t_slist *list, f_trv trv);
+void				ef_slist_traverse(t_slist *list, f_trv trv, int length);
 
 t_slist				*ef_slist_remove(t_slist *list, void *data, f_cmp cmp);
 t_slist				*ef_slist_remove_all(t_slist *list, void *data, f_cmp cmp);
@@ -149,6 +149,12 @@ typedef struct		s_dlist
 	struct s_dlist	*prev;
 	struct s_dlist	*next;
 }					t_dlist;
+
+enum				e_dlist_order
+{
+	FORWARD,
+	BACKWARD
+};
 
 t_dlist				*ef_dlist_alloc(void);
 t_dlist				*ef_dlist_new(void *data);
@@ -186,7 +192,8 @@ t_dlist				*ef_dlist_rotate(t_dlist *list, int n);
 
 int					ef_dlist_length(t_dlist *list);
 t_dlist				*ef_dlist_copy(t_dlist *list, f_cpy cpy);
-void				ef_dlist_traverse(t_dlist *list, f_trv trv);
+void				ef_dlist_traverse(t_dlist *list, f_trv trv, int length,
+										t_flag order);
 
 t_dlist				*ef_dlist_remove(t_dlist *list, void *data, f_cmp cmp);
 t_dlist				*ef_dlist_remove_all(t_dlist *list, void *data, f_cmp cmp);
@@ -196,6 +203,16 @@ t_dlist				*ef_dlist_delete_node(t_dlist *list, t_dlist *node);
 
 void				ef_dlist_free_one(t_dlist *node);
 void				ef_dlist_free_all(t_dlist *list, f_del del);
+
+/*
+** ==========================
+** >                        <
+** >>> DOUBLY LINKED LIST <<<
+** >                        <
+** ==========================
+*/
+
+
 
 /*
 ** ==========================
@@ -255,7 +272,7 @@ typedef struct		s_ntree
 	struct s_ntree	*children;
 }					t_ntree;
 
-enum				e_traverse_order
+enum				e_ntree_order
 {
 	IN_ORDER,
 	PRE_ORDER,
@@ -263,7 +280,7 @@ enum				e_traverse_order
 	LEVEL_ORDER
 };
 
-enum				e_traverse_part
+enum				e_ntree_part
 {
 	LEAF,
 	NON_LEAF,
@@ -286,7 +303,7 @@ void				ef_ntree_insert_child_after(t_ntree *parent, t_ntree *child,
 t_ntree				*ef_ntree_root(t_ntree *tree);
 t_ntree				*ef_ntree_first_child(t_ntree *parent);
 t_ntree				*ef_ntree_last_child(t_ntree *parent);
-t_ntree				*ef_ntree_nth_child(t_ntree *parent);
+t_ntree				*ef_ntree_nth_child(t_ntree *parent, int n);
 t_ntree				*ef_ntree_first_sibling(t_ntree *tree);
 t_ntree				*ef_ntree_last_sibling(t_ntree *tree);
 t_ntree				*ef_ntree_prev_sibling(t_ntree *tree);
@@ -294,14 +311,29 @@ t_ntree				*ef_ntree_next_sibling(t_ntree *tree);
 
 void				ef_ntree_reverse_children(t_ntree *parent);
 
-void				ef_ntree_traverse(t_ntree *tree, int depth, f_trv trv,
+void				ef_ntree_traverse(t_ntree *tree, f_trv trv, int depth,
 										t_flag order, t_flag part);
-t_ntree				*ef_ntree_find(t_ntree *tree, int depth, f_cmp cmp,
-									t_flag order, t_flag part);
+t_ntree				*ef_ntree_find(t_ntree *tree, void *data, f_cmp cmp,
+									int depth, t_flag order, t_flag part);
 
 t_ntree				*ef_ntree_copy(t_ntree *tree, f_cpy cpy);
 
+/*
+** =========================================
+** >                                       <
+** >>> SELF-BALANCING BINARY SEARCH TREE <<<
+** >                                       <
+** =========================================
+*/
 
+typedef struct		s_rbtree
+{
+	void			*data;
+	struct s_rbtree	*parent;
+	struct s_rbtree	*left;
+	struct s_rbtree	*right;
+	char			color;
+}					t_rbtree;
 
 /*
 ** ==================

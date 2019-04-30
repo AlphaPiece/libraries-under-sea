@@ -6,7 +6,7 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 14:08:22 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/04/29 18:26:08 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/04/30 06:52:19 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,11 +49,21 @@ void	*print(void *data)
 	return (data);
 }
 
+int		cmp_int(void *n1, void *n2)
+{
+	if (*(int *)n1 > *(int *)n2)
+		return (1);
+	else if (*(int *)n1 < *(int *)n2)
+		return (-1);
+	else
+		return (0);
+}
+
 int		main(void)
 {
 	t_ntree	*tree;
 	t_ntree	*node;
-	int		arr[] = {0,1,2,3,4,5,6,7};
+	int		arr[] = {0,1,2,3,4,5,6,7,8};
 
 	tree = ef_ntree_new(&arr[0]);
 	assert(tree->data == &arr[0]);
@@ -76,13 +86,11 @@ int		main(void)
 /*	ef_ntree_reverse_children(tree);
 	print_children(tree);
 */
-/*	ef_ntree_pre_order_traverse(tree, 2, print, NON_LEAF);
-//	ef_ntree_post_order_traverse(tree, 2, print, ALL);
-//	ef_ntree_in_order_traverse(tree, 2, print, ALL);
-//	ef_ntree_level_order_traverse(tree, 1, print, ALL);
-	ef_ntree_traverse(tree, -1, print, PRE_ORDER, ALL);
-	ft_printf("\n");
-*/
-	
+//	ef_ntree_traverse(tree, print, -1, LEVEL_ORDER, ALL);
+//	ft_printf("\n");
+
+	node = ef_ntree_find(tree, &arr[3], NULL, -1, PRE_ORDER, LEAF);
+	ft_printf("\nnode: %d\n", (node) ? *(int *)node->data : -1);
+
 	return (0);
 }

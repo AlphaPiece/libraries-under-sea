@@ -6,7 +6,7 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/24 11:25:10 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/04/29 19:49:39 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/04/30 07:15:52 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ t_dlist			*ef_dlist_sort(t_dlist *list, int (*cmp)(void *, void *))
 	t_dlist	*slow;
 	t_dlist	*bound;
 
-	if (!list || !list->next)
+	if (!list || !list->next || !cmp)
 		return (list);
 	bound = fast = slow = list;
 	while (fast && fast->next)

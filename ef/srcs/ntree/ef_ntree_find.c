@@ -6,14 +6,14 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/27 12:46:45 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/04/29 22:08:36 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/04/30 07:07:56 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libef.h"
 
-t_ntree	*ef_ntree_in_order_find(t_ntree *tree, void *data, int depth, f_cmp cmp,
-								t_find_flag part)
+t_ntree	*ef_ntree_in_order_find(t_ntree *tree, void *data, f_cmp cmp,
+								int depth, t_flag part)
 {
 	t_ntree	*subtree;
 	t_ntree	*node;
@@ -23,99 +23,107 @@ t_ntree	*ef_ntree_in_order_find(t_ntree *tree, void *data, int depth, f_cmp cmp,
 	--depth;
 	if (tree->children)
 	{
-		node = ef_ntree_in_order_find(tree->children, data, depth, cmp, part);
+		node = ef_ntree_in_order_find(tree->children, data, cmp, depth, part);
 		if (node)
 			return (node);
 	}
 	switch (part)
 	{
 		case LEAF:
-			if (!tree->children && cmp(tree->data, data) == 0)
+			if (!tree->children && (tree->data == data ||
+									(cmp && cmp(tree->data, data) == 0)))
 				return (tree);
 			break ;
 		case NON_LEAF:
-			if (tree->children && cmp(tree->data, data) == 0)
+			if (tree->children && (tree->data == data ||
+									(cmp && cmp(tree->data, data) == 0)))
 				return (tree);
 			break ;
 		case ALL:
-			if (cmp(tree->data, data) == 0)
+			if (tree->data == data || (cmp && cmp(tree->data, data) == 0))
 				return (tree);
 			break ;
 	}
 	if (tree->children)
 		for (subtree = tree->children->next; subtree; subtree = subtree->next)
 		{
-			node = ef_ntree_in_order_find(subtree, data, depth, cmp, part);
+			node = ef_ntree_in_order_find(subtree, data, cmp, depth, part);
 			if (node)
 				return (node);
 		}
 	return (NULL);
 }
 
-void	ef_ntree_pre_order_find(t_ntree *tree, void *data, int depth, f_cmp cmp,
-								t_find_flag part)
+t_ntree	*ef_ntree_pre_order_find(t_ntree *tree, void *data, f_cmp cmp,
+									int depth, t_flag part)
 {
 	t_ntree	*subtree;
+	t_ntree	*node;
 
 	if (!tree || depth == 0)
 		return (NULL);
 	switch (part)
 	{
 		case LEAF:
-			if (!tree->children && cmp(tree->data, data) == 0)
+			if (!tree->children && (tree->data == data ||
+									(cmp && cmp(tree->data, data) == 0)))
 				return (tree);
 			break ;
 		case NON_LEAF:
-			if (tree->children && cmp(tree->data, data) == 0)
+			if (tree->children && (tree->data == data ||
+									(cmp && cmp(tree->data, data) == 0)))
 				return (tree);
 			break ;
 		case ALL:
-			if (cmp(tree->data, data) == 0)
+			if (tree->data == data || (cmp && cmp(tree->data, data) == 0))
 				return (tree);
 			break ;
 	}
 	for (--depth, subtree = tree->children; subtree; subtree = subtree->next)
 	{
-		node = ef_ntree_pre_order_find(subtree, data, depth, cmp, part);
+		node = ef_ntree_pre_order_find(subtree, data, cmp, depth, part);
 		if (node)
 			return (node);
 	}
 	return (NULL);
 }
 
-void	ef_ntree_post_order_find(t_ntree *tree, void *data, int depth,
-									f_cmp cmp, t_find_flag part)
+t_ntree	*ef_ntree_post_order_find(t_ntree *tree, void *data, f_cmp cmp,
+									int depth, t_flag part)
 {
 	t_ntree	*subtree;
+	t_ntree	*node;
 
 	if (!tree || depth == 0)
-		return ;
+		return (NULL);
 	for (--depth, subtree = tree->children; subtree; subtree = subtree->next)
 	{
-		node = ef_ntree_post_order_find(subtree, depth, cmp, part);
+		node = ef_ntree_post_order_find(subtree, data, cmp, depth, part);
 		if (node)
 			return (node);
 	}
 	switch (part)
 	{
 		case LEAF:
-			if (!tree->children && cmp(tree->data, data) == 0)
+			if (!tree->children && (tree->data == data ||
+									(cmp && cmp(tree->data, data) == 0)))
 				return (tree);
 			break ;
 		case NON_LEAF:
-			if (tree->children && cmp(tree->data, data))
+			if (tree->children && (tree->data == data ||
+									(cmp && cmp(tree->data, data) == 0)))
 				return (tree);
 			break ;
 		case ALL:
-			if (cmp(tree->data, data))
+			if (tree->data == data || (cmp && cmp(tree->data, data) == 0))
 				return (tree);
 			break ;
 	}
 	return (NULL);
 }
 
-void	ef_ntree_level_order_find(t_ntree *tree, void *data, int depth,
-									f_cmp cmp, t_find_flag part)
+t_ntree	*ef_ntree_level_order_find(t_ntree *tree, void *data, f_cmp cmp,
+									int depth, t_flag part)
 {
 	t_deque	*this_level;
 	t_deque	*next_level;
@@ -132,7 +140,8 @@ void	ef_ntree_level_order_find(t_ntree *tree, void *data, int depth,
 				switch (part)
 				{
 					case LEAF:
-						if (!node->children && cmp(node->data, data) == 0)
+						if (!node->children && (node->data == data ||
+								(cmp && cmp(node->data, data) == 0)))
 						{
 							ef_deque_free(this_level, NULL);
 							ef_deque_free(next_level, NULL);
@@ -140,7 +149,8 @@ void	ef_ntree_level_order_find(t_ntree *tree, void *data, int depth,
 						}
 						break ;
 					case NON_LEAF:
-						if (node->children && cmp(node->data, data) == 0)
+						if (node->children && (node->data == data ||
+								(cmp && cmp(node->data, data) == 0)))
 						{
 							ef_deque_free(this_level, NULL);
 							ef_deque_free(next_level, NULL);
@@ -148,7 +158,8 @@ void	ef_ntree_level_order_find(t_ntree *tree, void *data, int depth,
 						}
 						break ;
 					case ALL:
-						if (cmp(node->data, data) == 0)
+						if (node->data == data ||
+								(cmp && cmp(node->data, data) == 0))
 						{
 							ef_deque_free(this_level, NULL);
 							ef_deque_free(next_level, NULL);
@@ -167,21 +178,21 @@ void	ef_ntree_level_order_find(t_ntree *tree, void *data, int depth,
 	return (NULL);
 }
 
-t_ntree	*ef_ntree_find(t_ntree *tree, void *data, int depth, f_cmp cmp,
+t_ntree	*ef_ntree_find(t_ntree *tree, void *data, f_cmp cmp, int depth,
 						t_flag order, t_flag part)
 {
-	if (!tree || !(IN_ORDER <= order && order <= LEVEL_ORDER) || 
-			!(LEAF <= part && part <= ALL) || !cmp)
-		return ;
+	if (!tree || !(LEAF <= part && part <= ALL))
+		return (NULL);
 	switch (order)
 	{
 		case IN_ORDER:
-			return (ef_ntree_in_order_find(tree, data, depth, cmp, part));
+			return (ef_ntree_in_order_find(tree, data, cmp, depth, part));
 		case PRE_ORDER:
-			return (ef_ntree_pre_order_find(tree, data, depth, cmp, part));
+			return (ef_ntree_pre_order_find(tree, data, cmp, depth, part));
 		case POST_ORDER:
-			return (ef_ntree_post_order_find(tree, data, depth, cmp, part));
+			return (ef_ntree_post_order_find(tree, data, cmp, depth, part));
 		case LEVEL_ORDER:
-			return (ef_ntree_level_order_find(tree, data, depth, cmp, part));
+			return (ef_ntree_level_order_find(tree, data, cmp, depth, part));
 	}
+	return (NULL);
 }		

@@ -6,14 +6,14 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/27 12:46:45 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/04/29 21:52:35 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/04/30 06:43:55 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libef.h"
 
-void	ef_ntree_in_order_traverse(t_ntree *tree, int depth, f_trv trv,
-									t_traverse_flag part)
+void	ef_ntree_in_order_traverse(t_ntree *tree, f_trv trv, int depth,
+									t_flag part)
 {
 	t_ntree	*subtree;
 
@@ -21,7 +21,7 @@ void	ef_ntree_in_order_traverse(t_ntree *tree, int depth, f_trv trv,
 		return ;
 	--depth;
 	if (tree->children)
-		ef_ntree_in_order_traverse(tree->children, depth, trv, part);
+		ef_ntree_in_order_traverse(tree->children, trv, depth, part);
 	switch (part)
 	{
 		case LEAF:
@@ -38,11 +38,11 @@ void	ef_ntree_in_order_traverse(t_ntree *tree, int depth, f_trv trv,
 	}
 	if (tree->children)
 		for (subtree = tree->children->next; subtree; subtree = subtree->next)
-			ef_ntree_in_order_traverse(subtree, depth, trv, part);
+			ef_ntree_in_order_traverse(subtree, trv, depth, part);
 }
 
-void	ef_ntree_pre_order_traverse(t_ntree *tree, int depth, f_trv trv,
-									t_traverse_flag part)
+void	ef_ntree_pre_order_traverse(t_ntree *tree, f_trv trv, int depth,
+									t_flag part)
 {
 	t_ntree	*subtree;
 
@@ -63,18 +63,18 @@ void	ef_ntree_pre_order_traverse(t_ntree *tree, int depth, f_trv trv,
 			break ;
 	}
 	for (--depth, subtree = tree->children; subtree; subtree = subtree->next)
-		ef_ntree_pre_order_traverse(subtree, depth, trv, part);
+		ef_ntree_pre_order_traverse(subtree, trv, depth, part);
 }
 
-void	ef_ntree_post_order_traverse(t_ntree *tree, int depth, f_trv trv,
-										t_traverse_flag part)
+void	ef_ntree_post_order_traverse(t_ntree *tree, f_trv trv, int depth,
+										t_flag part)
 {
 	t_ntree	*subtree;
 
 	if (!tree || depth == 0)
 		return ;
 	for (--depth, subtree = tree->children; subtree; subtree = subtree->next)
-		ef_ntree_post_order_traverse(subtree, depth, trv, part);
+		ef_ntree_post_order_traverse(subtree, trv, depth, part);
 	switch (part)
 	{
 		case LEAF:
@@ -91,8 +91,8 @@ void	ef_ntree_post_order_traverse(t_ntree *tree, int depth, f_trv trv,
 	}
 }
 
-void	ef_ntree_level_order_traverse(t_ntree *tree, int depth, f_trv trv,
-										t_traverse_flag part)
+void	ef_ntree_level_order_traverse(t_ntree *tree, f_trv trv, int depth,
+										t_flag part)
 {
 	t_deque	*this_level;
 	t_deque	*next_level;
@@ -130,25 +130,24 @@ void	ef_ntree_level_order_traverse(t_ntree *tree, int depth, f_trv trv,
 	ef_deque_free(this_level, NULL);
 }
 
-void	ef_ntree_traverse(t_ntree *tree, int depth, f_trv trv, t_flag order,
+void	ef_ntree_traverse(t_ntree *tree, f_trv trv, int depth, t_flag order,
 							t_flag part)
 {
-	if (!tree || !(IN_ORDER <= order && order <= LEVEL_ORDER) || 
-			!(LEAF <= part && part <= ALL) || !trv)
+	if (!tree || !(LEAF <= part && part <= ALL) || !trv)
 		return ;
 	switch (order)
 	{
 		case IN_ORDER:
-			ef_ntree_in_order_traverse(tree, depth, trv, part);
+			ef_ntree_in_order_traverse(tree, trv, depth, part);
 			break ;
 		case PRE_ORDER:
-			ef_ntree_pre_order_traverse(tree, depth, trv, part);
+			ef_ntree_pre_order_traverse(tree, trv, depth, part);
 			break ;
 		case POST_ORDER:
-			ef_ntree_post_order_traverse(tree, depth, trv, part);
+			ef_ntree_post_order_traverse(tree, trv, depth, part);
 			break ;
 		case LEVEL_ORDER:
-			ef_ntree_level_order_traverse(tree, depth, trv, part);
+			ef_ntree_level_order_traverse(tree, trv, depth, part);
 			break ;
 	}
 }		

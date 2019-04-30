@@ -6,7 +6,7 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/26 14:10:15 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/04/29 20:00:42 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/04/30 06:25:20 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,6 @@ t_ntree		*ef_ntree_copy(t_ntree *tree, f_cpy cpy)
 		return (NULL);
 	new_tree = ef_ntree_new((cpy) ? cpy(tree->data) : tree->data);
 	for (subtree = ef_ntree_last_child(tree); subtree; subtree = subtree->prev)
-		ef_ntree_prepend_child(new_tree, ef_ntree_copy(subtree));
+		ef_ntree_prepend_child(new_tree, ef_ntree_copy(subtree, cpy));
 	return (new_tree);
 }

@@ -6,7 +6,7 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/16 18:04:24 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/04/29 19:48:37 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/04/30 07:13:54 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ t_slist			*ef_slist_sort(t_slist *list, f_cmp cmp)
 	t_slist	*slow;
 	t_slist	*bound;
 
-	if (!list || !list->next)
+	if (!list || !list->next || !cmp)
 		return (list);
 	bound = fast = slow = list;
 	while (fast && fast->next)
