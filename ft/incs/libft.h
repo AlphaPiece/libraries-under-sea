@@ -6,7 +6,7 @@
 /*   By: zwang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/11 11:20:28 by zwang             #+#    #+#             */
-/*   Updated: 2019/04/12 10:56:03 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/04/30 10:51:05 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,7 +108,9 @@ void				ft_putbits(void *x, size_t bit);
 
 # define F_PREC	15	
 
-# define ABS(x)	(((x) < 0) ? -(x) : (x))
+# define ABS(x)		(((x) < 0) ? -(x) : (x))
+# define MAX(a,b)	(((a) > (b)) ? (a) : (b))
+# define MIN(a,b)	(((a) < (b)) ? (a) : (b))
 
 /*
 ** t_fcompo:	contains all the parts of a single float type data
