@@ -6,7 +6,7 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/15 16:00:55 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/04/29 21:16:18 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/04/29 22:32:27 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -284,20 +284,20 @@ void				ef_ntree_insert_child_after(t_ntree *parent, t_ntree *child,
 													t_ntree *sibling);
 
 t_ntree				*ef_ntree_root(t_ntree *tree);
+t_ntree				*ef_ntree_first_child(t_ntree *parent);
 t_ntree				*ef_ntree_last_child(t_ntree *parent);
+t_ntree				*ef_ntree_nth_child(t_ntree *parent);
+t_ntree				*ef_ntree_first_sibling(t_ntree *tree);
+t_ntree				*ef_ntree_last_sibling(t_ntree *tree);
+t_ntree				*ef_ntree_prev_sibling(t_ntree *tree);
+t_ntree				*ef_ntree_next_sibling(t_ntree *tree);
 
 void				ef_ntree_reverse_children(t_ntree *parent);
 
-int					ef_ntree_in_order_traverse(t_ntree *tree, int depth,
-												f_trv trv, t_flag part);
-int					ef_ntree_pre_order_traverse(t_ntree *tree, int depth,
-												f_trv trv, t_flag part);
-int					ef_ntree_post_order_traverse(t_ntree *tree, int depth,
-													f_trv trv, t_flag part);
-int					ef_ntree_level_order_traverse(t_ntree *tree, int depth,
-													f_trv trv, t_flag part);
 void				ef_ntree_traverse(t_ntree *tree, int depth, f_trv trv,
 										t_flag order, t_flag part);
+t_ntree				*ef_ntree_find(t_ntree *tree, int depth, f_cmp cmp,
+									t_flag order, t_flag part);
 
 t_ntree				*ef_ntree_copy(t_ntree *tree, f_cpy cpy);
 
