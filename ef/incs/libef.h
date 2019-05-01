@@ -6,7 +6,7 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/15 16:00:55 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/01 12:18:08 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/05/01 13:24:30 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ typedef void		(*f_del)(void *);
 typedef void		*(*f_cpy)(void *);
 typedef void		*(f_trv)(void *);
 
-typedef int			t_flag;
+typedef int8_t		t_flag;
 
 enum				e_one_or_all
 {
@@ -217,11 +217,11 @@ void				ef_dlist_free(t_dlist *list, f_del del, t_flag one_or_all);
 //----------------------------------------------------------------------------//
 
 /*
-** ==========================
-** >                        <
-** >>> DOUBLY LINKED LIST <<<
-** >                        <
-** ==========================
+** =================
+** >               <
+** >>> SKIP LIST <<<
+** >               <
+** =================
 */
 
 
@@ -359,14 +359,22 @@ void				ef_ntree_free(t_ntree *tree, f_del del, t_flag one_or_all);
 ** =========================================
 */
 
-typedef struct		s_rbtree
+typedef t_flag		t_color;
+
+typedef struct		s_bstree
 {
 	void			*data;
-	struct s_rbtree	*parent;
-	struct s_rbtree	*left;
-	struct s_rbtree	*right;
-	char			color;
-}					t_rbtree;
+	struct s_bstree	*parent;
+	struct s_bstree	*left;
+	struct s_bstree	*right;
+	t_color			color;
+}					t_bstree;
+
+enum				e_bstree_color
+{
+	R,
+	B
+};
 
 /*
 ** ==================
