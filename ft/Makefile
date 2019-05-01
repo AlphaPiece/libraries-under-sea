@@ -6,7 +6,7 @@
 #    By: zwang <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/15 14:23:06 by zwang             #+#    #+#              #
-#    Updated: 2019/04/16 16:28:48 by Zexi Wang        ###   ########.fr        #
+#    Updated: 2019/05/01 12:49:52 by Zexi Wang        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -94,6 +94,8 @@ fclean: clean
 	@printf "$(RED)[x] $(RESET)\x1B[31m$(NAME) deleted\n"
 
 update:
+	# ef
+	@cp -rf incs/ ../ef/incs/
 	# unix
 	@rm -rf ../../unix/ft_ls/libs/libft/incs
 	@cp -rf incs libft.a ../../unix/ft_ls/libs/libft/
