@@ -1,27 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ef_slist_free_all.c                                :+:      :+:    :+:   */
+/*   ef_ntree_depth.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/22 22:53:22 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/04/29 19:47:26 by Zexi Wang        ###   ########.fr       */
+/*   Created: 2019/04/30 10:39:59 by Zexi Wang         #+#    #+#             */
+/*   Updated: 2019/05/01 09:08:22 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libef.h"
 
-void	ef_slist_free_all(t_slist *list, f_del del)
+int	ef_ntree_depth(t_ntree *tree)
 {
-	t_slist	*next;
-
-	while (list)
-	{
-		next = list->next;
-		if (del)
-			del(list->data);
-		ef_slist_free_one(list);
-		list = next;
-	}
+	if (!tree)
+		return (0);
+	else if (!tree->parent)
+		return (1);
+	else
+		return (1 + ef_ntree_depth(tree->parent));
 }

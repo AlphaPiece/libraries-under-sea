@@ -6,7 +6,7 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 22:17:49 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/04/29 22:28:06 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/04/30 12:08:13 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,9 @@
 
 t_ntree	*ef_ntree_first_sibling(t_ntree *tree)
 {
-	return ((tree && tree->parent) ? tree->parent->children : tree);
+	if (!tree)
+		return (NULL);
+	while (tree->prev)
+		tree = tree->prev;
+	return (tree);
 }

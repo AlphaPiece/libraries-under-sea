@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ef_dlist_remove_node.c                             :+:      :+:    :+:   */
+/*   ef_dlist_unlink.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/24 15:55:14 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/04/26 11:45:01 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/04/30 23:41:57 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libef.h"
 
-t_dlist	*ef_dlist_remove_node(t_dlist *list, t_dlist *node)
+t_dlist	*ef_dlist_unlink(t_dlist *list, t_dlist *node)
 {
 	if (!node)
 		return (list);

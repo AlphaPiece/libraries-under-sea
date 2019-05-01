@@ -6,7 +6,7 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/27 12:46:45 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/04/30 06:43:55 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/05/01 09:06:56 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	ef_ntree_in_order_traverse(t_ntree *tree, f_trv trv, int depth,
 			if (tree->children)
 				tree->data = trv(tree->data);
 			break ;
-		case ALL:
+		case WHOLE:
 			tree->data = trv(tree->data);
 			break ;
 	}
@@ -58,7 +58,7 @@ void	ef_ntree_pre_order_traverse(t_ntree *tree, f_trv trv, int depth,
 			if (tree->children)
 				tree->data = trv(tree->data);
 			break ;
-		case ALL:
+		case WHOLE:
 			tree->data = trv(tree->data);
 			break ;
 	}
@@ -85,7 +85,7 @@ void	ef_ntree_post_order_traverse(t_ntree *tree, f_trv trv, int depth,
 			if (tree->children)
 				tree->data = trv(tree->data);
 			break ;
-		case ALL:
+		case WHOLE:
 			tree->data = trv(tree->data);
 			break ;
 	}
@@ -116,7 +116,7 @@ void	ef_ntree_level_order_traverse(t_ntree *tree, f_trv trv, int depth,
 						if (node->children)
 							node->data = trv(node->data);
 						break ;
-					case ALL:
+					case WHOLE:
 						node->data = trv(node->data);
 						break ;
 				}
@@ -133,7 +133,7 @@ void	ef_ntree_level_order_traverse(t_ntree *tree, f_trv trv, int depth,
 void	ef_ntree_traverse(t_ntree *tree, f_trv trv, int depth, t_flag order,
 							t_flag part)
 {
-	if (!tree || !(LEAF <= part && part <= ALL) || !trv)
+	if (!tree || !(LEAF <= part && part <= WHOLE) || !trv)
 		return ;
 	switch (order)
 	{

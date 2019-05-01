@@ -6,7 +6,7 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/24 11:25:10 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/04/30 07:15:52 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/05/01 12:36:27 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,11 +45,11 @@ static t_dlist	*merge_dlist(t_dlist *list1, t_dlist *list2, f_cmp cmp)
 	}
 	node = origin->next;
 	node->prev = NULL;
-	ef_dlist_free_one(origin);
+	ef_dlist_free(origin, NULL, ONE);
 	return (node);
 }
 
-t_dlist			*ef_dlist_sort(t_dlist *list, int (*cmp)(void *, void *))
+t_dlist			*ef_dlist_sort(t_dlist *list, f_cmp cmp)
 {
 	t_dlist	*fast;
 	t_dlist	*slow;

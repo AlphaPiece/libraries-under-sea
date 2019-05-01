@@ -1,20 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ef_dlist_delete_node.c                             :+:      :+:    :+:   */
+/*   ef_ntree_is_leaf.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/24 15:58:31 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/04/29 19:48:53 by Zexi Wang        ###   ########.fr       */
+/*   Created: 2019/04/30 11:27:45 by Zexi Wang         #+#    #+#             */
+/*   Updated: 2019/04/30 11:31:34 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libef.h"
 
-t_dlist	*ef_dlist_delete_node(t_dlist *list, t_dlist *node)
+t_bool	ef_ntree_is_leaf(t_ntree *node)
 {
-	list = ef_dlist_remove_node(list, node);
-	ef_dlist_free_one(node);
-	return (list);
+	return (node && !node->children);
 }

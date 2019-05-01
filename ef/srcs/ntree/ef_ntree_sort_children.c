@@ -1,27 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ef_dlist_free_all.c                                :+:      :+:    :+:   */
+/*   ef_ntree_sort_children.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/24 17:37:13 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/04/29 19:49:58 by Zexi Wang        ###   ########.fr       */
+/*   Created: 2019/05/01 11:36:40 by Zexi Wang         #+#    #+#             */
+/*   Updated: 2019/05/01 11:42:12 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libef.h"
 
-void	ef_dlist_free_all(t_dlist *list, f_del del)
+void	ef_ntree_sort_children(t_ntree *parent, f_cmp cmp)
 {
-	t_dlist	*next;
-
-	while (list)
-	{
-		next = list->next;
-		if (del)
-			del(list->data);
-		ef_dlist_free_one(list);
-		list = next;
-	}
+	if (!parent || !parent->children || !cmp)
+		return ;
+	parent->children = (t_ntree *)ef_dlist_sort((t_dlist *)parent->children,
+												cmp);
 }

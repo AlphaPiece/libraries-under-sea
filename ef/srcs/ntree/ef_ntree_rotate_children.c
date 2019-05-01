@@ -1,19 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ef_dlist_free_one.c                                :+:      :+:    :+:   */
+/*   ef_ntree_rotate_children.c                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/24 14:31:16 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/04/29 19:23:19 by Zexi Wang        ###   ########.fr       */
+/*   Created: 2019/05/01 11:43:02 by Zexi Wang         #+#    #+#             */
+/*   Updated: 2019/05/01 11:45:16 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libef.h"
 
-void	ef_dlist_free_one(t_dlist *node)
+void	ef_ntree_rotate_children(t_ntree *parent, int n)
 {
-	if (node)
-		free(node);
+	if (!parent || !parent->children)
+		return ;
+	parent->children = (t_ntree *)ef_dlist_rotate((t_dlist *)parent->children,
+													n);
 }

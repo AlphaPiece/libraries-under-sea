@@ -6,7 +6,7 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/27 12:46:45 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/04/30 07:07:56 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/05/01 09:06:20 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ t_ntree	*ef_ntree_in_order_find(t_ntree *tree, void *data, f_cmp cmp,
 									(cmp && cmp(tree->data, data) == 0)))
 				return (tree);
 			break ;
-		case ALL:
+		case WHOLE:
 			if (tree->data == data || (cmp && cmp(tree->data, data) == 0))
 				return (tree);
 			break ;
@@ -74,7 +74,7 @@ t_ntree	*ef_ntree_pre_order_find(t_ntree *tree, void *data, f_cmp cmp,
 									(cmp && cmp(tree->data, data) == 0)))
 				return (tree);
 			break ;
-		case ALL:
+		case WHOLE:
 			if (tree->data == data || (cmp && cmp(tree->data, data) == 0))
 				return (tree);
 			break ;
@@ -114,7 +114,7 @@ t_ntree	*ef_ntree_post_order_find(t_ntree *tree, void *data, f_cmp cmp,
 									(cmp && cmp(tree->data, data) == 0)))
 				return (tree);
 			break ;
-		case ALL:
+		case WHOLE:
 			if (tree->data == data || (cmp && cmp(tree->data, data) == 0))
 				return (tree);
 			break ;
@@ -157,7 +157,7 @@ t_ntree	*ef_ntree_level_order_find(t_ntree *tree, void *data, f_cmp cmp,
 							return (node);
 						}
 						break ;
-					case ALL:
+					case WHOLE:
 						if (node->data == data ||
 								(cmp && cmp(node->data, data) == 0))
 						{
@@ -181,7 +181,7 @@ t_ntree	*ef_ntree_level_order_find(t_ntree *tree, void *data, f_cmp cmp,
 t_ntree	*ef_ntree_find(t_ntree *tree, void *data, f_cmp cmp, int depth,
 						t_flag order, t_flag part)
 {
-	if (!tree || !(LEAF <= part && part <= ALL))
+	if (!tree || !(LEAF <= part && part <= WHOLE))
 		return (NULL);
 	switch (order)
 	{

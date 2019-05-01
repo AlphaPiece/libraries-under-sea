@@ -1,32 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ef_slist_remove_node.c                             :+:      :+:    :+:   */
+/*   ef_ntree_count_nodes.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/17 22:02:09 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/04/29 19:57:46 by Zexi Wang        ###   ########.fr       */
+/*   Created: 2019/04/30 11:08:54 by Zexi Wang         #+#    #+#             */
+/*   Updated: 2019/04/30 11:21:21 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libef.h"
 
-t_slist	*ef_slist_remove_node(t_slist *list, t_slist *node)
+int	ef_ntree_count_nodes(t_ntree *tree)
 {
-	t_slist	*origin;
+	t_ntree	*subtree;
+	int		count;
 
-	origin = ef_slist_alloc();
-	origin->next = list;
-	list = origin;
-	while (list->next && list->next != node)
-		list = list->next;
-	if (list->next)
-	{
-		list->next = list->next->next;
-		node->next = NULL;
-	}
-	list = origin->next;
-	ef_slist_free_one(origin);
-	return (list);
+	if (!tree)
+		return (0);
+	for (count = 0, subtree = tree->children; subtree; subtree = subtree->next)
+		count += ef_ntree_count_nodes(subtree);
+	return (1 + count);
 }

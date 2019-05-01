@@ -6,7 +6,7 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/27 21:20:44 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/04/29 19:58:10 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/05/01 12:41:12 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,10 @@ void	*ef_deque_pop_nth(t_deque *queue, int n)
 	else
 	{
 		node = ef_dlist_nth_node(queue->head, n);
-		queue->head = ef_dlist_remove_node(queue->head, node);
+		queue->head = ef_dlist_unlink(queue->head, node);
 		queue->length--;
 		data = node->data;
-		ef_dlist_free_one(node);
+		ef_dlist_free(node, NULL, ONE);
 		return (data);
 	}
 }

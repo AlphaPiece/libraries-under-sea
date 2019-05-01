@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ef_ntree_next_sibling.c                            :+:      :+:    :+:   */
+/*   ef_darray_type_size.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/29 22:23:50 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/04/30 10:33:13 by Zexi Wang        ###   ########.fr       */
+/*   Created: 2019/05/01 12:03:17 by Zexi Wang         #+#    #+#             */
+/*   Updated: 2019/05/01 12:17:54 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libef.h"
 
-t_ntree	*ef_ntree_next_sibling(t_ntree *tree)
+size_t	ef_darray_type_size(void)
 {
-	return ((tree) ? tree->next : NULL);
+	return (sizeof(t_rdarray));
 }

@@ -1,18 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ef_ntree_next_sibling.c                            :+:      :+:    :+:   */
+/*   ef_dlist_free.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/29 22:23:50 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/04/30 10:33:13 by Zexi Wang        ###   ########.fr       */
+/*   Created: 2019/04/24 17:37:13 by Zexi Wang         #+#    #+#             */
+/*   Updated: 2019/04/30 23:46:11 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libef.h"
 
-t_ntree	*ef_ntree_next_sibling(t_ntree *tree)
+void	ef_dlist_free_all(t_dlist *list, f_del del, t_flag one_or_all)
 {
-	return ((tree) ? tree->next : NULL);
+	t_dlist	*next;
+
+	while (list)
+	{
+		next = list->next;
+		if (del)
+			del(list->data);
+		free(list);
+		list = next;
+		if (one_or_all == ONE)
+			break ;
+	}
 }
