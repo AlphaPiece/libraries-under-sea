@@ -6,7 +6,7 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/15 16:00:55 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/01 13:24:30 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/05/03 19:01:50 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ typedef int			(*f_cmp)(void *, void *);
 typedef void		(*f_del)(void *);
 typedef void		*(*f_cpy)(void *);
 typedef void		*(f_trv)(void *);
+typedef void		*(f_trw)(void *, void *);
 
 typedef int8_t		t_flag;
 
@@ -38,7 +39,7 @@ enum				e_one_or_all
 ** ======================
 */
 
-# define MIN_SIZE		16
+# define DARRAY_SIZE	16
 
 typedef struct		s_rdarray
 {
@@ -51,10 +52,11 @@ typedef struct		s_rdarray
 typedef struct		s_darray
 {
 	void			*data;
-	int				elem_no;
+	int				length;
 }					t_darray;
 
-//----------------------------------------------------------------------------//
+//============================================================================//
+t_darray			*ef_darray_alloc(size_t arr_size);
 t_darray			*ef_darray_new(size_t elem_size);
 t_darray			*ef_darray_sized_new(size_t elem_size, size_t arr_size);
 //----------------------------------------------------------------------------//
@@ -87,8 +89,9 @@ void				ef_darray_reverse(t_darray *darr);
 //----------------------------------------------------------------------------//
 t_darray			*ef_darray_partition(t_darray *darr, int start, int end);
 //----------------------------------------------------------------------------//
+void				ef_darray_clear(t_darray *darr, f_del del);
 void				ef_darray_free(t_darray *darr, f_del del);
-//----------------------------------------------------------------------------//
+//============================================================================//
 
 /*
 ** ==========================
@@ -104,7 +107,7 @@ typedef struct		s_slist
 	struct s_slist	*next;
 }					t_slist;
 
-//----------------------------------------------------------------------------//
+//============================================================================//
 t_slist				*ef_slist_alloc(void);
 t_slist				*ef_slist_new(void *data);
 //----------------------------------------------------------------------------//
@@ -115,7 +118,6 @@ t_slist				*ef_slist_append_list(t_slist *list1, t_slist *list2);
 t_slist				*ef_slist_prepend_list(t_slist *list1, t_slist *list2);
 t_slist				*ef_slist_insert_list(t_slist *list1, t_slist *list2,
 											int index);
-//----------------------------------------------------------------------------//
 t_slist				*ef_slist_insert_before(t_slist *list, void *data,
 											t_slist *node);
 t_slist				*ef_slist_insert_after(t_slist *list, void *data,
@@ -146,7 +148,7 @@ t_slist				*ef_slist_unlink(t_slist *list, t_slist *node);
 t_slist				*ef_slist_remove(t_slist *list, void *data, f_cmp cmp,
 										t_flag one_or_all);
 void				ef_slist_free(t_slist *list, f_del del, t_flag one_or_all);
-//----------------------------------------------------------------------------//
+//============================================================================//
 
 /*
 ** ==========================
@@ -169,7 +171,7 @@ enum				e_dlist_order
 	BACKWARD
 };
 
-//----------------------------------------------------------------------------//
+//============================================================================//
 t_dlist				*ef_dlist_alloc(void);
 t_dlist				*ef_dlist_new(void *data);
 //----------------------------------------------------------------------------//
@@ -180,7 +182,6 @@ t_dlist				*ef_dlist_append_list(t_dlist *list1, t_dlist *list2);
 t_dlist				*ef_dlist_prepend_list(t_dlist *list1, t_dlist *list2);
 t_dlist				*ef_dlist_insert_list(t_dlist *list1, t_dlist *list2,
 											int index);
-//----------------------------------------------------------------------------//
 t_dlist				*ef_dlist_insert_before(t_dlist *list, void *data,
 											t_dlist *node);
 t_dlist				*ef_dlist_insert_after(t_dlist *list, void *data,
@@ -214,7 +215,7 @@ t_dlist				*ef_dlist_unlink(t_dlist *list, t_dlist *node);
 t_dlist				*ef_dlist_remove(t_dlist *list, void *data, f_cmp cmp,
 										t_flag one_or_all);
 void				ef_dlist_free(t_dlist *list, f_del del, t_flag one_or_all);
-//----------------------------------------------------------------------------//
+//============================================================================//
 
 /*
 ** =================
@@ -241,7 +242,7 @@ typedef struct		s_deque
 	int				length;
 }					t_deque;
 
-//----------------------------------------------------------------------------//
+//============================================================================//
 t_deque				*ef_deque_alloc(void);
 t_deque				*ef_deque_new(t_dlist *list);
 //----------------------------------------------------------------------------//
@@ -268,7 +269,8 @@ void				ef_deque_rotate(t_deque *queue, int n);
 //----------------------------------------------------------------------------//
 void				ef_deque_clear(t_deque *queue, f_del del);
 void				ef_deque_free(t_deque *queue, f_del del);
-//----------------------------------------------------------------------------//
+//============================================================================//
+
 /*
 ** ==================
 ** >                <
@@ -301,7 +303,7 @@ enum				e_ntree_part
 	WHOLE
 };
 
-//----------------------------------------------------------------------------//
+//============================================================================//
 t_ntree				*ef_ntree_alloc(void);
 t_ntree				*ef_ntree_new(void *data);
 //----------------------------------------------------------------------------//
@@ -339,6 +341,7 @@ int					ef_ntree_depth(t_ntree *tree);
 int					ef_ntree_height(t_ntree *tree);
 int					ef_ntree_count_children(t_ntree *parent);
 int					ef_ntree_count_nodes(t_ntree *tree);
+int					ef_ntree_count_leaves(t_ntree *tree);
 t_ntree				*ef_ntree_copy(t_ntree *tree, f_cpy cpy);
 void				ef_ntree_traverse(t_ntree *tree, f_trv trv, int depth,
 										t_flag order, t_flag part);
@@ -349,7 +352,7 @@ void				ef_ntree_unlink(t_ntree *tree);
 t_ntree				*ef_ntree_remove(t_ntree *tree, void *data, f_cmp cmp,
 										t_flag order, t_flag one_ar_all);
 void				ef_ntree_free(t_ntree *tree, f_del del, t_flag one_or_all);
-//----------------------------------------------------------------------------//
+//============================================================================//
 
 /*
 ** =========================================
@@ -361,20 +364,60 @@ void				ef_ntree_free(t_ntree *tree, f_del del, t_flag one_or_all);
 
 typedef t_flag		t_color;
 
-typedef struct		s_bstree
-{
-	void			*data;
-	struct s_bstree	*parent;
-	struct s_bstree	*left;
-	struct s_bstree	*right;
-	t_color			color;
-}					t_bstree;
-
-enum				e_bstree_color
+enum				e_rbtree_color
 {
 	R,
 	B
 };
+
+typedef struct		s_rbtree
+{
+	void			*key;
+	void			*value;
+	struct s_rbtree	*parent;
+	struct s_rbtree	*left;
+	struct s_rbtree	*right;
+	t_color			color;
+}					t_rbtree;
+
+typedef struct		s_bstree
+{
+	t_rbtree		*root;
+	int				size;
+	f_cmp			cmp_key;
+	f_del			del_key;
+	f_del			del_value;
+	f_cpy			cpy_key;
+	f_cpy			cpy_value;
+}					t_bstree;
+
+//============================================================================//
+t_rbtree			*ef_rbtree_alloc(void);
+t_rbtree			*ef_rbtree_new(void *key, void *value);
+void				ef_rbtree_free(t_rbtree *tree, f_del del, f_del value,
+									t_flag one_or_all);
+//============================================================================//
+t_bstree			*ef_bstree_alloc(void);
+t_bstree			*ef_bstree_new(f_cmp cmp_key, f_cpy cpy_key,
+									f_cpy cpy_value, f_del del_key,
+									f_del del_value);
+//----------------------------------------------------------------------------//
+void				ef_bstree_insert(t_bstree *tree, void *key, void *value);
+t_bstree			*ef_bstree_set(t_bstree *tree, void *key, void *value);
+//----------------------------------------------------------------------------//
+int					ef_bstree_height(t_bstree *tree);
+int					ef_bstree_count_leaves(t_rbtree *tree);
+t_bstree			*ef_bstree_copy(t_bstree *tree);
+void				ef_bstree_traverse(t_bstree *tree, f_trw trw, int depth,
+										t_flag order, t_flag part);
+t_rbtree			*ef_bstree_find(t_bstree *tree, void *key);
+void				*ef_bstree_get(t_bstree *tree, void *key);
+//----------------------------------------------------------------------------//
+t_bstree			*ef_bstree_unlink(t_rbtree *tree);
+t_bstree			*ef_bstree_remove(t_bstree *tree, void *key, t_flag order,
+										t_flag one_ar_all);
+void				ef_bstree_free(t_bstree *tree);
+//============================================================================//
 
 /*
 ** ==================
@@ -383,6 +426,32 @@ enum				e_bstree_color
 ** >                <
 ** ==================
 */
+
+# define LOAD_FACTOR	0.75
+# define HTABLE_SIZE	40
+
+typedef struct		s_pair
+{
+	void			*key;
+	void			*value;
+}					t_pair;
+
+typedef struct		s_htable
+{
+	t_darray		*array;
+	int				size;
+	f_cmp			cmp_key;
+	f_del			del_key;
+	f_del			del_value;
+}					t_htable;
+
+//============================================================================//
+unsigned int		ef_htable_hash(void *key, unsigned int hashsize);
+t_htable			*ef_htable_alloc(void);
+t_htable			*ef_htable_new(void);
+
+void				ef_htable_insert(t_htable *table, void *key, void *value);
+
 
 
 

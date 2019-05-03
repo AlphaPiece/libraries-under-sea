@@ -6,7 +6,7 @@
 #    By: zwang <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/15 14:23:06 by zwang             #+#    #+#              #
-#    Updated: 2019/05/01 12:34:03 by Zexi Wang        ###   ########.fr        #
+#    Updated: 2019/05/01 21:09:35 by Zexi Wang        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -76,7 +76,7 @@ NTREE = ef_ntree_alloc.c               ef_ntree_is_leaf.c \
 		ef_ntree_insert_child_after.c  ef_ntree_sort_children.c \
 		ef_ntree_insert_child_before.c ef_ntree_traverse.c \
 		ef_ntree_is_ancestor.c         ef_ntree_unlink.c \
-		ef_ntree_is_descendant.c
+		ef_ntree_is_descendant.c       ef_ntree_count_leaves.c
 OBJ = *.o
 
 DARRAY_DIR = srcs/darray/

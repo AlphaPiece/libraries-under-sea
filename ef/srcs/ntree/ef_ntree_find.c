@@ -6,7 +6,7 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/27 12:46:45 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/01 09:06:20 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/05/01 21:31:49 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,21 +21,18 @@ t_ntree	*ef_ntree_in_order_find(t_ntree *tree, void *data, f_cmp cmp,
 	if (!tree || depth == 0)
 		return (NULL);
 	--depth;
-	if (tree->children)
-	{
-		node = ef_ntree_in_order_find(tree->children, data, cmp, depth, part);
-		if (node)
-			return (node);
-	}
+	node = ef_ntree_in_order_find(tree->children, data, cmp, depth, part);
+	if (node)
+		return (node);
 	switch (part)
 	{
 		case LEAF:
-			if (!tree->children && (tree->data == data ||
+			if (ef_ntree_is_leaf(tree) && (tree->data == data ||
 									(cmp && cmp(tree->data, data) == 0)))
 				return (tree);
 			break ;
 		case NON_LEAF:
-			if (tree->children && (tree->data == data ||
+			if (!ef_ntree_is_leaf(tree) && (tree->data == data ||
 									(cmp && cmp(tree->data, data) == 0)))
 				return (tree);
 			break ;
@@ -65,12 +62,12 @@ t_ntree	*ef_ntree_pre_order_find(t_ntree *tree, void *data, f_cmp cmp,
 	switch (part)
 	{
 		case LEAF:
-			if (!tree->children && (tree->data == data ||
+			if (ef_ntree_is_leaf(tree) && (tree->data == data ||
 									(cmp && cmp(tree->data, data) == 0)))
 				return (tree);
 			break ;
 		case NON_LEAF:
-			if (tree->children && (tree->data == data ||
+			if (!ef_ntree_is_leaf(tree) && (tree->data == data ||
 									(cmp && cmp(tree->data, data) == 0)))
 				return (tree);
 			break ;
@@ -105,12 +102,12 @@ t_ntree	*ef_ntree_post_order_find(t_ntree *tree, void *data, f_cmp cmp,
 	switch (part)
 	{
 		case LEAF:
-			if (!tree->children && (tree->data == data ||
+			if (ef_ntree_is_leaf(tree) && (tree->data == data ||
 									(cmp && cmp(tree->data, data) == 0)))
 				return (tree);
 			break ;
 		case NON_LEAF:
-			if (tree->children && (tree->data == data ||
+			if (!ef_ntree_is_leaf(tree) && (tree->data == data ||
 									(cmp && cmp(tree->data, data) == 0)))
 				return (tree);
 			break ;
@@ -140,7 +137,7 @@ t_ntree	*ef_ntree_level_order_find(t_ntree *tree, void *data, f_cmp cmp,
 				switch (part)
 				{
 					case LEAF:
-						if (!node->children && (node->data == data ||
+						if (ef_ntree_is_leaf(node) && (node->data == data ||
 								(cmp && cmp(node->data, data) == 0)))
 						{
 							ef_deque_free(this_level, NULL);
@@ -149,7 +146,7 @@ t_ntree	*ef_ntree_level_order_find(t_ntree *tree, void *data, f_cmp cmp,
 						}
 						break ;
 					case NON_LEAF:
-						if (node->children && (node->data == data ||
+						if (!ef_ntree_is_leaf(node) && (node->data == data ||
 								(cmp && cmp(node->data, data) == 0)))
 						{
 							ef_deque_free(this_level, NULL);
