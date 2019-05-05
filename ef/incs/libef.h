@@ -6,7 +6,7 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/15 16:00:55 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/03 19:01:50 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/05/04 13:49:06 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,20 +68,17 @@ int					ef_darray_length(t_darray *darr);
 size_t				ef_darray_elem_size(t_darray *darr);
 void				ef_darray_expand_capacity(t_darray *darr, int elem_no);
 //----------------------------------------------------------------------------//
-# define ef_darray_append(a,v)		ef_darray_append_array(a, &(v), 1)
-# define ef_darray_prepend(a,v)		ef_darray_prepend_array(a, &(v), 1)
-# define ef_darray_insert(a,i,v)	ef_darray_insert_array(a, i, &(v), 1)
-# define ef_darray_index(a,t,i)		(((t *)(a)->data)[(i)])
+void				ef_darray_append(t_darray *darr, void *data);
+void				ef_darray_prepend(t_darray *darr, void *data);
+void				ef_darray_insert(t_darray *darr, void *data, int index);
 void				ef_darray_append_array(t_darray *darr, void *arr,
 											int arr_len);
 void				ef_darray_prepend_array(t_darray *darr, void *arr,
 												int arr_len);
-void				ef_darray_insert_array(t_darray *darr, int index,
-											void *arr, int arr_len);
+void				ef_darray_insert_array(t_darray *darr, void *arr,
+											int arr_len, int index);
 //----------------------------------------------------------------------------//
-void				ef_darray_remove(t_darray *darr, int index);
-void				ef_darray_remove_last_elem(t_darray *darr);
-void				ef_darray_remove_range(t_darray *darr, int index, int len);
+void				*ef_darray_nth(t_darray *darr, int n);
 //----------------------------------------------------------------------------//
 void				ef_darray_swap(t_darray *darr, int index1, int index2);
 void				ef_darray_sort(t_darray *darr, f_cmp cmp);
@@ -89,9 +86,43 @@ void				ef_darray_reverse(t_darray *darr);
 //----------------------------------------------------------------------------//
 t_darray			*ef_darray_partition(t_darray *darr, int start, int end);
 //----------------------------------------------------------------------------//
+void				ef_darray_remove(t_darray *darr, int index);
+void				ef_darray_remove_last_elem(t_darray *darr);
+void				ef_darray_remove_range(t_darray *darr, int index, int len);
+//----------------------------------------------------------------------------//
+
 void				ef_darray_clear(t_darray *darr, f_del del);
 void				ef_darray_free(t_darray *darr, f_del del);
 //============================================================================//
+
+/*
+** ===================
+** >                 <
+** >>> BINARY HEAP <<<
+** >                 <
+** ===================
+*/
+
+typedef struct		s_bheap
+{
+	t_darray		*array;
+	f_cmp			cmp;
+}					t_bheap;
+
+t_bheap				*ef_bheap_alloc(void);
+t_bheap				*ef_bheap_new(size_t elem_size, f_cmp cmp);
+
+void				ef_bheap_insert(t_bheap *heap, void *data);
+
+int					ef_bheap_index(t_bheap *heap, void *data);
+
+void				*ef_bheap_parent(t_bheap *heap, void *data);
+void				*ef_bheap_left_child(t_bheap *heap, void *data);
+void				*ef_bheap_right_child(t_bheap *heap, void *data);
+
+void				*ef_bheap_peek_top(t_bheap *heap);
+void				*ef_bheap_pop_top(t_bheap *heap);
+
 
 /*
 ** ==========================
@@ -383,7 +414,7 @@ typedef struct		s_rbtree
 typedef struct		s_bstree
 {
 	t_rbtree		*root;
-	int				size;
+	int				node_no;
 	f_cmp			cmp_key;
 	f_del			del_key;
 	f_del			del_value;
@@ -394,8 +425,10 @@ typedef struct		s_bstree
 //============================================================================//
 t_rbtree			*ef_rbtree_alloc(void);
 t_rbtree			*ef_rbtree_new(void *key, void *value);
-void				ef_rbtree_free(t_rbtree *tree, f_del del, f_del value,
-									t_flag one_or_all);
+t_rbtree			*ef_rbtree_minimum(t_rbtree *tree, f_cmp cmp_key);
+t_rbtree			*ef_rbtree_maximum(t_rbtree *tree, f_cmp cmp_key);
+void				ef_rbtree_free(t_rbtree *tree, f_del del_key,
+									f_del del_value, t_flag one_or_all);
 //============================================================================//
 t_bstree			*ef_bstree_alloc(void);
 t_bstree			*ef_bstree_new(f_cmp cmp_key, f_cpy cpy_key,
@@ -406,16 +439,16 @@ void				ef_bstree_insert(t_bstree *tree, void *key, void *value);
 t_bstree			*ef_bstree_set(t_bstree *tree, void *key, void *value);
 //----------------------------------------------------------------------------//
 int					ef_bstree_height(t_bstree *tree);
-int					ef_bstree_count_leaves(t_rbtree *tree);
+int					ef_bstree_count_nodes(t_bstree *tree);
+int					ef_bstree_count_leaves(t_bstree *tree);
+void				ef_bstree_left_rotate(t_bstree *tree, t_rbtree *x);
+void				ef_bstree_right_rotate(t_bstree *tree, t_rbtree *x);
 t_bstree			*ef_bstree_copy(t_bstree *tree);
-void				ef_bstree_traverse(t_bstree *tree, f_trw trw, int depth,
-										t_flag order, t_flag part);
+void				ef_bstree_traverse(t_bstree *tree, f_trw trw, t_flag order);
 t_rbtree			*ef_bstree_find(t_bstree *tree, void *key);
 void				*ef_bstree_get(t_bstree *tree, void *key);
 //----------------------------------------------------------------------------//
-t_bstree			*ef_bstree_unlink(t_rbtree *tree);
-t_bstree			*ef_bstree_remove(t_bstree *tree, void *key, t_flag order,
-										t_flag one_ar_all);
+void				ef_bstree_delete(t_bstree *tree, void *key);
 void				ef_bstree_free(t_bstree *tree);
 //============================================================================//
 
@@ -439,7 +472,7 @@ typedef struct		s_pair
 typedef struct		s_htable
 {
 	t_darray		*array;
-	int				size;
+	int				elem_no;
 	f_cmp			cmp_key;
 	f_del			del_key;
 	f_del			del_value;

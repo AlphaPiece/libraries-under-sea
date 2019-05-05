@@ -6,55 +6,11 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/03 11:09:33 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/03 17:12:38 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/05/04 11:39:20 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libef.h"
-
-static void	left_rotate(t_bstree *tree, t_rbtree *x)
-{
-	t_rbtree	*y;
-
-	if (x && x->right)
-	{
-		y = x->right;
-		x->right = y->left;
-		if (y->left)
-			y->left->parent = x;
-		y->parent = x->parent;
-		if (!x->parent)
-			tree->root = y;
-		else if (x == x->parent->left)
-			x->parent->left = y;
-		else
-			x->parent->right = y;
-		y->left = x;
-		x->parent = y;
-	}
-}
-
-static void	right_rotate(t_bstree *tree, t_rbtree *x)
-{
-	t_rbtree	*y;
-
-	if (x && x->left)
-	{
-		y = x->left;
-		x->left = y->right;
-		if (y->right)
-			y->right->parent = x;
-		y->parent = x->parent;
-		if (!x->parent)
-			tree->root = y;
-		else if (x == x->parent->left)
-			x->parent->left = y;
-		else
-			x->parent->right = y;
-		y->right = x;
-		x->parent = y;
-	}
-}
 
 static void	fix_up(t_bstree *tree, t_rbtree *z)
 {
@@ -73,10 +29,10 @@ static void	fix_up(t_bstree *tree, t_rbtree *z)
 			else
 			{
 				if (z == z->parent->right)
-					left_rotate(tree, (z = z->parent));
+					ef_bstree_left_rotate(tree, (z = z->parent));
 				z->parent->color = B;
 				z->parent->parent->color = R;
-				right_rotate(tree, z->parent->parent);
+				ef_bstree_right_rotate(tree, z->parent->parent);
 			}
 		}
 		else
@@ -91,16 +47,16 @@ static void	fix_up(t_bstree *tree, t_rbtree *z)
 			else
 			{
 				if (z == z->parent->left)
-					right_rotate(tree, (z = z->parent));
+					ef_bstree_right_rotate(tree, (z = z->parent));
 				z->parent->color = B;
 				z->parent->parent->color = R;
-				left_rotate(tree, z->parent->parent);
+				ef_bstree_left_rotate(tree, z->parent->parent);
 			}
 		}
 	tree->root->color = B;
 }
 
-void		ef_rbtree_insert(t_bstree *tree, void *key, void *value)
+void		ef_bstree_insert(t_bstree *tree, void *key, void *value)
 {
 	t_rbtree	*x, *y, *z;
 
@@ -123,5 +79,5 @@ void		ef_rbtree_insert(t_bstree *tree, void *key, void *value)
 	else
 		y->right = z;
 	fix_up(tree, z);
-	tree->size++;
+	tree->node_no++;
 }

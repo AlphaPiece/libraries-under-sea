@@ -1,31 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ef_bstree_new.c                                    :+:      :+:    :+:   */
+/*   ef_darray_nth.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/03 16:15:16 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/04 11:37:25 by Zexi Wang        ###   ########.fr       */
+/*   Created: 2019/05/04 13:16:16 by Zexi Wang         #+#    #+#             */
+/*   Updated: 2019/05/04 13:18:54 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libef.h"
 
-t_bstree	*ef_bstree_new(f_cmp cmp_key, f_cpy cpy_key, f_cpy cpy_value,
-							f_del del_key, f_del del_value)
+void	*ef_darray_nth(t_darray *darr, int n)
 {
-	t_bstree	*tree;
-
-	if (!cmp_key)
+	if (n < 0 || n >= length)
 		return (NULL);
-	tree = ef_bstree_alloc();
-	tree->root = NULL;
-	tree->node_no = 0;
-	tree->cmp_key = cmp_key;
-	tree->cpy_key = cpy_key;
-	tree->cpy_value = cpy_value;
-	tree->del_key = del_key;
-	tree->del_value = del_value;
-	return (tree);
+	return (darr->data + ef_darray_elem_size(darr) * n);
 }

@@ -6,14 +6,14 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/25 11:12:47 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/04/25 21:00:24 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/05/04 13:25:58 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libef.h"
 
-void	ef_darray_insert_array(t_darray *darr, int index, void *arr,
-								int arr_len)
+void	ef_darray_insert_array(t_darray *darr, void *arr, int arr_len,
+								int index)
 {
 	t_rdarray	*rdarr;
 	void		*ptr;

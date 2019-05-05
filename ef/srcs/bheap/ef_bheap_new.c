@@ -1,31 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ef_bstree_new.c                                    :+:      :+:    :+:   */
+/*   ef_bheap_new.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/03 16:15:16 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/04 11:37:25 by Zexi Wang        ###   ########.fr       */
+/*   Created: 2019/05/04 13:00:46 by Zexi Wang         #+#    #+#             */
+/*   Updated: 2019/05/04 13:02:57 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libef.h"
 
-t_bstree	*ef_bstree_new(f_cmp cmp_key, f_cpy cpy_key, f_cpy cpy_value,
-							f_del del_key, f_del del_value)
+t_bheap	*ef_bheap_new(size_t elem_size, f_cmp cmp)
 {
-	t_bstree	*tree;
+	t_bheap	*heap;
 
-	if (!cmp_key)
-		return (NULL);
-	tree = ef_bstree_alloc();
-	tree->root = NULL;
-	tree->node_no = 0;
-	tree->cmp_key = cmp_key;
-	tree->cpy_key = cpy_key;
-	tree->cpy_value = cpy_value;
-	tree->del_key = del_key;
-	tree->del_value = del_value;
-	return (tree);
+	heap = ef_bheap_alloc();
+	heap->array = ef_darray_new(elem_size);
+	heap->cmp = cmp;
+	return (heap);
 }

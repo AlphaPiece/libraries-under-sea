@@ -6,7 +6,7 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/03 09:23:07 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/03 12:16:39 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/05/04 11:36:03 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	*print_key(void *key, void *value)
 	return (value);
 }
 
-void	_print_tree(t_bstree *tree)
+void	_print_tree(t_rbtree *tree)
 {
 	if (!tree)
 		return ;
@@ -46,7 +46,7 @@ void	_print_tree(t_bstree *tree)
 
 void	print_tree(t_bstree *tree)
 {
-	_print_tree(tree);
+	_print_tree(tree->root);
 	ft_printf("\n");
 }
 
@@ -55,16 +55,18 @@ int		main(void)
 	t_bstree	*tree;
 	int			arr[] = {0,1,2,3,4,5,6,7,8};
 
-	tree = NULL;
-	tree = ef_bstree_insert(tree, &arr[8], "8", cmp_int);
-	tree = ef_bstree_insert(tree, &arr[7], "7", cmp_int);
-	tree = ef_bstree_insert(tree, &arr[6], "6", cmp_int);
-	tree = ef_bstree_insert(tree, &arr[5], "5", cmp_int);
-	tree = ef_bstree_insert(tree, &arr[4], "4", cmp_int);
-	tree = ef_bstree_insert(tree, &arr[3], "3", cmp_int);
-	tree = ef_bstree_insert(tree, &arr[2], "2", cmp_int);
+	tree = ef_bstree_new(cmp_int, NULL, NULL, NULL, NULL);
+	ef_bstree_insert(tree, &arr[8], "8");
+	ef_bstree_insert(tree, &arr[7], "7");
+	ef_bstree_insert(tree, &arr[6], "6");
+	ef_bstree_insert(tree, &arr[5], "5");
+	ef_bstree_insert(tree, &arr[4], "4");
+	ef_bstree_insert(tree, &arr[3], "3");
+	ef_bstree_insert(tree, &arr[2], "2");
 
 	print_tree(tree);
+
+//	ef_bstree_delete(tree, &arr[7]);
 
 	return (0);
 }
