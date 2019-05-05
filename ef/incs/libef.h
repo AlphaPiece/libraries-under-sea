@@ -6,7 +6,7 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/15 16:00:55 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/04 23:20:47 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/05/04 23:49:29 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,11 +39,12 @@ enum				e_one_or_all
 ** ======================
 */
 
-# define DARRAY_SIZE	16
+# define DARRAY_LEN		16
 
 typedef struct		s_rdarray
 {
 	void			*data;
+	f_del			del;
 	int				elem_no;
 	int				capacity;
 	size_t			elem_size;
@@ -52,13 +53,15 @@ typedef struct		s_rdarray
 typedef struct		s_darray
 {
 	void			*data;
+	f_del			del;
 	int				length;
 }					t_darray;
 
 // Create
-t_darray			*ef_darray_alloc(size_t arr_size);
-t_darray			*ef_darray_new(size_t elem_size);
-t_darray			*ef_darray_sized_new(size_t elem_size, size_t arr_size);
+t_darray			*ef_darray_alloc(size_t elem_size, int arr_len);
+t_darray			*ef_darray_new(size_t elem_size, f_del del);
+t_darray			*ef_darray_sized_new(size_t elem_size, int arr_len,
+											f_del del);
 void				ef_darray_expand_capacity(t_darray *darr, int elem_no);
 
 // Set
@@ -80,8 +83,8 @@ void				*ef_darray_get(t_darray *darr, int index);
 void				ef_darray_remove(t_darray *darr, int index);
 void				ef_darray_remove_last_elem(t_darray *darr);
 void				ef_darray_remove_range(t_darray *darr, int index, int len);
-void				ef_darray_clear(t_darray *darr, f_del del);
-void				ef_darray_free(t_darray *darr, f_del del);
+void				ef_darray_clear(t_darray *darr);
+void				ef_darray_free(t_darray *darr);
 
 // Status
 size_t				ef_darray_type_size(void);
