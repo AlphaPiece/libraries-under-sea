@@ -6,7 +6,7 @@
 #    By: zwang <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/15 14:23:06 by zwang             #+#    #+#              #
-#    Updated: 2019/05/07 10:09:26 by Zexi Wang        ###   ########.fr        #
+#    Updated: 2019/05/07 10:30:07 by Zexi Wang        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -60,7 +60,7 @@ DEQUE = ef_deque_alloc.c       ef_deque_length.c      ef_deque_pop_tail.c \
 		ef_deque_copy.c        ef_deque_peek_nth.c    ef_deque_push_tail.c \
 		ef_deque_free.c        ef_deque_peek_tail.c   ef_deque_reverse.c \
 		ef_deque_pop_head.c    ef_deque_rotate.c      ef_deque_is_empty.c \
-		ef_deque_pop_nth.c
+		ef_deque_pop_nth.c     ef_deque_traverse.c
 NTREE = ef_ntree_alloc.c               ef_ntree_is_leaf.c \
 		ef_ntree_append_child.c        ef_ntree_is_root.c \
 		ef_ntree_child_index.c         ef_ntree_last_child.c \

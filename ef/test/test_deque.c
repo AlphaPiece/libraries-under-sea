@@ -6,7 +6,7 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/28 09:53:41 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/04/29 13:19:07 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/05/07 10:28:40 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,12 @@ void	print_queue(t_deque *queue)
 		print_list(queue->head);
 		ft_printf("len: %d\n", queue->length);
 	}
+}
+
+void	*print(void *data)
+{
+	ft_printf("%d, ", *(int *)data);
+	return (data);
 }
 
 void	test(void)
@@ -120,8 +126,8 @@ void	test(void)
 //	ef_deque_reverse(NULL);
 //	print_queue(queue);
 
-	ef_deque_rotate(queue, 10);
-	print_queue(queue);
+//	ef_deque_rotate(queue, 10);
+//	print_queue(queue);
 
 /*	new_queue = ef_deque_copy(queue);
 	print_queue(new_queue);
@@ -130,15 +136,18 @@ void	test(void)
 /*	ef_deque_clear_queue(queue);
 	print_queue(queue);
 */
-	ef_deque_free_queue(empty_queue);
-	ef_deque_free_queue(queue);
+	ef_deque_traverse(queue, print, 3, BACKWARD);
+	ft_printf("\n");
+
+	ef_deque_free(empty_queue, NULL);
+	ef_deque_free(queue, NULL);
 }
 
 int		main(void)
 {
 	test();
 	
-	while (1);
+//	while (1);
 
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/15 16:00:55 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/07 09:49:28 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/05/07 10:16:15 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -309,7 +309,8 @@ void				ef_deque_clear(t_deque *queue, f_del del);
 void				ef_deque_free(t_deque *queue, f_del del);
 
 // Traverse
-void				ef_deque_traverse(t_deque *queue, f_trv trv);
+void				ef_deque_traverse(t_deque *queue, f_trv trv, int length,
+										t_flag order);
 
 // Status
 t_bool				ef_deque_is_empty(t_deque *queue);

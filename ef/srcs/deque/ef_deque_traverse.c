@@ -1,20 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ef_slist_traverse.c                                :+:      :+:    :+:   */
+/*   ef_deque_traverse.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/23 21:35:30 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/07 10:23:17 by Zexi Wang        ###   ########.fr       */
+/*   Created: 2019/05/07 10:10:17 by Zexi Wang         #+#    #+#             */
+/*   Updated: 2019/05/07 10:23:43 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libef.h"
 
-void	ef_slist_traverse(t_slist *list, f_trv trv, int length)
+void	ef_deque_traverse(t_deque *queue, f_trv trv, int length, t_flag order)
 {
-	if (trv)
-		for ( ; list && length-- != 0; list = list->next)
-			list->data = trv(list->data);
+	t_dlist	*node;
+
+	if (queue && queue->length > 0 && trv)
+	{
+		if (order == FORWARD)
+			ef_dlist_traverse(queue->head, trv, length, FORWARD);
+		else if (order == BACKWARD)
+			for (node = queue->tail; node && length-- != 0; node = node->prev)
+				node->data = trv(node->data);
+	}
 }
