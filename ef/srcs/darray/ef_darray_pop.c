@@ -1,27 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ef_darray_append_array.c                           :+:      :+:    :+:   */
+/*   ef_darray_pop.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/25 15:13:35 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/04/25 20:30:36 by Zexi Wang        ###   ########.fr       */
+/*   Created: 2019/05/06 20:39:53 by Zexi Wang         #+#    #+#             */
+/*   Updated: 2019/05/06 21:00:22 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libef.h"
 
-void	ef_darray_append_array(t_darray *darr, void *arr, int arr_len)
+t_value	ef_darray_pop(t_darray *array)
 {
-	t_rdarray	*rdarr;
+	t_value	value;
 
-	if (!darr || !arr || !arr_len)
-		return ;
-	rdarr = (t_rdarray *)darr;
-	if (rdarr->elem_no + arr_len > rdarr->capacity)
-		ef_darray_expand_capacity(darr, arr_len);
-	ft_memcpy(rdarr->data + rdarr->elem_size * rdarr->elem_no, arr,
-				rdarr->elem_size * arr_len);
-	rdarr->elem_no += arr_len;
+	if (array)
+	{
+		value = ef_darray_get(array, array->length - 1);
+		array->length--;
+		return (value);
+	}
+	return (0);
 }

@@ -5,31 +5,21 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/25 18:30:39 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/04 23:41:31 by Zexi Wang        ###   ########.fr       */
+/*   Created: 2019/05/06 21:11:53 by Zexi Wang         #+#    #+#             */
+/*   Updated: 2019/05/06 21:49:50 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libef.h"
 
-void	ef_darray_remove(t_darray *darr, int index)
+void	ef_darray_remove(t_darray *array, t_value value)
 {
-	t_rdarray	*rdarr;
-	void		*ptr;
-	size_t		move_size;
+	int	i;
 
-	if (!darr)
-		return ;
-	rdarr = (t_rdarray *)darr;
-	if (index >= rdarr->elem_no || rdarr->elem_no == 0 || index < 0)
-		return ;
-	if (index != rdarr->elem_no - 1)
-	{
-		ptr = rdarr->data + rdarr->elem_size * index;
-		if (darr->del)
-			darr->del(ptr);
-		move_size = rdarr->elem_size * (rdarr->elem_no - 1 - index);
-		ft_memmove(ptr, ptr + rdarr->elem_size, move_size);
-	}
-	rdarr->elem_no--;
+	for (i = 0; i < ef_darray_length(array); i++)
+		if (ef_darray_get(array, i) == value)
+		{
+			ef_darray_delete(array, i);
+			break ;
+		}
 }

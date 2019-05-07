@@ -5,30 +5,31 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/25 20:27:58 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/03 19:03:07 by Zexi Wang        ###   ########.fr       */
+/*   Created: 2019/05/06 22:24:23 by Zexi Wang         #+#    #+#             */
+/*   Updated: 2019/05/06 22:46:13 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libef.h"
 
-t_darray	*ef_darray_partition(t_darray *darr, int start, int end)
+t_darray	*ef_darray_partition(t_darray *array, int start, int end, f_cpy cpy)
 {
-	int			arr_len;
-	size_t		elem_size;
-	t_darray	*new_darr;
+	t_darray	*new_array;
 	size_t		new_size;
+	int			i;
 
-	if (!darr)
+	if (!array || start >= end || start < 0 || start >= array->length ||
+			end <= 0 || end > array->length)
 		return (NULL);
-	arr_len = ef_darray_length(darr);
-	if (start < 0 || start >= arr_len || end <= 0 || end > arr_len ||
-			start >= end)
-		return (NULL);
-	elem_size = ef_darray_elem_size(darr);
-	new_size = elem_size * (end - start);
-	new_darr = ef_darray_sized_new(elem_size, new_size * 2);
-	ft_memcpy(new_darr->data, darr->data + elem_size * start, new_size);
-	new_darr->length += end - start;
-	return (new_darr);
+	new_size = array->elem_size * (end - start);
+	new_array = ef_darray_sized_new(array->elem_size, new_size * 2);
+	if (cpy)
+		for (i = start; i < end; i++)
+			ef_darray_append(new_array,
+								(t_value)cpy((void *)ef_darray_get(array, i)));
+	else
+		ft_memcpy(new_array->data, array->data + array->elem_size * start,
+					new_size);
+	new_array->length += end - start;
+	return (new_array);
 }

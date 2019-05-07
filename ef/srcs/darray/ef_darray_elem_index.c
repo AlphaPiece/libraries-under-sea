@@ -1,19 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ef_darray_remove_last_elem.c                       :+:      :+:    :+:   */
+/*   ef_darray_elem_index.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/25 18:44:56 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/04/25 20:34:32 by Zexi Wang        ###   ########.fr       */
+/*   Created: 2019/05/06 21:50:03 by Zexi Wang         #+#    #+#             */
+/*   Updated: 2019/05/06 21:51:25 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libef.h"
 
-void	ef_darray_remove_last_elem(t_darray *darr)
+int	ef_darray_elem_index(t_darray *array, t_value value)
 {
-	if (ef_darray_length(darr) > 0)
-		--((t_rdarray *)darr)->elem_no;
+	int	i;
+
+	for (i = 0; i < ef_darray_length(array); i++)
+		if (ef_darray_get(array, i) == value)
+			return (i);
+	return (-1);
 }

@@ -6,33 +6,32 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/25 19:26:12 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/04/25 20:14:29 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/05/06 22:11:10 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libef.h"
 
-static void	quick_sort(t_darray *darr, int l, int r, f_cmp cmp)
+static void	quick_sort(t_darray *array, int l, int r, f_cmp cmp)
 {
 	int		i;
 	int		last;
 
 	if (l >= r)
 		return ;
-	ef_darray_swap(darr, l, (l + r) / 2);
+	ef_darray_swap(array, l, (l + r) / 2);
 	last = l;
 	i = l;
 	while (++i <= r)
-		if (cmp(darr->data + ef_darray_elem_size(darr) * i,
-				darr->data + ef_darray_elem_size(darr) * l) < 0)
-			ef_darray_swap(darr, ++last, i);
-	ef_darray_swap(darr, l, last);
-	quick_sort(darr, l, last - 1, cmp);
-	quick_sort(darr, last + 1, r, cmp);
+		if (cmp(array->data + array->elem_size * i,
+				array->data + array->elem_size * l) < 0)
+			ef_darray_swap(array, ++last, i);
+	ef_darray_swap(array, l, last);
+	quick_sort(array, l, last - 1, cmp);
+	quick_sort(array, last + 1, r, cmp);
 }
 
-void		ef_darray_sort(t_darray *darr, f_cmp cmp)
+void		ef_darray_sort(t_darray *array, f_cmp cmp)
 {
-	if (darr)
-		quick_sort(darr, 0, ef_darray_length(darr) - 1, cmp);
+	quick_sort(array, 0, ef_darray_length(array) - 1, cmp);
 }

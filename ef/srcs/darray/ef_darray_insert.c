@@ -5,14 +5,33 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/04 13:23:53 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/04 13:25:33 by Zexi Wang        ###   ########.fr       */
+/*   Created: 2019/05/06 20:12:27 by Zexi Wang         #+#    #+#             */
+/*   Updated: 2019/05/06 22:23:25 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libef.h"
 
-void	ef_darray_insert(t_darray *darr, void *data, int index)
+void	ef_darray_insert(t_darray *array, t_value value, int index)
 {
-	ef_darray_insert_array(darr, data, 1, index);
+	void	*ptr;
+
+	if (array)
+	{
+		if (index >= array->length)
+			ef_darray_append(array, value);
+		else
+		{
+			if (index < 0)
+				index = 0;
+			if (array->length + 1 > array->capacity)
+				ef_darray_expand_capacity(array);
+			ptr = array->data + array->elem_size * index;
+			ft_memmove(ptr + array->elem_size, ptr,
+						array->elem_size * (array->length - index));
+			ft_memcpy(ptr, &value, array->elem_size);
+			array->length++;
+		}
+	}
 }
+

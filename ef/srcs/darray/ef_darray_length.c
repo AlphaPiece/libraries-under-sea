@@ -5,14 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/25 11:18:13 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/04/25 15:06:27 by Zexi Wang        ###   ########.fr       */
+/*   Created: 2019/05/06 20:35:32 by Zexi Wang         #+#    #+#             */
+/*   Updated: 2019/05/06 20:36:52 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libef.h"
 
-int	ef_darray_length(t_darray *darr)
+int	ef_darray_length(t_darray *array)
 {
-	return (((t_rdarray *)darr)->elem_no);
+	return ((array) ? array->length : 0);
 }

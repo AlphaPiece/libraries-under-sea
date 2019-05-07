@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ef_darray_increment.c                              :+:      :+:    :+:   */
+/*   ef_darray_copy.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/25 15:59:17 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/04/25 18:54:18 by Zexi Wang        ###   ########.fr       */
+/*   Created: 2019/05/06 22:41:10 by Zexi Wang         #+#    #+#             */
+/*   Updated: 2019/05/06 22:48:19 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libef.h"
 
-t_darray	*ef_darray_increment(t_darray *darr)
+t_darray	*ef_darray_copy(t_darray *array, f_cpy cpy)
 {
-	return ((t_darray *)(((t_rdarray *)darr) + 1));
+	return (ef_darray_partition(array, 0, ef_darray_length(array), cpy));
 }

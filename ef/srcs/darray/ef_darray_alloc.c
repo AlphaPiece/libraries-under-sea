@@ -6,19 +6,19 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/03 13:21:44 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/04 23:49:51 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/05/06 20:30:02 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libef.h"
 
-t_darray	*ef_darray_alloc(size_t elem_size, int arr_len)
+t_darray	*ef_darray_alloc(size_t elem_size, int length)
 {
-	t_rdarray	*rdarr;
+	t_darray	*array;
 
-	if (!(rdarr = (t_rdarray *)malloc(sizeof(t_rdarray))) ||
-			!(rdarr->data = malloc(MAX(arr_len * elem_size,
+	if (!(array = (t_darray *)malloc(sizeof(t_darray))) ||
+			!(array->data = malloc(MAX(length * elem_size,
 										DARRAY_LEN * elem_size))))
 		exit(MALLOC_ERROR);
-	return ((t_darray *)rdarr);
+	return (array);
 }
