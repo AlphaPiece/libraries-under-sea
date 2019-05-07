@@ -1,26 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ef_darray_alloc.c                                  :+:      :+:    :+:   */
+/*   ef_darray_traverse.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/03 13:21:44 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/07 09:48:53 by Zexi Wang        ###   ########.fr       */
+/*   Created: 2019/05/07 09:34:35 by Zexi Wang         #+#    #+#             */
+/*   Updated: 2019/05/07 09:49:16 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libef.h"
 
-t_darray	*ef_darray_alloc(size_t elem_size, int length)
+void	ef_darray_traverse(t_darray *array, f_trv trv)
 {
-	t_darray	*array;
-	size_t		array_size;
+	int	i;
 
-	array_size = MAX(length * elem_size, DARRAY_LEN * elem_size);
-	if (!(array = (t_darray *)malloc(sizeof(t_darray))) ||
-			!(array->data = malloc(array_size)))
-		exit(MALLOC_ERROR);
-	ft_bzero(array->data, array_size);
-	return (array);
+	for (i = 0; i < ef_darray_length(array); i++)
+		ef_darray_set(array, (t_value)trv((void *)ef_darray_get(array, i)), i);
 }

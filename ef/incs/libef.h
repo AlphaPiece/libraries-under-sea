@@ -6,7 +6,7 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/15 16:00:55 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/06 22:47:02 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/05/07 09:49:28 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,9 @@ t_value				ef_darray_delete(t_darray *array, int index);
 void				ef_darray_remove(t_darray *array, t_value value);
 void				ef_darray_clear(t_darray *array, f_del del);
 void				ef_darray_free(t_darray *array, f_del del);
+
+// Traverse
+void				ef_darray_traverse(t_darray *array, f_trv trv);
 
 // Status
 int					ef_darray_length(t_darray *array);
@@ -172,6 +175,9 @@ t_slist				*ef_slist_remove(t_slist *list, void *data, f_cmp cmp,
 										t_flag one_or_all);
 void				ef_slist_free(t_slist *list, f_del del, t_flag one_or_all);
 
+// Traverse
+void				ef_slist_traverse(t_slist *list, f_trv trv, int length);
+
 // Status
 int					ef_slist_length(t_slist *list);
 int					ef_slist_node_index(t_slist *list, t_slist *node);
@@ -182,7 +188,6 @@ t_slist				*ef_slist_sort(t_slist *list, f_cmp cmp);
 t_slist				*ef_slist_reverse(t_slist *list);
 t_slist				*ef_slist_rotate(t_slist *list, int n);
 t_slist				*ef_slist_copy(t_slist *list, f_cpy cpy);
-void				ef_slist_traverse(t_slist *list, f_trv trv, int length);
 
 /*
 ** ==========================
@@ -242,6 +247,10 @@ t_dlist				*ef_dlist_remove(t_dlist *list, void *data, f_cmp cmp,
 										t_flag one_or_all);
 void				ef_dlist_free(t_dlist *list, f_del del, t_flag one_or_all);
 
+// Traverse
+void				ef_dlist_traverse(t_dlist *list, f_trv trv, int length,
+										t_flag order);
+
 // Status
 int					ef_dlist_length(t_dlist *list);
 int					ef_dlist_node_index(t_dlist *list, t_dlist *node);
@@ -252,8 +261,6 @@ t_dlist				*ef_dlist_sort(t_dlist *list, f_cmp cmp);
 t_dlist				*ef_dlist_reverse(t_dlist *list);
 t_dlist				*ef_dlist_rotate(t_dlist *list, int n);
 t_dlist				*ef_dlist_copy(t_dlist *list, f_cpy cpy);
-void				ef_dlist_traverse(t_dlist *list, f_trv trv, int length,
-										t_flag order);
 
 /*
 ** =================
@@ -301,15 +308,18 @@ void				*ef_deque_pop_nth(t_deque *queue, int n);
 void				ef_deque_clear(t_deque *queue, f_del del);
 void				ef_deque_free(t_deque *queue, f_del del);
 
+// Traverse
+void				ef_deque_traverse(t_deque *queue, f_trv trv);
+
 // Status
 t_bool				ef_deque_is_empty(t_deque *queue);
 int					ef_deque_length(t_deque *queue);
 
 // Extra
-t_deque				*ef_deque_copy(t_deque *queue, f_cpy cpy);
 void				ef_deque_sort(t_deque *queue, f_cmp cmp);
 void				ef_deque_reverse(t_deque *queue);
 void				ef_deque_rotate(t_deque *queue, int n);
+t_deque				*ef_deque_copy(t_deque *queue, f_cpy cpy);
 
 /*
 ** ==================
@@ -377,6 +387,10 @@ t_ntree				*ef_ntree_remove(t_ntree *tree, void *data, f_cmp cmp,
 										t_flag order, t_flag one_ar_all);
 void				ef_ntree_free(t_ntree *tree, f_del del, t_flag one_or_all);
 
+// Traverse
+void				ef_ntree_traverse(t_ntree *tree, f_trv trv, int depth,
+										t_flag order, t_flag part);
+
 // Status
 t_bool				ef_ntree_is_root(t_ntree *node);
 t_bool				ef_ntree_is_leaf(t_ntree *node);
@@ -394,8 +408,7 @@ void				ef_ntree_sort_children(t_ntree *parent, f_cmp cmp);
 void				ef_ntree_reverse_children(t_ntree *parent);
 void				ef_ntree_rotate_children(t_ntree *parent, int n);
 t_ntree				*ef_ntree_copy(t_ntree *tree, f_cpy cpy);
-void				ef_ntree_traverse(t_ntree *tree, f_trv trv, int depth,
-										t_flag order, t_flag part);
+
 
 /*
 ** =========================================
@@ -455,8 +468,11 @@ void				*ef_bstree_get(t_bstree *tree, void *key);
 // Delete
 void				ef_rbtree_free(t_rbtree *tree, f_del del_key,
 									f_del del_value, t_flag one_or_all);
-void				*ef_bstree_delete(t_bstree *tree, void *key);
+void				ef_bstree_delete(t_bstree *tree, void *key);
 void				ef_bstree_free(t_bstree *tree);
+
+// Traverse
+void				ef_bstree_traverse(t_bstree *tree, f_trw trw, t_flag order);
 
 // Status
 int					ef_bstree_height(t_bstree *tree);
@@ -467,7 +483,6 @@ int					ef_bstree_count_leaves(t_bstree *tree);
 void				ef_bstree_left_rotate(t_bstree *tree, t_rbtree *x);
 void				ef_bstree_right_rotate(t_bstree *tree, t_rbtree *x);
 t_bstree			*ef_bstree_copy(t_bstree *tree);
-void				ef_bstree_traverse(t_bstree *tree, f_trw trw, t_flag order);
 
 /*
 ** ==================
@@ -507,13 +522,21 @@ void				ef_htable_resize(t_htable *table);
 
 // Set
 void				ef_htable_insert(t_htable *table, void *key, void *value);
+void				ef_htable_set(t_htable *table, void *key, void *value);
 
 // Get
-
+t_dlist				*ef_htable_find(t_htable *table, void *key);
+void				*ef_htable_get(t_htable *table, void *key);
 
 // Delete
 void				ef_kvpair_free(t_kvpair *pair, f_del del_key,
 									f_del del_value);
+t_dlist				*ef_htable_pop(t_htable *table);
+void				ef_htable_delete(t_htable *table, void *key);
+void				ef_htable_free(t_htable *table);
+
+// Traverse
+void				ef_htable_traverse(t_htable *table, f_trw trw);
 
 // Status
 

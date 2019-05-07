@@ -1,26 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ef_darray_alloc.c                                  :+:      :+:    :+:   */
+/*   ef_htable_find.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/03 13:21:44 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/07 09:48:53 by Zexi Wang        ###   ########.fr       */
+/*   Created: 2019/05/06 23:51:23 by Zexi Wang         #+#    #+#             */
+/*   Updated: 2019/05/06 23:56:11 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libef.h"
 
-t_darray	*ef_darray_alloc(size_t elem_size, int length)
+t_dlist	*ef_htable_find(t_htable *table, void *key)
 {
-	t_darray	*array;
-	size_t		array_size;
+	int		hashkey;
+	t_dlist	*list;
 
-	array_size = MAX(length * elem_size, DARRAY_LEN * elem_size);
-	if (!(array = (t_darray *)malloc(sizeof(t_darray))) ||
-			!(array->data = malloc(array_size)))
-		exit(MALLOC_ERROR);
-	ft_bzero(array->data, array_size);
-	return (array);
+	hashkey = ef_htable_hash(table, key);
+	list = ef_darray_get(table->array, hashkey);
+	while (list)
+		if (list->data && table->cmp_key(list->data->key, key) == 0)
+			return (list);
+	return (NULL);
 }
