@@ -6,7 +6,7 @@
 #    By: zwang <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/15 14:23:06 by zwang             #+#    #+#              #
-#    Updated: 2019/05/01 21:09:35 by Zexi Wang        ###   ########.fr        #
+#    Updated: 2019/05/06 23:25:13 by Zexi Wang        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,16 +14,17 @@ NAME = libef.a
 CC = gcc
 CFLAGS = -Wall -Werror -Wextra
 
-DARRAY = ef_darray_append_array.c     ef_darray_insert_array.c \
-		 ef_darray_remove_last_elem.c ef_darray_decrement.c \
-		 ef_darray_length.c           ef_darray_remove_range.c \
-		 ef_darray_elem_size.c        ef_darray_new.c \
-		 ef_darray_reverse.c          ef_darray_expand_capacity.c \
-		 ef_darray_partition.c        ef_darray_sized_new.c \
-		 ef_darray_free.c             ef_darray_prepend_array.c \
-		 ef_darray_sort.c             ef_darray_increment.c \
-		 ef_darray_remove.c           ef_darray_swap.c \
-		 ef_darray_type_size.c
+DARRAY = ef_darray_alloc.c           ef_darray_expand_capacity.c \
+		 ef_darray_pop.c             ef_darray_append.c \
+		 ef_darray_free.c            ef_darray_remove.c \
+		 ef_darray_clear.c           ef_darray_get.c \
+		 ef_darray_reverse.c         ef_darray_copy.c \
+		 ef_darray_insert.c          ef_darray_set.c \
+		 ef_darray_delete.c          ef_darray_length.c \
+		 ef_darray_sized_new.c       ef_darray_elem_index.c \
+		 ef_darray_new.c             ef_darray_sort.c \
+		 ef_darray_elem_size.c       ef_darray_partition.c \
+		 ef_darray_swap.c
 SLIST = ef_slist_alloc.c              ef_slist_last_node.c \
 		ef_slist_append.c             ef_slist_length.c \
 		ef_slist_append_list.c        ef_slist_new.c \
