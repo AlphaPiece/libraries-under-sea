@@ -1,25 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ef_htable_hash.c                                   :+:      :+:    :+:   */
+/*   ft_hash_str.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/07 22:50:18 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/07 23:31:19 by Zexi Wang        ###   ########.fr       */
+/*   Created: 2019/05/07 11:36:24 by Zexi Wang         #+#    #+#             */
+/*   Updated: 2019/05/07 21:26:27 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libef.h"
+#include "libft.h"
 
-int	ef_htable_hash(t_htable *table, void *key)
+uint32_t	ft_hash_str(char *s)
 {
-	int	hashkey;
+	uint32_t	h;
 
-	if (!table)
-		return (0);
-	hashkey = (int)table->hsh_key(key);
-	if (hashkey < 0)
-		hashkey = -hashkey;
-	return (hashkey % table->capacity);
+	for (h = 5381; *s; s++)
+		h = (h << 5) + h + *s;
+	return (h);
 }

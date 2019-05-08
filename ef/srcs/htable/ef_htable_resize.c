@@ -6,7 +6,7 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/04 22:13:25 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/04 22:36:04 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/05/07 22:43:49 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ef_htable_resize(t_htable *table)
 	double		factor;
 	t_darray	new_array;
 
-	factor = (double)table->elem_no / table->array->length;
+	factor = (double)table->size / table->capacity;
 	if (factor >= MAX_LOAD)
 	{
 	}

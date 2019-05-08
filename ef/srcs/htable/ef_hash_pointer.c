@@ -1,25 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ef_htable_hash.c                                   :+:      :+:    :+:   */
+/*   ef_hash_pointer.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/07 22:50:18 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/07 23:31:19 by Zexi Wang        ###   ########.fr       */
+/*   Created: 2019/05/07 21:51:53 by Zexi Wang         #+#    #+#             */
+/*   Updated: 2019/05/07 23:31:46 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libef.h"
 
-int	ef_htable_hash(t_htable *table, void *key)
+int	ef_hash_pointer(void *key)
 {
-	int	hashkey;
-
-	if (!table)
-		return (0);
-	hashkey = (int)table->hsh_key(key);
-	if (hashkey < 0)
-		hashkey = -hashkey;
-	return (hashkey % table->capacity);
+	return ((int)ft_hash_ptr(key));
 }

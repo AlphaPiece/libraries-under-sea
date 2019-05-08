@@ -1,25 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ef_htable_hash.c                                   :+:      :+:    :+:   */
+/*   ef_htable_traverse.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/07 22:50:18 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/07 23:31:19 by Zexi Wang        ###   ########.fr       */
+/*   Created: 2019/05/07 21:58:58 by Zexi Wang         #+#    #+#             */
+/*   Updated: 2019/05/07 23:44:05 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libef.h"
 
-int	ef_htable_hash(t_htable *table, void *key)
+void	ef_htable_traverse(t_htable *table, f_trw trw)
 {
-	int	hashkey;
+	int		i;
+	t_dlist	*list;
 
-	if (!table)
-		return (0);
-	hashkey = (int)table->hsh_key(key);
-	if (hashkey < 0)
-		hashkey = -hashkey;
-	return (hashkey % table->capacity);
+	if (table && trw)
+		for (i = 0; i < table->capacity; i++)
+			for (list = table->array[i]; list; list = list->next)
+				GET_PAIR(list)->value = trw(GET_PAIR(list)->key,
+											GET_PAIR(list)->value);
 }
+			

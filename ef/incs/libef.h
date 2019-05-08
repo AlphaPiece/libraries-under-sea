@@ -6,7 +6,7 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/15 16:00:55 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/07 10:16:15 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/05/07 23:33:28 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,12 @@
 typedef int			(*f_cmp)(void *, void *);
 typedef void		(*f_del)(void *);
 typedef void		*(*f_cpy)(void *);
-typedef void		*(f_trv)(void *);
-typedef void		*(f_trw)(void *, void *);
+typedef void		*(*f_trv)(void *);
+typedef void		*(*f_trw)(void *, void *);
+typedef int			(*f_hsh)(void *);
 
 typedef int8_t		t_flag;
+typedef uint64_t	t_value;
 
 enum				e_one_or_all
 {
@@ -40,8 +42,6 @@ enum				e_one_or_all
 */
 
 # define DARRAY_LEN		16
-
-typedef uint64_t	t_value;
 
 typedef struct		s_darray
 {
@@ -495,7 +495,10 @@ t_bstree			*ef_bstree_copy(t_bstree *tree);
 
 # define MAX_LOAD		0.7
 # define MIN_LOAD		0.1
-# define HTABLE_SIZE	40
+# define HTABLE_SIZE	32
+
+# define HASH(t,k)		((t)->hsh_key((t_value)(k)) % (t)->capacity)
+# define GET_PAIR(l)	((t_kvpair *)(l->data))
 
 typedef struct		s_kvpair
 {
@@ -505,8 +508,10 @@ typedef struct		s_kvpair
 
 typedef struct		s_htable
 {
-	t_darray		*array;
+	t_dlist			**array;
 	int				size;
+	int				capacity;
+	f_hsh			hsh_key;
 	f_cmp			cmp_key;
 	f_del			del_key;
 	f_del			del_value;
@@ -514,11 +519,13 @@ typedef struct		s_htable
 
 // Create
 t_kvpair			*ef_kvpair_alloc(void);
-t_kvpair			*ef_kvpair_new(void *key, void *value);
+t_kvpair			*ef_kvpair_new(void * key, void *value);
 t_htable			*ef_htable_alloc(void);
-t_htable			*ef_htable_new(f_cmp cmp_key, f_del del_key,
-									f_del del_value);
-int					ef_htable_hash(void *key, unsigned int hashsize);
+t_htable			*ef_htable_new(f_hsh hsh_key, f_cmp cmp_key,
+									f_del del_key, f_del del_value);
+int					ef_htable_hash(t_htable *table, void *key);
+int					ef_hash_pointer(void *pointer);
+int					ef_hash_string(void *string);
 void				ef_htable_resize(t_htable *table);
 
 // Set

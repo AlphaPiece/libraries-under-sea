@@ -1,25 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ef_htable_hash.c                                   :+:      :+:    :+:   */
+/*   ef_htable_set.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/07 22:50:18 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/07 23:31:19 by Zexi Wang        ###   ########.fr       */
+/*   Created: 2019/05/07 10:31:28 by Zexi Wang         #+#    #+#             */
+/*   Updated: 2019/05/07 23:42:22 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libef.h"
 
-int	ef_htable_hash(t_htable *table, void *key)
+void	ef_htable_set(t_htable *table, void *key, void *value)
 {
-	int	hashkey;
+	t_dlist	*node;
 
-	if (!table)
-		return (0);
-	hashkey = (int)table->hsh_key(key);
-	if (hashkey < 0)
-		hashkey = -hashkey;
-	return (hashkey % table->capacity);
+	if ((node = ef_htable_find(table, key)))
+		GET_PAIR(node)->value = value;
+	else
+		ef_htable_insert(table, key, value);
 }

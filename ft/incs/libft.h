@@ -6,7 +6,7 @@
 /*   By: zwang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/11 11:20:28 by zwang             #+#    #+#             */
-/*   Updated: 2019/04/30 10:51:05 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/05/07 21:28:28 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,6 +92,7 @@ unsigned int		ft_invertbits(unsigned int x, int p, int n);
 void				ft_memswap(void *p1, void *p2, size_t byte);
 void				*ft_memrealloc(void **ptr, size_t oldsize, size_t newsize);
 void				ft_putbits(void *x, size_t bit);
+uint32_t			ft_hash_ptr(void *p);
 
 /*
 ** ==============
@@ -154,6 +155,7 @@ long long			ft_factorial(int n);
 long long			ft_fibonacci(int n);
 long long			ft_uglynum(int n);
 void				ft_swap(int *a, int *b);
+uint32_t			ft_hash_int(int h);
 
 /*
 ** =======================
@@ -229,6 +231,7 @@ void				ft_strsqueeze(char str[], int c);
 void				ft_strarrsort(char *arr[], int len,
 									int (*cmp)(const char *, const char *));
 char				*ft_strcompose(int str_num, ...);
+uint32_t			ft_hash_str(char *s);
 
 /*
 ** =========================
