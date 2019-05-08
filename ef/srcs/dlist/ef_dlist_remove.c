@@ -6,13 +6,13 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/24 16:58:30 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/01 12:36:05 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/05/08 11:17:28 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libef.h"
 
-t_dlist	*ef_dlist_remove(t_dlist *list, void *data, f_cmp cmp,
+t_dlist	*ef_dlist_remove(t_dlist *list, void *data, f_cmp cmp, f_del del,
 							t_flag one_or_all)
 {
 	t_dlist *origin;
@@ -29,6 +29,8 @@ t_dlist	*ef_dlist_remove(t_dlist *list, void *data, f_cmp cmp,
 			node->next = tmp->next;
 			if (node->next)
 				node->next->prev = node;
+			if (del)
+				del(tmp->data);
 			ef_dlist_free(tmp, NULL, ONE);
 			if (one_or_all == ONE)
 				break ;

@@ -1,29 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ef_htable_traverse.c                               :+:      :+:    :+:   */
+/*   ef_htable_remove.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/07 21:58:58 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/08 13:12:28 by Zexi Wang        ###   ########.fr       */
+/*   Created: 2019/05/08 10:03:30 by Zexi Wang         #+#    #+#             */
+/*   Updated: 2019/05/08 11:35:17 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libef.h"
 
-void	ef_htable_traverse(t_htable *table, f_trw trw)
+void	ef_htable_remove(t_htable *table, void *key)
 {
-	int		i;
-	t_dlist	*list;
-
-	if (table && trw)
-		for (i = 0; i < table->capacity; i++)
-			for (list = table->array[i]; list; list = list->next)
-			{
-				ft_printf("i: %d\n", i);
-				GET_PAIR(list)->value = trw(GET_PAIR(list)->key,
-											GET_PAIR(list)->value);
-			}
+	ef_htable_delete(table, ef_htable_find(table, key));
 }
-			

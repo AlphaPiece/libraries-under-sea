@@ -1,29 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ef_htable_traverse.c                               :+:      :+:    :+:   */
+/*   ef_htable_clear.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/07 21:58:58 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/08 13:12:28 by Zexi Wang        ###   ########.fr       */
+/*   Created: 2019/05/08 11:36:28 by Zexi Wang         #+#    #+#             */
+/*   Updated: 2019/05/08 12:54:07 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libef.h"
 
-void	ef_htable_traverse(t_htable *table, f_trw trw)
+void	ef_htable_clear(t_htable *table)
 {
 	int		i;
 	t_dlist	*list;
+	t_dlist	*next;
 
-	if (table && trw)
+	if (table)
+	{
 		for (i = 0; i < table->capacity; i++)
-			for (list = table->array[i]; list; list = list->next)
-			{
-				ft_printf("i: %d\n", i);
-				GET_PAIR(list)->value = trw(GET_PAIR(list)->key,
-											GET_PAIR(list)->value);
-			}
+			if ((list = table->array[i]))
+				while (list)
+				{
+					next = list->next;
+					ef_kvpair_free(list->data, table->del_key,
+									table->del_value);
+					free(list);
+					list = next;
+				}
+	}
+	table->size = 0;
 }
-			

@@ -1,29 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ef_htable_traverse.c                               :+:      :+:    :+:   */
+/*   ef_htable_delete.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/07 21:58:58 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/08 13:12:28 by Zexi Wang        ###   ########.fr       */
+/*   Created: 2019/05/08 11:20:21 by Zexi Wang         #+#    #+#             */
+/*   Updated: 2019/05/08 13:36:46 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libef.h"
 
-void	ef_htable_traverse(t_htable *table, f_trw trw)
+void	ef_htable_delete(t_htable *table, t_dlist *node)
 {
-	int		i;
-	t_dlist	*list;
-
-	if (table && trw)
-		for (i = 0; i < table->capacity; i++)
-			for (list = table->array[i]; list; list = list->next)
-			{
-				ft_printf("i: %d\n", i);
-				GET_PAIR(list)->value = trw(GET_PAIR(list)->key,
-											GET_PAIR(list)->value);
-			}
+	int		hashkey;
+	
+	if (table && node)
+	{
+		hashkey = ef_htable_hash(table, GET_PAIR(node)->key);
+		table->array[hashkey] = ef_dlist_unlink(table->array[hashkey], node);
+		ef_kvpair_free(node->data, table->del_key, table->del_value);
+		free(node);
+		table->size--;
+	}
 }
-			
+

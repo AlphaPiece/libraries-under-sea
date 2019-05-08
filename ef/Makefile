@@ -6,7 +6,7 @@
 #    By: zwang <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/15 14:23:06 by zwang             #+#    #+#              #
-#    Updated: 2019/05/07 10:30:07 by Zexi Wang        ###   ########.fr        #
+#    Updated: 2019/05/08 13:48:27 by Zexi Wang        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -78,6 +78,14 @@ NTREE = ef_ntree_alloc.c               ef_ntree_is_leaf.c \
 		ef_ntree_insert_child_before.c ef_ntree_traverse.c \
 		ef_ntree_is_ancestor.c         ef_ntree_unlink.c \
 		ef_ntree_is_descendant.c       ef_ntree_count_leaves.c
+HTABLE = ef_hash_integer.c    ef_htable_find.c     ef_htable_pairs.c \
+		 ef_hash_pointer.c    ef_htable_free.c     ef_htable_pop.c \
+		 ef_hash_string.c     ef_htable_get.c      ef_htable_remove.c \
+		 ef_htable_alloc.c    ef_htable_hash.c     ef_htable_resize.c \
+		 ef_htable_clear.c    ef_htable_insert.c   ef_htable_set.c \
+		 ef_htable_delete.c   ef_htable_new.c      ef_htable_size.c \
+		 ef_htable_traverse.c ef_kvpair_alloc.c    ef_kvpair_new.c \
+		 ef_kvpair_free.c
 OBJ = *.o
 
 DARRAY_DIR = srcs/darray/
@@ -85,6 +93,7 @@ SLIST_DIR = srcs/slist/
 DLIST_DIR = srcs/dlist/
 DEQUE_DIR = srcs/deque/
 NTREE_DIR = srcs/ntree/
+HTABLE_DIR = srcs/htable/
 
 OBJS_DIR = objs/
 
@@ -93,7 +102,8 @@ SRCS = $(addprefix $(DARRAY_DIR), $(DARRAY)) \
 	   $(addprefix $(SLIST_DIR), $(SLIST)) \
 	   $(addprefix $(DLIST_DIR), $(DLIST)) \
 	   $(addprefix $(DEQUE_DIR), $(DEQUE)) \
-	   $(addprefix $(NTREE_DIR), $(NTREE))
+	   $(addprefix $(NTREE_DIR), $(NTREE)) \
+	   $(addprefix $(HTABLE_DIR), $(HTABLE))
 OBJS = $(addprefix $(OBJS_DIR), $(OBJ))
 
 RESET = \033[0m

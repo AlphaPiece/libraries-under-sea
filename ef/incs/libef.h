@@ -6,7 +6,7 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/15 16:00:55 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/07 23:33:28 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/05/08 13:47:38 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,9 +52,9 @@ typedef struct		s_darray
 }					t_darray;
 
 // Create
-t_darray			*ef_darray_alloc(size_t elem_size, int elem_no);
+t_darray			*ef_darray_alloc(size_t elem_size, int length);
 t_darray			*ef_darray_new(size_t elem_size);
-t_darray			*ef_darray_sized_new(size_t elem_size, int elem_no);
+t_darray			*ef_darray_sized_new(size_t elem_size, int length);
 void				ef_darray_expand_capacity(t_darray *array);
 
 // Set
@@ -172,7 +172,7 @@ void				*ef_slist_nth_data(t_slist *list, int n);
 // Delete
 t_slist				*ef_slist_unlink(t_slist *list, t_slist *node);
 t_slist				*ef_slist_remove(t_slist *list, void *data, f_cmp cmp,
-										t_flag one_or_all);
+										f_del del, t_flag one_or_all);
 void				ef_slist_free(t_slist *list, f_del del, t_flag one_or_all);
 
 // Traverse
@@ -244,7 +244,7 @@ void				*ef_dlist_nth_data(t_dlist *list, int n);
 // Delete
 t_dlist				*ef_dlist_unlink(t_dlist *list, t_dlist *node);
 t_dlist				*ef_dlist_remove(t_dlist *list, void *data, f_cmp cmp,
-										t_flag one_or_all);
+										f_del del, t_flag one_or_all);
 void				ef_dlist_free(t_dlist *list, f_del del, t_flag one_or_all);
 
 // Traverse
@@ -493,9 +493,8 @@ t_bstree			*ef_bstree_copy(t_bstree *tree);
 ** ==================
 */
 
-# define MAX_LOAD		0.7
-# define MIN_LOAD		0.1
-# define HTABLE_SIZE	32
+# define LOAD_FACTOR	0.7
+# define HTABLE_SIZE	5
 
 # define HASH(t,k)		((t)->hsh_key((t_value)(k)) % (t)->capacity)
 # define GET_PAIR(l)	((t_kvpair *)(l->data))
@@ -520,16 +519,13 @@ typedef struct		s_htable
 // Create
 t_kvpair			*ef_kvpair_alloc(void);
 t_kvpair			*ef_kvpair_new(void * key, void *value);
-t_htable			*ef_htable_alloc(void);
+t_htable			*ef_htable_alloc(int size);
 t_htable			*ef_htable_new(f_hsh hsh_key, f_cmp cmp_key,
 									f_del del_key, f_del del_value);
-int					ef_htable_hash(t_htable *table, void *key);
-int					ef_hash_pointer(void *pointer);
-int					ef_hash_string(void *string);
 void				ef_htable_resize(t_htable *table);
 
 // Set
-void				ef_htable_insert(t_htable *table, void *key, void *value);
+void				ef_htable_insert(t_htable *table, t_kvpair *pair);
 void				ef_htable_set(t_htable *table, void *key, void *value);
 
 // Get
@@ -539,18 +535,23 @@ void				*ef_htable_get(t_htable *table, void *key);
 // Delete
 void				ef_kvpair_free(t_kvpair *pair, f_del del_key,
 									f_del del_value);
-t_dlist				*ef_htable_pop(t_htable *table);
-void				ef_htable_delete(t_htable *table, void *key);
+t_kvpair			*ef_htable_pop(t_htable *table);
+void				ef_htable_delete(t_htable *table, t_dlist *node);
+void				ef_htable_remove(t_htable *table, void *key);
+void				ef_htable_clear(t_htable *table);
 void				ef_htable_free(t_htable *table);
 
 // Traverse
 void				ef_htable_traverse(t_htable *table, f_trw trw);
 
 // Status
-
-
+int					ef_htable_size(t_htable *table);
+t_darray			*ef_htable_pairs(t_htable *table);
 
 // Extra
-
+int					ef_htable_hash(t_htable *table, void *key);
+int					ef_hash_pointer(void *pointer);
+int					ef_hash_string(void *string);
+int					ef_hash_integer(void *integer);
 
 #endif
