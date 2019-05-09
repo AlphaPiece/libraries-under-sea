@@ -6,7 +6,7 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/15 16:00:55 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/08 23:25:37 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/05/09 00:08:19 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ typedef void		(*f_del)(void *);
 typedef void		*(*f_cpy)(void *);
 typedef void		*(*f_trv)(void *);
 typedef void		*(*f_trw)(void *, void *);
-typedef int			(*f_hsh)(void *);
+
 
 typedef int8_t		t_flag;
 typedef uint64_t	t_value;
@@ -104,24 +104,26 @@ typedef struct		s_bheap
 
 // Create
 t_bheap				*ef_bheap_alloc(void);
-t_bheap				*ef_bheap_new(size_t elem_size, f_cmp cmp);
+t_bheap				*ef_bheap_new(f_cmp cmp);
 
 // Set
 void				ef_bheap_insert(t_bheap *heap, void *data);
 
 // Get
-int					ef_bheap_index(t_bheap *heap, void *data);
-void				*ef_bheap_parent(t_bheap *heap, void *data);
-void				*ef_bheap_left_child(t_bheap *heap, void *data);
-void				*ef_bheap_right_child(t_bheap *heap, void *data);
 void				*ef_bheap_peek_top(t_bheap *heap);
-void				*ef_bheap_pop_top(t_bheap *heap);
 
 // Delete
+void				*ef_bheap_pop_top(t_bheap *heap);
 
+// Traverse
+void				ef_bheap_traverse(t_bheap *heap, f_trv trv);
 
 // Status
-
+int					ef_bheap_size(t_bheap *heap);
+int					ef_bheap_elem_index(t_bheap *heap, void *data);
+int					ef_bheap_parent_index(t_bheap *heap, int index);
+int					ef_bheap_left_child_index(t_bheap *heap, int index);
+int					ef_bheap_right_child_index(t_bheap *heap, int index);
 
 // Extra
 
@@ -495,6 +497,8 @@ void				ef_bstree_right_rotate(t_bstree *tree, t_rbtree *x);
 # define HTABLE_SIZE	32
 
 # define GET_PAIR(l)	((t_kvpair *)(l->data))
+
+typedef int			(*f_hsh)(void *);
 
 typedef struct		s_kvpair
 {
