@@ -6,7 +6,7 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/01 21:55:39 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/08 20:09:12 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/05/08 22:52:42 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ t_rbtree	*ef_bstree_find(t_bstree *tree, void *key)
 		else if (tree->cmp_key(key, node->key) > 0)
 			node = node->right;
 		else
-			return (node);
+			break ;;
 	}
-	return (tree->nil);
+	return (node);
 }

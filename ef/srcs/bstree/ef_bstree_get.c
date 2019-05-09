@@ -1,25 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ef_rbtree_free.c                                   :+:      :+:    :+:   */
+/*   ef_bstree_get.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/08 15:52:31 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/08 23:16:03 by Zexi Wang        ###   ########.fr       */
+/*   Created: 2019/05/08 22:47:18 by Zexi Wang         #+#    #+#             */
+/*   Updated: 2019/05/08 22:51:58 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libef.h"
 
-void	ef_rbtree_free(t_rbtree *tree, f_del del_key, f_del del_value)
+void	*ef_bstree_get(t_bstree *tree, void *key)
 {
-	if (tree)
-	{
-		if (del_key)
-			del_key(tree->key);
-		if (del_value)
-			del_value(tree->value);
-		free(tree);
-	}
+	t_rbtree	*node;
+	void		*value;
+
+	if (!tree)
+		return (NULL);
+	value = NULL;
+	if ((node = ef_bstree_find(tree, key)))
+		value = node->value;
+	return (value);
 }

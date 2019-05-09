@@ -6,7 +6,7 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/08 20:17:50 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/08 20:19:44 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/05/08 23:14:17 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,10 @@
 void	ef_bstree_set(t_bstree *tree, void *key, void *value)
 {
 	t_rbtree	*z;
-
-	if ((z = ef_bstree_find(tree, key)))
+	
+	if (!tree)
+		return ;
+	if ((z = ef_bstree_find(tree, key)) != tree->nil)
 		z->value = value;
 	else
 	{

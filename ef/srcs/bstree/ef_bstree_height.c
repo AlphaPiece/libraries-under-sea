@@ -6,7 +6,7 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/01 20:49:53 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/03 18:55:51 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/05/08 23:09:34 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,9 @@ int	ef_bstree_height(t_bstree *tree)
 		while (length--)
 		{
 			node = ef_deque_pop_head(queue);
-			if (node->left)
+			if (node->left != tree->nil)
 				ef_deque_push_tail(queue, node->left);
-			if (node->right)
+			if (node->right != tree->nil)
 				ef_deque_push_tail(queue, node->right);
 		}
 		height++;

@@ -6,7 +6,7 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/15 16:00:55 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/08 20:37:20 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/05/08 23:19:22 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -466,7 +466,7 @@ void				*ef_bstree_get(t_bstree *tree, void *key);
 
 // Delete
 void				ef_rbtree_free(t_rbtree *tree, f_del del_key,
-									f_del del_value, t_flag one_or_all);
+									f_del del_value);
 void				ef_bstree_delete(t_bstree *tree, t_rbtree *z);
 void				*ef_bstree_remove(t_bstree *tree, void *key);
 void				ef_bstree_clear(t_bstree *tree);
@@ -494,7 +494,6 @@ void				ef_bstree_right_rotate(t_bstree *tree, t_rbtree *x);
 # define LOAD_FACTOR	0.7
 # define HTABLE_SIZE	5
 
-# define HASH(t,k)		((t)->hsh_key((t_value)(k)) % (t)->capacity)
 # define GET_PAIR(l)	((t_kvpair *)(l->data))
 
 typedef struct		s_kvpair
