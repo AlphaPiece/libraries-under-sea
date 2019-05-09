@@ -6,7 +6,7 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/01 21:16:14 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/04 11:32:45 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/05/08 17:50:06 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ef_rbtree_in_order_traverse(t_rbtree *tree, f_trw trw)
 	t_deque	*stack;
 
 	stack = ef_deque_new(NULL);
-	while (true)
+	while (!ef_deque_is_empty(stack) || tree)
 		if (tree)
 		{
 			ef_deque_push_head(stack, tree);
@@ -25,8 +25,6 @@ void	ef_rbtree_in_order_traverse(t_rbtree *tree, f_trw trw)
 		}
 		else
 		{
-			if (ef_deque_is_empty(stack))
-				break ;
 			tree = ef_deque_pop_head(stack);
 			tree->value = trw(tree->key, tree->value);
 			tree = tree->right;
@@ -38,57 +36,49 @@ void	ef_rbtree_pre_order_traverse(t_rbtree *tree, f_trw trw)
 {
 	t_deque	*stack;
 
-	if (!tree)
-		return ;
-	stack = ef_deque_new(ef_dlist_new(tree));
-	while (!ef_deque_is_empty(stack))
-	{
-		tree = ef_deque_pop_head(stack);
-		tree->value = trw(tree->key, tree->value);
-		if (tree->right)
-			ef_deque_push_head(stack, tree->right);
-		if (tree->left)
-			ef_deque_push_head(stack, tree->left);
-	}
+	stack = ef_deque_new(NULL);
+	while (!ef_deque_is_empty(stack) || tree)
+		if (tree)
+		{
+			tree->value = trw(tree->key, tree->value);
+			ef_deque_push_head(stack, tree);
+			tree = tree->left;
+		}
+		else
+		{
+			tree = ef_deque_pop_head(stack);
+			tree = tree->right;
+		}
 	ef_deque_free(stack, NULL);
 }
 
 void	ef_rbtree_post_order_traverse(t_rbtree *tree, f_trw trw)
 {
-	t_deque	*stack;
+	t_deque	*stack1;
+	t_deque	*stack2;
 
-	if (!tree)
-		return ;
-	stack = ef_deque_new(NULL);
-	do
+	stack1 = ef_deque_new(ef_dlist_new(tree));
+	stack2 = ef_deque_new(NULL);
+	while (!ef_deque_is_empty(stack1))
 	{
-		while (tree)
-		{
-			if (tree->right)
-				ef_deque_push_head(tree->right);
-			ef_deque_push_head(tree);
-			tree = tree->left;
-		}
-		tree = ef_deque_pop_head(stack);
-		if (tree->right && ef_deque_peek_head(stack) == tree->right)
-		{
-			ef_deque_pop_head(stack);
-			ef_deque_push_head(stack, tree);
-			tree = tree->right;
-		}
-		else
-		{
-			tree->value = trw(tree->key, tree->value);
-			tree = NULL;
-		}
-	} while (!ef_deque_is_empty(stack));
-	ef_deque_free(stack);
+		tree = ef_deque_pop_head(stack1);
+		ef_deque_push_head(stack2, tree);
+		if (tree->left)
+			ef_deque_push_head(stack1, tree->left);
+		if (tree->right)
+			ef_deque_push_head(stack1, tree->right);
+	}
+	while (!ef_deque_is_empty(stack2))
+	{
+		tree = ef_deque_pop_head(stack2);
+		tree->value = trw(tree->key, tree->value);
+	}
 }
 
 void	ef_rbtree_level_order_traverse(t_rbtree *tree, f_trw trw)
 {
 	int		length;
-	t_deque	*queue
+	t_deque	*queue;
 	
 	queue = ef_deque_new(ef_dlist_new(tree));
 	while (!ef_deque_is_empty(queue))
@@ -114,16 +104,16 @@ void	ef_bstree_traverse(t_bstree *tree, f_trw trw, t_flag order)
 	switch (order)
 	{
 		case IN_ORDER:
-			ef_rbtree_in_order_traverse(tree->root, trw, depth, part);
+			ef_rbtree_in_order_traverse(tree->root, trw);
 			break ;
 		case PRE_ORDER:
-			ef_rbtree_pre_order_traverse(tree->root, trw, depth, part);
+			ef_rbtree_pre_order_traverse(tree->root, trw);
 			break ;
 		case POST_ORDER:
-			ef_rbtree_post_order_traverse(tree->root, trw, depth, part);
+			ef_rbtree_post_order_traverse(tree->root, trw);
 			break ;
 		case LEVEL_ORDER:
-			ef_rbtree_level_order_traverse(tree->root, trw, depth, part);
+			ef_rbtree_level_order_traverse(tree->root, trw);
 			break ;
 	}
 }

@@ -1,18 +1,13 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ef_bstree_is_root.c                                :+:      :+:    :+:   */
+/*   ef_bstree_remove.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/01 21:37:02 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/03 09:51:11 by Zexi Wang        ###   ########.fr       */
+/*   Created: 2019/05/08 20:33:21 by Zexi Wang         #+#    #+#             */
+/*   Updated: 2019/05/08 20:33:22 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libef.h"
 
-t_bool	ef_bstree_is_root(t_bstree *node)
-{
-	return (node && !node->parent);
-}

@@ -1,34 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ef_bstree_find.c                                   :+:      :+:    :+:   */
+/*   ef_bstree_set.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/01 21:55:39 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/08 20:09:12 by Zexi Wang        ###   ########.fr       */
+/*   Created: 2019/05/08 20:17:50 by Zexi Wang         #+#    #+#             */
+/*   Updated: 2019/05/08 20:19:44 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libef.h"
 
-t_rbtree	*ef_bstree_find(t_bstree *tree, void *key)
+void	ef_bstree_set(t_bstree *tree, void *key, void *value)
 {
-	t_rbtree	*node;
+	t_rbtree	*z;
 
-	if (!tree)
-		return (NULL);
-	if (!key)
-		return (tree->nil);
-	node = tree->root;
-	while (node != tree->nil)
+	if ((z = ef_bstree_find(tree, key)))
+		z->value = value;
+	else
 	{
-		if (tree->cmp_key(key, node->key) < 0)
-			node = node->left;
-		else if (tree->cmp_key(key, node->key) > 0)
-			node = node->right;
-		else
-			return (node);
+		z = ef_rbtree_new(key, value, tree->nil);
+		ef_bstree_insert(tree, z);
 	}
-	return (tree->nil);
 }
+

@@ -6,7 +6,7 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/15 16:00:55 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/08 13:47:38 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/05/08 20:37:20 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -440,50 +440,48 @@ typedef struct		s_rbtree
 typedef struct		s_bstree
 {
 	t_rbtree		*root;
+	t_rbtree		*nil;
 	int				size;
 	f_cmp			cmp_key;
 	f_del			del_key;
 	f_del			del_value;
-	f_cpy			cpy_key;
-	f_cpy			cpy_value;
 }					t_bstree;
 
 // Create
 t_rbtree			*ef_rbtree_alloc(void);
-t_rbtree			*ef_rbtree_new(void *key, void *value);
+t_rbtree			*ef_rbtree_new(void *key, void *value, t_rbtree *nil);
 t_bstree			*ef_bstree_alloc(void);
-t_bstree			*ef_bstree_new(f_cmp cmp_key, f_cpy cpy_key,
-									f_cpy cpy_value, f_del del_key,
+t_bstree			*ef_bstree_new(f_cmp cmp_key, f_del del_key,
 									f_del del_value);
 
 // Set
-void				ef_bstree_insert(t_bstree *tree, void *key, void *value);
-t_bstree			*ef_bstree_set(t_bstree *tree, void *key, void *value);
+void				ef_bstree_insert(t_bstree *tree, t_rbtree *z);
+void				ef_bstree_set(t_bstree *tree, void *key, void *value);
 
 // Get
-t_rbtree			*ef_rbtree_minimum(t_rbtree *tree, f_cmp cmp_key);
-t_rbtree			*ef_rbtree_maximum(t_rbtree *tree, f_cmp cmp_key);
+t_rbtree			*ef_bstree_minimum(t_bstree *tree, t_rbtree *x);
+t_rbtree			*ef_bstree_maximum(t_bstree *tree, t_rbtree *x);
 t_rbtree			*ef_bstree_find(t_bstree *tree, void *key);
 void				*ef_bstree_get(t_bstree *tree, void *key);
 
 // Delete
 void				ef_rbtree_free(t_rbtree *tree, f_del del_key,
 									f_del del_value, t_flag one_or_all);
-void				ef_bstree_delete(t_bstree *tree, void *key);
+void				ef_bstree_delete(t_bstree *tree, t_rbtree *z);
+void				*ef_bstree_remove(t_bstree *tree, void *key);
+void				ef_bstree_clear(t_bstree *tree);
 void				ef_bstree_free(t_bstree *tree);
 
 // Traverse
 void				ef_bstree_traverse(t_bstree *tree, f_trw trw, t_flag order);
 
 // Status
+int					ef_bstree_size(t_bstree *tree);
 int					ef_bstree_height(t_bstree *tree);
-int					ef_bstree_count_nodes(t_bstree *tree);
-int					ef_bstree_count_leaves(t_bstree *tree);
 
 // Extra
 void				ef_bstree_left_rotate(t_bstree *tree, t_rbtree *x);
 void				ef_bstree_right_rotate(t_bstree *tree, t_rbtree *x);
-t_bstree			*ef_bstree_copy(t_bstree *tree);
 
 /*
 ** ==================
@@ -537,7 +535,7 @@ void				ef_kvpair_free(t_kvpair *pair, f_del del_key,
 									f_del del_value);
 t_kvpair			*ef_htable_pop(t_htable *table);
 void				ef_htable_delete(t_htable *table, t_dlist *node);
-void				ef_htable_remove(t_htable *table, void *key);
+void				*ef_htable_remove(t_htable *table, void *key);
 void				ef_htable_clear(t_htable *table);
 void				ef_htable_free(t_htable *table);
 
