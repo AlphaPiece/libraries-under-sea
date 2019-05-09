@@ -6,7 +6,7 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/07 21:58:58 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/08 13:12:28 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/05/09 15:53:20 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ void	ef_htable_traverse(t_htable *table, f_trw trw)
 			for (list = table->array[i]; list; list = list->next)
 			{
 				ft_printf("i: %d\n", i);
-				GET_PAIR(list)->value = trw(GET_PAIR(list)->key,
-											GET_PAIR(list)->value);
+				HT_PAIR(list)->value = trw(HT_PAIR(list)->key,
+											HT_PAIR(list)->value);
 			}
 }
 			

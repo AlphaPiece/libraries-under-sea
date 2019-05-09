@@ -6,7 +6,7 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/08 10:03:30 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/08 20:35:42 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/05/09 15:56:00 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	*ef_htable_remove(t_htable *table, void *key)
 	value = NULL;
 	if (node)
 	{
-		value = GET_PAIR(node)->value;
+		value = HT_PAIR(node)->value;
 		ef_htable_delete(table, node);
 	}
 	return (value);

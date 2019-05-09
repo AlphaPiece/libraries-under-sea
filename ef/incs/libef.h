@@ -6,7 +6,7 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/15 16:00:55 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/09 15:36:34 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/05/09 15:55:14 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,6 @@ t_kvpair			*ef_kvpair_alloc(void);
 t_kvpair			*ef_kvpair_new(void * key, void *value);
 void				ef_kvpair_free(t_kvpair *pair, f_del del_key,
 									f_del del_value);
-
-# define GET_PAIR(x)	((t_kvpair *)(x->data))
 
 /*
 ** ======================
@@ -523,7 +521,7 @@ void				ef_rbtree_right_rotate(t_rbtree *tree, t_rbnode *x);
 # define LOAD_FACTOR	0.7
 # define HTABLE_SIZE	32
 
-
+# define HT_PAIR(x)		((t_kvpair *)(x->data))
 
 typedef int			(*f_hsh)(void *);
 
