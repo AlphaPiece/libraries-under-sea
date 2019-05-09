@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ef_bstree_delete.c                                 :+:      :+:    :+:   */
+/*   ef_rbtree_delete.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/04 09:23:12 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/08 23:07:33 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/05/09 15:10:43 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libef.h"
 
-static void	transplant(t_bstree *tree, t_rbtree *u, t_rbtree *v)
+static void	transplant(t_rbtree *tree, t_rbnode *u, t_rbnode *v)
 {
 	if (u->parent == tree->nil)
 		tree->root = v;
@@ -23,9 +23,9 @@ static void	transplant(t_bstree *tree, t_rbtree *u, t_rbtree *v)
 	v->parent = u->parent;
 }
 
-static void	fix_up(t_bstree *tree, t_rbtree *x)
+static void	fix_up(t_rbtree *tree, t_rbnode *x)
 {
-	t_rbtree	*w;
+	t_rbnode	*w;
 
 	while (x != tree->root && x->color == B)
 		if (x == x->parent->left)
@@ -35,7 +35,7 @@ static void	fix_up(t_bstree *tree, t_rbtree *x)
 			{
 				w->color = B;
 				x->parent->color = R;
-				ef_bstree_left_rotate(tree, x->parent);
+				ef_rbtree_left_rotate(tree, x->parent);
 				w = x->parent->right;
 			}
 			if (w->left->color == B && w->right->color == B)
@@ -49,13 +49,13 @@ static void	fix_up(t_bstree *tree, t_rbtree *x)
 				{
 					w->left->color = B;
 					w->color = R;
-					ef_bstree_right_rotate(tree, w);
+					ef_rbtree_right_rotate(tree, w);
 					w = x->parent->right;
 				}
 				w->color = x->parent->color;
 				x->parent->color = B;
 				w->right->color = B;
-				ef_bstree_left_rotate(tree, x->parent);
+				ef_rbtree_left_rotate(tree, x->parent);
 				x = tree->root;
 			}
 		}
@@ -66,7 +66,7 @@ static void	fix_up(t_bstree *tree, t_rbtree *x)
 			{
 				w->color = B;
 				x->parent->color = R;
-				ef_bstree_right_rotate(tree, x->parent);
+				ef_rbtree_right_rotate(tree, x->parent);
 				w = x->parent->left;
 			}
 			if (w->right->color == B && w->left->color == B)
@@ -80,22 +80,22 @@ static void	fix_up(t_bstree *tree, t_rbtree *x)
 				{
 					w->right->color = B;
 					w->color = R;
-					ef_bstree_left_rotate(tree, w);
+					ef_rbtree_left_rotate(tree, w);
 					w = x->parent->right;
 				}
 				w->color = x->parent->color;
 				x->parent->color = B;
 				w->left->color = B;
-				ef_bstree_right_rotate(tree, x->parent);
+				ef_rbtree_right_rotate(tree, x->parent);
 				x = tree->root;
 			}
 		}
 	x->color = B;
 }
 
-void		ef_bstree_delete(t_bstree *tree, t_rbtree *z)
+void		ef_rbtree_delete(t_rbtree *tree, t_rbnode *z)
 {
-	t_rbtree	*x, *y;
+	t_rbnode	*x, *y;
 	t_color		color;
 
 	if (!tree || !z || z == tree->nil)
@@ -113,7 +113,7 @@ void		ef_bstree_delete(t_bstree *tree, t_rbtree *z)
 	}
 	else
 	{
-		y = ef_bstree_minimum(tree, z->right);
+		y = ef_rbtree_minimum(tree, z->right);
 		color = y->color;
 		x = y->right;
 		if (y->parent == z)
@@ -131,6 +131,6 @@ void		ef_bstree_delete(t_bstree *tree, t_rbtree *z)
 	}
 	if (color == B)
 		fix_up(tree, x);
-	ef_rbtree_free(z, tree->del_key, tree->del_value);
+	ef_rbnode_free(z, tree->del_key, tree->del_value);
 	tree->size--;
 }

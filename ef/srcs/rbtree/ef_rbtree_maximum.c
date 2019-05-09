@@ -1,26 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ef_bstree_get.c                                    :+:      :+:    :+:   */
+/*   ef_rbtree_maximum.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/08 22:47:18 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/08 22:51:58 by Zexi Wang        ###   ########.fr       */
+/*   Created: 2019/05/08 13:56:24 by Zexi Wang         #+#    #+#             */
+/*   Updated: 2019/05/09 15:14:46 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libef.h"
 
-void	*ef_bstree_get(t_bstree *tree, void *key)
+t_rbnode	*ef_rbtree_maximum(t_rbtree *tree, t_rbnode *x)
 {
-	t_rbtree	*node;
-	void		*value;
-
-	if (!tree)
+	if (!tree || !x)
 		return (NULL);
-	value = NULL;
-	if ((node = ef_bstree_find(tree, key)))
-		value = node->value;
-	return (value);
+	if (x == tree->nil)
+		return (tree->nil);
+	while (x->right != tree->nil)
+		x = x->right;
+	return (x);
 }

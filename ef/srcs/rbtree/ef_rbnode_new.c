@@ -1,25 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ef_rbtree_free.c                                   :+:      :+:    :+:   */
+/*   ef_rbnode_new.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/08 15:52:31 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/08 23:16:03 by Zexi Wang        ###   ########.fr       */
+/*   Created: 2019/05/01 13:33:20 by Zexi Wang         #+#    #+#             */
+/*   Updated: 2019/05/09 15:08:33 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libef.h"
 
-void	ef_rbtree_free(t_rbtree *tree, f_del del_key, f_del del_value)
+t_rbnode	*ef_rbnode_new(void *key, void *value, t_rbnode *nil)
 {
-	if (tree)
-	{
-		if (del_key)
-			del_key(tree->key);
-		if (del_value)
-			del_value(tree->value);
-		free(tree);
-	}
+	t_rbnode	*node;
+
+	node = ef_rbnode_alloc();
+	node->key = key;
+	node->value = value;
+	node->parent = nil;
+	node->left = nil;
+	node->right = nil;
+	node->color = R;
+	return (node);
 }

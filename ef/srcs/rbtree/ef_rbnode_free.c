@@ -1,22 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ef_rbtree_alloc.c                                  :+:      :+:    :+:   */
+/*   ef_rbnode_free.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/01 13:31:36 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/03 16:15:04 by Zexi Wang        ###   ########.fr       */
+/*   Created: 2019/05/08 15:52:31 by Zexi Wang         #+#    #+#             */
+/*   Updated: 2019/05/09 15:08:05 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libef.h"
 
-t_rbtree	*ef_rbtree_alloc(void)
+void	ef_rbnode_free(t_rbnode *node, f_del del_key, f_del del_value)
 {
-	t_rbtree	*tree;
-
-	if (!(tree = (t_rbtree *)malloc(sizeof(t_rbtree))))
-		exit(MALLOC_ERROR);
-	return (tree);
+	if (node)
+	{
+		if (del_key)
+			del_key(node->key);
+		if (del_value)
+			del_value(node->value);
+		free(node);
+	}
 }

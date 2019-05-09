@@ -1,24 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ef_bstree_minimum.c                                :+:      :+:    :+:   */
+/*   ef_bheap_decrease_key.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/08 13:53:34 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/08 20:13:58 by Zexi Wang        ###   ########.fr       */
+/*   Created: 2019/05/09 09:53:19 by Zexi Wang         #+#    #+#             */
+/*   Updated: 2019/05/09 10:06:22 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libef.h"
 
-t_rbtree	*ef_bstree_minimum(t_bstree *tree, t_rbtree *x)
+void	ef_bheap_decrease_key(t_bheap *heap, int index, f_trv dec_key)
 {
-	if (!tree || !x)
-		return (NULL);
-	if (x == tree->nil)
-		return (tree->nil);
-	while (x->left != tree->nil)
-		x = x->left;
-	return (x);
-}
+	if (heap && dec_key && heap->heap_type == MIN_HEAP)
+	{
+		

@@ -1,30 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ef_bstree_new.c                                    :+:      :+:    :+:   */
+/*   ef_rbtree_left_rotate.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/03 16:15:16 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/08 19:47:59 by Zexi Wang        ###   ########.fr       */
+/*   Created: 2019/05/04 10:41:37 by Zexi Wang         #+#    #+#             */
+/*   Updated: 2019/05/09 15:14:16 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libef.h"
 
-t_bstree	*ef_bstree_new(f_cmp cmp_key, f_del del_key, f_del del_value)
+void	ef_rbtree_left_rotate(t_rbtree *tree, t_rbnode *x)
 {
-	t_bstree	*tree;
+	t_rbnode	*y;
 
-	if (!cmp_key)
-		return (NULL);
-	tree = ef_bstree_alloc();
-	tree->nil = ef_rbtree_alloc();
-	tree->nil->color = B;
-	tree->root = tree->nil;
-	tree->size = 0;
-	tree->cmp_key = cmp_key;
-	tree->del_key = del_key;
-	tree->del_value = del_value;
-	return (tree);
+	if (!tree || !x || x == tree->nil)
+		return ;
+	y = x->right;
+	x->right = y->left;
+	if (y->left != tree->nil)
+		y->left->parent = x;
+	y->parent = x->parent;
+	if (x->parent == tree->nil)
+		tree->root = y;
+	else if (x == x->parent->left)
+		x->parent->left = y;
+	else
+		x->parent->right = y;
+	y->left = x;
+	x->parent = y;
 }

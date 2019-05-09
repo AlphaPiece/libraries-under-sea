@@ -1,30 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ef_bstree_remove.c                                 :+:      :+:    :+:   */
+/*   ef_rbtree_new.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/08 20:33:21 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/08 20:52:50 by Zexi Wang        ###   ########.fr       */
+/*   Created: 2019/05/03 16:15:16 by Zexi Wang         #+#    #+#             */
+/*   Updated: 2019/05/09 15:15:59 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libef.h"
 
-void	*ef_bstree_remove(t_bstree *tree, void *key)
+t_rbtree	*ef_rbtree_new(f_cmp cmp_key, f_del del_key, f_del del_value)
 {
-	t_rbtree	*node;
-	void		*value;
+	t_rbtree	*tree;
 
-	if (!tree)
+	if (!cmp_key)
 		return (NULL);
-	node = ef_bstree_find(tree, key);
-	value = NULL;
-	if (node != tree->nil)
-	{
-		value = node->value;
-		ef_bstree_delete(tree, node);
-	}
-	return (value);
+	tree = ef_rbtree_alloc();
+	tree->nil = ef_rbnode_alloc();
+	tree->nil->color = B;
+	tree->root = tree->nil;
+	tree->size = 0;
+	tree->cmp_key = cmp_key;
+	tree->del_key = del_key;
+	tree->del_value = del_value;
+	return (tree);
 }

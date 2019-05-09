@@ -6,7 +6,7 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/15 16:00:55 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/09 00:08:19 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/05/09 15:36:34 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,19 @@ enum				e_one_or_all
 	ONE,
 	ALL
 };
+
+typedef struct		s_kvpair
+{
+	void			*key;
+	void			*value;
+}					t_kvpair;
+
+t_kvpair			*ef_kvpair_alloc(void);
+t_kvpair			*ef_kvpair_new(void * key, void *value);
+void				ef_kvpair_free(t_kvpair *pair, f_del del_key,
+									f_del del_value);
+
+# define GET_PAIR(x)	((t_kvpair *)(x->data))
 
 /*
 ** ======================
@@ -96,34 +109,48 @@ t_darray			*ef_darray_partition(t_darray *array, int start, int end,
 ** ===================
 */
 
+# define PARENT(i)			(i / 2)
+# define LEFT_CHILD(i)		(2 * i)
+# define RIGHT_CHILD(i)		(2 * i + 1)
+# define HEAP_CMP(h,i,j)	((h)->cmp_key(((t_kvpair *)(h)->array[i])->key, \
+											((t_kvpair *)(h)->array[j])->key))
+
+enum				e_bheap_type
+{
+	MIN_HEAP,
+	MAX_HEAP
+};
+
 typedef struct		s_bheap
 {
 	t_darray		*array;
-	f_cmp			cmp;
+	f_cmp			cmp_key;
+	t_flag			heap_type;
 }					t_bheap;
 
 // Create
 t_bheap				*ef_bheap_alloc(void);
-t_bheap				*ef_bheap_new(f_cmp cmp);
+t_bheap				*ef_bheap_new(f_cmp cmp, t_flag heap_type);
+
 
 // Set
-void				ef_bheap_insert(t_bheap *heap, void *data);
+void				ef_bheap_insert(t_bheap *heap, t_kvpair *pair);
+void				ef_bheap_increase_key(t_bheap *heap, f_trv inc_key);
+void				ef_bheap_decrease_key(t_bheap *heap, f_trv dec_key);
 
 // Get
 void				*ef_bheap_peek_top(t_bheap *heap);
 
 // Delete
 void				*ef_bheap_pop_top(t_bheap *heap);
+void				*ef_bheap_delete(t_bheap *heap, int index);
 
 // Traverse
 void				ef_bheap_traverse(t_bheap *heap, f_trv trv);
 
 // Status
 int					ef_bheap_size(t_bheap *heap);
-int					ef_bheap_elem_index(t_bheap *heap, void *data);
-int					ef_bheap_parent_index(t_bheap *heap, int index);
-int					ef_bheap_left_child_index(t_bheap *heap, int index);
-int					ef_bheap_right_child_index(t_bheap *heap, int index);
+int					ef_bheap_value_index(t_bheap *heap, void *data);
 
 // Extra
 
@@ -414,76 +441,76 @@ t_ntree				*ef_ntree_copy(t_ntree *tree, f_cpy cpy);
 
 
 /*
-** =========================================
-** >                                       <
-** >>> SELF-BALANCING BINARY SEARCH TREE <<<
-** >                                       <
-** =========================================
+** ======================
+** >                    <
+** >>> RED-BLACK TREE <<<
+** >                    <
+** ======================
 */
 
 typedef t_flag		t_color;
 
-enum				e_rbtree_color
+enum				e_rbnode_color
 {
 	R,
 	B
 };
 
-typedef struct		s_rbtree
+typedef struct		s_rbnode
 {
 	void			*key;
 	void			*value;
-	struct s_rbtree	*parent;
-	struct s_rbtree	*left;
-	struct s_rbtree	*right;
+	struct s_rbnode	*parent;
+	struct s_rbnode	*left;
+	struct s_rbnode	*right;
 	t_color			color;
-}					t_rbtree;
+}					t_rbnode;
 
-typedef struct		s_bstree
+typedef struct		s_rbtree
 {
-	t_rbtree		*root;
-	t_rbtree		*nil;
+	t_rbnode		*root;
+	t_rbnode		*nil;
 	int				size;
 	f_cmp			cmp_key;
 	f_del			del_key;
 	f_del			del_value;
-}					t_bstree;
+}					t_rbtree;
 
 // Create
+t_rbnode			*ef_rbnode_alloc(void);
+t_rbnode			*ef_rbnode_new(void *key, void *value, t_rbnode *nil);
 t_rbtree			*ef_rbtree_alloc(void);
-t_rbtree			*ef_rbtree_new(void *key, void *value, t_rbtree *nil);
-t_bstree			*ef_bstree_alloc(void);
-t_bstree			*ef_bstree_new(f_cmp cmp_key, f_del del_key,
+t_rbtree			*ef_rbtree_new(f_cmp cmp_key, f_del del_key,
 									f_del del_value);
 
 // Set
-void				ef_bstree_insert(t_bstree *tree, t_rbtree *z);
-void				ef_bstree_set(t_bstree *tree, void *key, void *value);
+void				ef_rbtree_insert(t_rbtree *tree, t_rbnode *z);
+void				ef_rbtree_set(t_rbtree *tree, void *key, void *value);
 
 // Get
-t_rbtree			*ef_bstree_minimum(t_bstree *tree, t_rbtree *x);
-t_rbtree			*ef_bstree_maximum(t_bstree *tree, t_rbtree *x);
-t_rbtree			*ef_bstree_find(t_bstree *tree, void *key);
-void				*ef_bstree_get(t_bstree *tree, void *key);
+t_rbnode			*ef_rbtree_minimum(t_rbtree *tree, t_rbnode *x);
+t_rbnode			*ef_rbtree_maximum(t_rbtree *tree, t_rbnode *x);
+t_rbnode			*ef_rbtree_find(t_rbtree *tree, void *key);
+void				*ef_rbtree_get(t_rbtree *tree, void *key);
 
 // Delete
-void				ef_rbtree_free(t_rbtree *tree, f_del del_key,
+void				ef_rbnode_free(t_rbnode *tree, f_del del_key,
 									f_del del_value);
-void				ef_bstree_delete(t_bstree *tree, t_rbtree *z);
-void				*ef_bstree_remove(t_bstree *tree, void *key);
-void				ef_bstree_clear(t_bstree *tree);
-void				ef_bstree_free(t_bstree *tree);
+void				ef_rbtree_delete(t_rbtree *tree, t_rbnode *z);
+void				*ef_rbtree_remove(t_rbtree *tree, void *key);
+void				ef_rbtree_clear(t_rbtree *tree);
+void				ef_rbtree_free(t_rbtree *tree);
 
 // Traverse
-void				ef_bstree_traverse(t_bstree *tree, f_trw trw, t_flag order);
+void				ef_rbtree_traverse(t_rbtree *tree, f_trw trw, t_flag order);
 
 // Status
-int					ef_bstree_size(t_bstree *tree);
-int					ef_bstree_height(t_bstree *tree);
+int					ef_rbtree_size(t_rbtree *tree);
+int					ef_rbtree_height(t_rbtree *tree);
 
 // Extra
-void				ef_bstree_left_rotate(t_bstree *tree, t_rbtree *x);
-void				ef_bstree_right_rotate(t_bstree *tree, t_rbtree *x);
+void				ef_rbtree_left_rotate(t_rbtree *tree, t_rbnode *x);
+void				ef_rbtree_right_rotate(t_rbtree *tree, t_rbnode *x);
 
 /*
 ** ==================
@@ -496,15 +523,9 @@ void				ef_bstree_right_rotate(t_bstree *tree, t_rbtree *x);
 # define LOAD_FACTOR	0.7
 # define HTABLE_SIZE	32
 
-# define GET_PAIR(l)	((t_kvpair *)(l->data))
+
 
 typedef int			(*f_hsh)(void *);
-
-typedef struct		s_kvpair
-{
-	void			*key;
-	void			*value;
-}					t_kvpair;
 
 typedef struct		s_htable
 {
@@ -518,8 +539,6 @@ typedef struct		s_htable
 }					t_htable;
 
 // Create
-t_kvpair			*ef_kvpair_alloc(void);
-t_kvpair			*ef_kvpair_new(void * key, void *value);
 t_htable			*ef_htable_alloc(int size);
 t_htable			*ef_htable_new(f_hsh hsh_key, f_cmp cmp_key,
 									f_del del_key, f_del del_value);
@@ -534,8 +553,6 @@ t_dlist				*ef_htable_find(t_htable *table, void *key);
 void				*ef_htable_get(t_htable *table, void *key);
 
 // Delete
-void				ef_kvpair_free(t_kvpair *pair, f_del del_key,
-									f_del del_value);
 t_kvpair			*ef_htable_pop(t_htable *table);
 void				ef_htable_delete(t_htable *table, t_dlist *node);
 void				*ef_htable_remove(t_htable *table, void *key);

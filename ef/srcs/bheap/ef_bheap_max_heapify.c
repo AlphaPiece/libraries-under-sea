@@ -1,22 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ef_bstree_alloc.c                                  :+:      :+:    :+:   */
+/*   ef_bheap_max_heapify.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/01 13:31:36 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/01 13:33:15 by Zexi Wang        ###   ########.fr       */
+/*   Created: 2019/05/09 14:44:42 by Zexi Wang         #+#    #+#             */
+/*   Updated: 2019/05/09 15:02:46 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libef.h"
 
-t_bstree	*ef_bstree_alloc(void)
+void	ef_bheap_max_heapify(t_bheap *heap, int index)
 {
-	t_bstree	*tree;
+	int	l, r;
 
-	if (!(tree = (t_bstree *)malloc(sizeof(t_bstree))))
-		exit(MALLOC_ERROR);
-	return (tree);
-}
+	l = LEFT_CHILD(i);
+	r = RIGHT_CHILD(i);
+	if (l < ef_bheap_size(heap) && 

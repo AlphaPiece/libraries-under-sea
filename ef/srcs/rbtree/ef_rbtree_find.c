@@ -1,34 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ef_bstree_left_rotate.c                            :+:      :+:    :+:   */
+/*   ef_rbtree_find.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/04 10:41:37 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/08 23:18:55 by Zexi Wang        ###   ########.fr       */
+/*   Created: 2019/05/01 21:55:39 by Zexi Wang         #+#    #+#             */
+/*   Updated: 2019/05/09 15:31:01 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libef.h"
 
-void	ef_bstree_left_rotate(t_bstree *tree, t_rbtree *x)
+t_rbnode	*ef_rbtree_find(t_rbtree *tree, void *key)
 {
-	t_rbtree	*y;
+	t_rbnode	*node;
 
-	if (!tree || !x || x == tree->nil)
-		return ;
-	y = x->right;
-	x->right = y->left;
-	if (y->left != tree->nil)
-		y->left->parent = x;
-	y->parent = x->parent;
-	if (x->parent == tree->nil)
-		tree->root = y;
-	else if (x == x->parent->left)
-		x->parent->left = y;
-	else
-		x->parent->right = y;
-	y->left = x;
-	x->parent = y;
+	if (!tree)
+		return (NULL);
+	if (!key)
+		return (tree->nil);
+	node = tree->root;
+	while (node != tree->nil)
+	{
+		if (tree->cmp_key(key, node->key) < 0)
+			node = node->left;
+		else if (tree->cmp_key(key, node->key) > 0)
+			node = node->right;
+		else
+			break ;
+	}
+	return (node);
 }

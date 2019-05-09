@@ -1,23 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ef_bstree_free.c                                   :+:      :+:    :+:   */
+/*   ef_bheap_size.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/08 17:35:58 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/08 23:05:57 by Zexi Wang        ###   ########.fr       */
+/*   Created: 2019/05/09 14:49:01 by Zexi Wang         #+#    #+#             */
+/*   Updated: 2019/05/09 14:49:59 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libef.h"
 
-void	ef_bstree_free(t_bstree *tree)
+int	ef_bheap_size(t_bheap *heap)
 {
-	if (tree)
-	{
-		ef_bstree_clear(tree);
-		ef_rbtree_free(tree->nil, NULL, NULL);
-		free(tree);
-	}
+	return ((heap && heap->array) ? heap->array->length - 1 : 0);
 }

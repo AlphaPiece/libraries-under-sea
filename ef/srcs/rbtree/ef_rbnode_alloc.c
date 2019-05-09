@@ -1,34 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ef_bstree_right_rotate.c                           :+:      :+:    :+:   */
+/*   ef_rbnode_alloc.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/04 10:42:30 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/08 23:19:14 by Zexi Wang        ###   ########.fr       */
+/*   Created: 2019/05/01 13:31:36 by Zexi Wang         #+#    #+#             */
+/*   Updated: 2019/05/09 15:07:31 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libef.h"
 
-void	ef_bstree_right_rotate(t_bstree *tree, t_rbtree *x)
+t_rbnode	*ef_rbnode_alloc(void)
 {
-	t_rbtree	*y;
+	t_rbnode	*node;
 
-	if (!tree || !x || x == tree->nil)
-		return ;
-	y = x->left;
-	x->left = y->right;
-	if (y->right != tree->nil)
-		y->right->parent = x;
-	y->parent = x->parent;
-	if (x->parent == tree->nil)
-		tree->root = y;
-	else if (x == x->parent->left)
-		x->parent->left = y;
-	else
-		x->parent->right = y;
-	y->right = x;
-	x->parent = y;
+	if (!(node = (t_rbnode *)malloc(sizeof(t_rbnode))))
+		exit(MALLOC_ERROR);
+	return (node);
 }
