@@ -6,7 +6,7 @@
 #    By: zwang <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/15 14:23:06 by zwang             #+#    #+#              #
-#    Updated: 2019/05/08 13:48:27 by Zexi Wang        ###   ########.fr        #
+#    Updated: 2019/05/08 23:26:19 by Zexi Wang        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -78,6 +78,13 @@ NTREE = ef_ntree_alloc.c               ef_ntree_is_leaf.c \
 		ef_ntree_insert_child_before.c ef_ntree_traverse.c \
 		ef_ntree_is_ancestor.c         ef_ntree_unlink.c \
 		ef_ntree_is_descendant.c       ef_ntree_count_leaves.c
+BSTREE = ef_bstree_alloc.c        ef_bstree_insert.c       ef_bstree_set.c \
+		 ef_bstree_clear.c        ef_bstree_left_rotate.c  ef_bstree_size.c \
+		 ef_bstree_delete.c       ef_bstree_maximum.c      ef_bstree_traverse.c \
+		 ef_bstree_find.c         ef_bstree_minimum.c      ef_rbtree_alloc.c \
+		 ef_bstree_free.c         ef_bstree_new.c          ef_rbtree_free.c \
+		 ef_bstree_get.c          ef_bstree_remove.c       ef_rbtree_new.c \
+		 ef_bstree_height.c       ef_bstree_right_rotate.c
 HTABLE = ef_hash_integer.c    ef_htable_find.c     ef_htable_pairs.c \
 		 ef_hash_pointer.c    ef_htable_free.c     ef_htable_pop.c \
 		 ef_hash_string.c     ef_htable_get.c      ef_htable_remove.c \
@@ -93,6 +100,7 @@ SLIST_DIR = srcs/slist/
 DLIST_DIR = srcs/dlist/
 DEQUE_DIR = srcs/deque/
 NTREE_DIR = srcs/ntree/
+BSTREE_DIR = srcs/bstree/
 HTABLE_DIR = srcs/htable/
 
 OBJS_DIR = objs/
@@ -103,6 +111,7 @@ SRCS = $(addprefix $(DARRAY_DIR), $(DARRAY)) \
 	   $(addprefix $(DLIST_DIR), $(DLIST)) \
 	   $(addprefix $(DEQUE_DIR), $(DEQUE)) \
 	   $(addprefix $(NTREE_DIR), $(NTREE)) \
+	   $(addprefix $(BSTREE_DIR), $(BSTREE)) \
 	   $(addprefix $(HTABLE_DIR), $(HTABLE))
 OBJS = $(addprefix $(OBJS_DIR), $(OBJ))
 

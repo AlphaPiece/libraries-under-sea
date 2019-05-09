@@ -6,7 +6,7 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/15 16:00:55 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/08 23:19:22 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/05/08 23:25:37 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -492,7 +492,7 @@ void				ef_bstree_right_rotate(t_bstree *tree, t_rbtree *x);
 */
 
 # define LOAD_FACTOR	0.7
-# define HTABLE_SIZE	5
+# define HTABLE_SIZE	32
 
 # define GET_PAIR(l)	((t_kvpair *)(l->data))
 

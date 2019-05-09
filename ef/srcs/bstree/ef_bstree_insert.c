@@ -6,7 +6,7 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/03 11:09:33 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/08 22:12:06 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/05/08 23:27:18 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void	fix_up(t_bstree *tree, t_rbtree *z)
 {
-	t_rbtree	*x, *y;
+	t_rbtree	*y;
 
 	while (z->parent->color == R)
 		if (z->parent == z->parent->parent->left)
