@@ -6,7 +6,7 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/06 22:24:23 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/06 22:46:13 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/05/10 10:45:26 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ t_darray	*ef_darray_partition(t_darray *array, int start, int end, f_cpy cpy)
 			end <= 0 || end > array->length)
 		return (NULL);
 	new_size = array->elem_size * (end - start);
-	new_array = ef_darray_sized_new(array->elem_size, new_size * 2);
+	new_array = ef_darray_create(array->elem_size, new_size * 2);
 	if (cpy)
 		for (i = start; i < end; i++)
 			ef_darray_append(new_array,

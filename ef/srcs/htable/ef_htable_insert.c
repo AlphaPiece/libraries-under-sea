@@ -6,7 +6,7 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/03 15:21:41 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/08 13:35:36 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/05/10 11:00:47 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	ef_htable_insert(t_htable *table, t_kvpair *pair)
 
 	if (table && table->array && pair)
 	{
-		new_node = ef_dlist_new(pair);
+		new_node = ef_dlist_create(pair);
 		hashkey = ef_htable_hash(table, pair->key);
 		if ((list = table->array[hashkey]))
 			new_node = ef_dlist_prepend_list(list, new_node);

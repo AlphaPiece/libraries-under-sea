@@ -6,13 +6,15 @@
 #    By: zwang <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/15 14:23:06 by zwang             #+#    #+#              #
-#    Updated: 2019/05/09 15:38:44 by Zexi Wang        ###   ########.fr        #
+#    Updated: 2019/05/10 11:15:17 by Zexi Wang        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libef.a
 CC = gcc
 CFLAGS = -Wall -Werror -Wextra
+
+KVPAIR = ef_kvpair_alloc.c ef_kvpair_create.c ef_kvpair_free.c
 
 DARRAY = ef_darray_alloc.c           ef_darray_expand_capacity.c \
 		 ef_darray_pop.c             ef_darray_append.c \
@@ -21,13 +23,14 @@ DARRAY = ef_darray_alloc.c           ef_darray_expand_capacity.c \
 		 ef_darray_reverse.c         ef_darray_copy.c \
 		 ef_darray_insert.c          ef_darray_set.c \
 		 ef_darray_delete.c          ef_darray_length.c \
-		 ef_darray_sized_new.c       ef_darray_elem_index.c \
-		 ef_darray_new.c             ef_darray_sort.c \
-		 ef_darray_elem_size.c       ef_darray_partition.c \
-		 ef_darray_swap.c            ef_darray_traverse.c
+		 ef_darray_elem_index.c      ef_darray_create.c \
+		 ef_darray_sort.c            ef_darray_elem_size.c \
+		 ef_darray_partition.c       ef_darray_swap.c \
+		 ef_darray_traverse.c
+
 SLIST = ef_slist_alloc.c              ef_slist_last_node.c \
 		ef_slist_append.c             ef_slist_length.c \
-		ef_slist_append_list.c        ef_slist_new.c \
+		ef_slist_append_list.c        ef_slist_create.c \
 		ef_slist_copy.c               ef_slist_node_index.c \
 		ef_slist_data_index.c         ef_slist_nth_data.c \
 		ef_slist_find.c               ef_slist_nth_node.c \
@@ -39,9 +42,10 @@ SLIST = ef_slist_alloc.c              ef_slist_last_node.c \
 		ef_slist_insert_list_after.c  ef_slist_sort.c \
 		ef_slist_insert_list_before.c ef_slist_traverse.c \
 		ef_slist_insert_sorted.c      ef_slist_unlink.c
+
 DLIST = ef_dlist_alloc.c              ef_dlist_last_node.c \
 		ef_dlist_append.c             ef_dlist_length.c \
-		ef_dlist_append_list.c        ef_dlist_new.c \
+		ef_dlist_append_list.c        ef_dlist_create.c \
 		ef_dlist_copy.c               ef_dlist_node_index.c \
 		ef_dlist_data_index.c         ef_dlist_nth_data.c \
 		ef_dlist_find.c               ef_dlist_nth_node.c \
@@ -54,18 +58,20 @@ DLIST = ef_dlist_alloc.c              ef_dlist_last_node.c \
 		ef_dlist_insert_list_after.c  ef_dlist_traverse.c \
 		ef_dlist_insert_list_before.c ef_dlist_unlink.c \
 		ef_dlist_insert_sorted.c
+
 DEQUE = ef_deque_alloc.c       ef_deque_length.c      ef_deque_pop_tail.c \
-		ef_deque_clear.c       ef_deque_new.c         ef_deque_push_head.c \
+		ef_deque_clear.c       ef_deque_create.c      ef_deque_push_head.c \
 		ef_deque_sort.c        ef_deque_peek_head.c   ef_deque_push_nth.c \
 		ef_deque_copy.c        ef_deque_peek_nth.c    ef_deque_push_tail.c \
 		ef_deque_free.c        ef_deque_peek_tail.c   ef_deque_reverse.c \
 		ef_deque_pop_head.c    ef_deque_rotate.c      ef_deque_is_empty.c \
 		ef_deque_pop_nth.c     ef_deque_traverse.c
+
 NTREE = ef_ntree_alloc.c               ef_ntree_is_leaf.c \
 		ef_ntree_append_child.c        ef_ntree_is_root.c \
 		ef_ntree_child_index.c         ef_ntree_last_child.c \
 		ef_ntree_copy.c                ef_ntree_last_sibling.c \
-		ef_ntree_count_children.c      ef_ntree_new.c \
+		ef_ntree_count_children.c      ef_ntree_create.c \
 		ef_ntree_count_nodes.c         ef_ntree_next_sibling.c \
 		ef_ntree_depth.c               ef_ntree_nth_child.c \
 		ef_ntree_find.c                ef_ntree_prepend_child.c \
@@ -78,23 +84,26 @@ NTREE = ef_ntree_alloc.c               ef_ntree_is_leaf.c \
 		ef_ntree_insert_child_before.c ef_ntree_traverse.c \
 		ef_ntree_is_ancestor.c         ef_ntree_unlink.c \
 		ef_ntree_is_descendant.c       ef_ntree_count_leaves.c
-RBTREE = ef_rbnode_alloc.c   ef_rbtree_free.c         ef_rbtree_new.c \
+
+RBTREE = ef_rbnode_alloc.c   ef_rbtree_free.c         ef_rbtree_create.c \
 		 ef_rbnode_free.c    ef_rbtree_get.c          ef_rbtree_remove.c \
-		 ef_rbnode_new.c     ef_rbtree_height.c       ef_rbtree_right_rotate.c \
+		 ef_rbnode_create.c  ef_rbtree_height.c       ef_rbtree_right_rotate.c \
 		 ef_rbtree_alloc.c   ef_rbtree_insert.c       ef_rbtree_set.c \
 		 ef_rbtree_clear.c   ef_rbtree_left_rotate.c  ef_rbtree_size.c \
 		 ef_rbtree_delete.c  ef_rbtree_maximum.c      ef_rbtree_traverse.c \
 		 ef_rbtree_find.c    ef_rbtree_minimum.c
+
 HTABLE = ef_hash_integer.c    ef_htable_find.c     ef_htable_pairs.c \
 		 ef_hash_pointer.c    ef_htable_free.c     ef_htable_pop.c \
 		 ef_hash_string.c     ef_htable_get.c      ef_htable_remove.c \
 		 ef_htable_alloc.c    ef_htable_hash.c     ef_htable_resize.c \
 		 ef_htable_clear.c    ef_htable_insert.c   ef_htable_set.c \
-		 ef_htable_delete.c   ef_htable_new.c      ef_htable_size.c \
-		 ef_htable_traverse.c ef_kvpair_alloc.c    ef_kvpair_new.c \
-		 ef_kvpair_free.c
+		 ef_htable_delete.c   ef_htable_create.c   ef_htable_size.c \
+		 ef_htable_traverse.c
+
 OBJ = *.o
 
+KVPAIR_DIR = srcs/kvpair/
 DARRAY_DIR = srcs/darray/
 SLIST_DIR = srcs/slist/
 DLIST_DIR = srcs/dlist/
@@ -106,13 +115,15 @@ HTABLE_DIR = srcs/htable/
 OBJS_DIR = objs/
 
 INCS = -I incs
-SRCS = $(addprefix $(DARRAY_DIR), $(DARRAY)) \
+SRCS = $(addprefix $(KVPAIR_DIR), $(KVPAIR)) \
+	   $(addprefix $(DARRAY_DIR), $(DARRAY)) \
 	   $(addprefix $(SLIST_DIR), $(SLIST)) \
 	   $(addprefix $(DLIST_DIR), $(DLIST)) \
 	   $(addprefix $(DEQUE_DIR), $(DEQUE)) \
 	   $(addprefix $(NTREE_DIR), $(NTREE)) \
 	   $(addprefix $(RBTREE_DIR), $(RBTREE)) \
 	   $(addprefix $(HTABLE_DIR), $(HTABLE))
+
 OBJS = $(addprefix $(OBJS_DIR), $(OBJ))
 
 RESET = \033[0m

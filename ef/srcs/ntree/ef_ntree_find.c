@@ -6,7 +6,7 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/27 12:46:45 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/01 21:31:49 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/05/10 11:16:04 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,10 +126,10 @@ t_ntree	*ef_ntree_level_order_find(t_ntree *tree, void *data, f_cmp cmp,
 	t_deque	*next_level;
 	t_ntree	*node;
 
-	this_level = ef_deque_new(ef_dlist_new(tree));
+	this_level = ef_deque_create(ef_dlist_create(tree));
 	while (!ef_deque_is_empty(this_level) && depth-- != 0)
 	{
-		next_level = ef_deque_new(NULL);
+		next_level = ef_deque_create(NULL);
 		while (!ef_deque_is_empty(this_level))
 		{
 			for (node = ef_deque_pop_head(this_level); node; node = node->next)

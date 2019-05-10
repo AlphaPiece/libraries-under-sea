@@ -1,24 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ef_darray_sized_new.c                              :+:      :+:    :+:   */
+/*   ef_slist_create.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/25 10:09:18 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/06 20:12:00 by Zexi Wang        ###   ########.fr       */
+/*   Created: 2019/04/26 09:36:34 by Zexi Wang         #+#    #+#             */
+/*   Updated: 2019/05/10 10:47:22 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libef.h"
 
-t_darray	*ef_darray_sized_new(size_t elem_size, int length)
+t_slist	*ef_slist_create(void *data)
 {
-	t_darray	*array;
+	t_slist	*node;
 
-	array = (t_darray *)ef_darray_alloc(elem_size, length);
-	array->capacity = MAX(length, DARRAY_LEN);
-	array->length = 0;
-	array->elem_size = elem_size;
-	return (array);
+	node = ef_slist_alloc();
+	node->data = data;
+	node->next = NULL;
+	return (node);
 }

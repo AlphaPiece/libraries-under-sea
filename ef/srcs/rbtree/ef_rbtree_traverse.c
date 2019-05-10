@@ -6,7 +6,7 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/01 21:16:14 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/09 15:28:04 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/05/10 10:57:34 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ef_rbtree_in_order_traverse(t_rbtree *tree, f_trw trw)
 	t_deque		*stack;
 	t_rbnode	*node;
 
-	stack = ef_deque_new(NULL);
+	stack = ef_deque_create(NULL);
 	node = tree->root;
 	while (!ef_deque_is_empty(stack) || node)
 		if (node != tree->nil)
@@ -39,7 +39,7 @@ void	ef_rbtree_pre_order_traverse(t_rbtree *tree, f_trw trw)
 	t_deque		*stack;
 	t_rbnode	*node;
 
-	stack = ef_deque_new(NULL);
+	stack = ef_deque_create(NULL);
 	node = tree->root;
 	while (!ef_deque_is_empty(stack) || node)
 		if (node != tree->nil)
@@ -62,8 +62,8 @@ void	ef_rbtree_post_order_traverse(t_rbtree *tree, f_trw trw)
 	t_deque		*stack2;
 	t_rbnode	*node;
 
-	stack1 = ef_deque_new(ef_dlist_new(tree->root));
-	stack2 = ef_deque_new(NULL);
+	stack1 = ef_deque_create(ef_dlist_create(tree->root));
+	stack2 = ef_deque_create(NULL);
 	while (!ef_deque_is_empty(stack1))
 	{
 		node = ef_deque_pop_head(stack1);
@@ -86,7 +86,7 @@ void	ef_rbtree_level_order_traverse(t_rbtree *tree, f_trw trw)
 	t_deque		*queue;
 	t_rbnode	*node;
 
-	queue = ef_deque_new(ef_dlist_new(tree->root));
+	queue = ef_deque_create(ef_dlist_create(tree->root));
 	while (!ef_deque_is_empty(queue))
 	{
 		length = ef_deque_length(queue);

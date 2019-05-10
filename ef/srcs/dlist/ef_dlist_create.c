@@ -1,27 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ef_rbnode_new.c                                    :+:      :+:    :+:   */
+/*   ef_dlist_create.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/01 13:33:20 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/09 15:08:33 by Zexi Wang        ###   ########.fr       */
+/*   Created: 2019/04/26 10:24:32 by Zexi Wang         #+#    #+#             */
+/*   Updated: 2019/05/10 10:49:47 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libef.h"
 
-t_rbnode	*ef_rbnode_new(void *key, void *value, t_rbnode *nil)
+t_dlist	*ef_dlist_create(void *data)
 {
-	t_rbnode	*node;
+	t_dlist	*node;
 
-	node = ef_rbnode_alloc();
-	node->key = key;
-	node->value = value;
-	node->parent = nil;
-	node->left = nil;
-	node->right = nil;
-	node->color = R;
+	node = ef_dlist_alloc();
+	node->data = data;
+	node->prev = NULL;
+	node->next = NULL;
 	return (node);
 }

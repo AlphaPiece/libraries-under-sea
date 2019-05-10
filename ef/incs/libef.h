@@ -6,7 +6,7 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/15 16:00:55 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/09 22:36:51 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/05/10 10:46:31 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ typedef struct		s_kvpair
 }					t_kvpair;
 
 t_kvpair			*ef_kvpair_alloc(void);
-t_kvpair			*ef_kvpair_new(void * key, void *value);
+t_kvpair			*ef_kvpair_create(void * key, void *value);
 void				ef_kvpair_free(t_kvpair *pair, f_del del_key,
 									f_del del_value);
 
@@ -52,7 +52,7 @@ void				ef_kvpair_free(t_kvpair *pair, f_del del_key,
 ** ======================
 */
 
-# define DARRAY_LEN		16
+# define DARRAY_LEN		4
 
 typedef struct		s_darray
 {
@@ -64,8 +64,7 @@ typedef struct		s_darray
 
 // Create
 t_darray			*ef_darray_alloc(size_t elem_size, int length);
-t_darray			*ef_darray_new(size_t elem_size);
-t_darray			*ef_darray_sized_new(size_t elem_size, int length);
+t_darray			*ef_darray_create(size_t elem_size, int length);
 void				ef_darray_expand_capacity(t_darray *array);
 
 // Set
@@ -76,7 +75,7 @@ void				ef_darray_set(t_darray *array, t_value value, int index);
 // Get
 t_value				ef_darray_get(t_darray *array, int index);
 
-// Delete
+// Remove
 t_value				ef_darray_pop(t_darray *array);
 t_value				ef_darray_delete(t_darray *array, int index);
 void				ef_darray_remove(t_darray *array, t_value value);
@@ -100,57 +99,6 @@ t_darray			*ef_darray_partition(t_darray *array, int start, int end,
 											f_cpy cpy);
 
 /*
-** ===================
-** >                 <
-** >>> BINARY HEAP <<<
-** >                 <
-** ===================
-*/
-
-# define PARENT(i)			(i / 2)
-# define LEFT_CHILD(i)		(2 * i)
-# define RIGHT_CHILD(i)		(2 * i + 1)
-
-enum				e_bheap_type
-{
-	MIN_HEAP,
-	MAX_HEAP
-};
-
-typedef struct		s_bheap
-{
-	t_darray		*array;
-	f_cmp			cmp_key;
-	t_flag			heap_type;
-}					t_bheap;
-
-// Create
-t_bheap				*ef_bheap_alloc(void);
-t_bheap				*ef_bheap_new(f_cmp cmp, t_flag heap_type);
-
-// Set
-void				ef_bheap_insert(t_bheap *heap, t_kvpair *pair);
-void				ef_bheap_change_key(t_bheap *heap, int index,
-										void *new_key);
-
-// Get
-t_kvpair			*ef_bheap_peek_top(t_bheap *heap);
-
-// Delete
-t_kvpair			*ef_bheap_pop_top(t_bheap *heap);
-
-// Traverse
-void				ef_bheap_traverse(t_bheap *heap, f_trw trw);
-
-// Status
-int					ef_bheap_size(t_bheap *heap);
-
-// Extra
-int					ef_bheap_compare(t_bheap *heap, int index1, int index2);
-void				ef_bheap_heapify_up(t_bheap *heap, int index);
-void				ef_bheap_heapify_down(t_bheap *heap, int index);
-
-/*
 ** ==========================
 ** >                        <
 ** >>> SINGLY LINKED LIST <<<
@@ -166,7 +114,7 @@ typedef struct		s_slist
 
 // Create
 t_slist				*ef_slist_alloc(void);
-t_slist				*ef_slist_new(void *data);
+t_slist				*ef_slist_create(void *data);
 
 // Set
 t_slist				*ef_slist_append(t_slist *list, void *data);
@@ -193,9 +141,9 @@ t_slist				*ef_slist_last_node(t_slist *list);
 t_slist				*ef_slist_nth_node(t_slist *list, int n);
 void				*ef_slist_nth_data(t_slist *list, int n);
 
-// Delete
+// Remove
 t_slist				*ef_slist_unlink(t_slist *list, t_slist *node);
-t_slist				*ef_slist_remove(t_slist *list, void *data, f_cmp cmp,
+t_slist				*ef_slist_delete(t_slist *list, void *data, f_cmp cmp,
 										f_del del, t_flag one_or_all);
 void				ef_slist_free(t_slist *list, f_del del, t_flag one_or_all);
 
@@ -236,7 +184,7 @@ enum				e_dlist_order
 
 // Create
 t_dlist				*ef_dlist_alloc(void);
-t_dlist				*ef_dlist_new(void *data);
+t_dlist				*ef_dlist_create(void *data);
 
 // Set
 t_dlist				*ef_dlist_append(t_dlist *list, void *data);
@@ -265,9 +213,9 @@ t_dlist				*ef_dlist_last_node(t_dlist *list);
 t_dlist				*ef_dlist_nth_node(t_dlist *list, int n);
 void				*ef_dlist_nth_data(t_dlist *list, int n);
 
-// Delete
+// Remove
 t_dlist				*ef_dlist_unlink(t_dlist *list, t_dlist *node);
-t_dlist				*ef_dlist_remove(t_dlist *list, void *data, f_cmp cmp,
+t_dlist				*ef_dlist_delete(t_dlist *list, void *data, f_cmp cmp,
 										f_del del, t_flag one_or_all);
 void				ef_dlist_free(t_dlist *list, f_del del, t_flag one_or_all);
 
@@ -294,7 +242,46 @@ t_dlist				*ef_dlist_copy(t_dlist *list, f_cpy cpy);
 ** =================
 */
 
+typedef struct		s_sknode
+{
+	void			*key;
+	void			*value;
+	t_darray		*forward;
+}					t_sknode;
 
+typedef struct		s_sklist
+{
+	t_sknode		*head;
+	int				size;
+	int				level;
+}					t_sklist;
+
+// Create
+t_sknode			*ef_sknode_alloc(void);
+t_sknode			*ef_sknode_create(void *key, void *value);
+t_sklist			*ef_sklist_alloc(void);
+t_sklist			*ef_sklist_create(void);
+
+// Set
+void				ef_sklist_insert(t_sknode *node);
+void				ef_sklist_set(void *key, void *value);
+
+// Get
+t_sknode			*ef_sklist_find(t_sklist *list, void *key);
+void				*ef_sklist_get(t_sklist *list, void *key);
+
+// Remove
+void				ef_sklist_delete(t_sklist *list, void *key);
+void				*ef_sklist_remove(t_sklist *list, void *key);
+
+// Traverse
+void				ef_sklist_traverse(t_sklist *list, f_trw trw);
+
+// Status
+int					ef_sklist_size(t_sklist *list);
+int					ef_sklist_level(t_sklist *list);
+
+// Extra
 
 /*
 ** ==========================
@@ -313,7 +300,7 @@ typedef struct		s_deque
 
 // Create
 t_deque				*ef_deque_alloc(void);
-t_deque				*ef_deque_new(t_dlist *list);
+t_deque				*ef_deque_create(t_dlist *list);
 
 // Set
 void				ef_deque_push_head(t_deque *queue, void *data);
@@ -325,7 +312,7 @@ void				*ef_deque_peek_head(t_deque *queue);
 void				*ef_deque_peek_tail(t_deque *queue);
 void				*ef_deque_peek_nth(t_deque *queue, int n);
 
-// Delete
+// Remove
 void				*ef_deque_pop_head(t_deque *queue);
 void				*ef_deque_pop_tail(t_deque *queue);
 void				*ef_deque_pop_nth(t_deque *queue, int n);
@@ -380,7 +367,7 @@ enum				e_ntree_part
 
 // Create
 t_ntree				*ef_ntree_alloc(void);
-t_ntree				*ef_ntree_new(void *data);
+t_ntree				*ef_ntree_create(void *data);
 
 // Set
 void				ef_ntree_append_child(t_ntree *parent, t_ntree *child);
@@ -406,7 +393,7 @@ t_ntree				*ef_ntree_next_sibling(t_ntree *tree);
 t_ntree				*ef_ntree_find(t_ntree *tree, void *data, f_cmp cmp,
 									int depth, t_flag order, t_flag part);
 
-// Delete
+// Remove
 void				ef_ntree_unlink(t_ntree *tree);
 t_ntree				*ef_ntree_remove(t_ntree *tree, void *data, f_cmp cmp,
 										t_flag order, t_flag one_ar_all);
@@ -473,9 +460,9 @@ typedef struct		s_rbtree
 
 // Create
 t_rbnode			*ef_rbnode_alloc(void);
-t_rbnode			*ef_rbnode_new(void *key, void *value, t_rbnode *nil);
+t_rbnode			*ef_rbnode_create(void *key, void *value, t_rbnode *nil);
 t_rbtree			*ef_rbtree_alloc(void);
-t_rbtree			*ef_rbtree_new(f_cmp cmp_key, f_del del_key,
+t_rbtree			*ef_rbtree_create(f_cmp cmp_key, f_del del_key,
 									f_del del_value);
 
 // Set
@@ -488,7 +475,7 @@ t_rbnode			*ef_rbtree_maximum(t_rbtree *tree, t_rbnode *x);
 t_rbnode			*ef_rbtree_find(t_rbtree *tree, void *key);
 void				*ef_rbtree_get(t_rbtree *tree, void *key);
 
-// Delete
+// Remove
 void				ef_rbnode_free(t_rbnode *tree, f_del del_key,
 									f_del del_value);
 void				ef_rbtree_delete(t_rbtree *tree, t_rbnode *z);
@@ -535,7 +522,7 @@ typedef struct		s_htable
 
 // Create
 t_htable			*ef_htable_alloc(int size);
-t_htable			*ef_htable_new(f_hsh hsh_key, f_cmp cmp_key,
+t_htable			*ef_htable_create(f_hsh hsh_key, f_cmp cmp_key,
 									f_del del_key, f_del del_value);
 void				ef_htable_resize(t_htable *table);
 
@@ -547,7 +534,7 @@ void				ef_htable_set(t_htable *table, void *key, void *value);
 t_dlist				*ef_htable_find(t_htable *table, void *key);
 void				*ef_htable_get(t_htable *table, void *key);
 
-// Delete
+// Remove
 t_kvpair			*ef_htable_pop(t_htable *table);
 void				ef_htable_delete(t_htable *table, t_dlist *node);
 void				*ef_htable_remove(t_htable *table, void *key);
@@ -566,5 +553,56 @@ int					ef_htable_hash(t_htable *table, void *key);
 int					ef_hash_pointer(void *pointer);
 int					ef_hash_string(void *string);
 int					ef_hash_integer(void *integer);
+
+/*
+** ===================
+** >                 <
+** >>> BINARY HEAP <<<
+** >                 <
+** ===================
+*/
+
+# define PARENT(i)			(i / 2)
+# define LEFT_CHILD(i)		(2 * i)
+# define RIGHT_CHILD(i)		(2 * i + 1)
+
+enum				e_bheap_type
+{
+	MIN_HEAP,
+	MAX_HEAP
+};
+
+typedef struct		s_bheap
+{
+	t_darray		*array;
+	f_cmp			cmp_key;
+	t_flag			heap_type;
+}					t_bheap;
+
+// Create
+t_bheap				*ef_bheap_alloc(void);
+t_bheap				*ef_bheap_create(f_cmp cmp, t_flag heap_type);
+
+// Set
+void				ef_bheap_insert(t_bheap *heap, t_kvpair *pair);
+void				ef_bheap_change_key(t_bheap *heap, int index,
+										void *create_key);
+
+// Get
+t_kvpair			*ef_bheap_peek_top(t_bheap *heap);
+
+// Remove
+t_kvpair			*ef_bheap_pop_top(t_bheap *heap);
+
+// Traverse
+void				ef_bheap_traverse(t_bheap *heap, f_trw trw);
+
+// Status
+int					ef_bheap_size(t_bheap *heap);
+
+// Extra
+int					ef_bheap_compare(t_bheap *heap, int index1, int index2);
+void				ef_bheap_heapify_up(t_bheap *heap, int index);
+void				ef_bheap_heapify_down(t_bheap *heap, int index);
 
 #endif

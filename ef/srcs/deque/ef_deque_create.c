@@ -1,30 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ef_rbtree_new.c                                    :+:      :+:    :+:   */
+/*   ef_deque_create.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/03 16:15:16 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/09 15:15:59 by Zexi Wang        ###   ########.fr       */
+/*   Created: 2019/04/27 15:50:29 by Zexi Wang         #+#    #+#             */
+/*   Updated: 2019/05/10 10:54:53 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libef.h"
 
-t_rbtree	*ef_rbtree_new(f_cmp cmp_key, f_del del_key, f_del del_value)
+t_deque	*ef_deque_create(t_dlist *list)
 {
-	t_rbtree	*tree;
+	t_deque	*queue;
 
-	if (!cmp_key)
-		return (NULL);
-	tree = ef_rbtree_alloc();
-	tree->nil = ef_rbnode_alloc();
-	tree->nil->color = B;
-	tree->root = tree->nil;
-	tree->size = 0;
-	tree->cmp_key = cmp_key;
-	tree->del_key = del_key;
-	tree->del_value = del_value;
-	return (tree);
+	queue = ef_deque_alloc();
+	queue->head = list;
+	queue->tail = ef_dlist_last_node(list);
+	queue->length = ef_dlist_length(list);
+	return (queue);
 }

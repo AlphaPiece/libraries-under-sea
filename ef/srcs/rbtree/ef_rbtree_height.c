@@ -6,7 +6,7 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/01 20:49:53 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/09 15:13:19 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/05/10 11:17:03 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	ef_rbtree_height(t_rbtree *tree)
 	if (!tree)
 		return (-1);
 	height = 0;
-	queue = ef_deque_new(ef_dlist_new(tree->root));
+	queue = ef_deque_create(ef_dlist_create(tree->root));
 	while (!ef_deque_is_empty(queue))
 	{
 		length = ef_deque_length(queue);

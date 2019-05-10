@@ -1,24 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ef_darray_new.c                                    :+:      :+:    :+:   */
+/*   ef_rbtree_create.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/25 06:11:16 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/06 23:29:02 by Zexi Wang        ###   ########.fr       */
+/*   Created: 2019/05/03 16:15:16 by Zexi Wang         #+#    #+#             */
+/*   Updated: 2019/05/10 10:56:18 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libef.h"
 
-t_darray	*ef_darray_new(size_t elem_size)
+t_rbtree	*ef_rbtree_create(f_cmp cmp_key, f_del del_key, f_del del_value)
 {
-	t_darray	*array;
+	t_rbtree	*tree;
 
-	array = (t_darray *)ef_darray_alloc(elem_size, DARRAY_LEN);
-	array->capacity = DARRAY_LEN;
-	array->length = 0;
-	array->elem_size = elem_size;
-	return (array);
+	if (!cmp_key)
+		return (NULL);
+	tree = ef_rbtree_alloc();
+	tree->nil = ef_rbnode_alloc();
+	tree->nil->color = B;
+	tree->root = tree->nil;
+	tree->size = 0;
+	tree->cmp_key = cmp_key;
+	tree->del_key = del_key;
+	tree->del_value = del_value;
+	return (tree);
 }

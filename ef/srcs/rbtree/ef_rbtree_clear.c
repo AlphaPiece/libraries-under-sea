@@ -6,7 +6,7 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/08 17:47:26 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/09 15:10:12 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/05/10 10:57:02 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	ef_rbtree_clear(t_rbtree *tree)
 	if (tree)
 	{
 		node = tree->root;
-		stack = ef_deque_new(ef_dlist_new(node));
+		stack = ef_deque_create(ef_dlist_create(node));
 		while (!ef_deque_is_empty(stack))
 		{
 			node = ef_deque_pop_head(stack);
