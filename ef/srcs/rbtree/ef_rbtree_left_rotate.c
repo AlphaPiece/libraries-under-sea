@@ -6,18 +6,19 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/04 10:41:37 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/09 15:14:16 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/05/10 12:03:55 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libef.h"
 
-void	ef_rbtree_left_rotate(t_rbtree *tree, t_rbnode *x)
+void	ef_rbtree_left_rotate(t_rbtree *tree, t_rbnode *node)
 {
-	t_rbnode	*y;
+	t_rbnode	*x, *y;
 
-	if (!tree || !x || x == tree->nil)
+	if (!tree || !node || node == tree->nil)
 		return ;
+	x = node;
 	y = x->right;
 	x->right = y->left;
 	if (y->left != tree->nil)

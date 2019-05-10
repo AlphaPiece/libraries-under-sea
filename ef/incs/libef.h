@@ -6,7 +6,7 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/15 16:00:55 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/10 10:46:31 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/05/10 12:04:39 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -466,19 +466,19 @@ t_rbtree			*ef_rbtree_create(f_cmp cmp_key, f_del del_key,
 									f_del del_value);
 
 // Set
-void				ef_rbtree_insert(t_rbtree *tree, t_rbnode *z);
+void				ef_rbtree_insert(t_rbtree *tree, t_rbnode *node);
 void				ef_rbtree_set(t_rbtree *tree, void *key, void *value);
 
 // Get
-t_rbnode			*ef_rbtree_minimum(t_rbtree *tree, t_rbnode *x);
-t_rbnode			*ef_rbtree_maximum(t_rbtree *tree, t_rbnode *x);
+t_rbnode			*ef_rbtree_minimum(t_rbtree *tree, t_rbnode *node);
+t_rbnode			*ef_rbtree_maximum(t_rbtree *tree, t_rbnode *node);
 t_rbnode			*ef_rbtree_find(t_rbtree *tree, void *key);
 void				*ef_rbtree_get(t_rbtree *tree, void *key);
 
 // Remove
 void				ef_rbnode_free(t_rbnode *tree, f_del del_key,
 									f_del del_value);
-void				ef_rbtree_delete(t_rbtree *tree, t_rbnode *z);
+void				ef_rbtree_delete(t_rbtree *tree, t_rbnode *node);
 void				*ef_rbtree_remove(t_rbtree *tree, void *key);
 void				ef_rbtree_clear(t_rbtree *tree);
 void				ef_rbtree_free(t_rbtree *tree);
@@ -491,8 +491,8 @@ int					ef_rbtree_size(t_rbtree *tree);
 int					ef_rbtree_height(t_rbtree *tree);
 
 // Extra
-void				ef_rbtree_left_rotate(t_rbtree *tree, t_rbnode *x);
-void				ef_rbtree_right_rotate(t_rbtree *tree, t_rbnode *x);
+void				ef_rbtree_left_rotate(t_rbtree *tree, t_rbnode *node);
+void				ef_rbtree_right_rotate(t_rbtree *tree, t_rbnode *node);
 
 /*
 ** ==================

@@ -5,20 +5,20 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/08 13:53:34 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/09 15:15:12 by Zexi Wang        ###   ########.fr       */
+/*   Created: 2019/05/10 11:59:48 by Zexi Wang         #+#    #+#             */
+/*   Updated: 2019/05/10 11:59:57 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libef.h"
 
-t_rbnode	*ef_rbtree_minimum(t_rbtree *tree, t_rbnode *x)
+t_rbnode	*ef_rbtree_minimum(t_rbtree *tree, t_rbnode *node)
 {
-	if (!tree || !x)
+	if (!tree || !node)
 		return (NULL);
-	if (x == tree->nil)
+	if (node == tree->nil)
 		return (tree->nil);
-	while (x->left != tree->nil)
-		x = x->left;
-	return (x);
+	while (node->left != tree->nil)
+		node = node->left;
+	return (node);
 }

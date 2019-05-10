@@ -1,35 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ef_rbtree_right_rotate.c                           :+:      :+:    :+:   */
+/*   ef_sknode_alloc.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/04 10:42:30 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/10 12:04:20 by Zexi Wang        ###   ########.fr       */
+/*   Created: 2019/05/10 11:19:10 by Zexi Wang         #+#    #+#             */
+/*   Updated: 2019/05/10 11:56:17 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libef.h"
 
-void	ef_rbtree_right_rotate(t_rbtree *tree, t_rbnode *node)
+t_sknode	*ef_sknode_alloc(void)
 {
-	t_rbnode	*x, *y;
+	t_sknode	*node;
 
-	if (!tree || !node || node == tree->nil)
-		return ;
-	x = node;
-	y = x->left;
-	x->left = y->right;
-	if (y->right != tree->nil)
-		y->right->parent = x;
-	y->parent = x->parent;
-	if (x->parent == tree->nil)
-		tree->root = y;
-	else if (x == x->parent->left)
-		x->parent->left = y;
-	else
-		x->parent->right = y;
-	y->right = x;
-	x->parent = y;
-}
+	

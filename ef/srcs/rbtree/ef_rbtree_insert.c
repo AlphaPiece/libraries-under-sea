@@ -6,7 +6,7 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/03 11:09:33 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/09 15:13:48 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/05/10 12:03:06 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,12 +56,13 @@ static void	fix_up(t_rbtree *tree, t_rbnode *z)
 	tree->root->color = B;
 }
 
-void		ef_rbtree_insert(t_rbtree *tree, t_rbnode *z)
+void		ef_rbtree_insert(t_rbtree *tree, t_rbnode *node)
 {
-	t_rbnode	*x, *y;
+	t_rbnode	*x, *y, *z;
 
-	if (!tree || !z || z == tree->nil)
+	if (!tree || !node || node == tree->nil)
 		return ;
+	z = node;
 	y = tree->nil;
 	x = tree->root;
 	while (x != tree->nil)
