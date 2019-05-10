@@ -1,21 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ef_bheap_max_heapify.c                             :+:      :+:    :+:   */
+/*   ef_bheap_compare.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/09 14:44:42 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/09 15:02:46 by Zexi Wang        ###   ########.fr       */
+/*   Created: 2019/05/09 15:57:23 by Zexi Wang         #+#    #+#             */
+/*   Updated: 2019/05/09 16:05:34 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libef.h"
 
-void	ef_bheap_max_heapify(t_bheap *heap, int index)
+int	ef_bheap_compare(t_bheap *heap, int index1, int index2)
 {
-	int	l, r;
+	t_kvpair	*pair1;
+	t_kvpair	*pair2;
 
-	l = LEFT_CHILD(i);
-	r = RIGHT_CHILD(i);
-	if (l < ef_bheap_size(heap) && 
+	pair1 = (t_kvpair *)ef_darray_get(heap->array, index1);
+	pair2 = (t_kvpair *)ef_darray_get(heap->array, index2);
+	return (heap->cmp_key(pair1->key, pair2->key));
+}

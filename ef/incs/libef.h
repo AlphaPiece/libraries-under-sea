@@ -6,7 +6,7 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/15 16:00:55 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/09 15:55:14 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/05/09 22:36:51 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,8 +110,6 @@ t_darray			*ef_darray_partition(t_darray *array, int start, int end,
 # define PARENT(i)			(i / 2)
 # define LEFT_CHILD(i)		(2 * i)
 # define RIGHT_CHILD(i)		(2 * i + 1)
-# define HEAP_CMP(h,i,j)	((h)->cmp_key(((t_kvpair *)(h)->array[i])->key, \
-											((t_kvpair *)(h)->array[j])->key))
 
 enum				e_bheap_type
 {
@@ -130,28 +128,27 @@ typedef struct		s_bheap
 t_bheap				*ef_bheap_alloc(void);
 t_bheap				*ef_bheap_new(f_cmp cmp, t_flag heap_type);
 
-
 // Set
 void				ef_bheap_insert(t_bheap *heap, t_kvpair *pair);
-void				ef_bheap_increase_key(t_bheap *heap, f_trv inc_key);
-void				ef_bheap_decrease_key(t_bheap *heap, f_trv dec_key);
+void				ef_bheap_change_key(t_bheap *heap, int index,
+										void *new_key);
 
 // Get
-void				*ef_bheap_peek_top(t_bheap *heap);
+t_kvpair			*ef_bheap_peek_top(t_bheap *heap);
 
 // Delete
-void				*ef_bheap_pop_top(t_bheap *heap);
-void				*ef_bheap_delete(t_bheap *heap, int index);
+t_kvpair			*ef_bheap_pop_top(t_bheap *heap);
 
 // Traverse
-void				ef_bheap_traverse(t_bheap *heap, f_trv trv);
+void				ef_bheap_traverse(t_bheap *heap, f_trw trw);
 
 // Status
 int					ef_bheap_size(t_bheap *heap);
-int					ef_bheap_value_index(t_bheap *heap, void *data);
 
 // Extra
-
+int					ef_bheap_compare(t_bheap *heap, int index1, int index2);
+void				ef_bheap_heapify_up(t_bheap *heap, int index);
+void				ef_bheap_heapify_down(t_bheap *heap, int index);
 
 /*
 ** ==========================

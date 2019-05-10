@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ef_bheap_new.c                                     :+:      :+:    :+:   */
+/*   ef_bheap_pop_top.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/04 13:00:46 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/09 18:06:36 by Zexi Wang        ###   ########.fr       */
+/*   Created: 2019/05/09 18:30:18 by Zexi Wang         #+#    #+#             */
+/*   Updated: 2019/05/09 20:20:31 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libef.h"
 
-t_bheap	*ef_bheap_new(f_cmp cmp_key, t_flag heap_type)
+t_kvpair	*ef_bheap_pop_top(t_bheap *heap)
 {
-	t_bheap	*heap;
+	t_kvpair	*pair;
 
-	if (!cmp_key || (heap_type != MIN_HEAP && heap_type != MAX_HEAP))
-		return (NULL);
-	heap = ef_bheap_alloc();
-	heap->array = ef_darray_new(sizeof(t_kvpair *));
-	ef_darray_append(heap->array, 0);
-	heap->cmp_key = cmp_key;
-	heap->heap_type = heap_type;
-	return (heap);
+	if (heap && ef_bheap_size(heap) > 0)
+	{
+		pair = (t_kvpair *)ef_darray_get(heap->array, 1);
+		ef_darray_set(heap->array, ef_darray_pop(heap->array), 1);
+		ef_bheap_heapify_down(heap, 1);
+		return (pair);
+	}
+	return (NULL);
 }
