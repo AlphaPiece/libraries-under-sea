@@ -6,7 +6,7 @@
 #    By: zwang <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/15 14:23:06 by zwang             #+#    #+#              #
-#    Updated: 2019/05/07 20:36:39 by Zexi Wang        ###   ########.fr        #
+#    Updated: 2019/05/12 11:34:12 by Zexi Wang        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,8 +22,8 @@ NUM = ft_itoa.c ft_ltoa.c ft_ntoa.c ft_untoa.c ft_numlen.c ft_unumlen.c \
 	  ft_ntoa_base.c ft_untoa_base.c ft_sqrt.c ft_pow.c ft_ceil.c ft_floor.c \
 	  ft_numarrcpy.c ft_iselem.c ft_max.c ft_min.c ft_sum.c ft_intarrmin.c \
 	  ft_intarrmin.c ft_intarrsum.c ft_prime_factors.c ft_analyze_float.c \
-      ft_randintarr.c ft_ftoa.c ft_factorial.c ft_fibonacci.c ft_uglynum.c \
-	  ft_swap.c ft_hash_int.c
+      ft_randint.c ft_ftoa.c ft_factorial.c ft_fibonacci.c ft_uglynum.c \
+	  ft_swap.c ft_hash_int.c ft_randintarr.c ft_log.c
 CHR = ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c ft_isspace.c \
 	  ft_isprint.c  ft_tolower.c ft_toupper.c ft_islower.c ft_isupper.c
 STR = ft_atoi.c ft_atol.c ft_atof.c ft_atoi_base.c ft_atol_base.c \
@@ -99,17 +99,6 @@ update:
 	# unix
 	@rm -rf ../../unix/ft_ls/libs/libft/incs
 	@cp -rf incs libft.a ../../unix/ft_ls/libs/libft/
-	# algo
-	@rm -rf  ../../algo/Fillit/libs/libft/incs
-	@cp -rf incs libft.a ../../algo/Fillit/libs/libft/
-	@rm -rf ../../algo/PushSwap/libs/libft/incs
-	@cp -rf incs libft.a ../../algo/PushSwap/libs/libft/
-	@rm -rf ../../algo/TicTacToe/libs/libft/incs
-	@cp -rf incs libft.a ../../algo/TicTacToe/libs/libft/
-	@rm -rf ../../algo/Gomoku/libs/libft/incs
-	@cp -rf incs libft.a ../../algo/Gomoku/libs/libft/
-	@rm -rf ../../algo/Minesweeper/libs/libft/incs
-	@cp -rf incs libft.a ../../algo/Minesweeper/libs/libft/
 	# tybot
 	@rm -rf ../../tybot/libs/libft/incs
 	@cp -rf incs libft.a ../../tybot/libs/libft/
@@ -123,6 +112,16 @@ update:
 	@cp -rf incs libft.a ../../game/Nim/libs/libft/
 	@rm -rf ../../game/Sastantua/libs/libft/incs
 	@cp -rf incs libft.a ../../game/Sastantua/libs/libft/
+	@rm -rf  ../../game/Fillit/libs/libft/incs
+	@cp -rf incs libft.a ../../game/Fillit/libs/libft/
+	@rm -rf ../../game/PushSwap/libs/libft/incs
+	@cp -rf incs libft.a ../../game/PushSwap/libs/libft/
+	@rm -rf ../../game/TicTacToe/libs/libft/incs
+	@cp -rf incs libft.a ../../game/TicTacToe/libs/libft/
+	@rm -rf ../../game/Gomoku/libs/libft/incs
+	@cp -rf incs libft.a ../../game/Gomoku/libs/libft/
+	@rm -rf ../../game/Minesweeper/libs/libft/incs
+	@cp -rf incs libft.a ../../game/Minesweeper/libs/libft/
 
 re: fclean all
 
