@@ -6,7 +6,7 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/04 09:23:12 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/12 21:23:04 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/05/13 12:47:27 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,7 +114,7 @@ void		ef_rbtree_delete(t_rbtree *tree, t_rbnode *node)
 	}
 	else
 	{
-		y = ef_rbtree_minimum(tree, z->right);
+		y = ef_rbnode_minimum(tree, z->right);
 		color = y->color;
 		x = y->right;
 		if (y->parent == z)

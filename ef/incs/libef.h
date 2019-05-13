@@ -6,7 +6,7 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/15 16:00:55 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/12 21:21:18 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/05/13 12:49:10 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ typedef struct		s_kvpair
 }					t_kvpair;
 
 t_kvpair			*ef_kvpair_alloc(void);
-t_kvpair			*ef_kvpair_create(void * key, void *value);
+t_kvpair			*ef_kvpair_create(void *key, void *value);
 void				ef_kvpair_free(t_kvpair *pair, f_del del_key,
 									f_del del_value);
 
@@ -456,10 +456,10 @@ typedef struct		s_rbtree
 {
 	t_rbnode		*root;
 	t_rbnode		*nil;
-	int				size;
 	f_cmp			cmp_key;
 	f_del			del_key;
 	f_del			del_value;
+	int				size;
 }					t_rbtree;
 
 // Create
@@ -467,15 +467,15 @@ t_rbnode			*ef_rbnode_alloc(void);
 t_rbnode			*ef_rbnode_create(void *key, void *value, t_rbnode *nil);
 t_rbtree			*ef_rbtree_alloc(void);
 t_rbtree			*ef_rbtree_create(f_cmp cmp_key, f_del del_key,
-									f_del del_value);
+										f_del del_value);
 
 // Set
 void				ef_rbtree_insert(t_rbtree *tree, t_rbnode *node);
 void				ef_rbtree_set(t_rbtree *tree, void *key, void *value);
 
 // Get
-t_rbnode			*ef_rbtree_minimum(t_rbtree *tree, t_rbnode *node);
-t_rbnode			*ef_rbtree_maximum(t_rbtree *tree, t_rbnode *node);
+t_rbnode			*ef_rbnode_minimum(t_rbtree *tree, t_rbnode *node);
+t_rbnode			*ef_rbnode_maximum(t_rbtree *tree, t_rbnode *node);
 t_rbnode			*ef_rbtree_find(t_rbtree *tree, void *key);
 void				*ef_rbtree_get(t_rbtree *tree, void *key);
 
@@ -520,6 +520,8 @@ typedef struct		s_atree
 {
 	t_anode			*root;
 	f_cmp			cmp_key;
+	f_del			del_key;
+	f_del			del_value;
 	int				size;
 }					t_atree;
 
@@ -527,26 +529,30 @@ typedef struct		s_atree
 t_anode				*ef_anode_alloc(void);
 t_anode				*ef_anode_create(void *key, void *value);
 t_atree				*ef_atree_alloc(void);
-t_atree				*ef_atree_create(f_cmp cmp_key);
+t_atree				*ef_atree_create(f_cmp cmp_key, f_del del_key,
+										f_del del_value);
 
 // Set
 void				ef_atree_insert(t_atree *tree, t_anode *node);
 
 // Get
-
+t_anode				*ef_anode_minimum(t_anode *node);
+t_anode				*ef_anode_maximum(t_anode *node);
 
 // Remove
-
+void				ef_anode_free(t_anode *node, f_del del_key,
+									f_del del_value);
+void				ef_atree_delete(t_atree *tree, t_anode *node);
 
 // Traverse
 
 
 // Status
-
+int					ef_anode_height(t_anode *node);
 
 // Extra
-void				ef_atree_left_rotate(t_atree *tree, t_anode *node);
-void				ef_atree_right_rotate(t_atree *tree, t_anode *node);
+void				ef_anode_left_rotate(t_atree *tree, t_anode *node);
+void				ef_anode_right_rotate(t_atree *tree, t_anode *node);
 
 
 /*
@@ -567,18 +573,18 @@ typedef int			(*f_hsh)(void *);
 typedef struct		s_htable
 {
 	t_dlist			**array;
-	int				size;
-	int				capacity;
 	f_hsh			hsh_key;
 	f_cmp			cmp_key;
 	f_del			del_key;
 	f_del			del_value;
+	int				size;
+	int				capacity;
 }					t_htable;
 
 // Create
 t_htable			*ef_htable_alloc(int size);
 t_htable			*ef_htable_create(f_hsh hsh_key, f_cmp cmp_key,
-									f_del del_key, f_del del_value);
+										f_del del_key, f_del del_value);
 void				ef_htable_resize(t_htable *table);
 
 // Set
