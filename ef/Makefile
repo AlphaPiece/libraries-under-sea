@@ -6,7 +6,7 @@
 #    By: zwang <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/15 14:23:06 by zwang             #+#    #+#              #
-#    Updated: 2019/05/10 11:15:17 by Zexi Wang        ###   ########.fr        #
+#    Updated: 2019/05/12 21:22:00 by Zexi Wang        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -87,9 +87,9 @@ NTREE = ef_ntree_alloc.c               ef_ntree_is_leaf.c \
 
 RBTREE = ef_rbnode_alloc.c   ef_rbtree_free.c         ef_rbtree_create.c \
 		 ef_rbnode_free.c    ef_rbtree_get.c          ef_rbtree_remove.c \
-		 ef_rbnode_create.c  ef_rbtree_height.c       ef_rbtree_right_rotate.c \
+		 ef_rbnode_create.c  ef_rbnode_height.c       ef_rbnode_right_rotate.c \
 		 ef_rbtree_alloc.c   ef_rbtree_insert.c       ef_rbtree_set.c \
-		 ef_rbtree_clear.c   ef_rbtree_left_rotate.c  ef_rbtree_size.c \
+		 ef_rbtree_clear.c   ef_rbnode_left_rotate.c  ef_rbtree_size.c \
 		 ef_rbtree_delete.c  ef_rbtree_maximum.c      ef_rbtree_traverse.c \
 		 ef_rbtree_find.c    ef_rbtree_minimum.c
 

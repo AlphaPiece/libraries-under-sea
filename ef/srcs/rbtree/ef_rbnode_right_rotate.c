@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ef_rbtree_right_rotate.c                           :+:      :+:    :+:   */
+/*   ef_rbnode_right_rotate.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/04 10:42:30 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/10 12:04:20 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/05/12 21:21:08 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libef.h"
 
-void	ef_rbtree_right_rotate(t_rbtree *tree, t_rbnode *node)
+void	ef_rbnode_right_rotate(t_rbtree *tree, t_rbnode *node)
 {
 	t_rbnode	*x, *y;
 

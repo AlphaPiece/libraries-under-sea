@@ -6,7 +6,7 @@
 /*   By: zwang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/11 11:20:28 by zwang             #+#    #+#             */
-/*   Updated: 2019/05/07 21:28:28 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/05/12 11:33:48 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -150,12 +150,14 @@ int					ft_sum(int total_no, ...);
 int					ft_intarrmax(int arr[], int len);
 int					ft_intarrmin(int arr[], int	len);
 int					ft_intarrsum(int arr[], int len);
-int                 *ft_randintarr(int lower, int upper, int len);
+int                 ft_randint(int lower, int upper);
+int					*ft_randintarr(int lower, int upper, int len);
 long long			ft_factorial(int n);
 long long			ft_fibonacci(int n);
 long long			ft_uglynum(int n);
 void				ft_swap(int *a, int *b);
 uint32_t			ft_hash_int(int h);
+int					ft_log(int n, int base);
 
 /*
 ** =======================

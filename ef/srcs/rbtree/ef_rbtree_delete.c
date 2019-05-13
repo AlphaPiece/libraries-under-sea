@@ -6,7 +6,7 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/04 09:23:12 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/10 12:01:41 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/05/12 21:23:04 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ static void	fix_up(t_rbtree *tree, t_rbnode *x)
 			{
 				w->color = B;
 				x->parent->color = R;
-				ef_rbtree_left_rotate(tree, x->parent);
+				ef_rbnode_left_rotate(tree, x->parent);
 				w = x->parent->right;
 			}
 			if (w->left->color == B && w->right->color == B)
@@ -49,13 +49,13 @@ static void	fix_up(t_rbtree *tree, t_rbnode *x)
 				{
 					w->left->color = B;
 					w->color = R;
-					ef_rbtree_right_rotate(tree, w);
+					ef_rbnode_right_rotate(tree, w);
 					w = x->parent->right;
 				}
 				w->color = x->parent->color;
 				x->parent->color = B;
 				w->right->color = B;
-				ef_rbtree_left_rotate(tree, x->parent);
+				ef_rbnode_left_rotate(tree, x->parent);
 				x = tree->root;
 			}
 		}
@@ -66,7 +66,7 @@ static void	fix_up(t_rbtree *tree, t_rbnode *x)
 			{
 				w->color = B;
 				x->parent->color = R;
-				ef_rbtree_right_rotate(tree, x->parent);
+				ef_rbnode_right_rotate(tree, x->parent);
 				w = x->parent->left;
 			}
 			if (w->right->color == B && w->left->color == B)
@@ -80,13 +80,13 @@ static void	fix_up(t_rbtree *tree, t_rbnode *x)
 				{
 					w->right->color = B;
 					w->color = R;
-					ef_rbtree_left_rotate(tree, w);
+					ef_rbnode_left_rotate(tree, w);
 					w = x->parent->right;
 				}
 				w->color = x->parent->color;
 				x->parent->color = B;
 				w->left->color = B;
-				ef_rbtree_right_rotate(tree, x->parent);
+				ef_rbnode_right_rotate(tree, x->parent);
 				x = tree->root;
 			}
 		}

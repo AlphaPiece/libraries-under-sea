@@ -6,7 +6,7 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/03 11:09:33 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/10 12:03:06 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/05/12 21:23:29 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,10 @@ static void	fix_up(t_rbtree *tree, t_rbnode *z)
 			else
 			{
 				if (z == z->parent->right)
-					ef_rbtree_left_rotate(tree, (z = z->parent));
+					ef_rbnode_left_rotate(tree, (z = z->parent));
 				z->parent->color = B;
 				z->parent->parent->color = R;
-				ef_rbtree_right_rotate(tree, z->parent->parent);
+				ef_rbnode_right_rotate(tree, z->parent->parent);
 			}
 		}
 		else
@@ -47,10 +47,10 @@ static void	fix_up(t_rbtree *tree, t_rbnode *z)
 			else
 			{
 				if (z == z->parent->left)
-					ef_rbtree_right_rotate(tree, (z = z->parent));
+					ef_rbnode_right_rotate(tree, (z = z->parent));
 				z->parent->color = B;
 				z->parent->parent->color = R;
-				ef_rbtree_left_rotate(tree, z->parent->parent);
+				ef_rbnode_left_rotate(tree, z->parent->parent);
 			}
 		}
 	tree->root->color = B;

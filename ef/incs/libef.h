@@ -6,7 +6,7 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/15 16:00:55 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/10 12:04:39 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/05/12 21:21:18 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -254,13 +254,17 @@ typedef struct		s_sklist
 	t_sknode		*head;
 	int				size;
 	int				level;
+	f_cmp			cmp_key;
+	f_del			del_key;
+	f_del			del_value;
 }					t_sklist;
 
 // Create
 t_sknode			*ef_sknode_alloc(void);
 t_sknode			*ef_sknode_create(void *key, void *value);
 t_sklist			*ef_sklist_alloc(void);
-t_sklist			*ef_sklist_create(void);
+t_sklist			*ef_sklist_create(f_cmp cmp_key, f_del del_key,
+										f_del del_value);
 
 // Set
 void				ef_sklist_insert(t_sknode *node);
@@ -488,11 +492,62 @@ void				ef_rbtree_traverse(t_rbtree *tree, f_trw trw, t_flag order);
 
 // Status
 int					ef_rbtree_size(t_rbtree *tree);
-int					ef_rbtree_height(t_rbtree *tree);
+int					ef_rbnode_height(t_rbtree *tree, t_rbnode *node);
 
 // Extra
-void				ef_rbtree_left_rotate(t_rbtree *tree, t_rbnode *node);
-void				ef_rbtree_right_rotate(t_rbtree *tree, t_rbnode *node);
+void				ef_rbnode_left_rotate(t_rbtree *tree, t_rbnode *node);
+void				ef_rbnode_right_rotate(t_rbtree *tree, t_rbnode *node);
+
+/*
+** ================
+** >              <
+** >>> AVL TREE <<<
+** >              <
+** ================
+*/
+
+typedef struct		s_anode
+{
+	void			*key;
+	void			*value;
+	struct s_anode	*parent;
+	struct s_anode	*left;
+	struct s_anode	*right;
+	int				height;
+}					t_anode;
+
+typedef struct		s_atree
+{
+	t_anode			*root;
+	f_cmp			cmp_key;
+	int				size;
+}					t_atree;
+
+// Create
+t_anode				*ef_anode_alloc(void);
+t_anode				*ef_anode_create(void *key, void *value);
+t_atree				*ef_atree_alloc(void);
+t_atree				*ef_atree_create(f_cmp cmp_key);
+
+// Set
+void				ef_atree_insert(t_atree *tree, t_anode *node);
+
+// Get
+
+
+// Remove
+
+
+// Traverse
+
+
+// Status
+
+
+// Extra
+void				ef_atree_left_rotate(t_atree *tree, t_anode *node);
+void				ef_atree_right_rotate(t_atree *tree, t_anode *node);
+
 
 /*
 ** ==================
@@ -585,8 +640,7 @@ t_bheap				*ef_bheap_create(f_cmp cmp, t_flag heap_type);
 
 // Set
 void				ef_bheap_insert(t_bheap *heap, t_kvpair *pair);
-void				ef_bheap_change_key(t_bheap *heap, int index,
-										void *create_key);
+void				ef_bheap_change_key(t_bheap *heap, int index, void *key);
 
 // Get
 t_kvpair			*ef_bheap_peek_top(t_bheap *heap);
