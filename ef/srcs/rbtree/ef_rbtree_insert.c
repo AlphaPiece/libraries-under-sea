@@ -6,11 +6,16 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/03 11:09:33 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/12 21:23:29 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/05/14 11:30:36 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libef.h"
+
+/*
+** z: the starting node
+** y: the uncle of z
+*/
 
 static void	fix_up(t_rbtree *tree, t_rbnode *z)
 {
@@ -56,13 +61,18 @@ static void	fix_up(t_rbtree *tree, t_rbnode *z)
 	tree->root->color = B;
 }
 
-void		ef_rbtree_insert(t_rbtree *tree, t_rbnode *node)
-{
-	t_rbnode	*x, *y, *z;
+/*
+** z: the node getting inserted
+** y: the node that is going to be the parent of z
+** x: the node used to travel up and down
+*/
 
-	if (!tree || !node || node == tree->nil)
+void		ef_rbtree_insert(t_rbtree *tree, t_rbnode *z)
+{
+	t_rbnode	*x, *y;
+
+	if (!tree || !z || z == tree->nil)
 		return ;
-	z = node;
 	y = tree->nil;
 	x = tree->root;
 	while (x != tree->nil)

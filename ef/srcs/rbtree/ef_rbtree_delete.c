@@ -6,11 +6,16 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/04 09:23:12 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/13 12:47:27 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/05/14 11:57:10 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libef.h"
+
+/*
+** u: the node gettting replaced
+** v: the node that is going to replace u
+*/
 
 static void	transplant(t_rbtree *tree, t_rbnode *u, t_rbnode *v)
 {
@@ -22,6 +27,11 @@ static void	transplant(t_rbtree *tree, t_rbnode *u, t_rbnode *v)
 		u->parent->right = v;
 	v->parent = u->parent;
 }
+
+/*
+** x: the starting node
+** w: the sibling of x
+*/
 
 static void	fix_up(t_rbtree *tree, t_rbnode *x)
 {
@@ -93,15 +103,22 @@ static void	fix_up(t_rbtree *tree, t_rbnode *x)
 	x->color = B;
 }
 
-void		ef_rbtree_delete(t_rbtree *tree, t_rbnode *node)
+/*
+** z: the node getting deleted from the tree
+** y: the (minimum) node that is going to replace z
+** x: the starting node for function fix_up
+** color: y's original color
+*/
+
+void		ef_rbtree_delete(t_rbtree *tree, t_rbnode *z)
 {
-	t_rbnode	*x, *y, *z;
+	t_rbnode	*x, *y;
 	t_color		color;
 
-	if (!tree || !node || node == tree->nil)
+	if (!tree || !z || z == tree->nil)
 		return ;
-	z = node;
-	color = z->color;
+	y = z;
+	color = y->color;
 	if (z->left == tree->nil)
 	{
 		x = z->right;
