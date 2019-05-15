@@ -6,7 +6,7 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/13 11:59:51 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/14 11:48:58 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/05/15 09:49:40 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ static void	balance(t_atree *tree, t_anode *z)
 
 void	ef_atree_delete(t_atree *tree, t_anode *z)
 {
-	t_anode	*x, *y;
+	t_anode	*w, *x, *y;
 
 	if (!tree || !z)
 		return ;
@@ -119,9 +119,10 @@ void	ef_atree_delete(t_atree *tree, t_anode *z)
 		y->left = z->left;
 		y->left->parent = y;
 	}
-	for (z = x; z; z = z->parent)
-		z->height = 1 + MAX(ef_anode_height(z->left),
-							ef_anode_height(z->right));
+	for (w = x; w; w = w->parent)
+		w->height = 1 + MAX(ef_anode_height(w->left),
+							ef_anode_height(w->right));
 	balance(tree, x);
+	ef_anode_free(z, tree->del_key, tree->del_value);
 	tree->size--;
 }

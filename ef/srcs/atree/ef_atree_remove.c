@@ -1,29 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ef_atree_set.c                                     :+:      :+:    :+:   */
+/*   ef_atree_remove.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/14 22:27:37 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/15 00:03:50 by Zexi Wang        ###   ########.fr       */
+/*   Created: 2019/05/14 22:52:35 by Zexi Wang         #+#    #+#             */
+/*   Updated: 2019/05/14 23:14:32 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libef.h"
 
-void	ef_atree_set(t_atree *tree, void *key, void *value)
+void	ef_atree_remove(t_atree *tree, void *key)
 {
-	t_anode	*node;
-
-	if (!tree)
-		return ;
-	if ((node = ef_atree_find(tree, key)))
-	{
-		if (tree->del_value)
-			tree->del_value(node->value);
-		node->value = value;
-	}
-	else
-		ef_atree_insert(tree, ef_anode_create(key, value));
+	if (tree)
+		ef_atree_delete(tree, ef_atree_find(tree, key));
 }
