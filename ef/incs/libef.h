@@ -6,7 +6,7 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/15 16:00:55 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/14 22:27:03 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/05/15 00:02:32 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -176,7 +176,7 @@ typedef struct		s_dlist
 	struct s_dlist	*next;
 }					t_dlist;
 
-enum				e_dlist_order
+enum				e_list_order
 {
 	FORWARD,
 	BACKWARD
@@ -354,7 +354,7 @@ typedef struct		s_ntree
 	struct s_ntree	*children;
 }					t_ntree;
 
-enum				e_ntree_order
+enum				e_tree_order
 {
 	IN_ORDER,
 	PRE_ORDER,
@@ -362,7 +362,7 @@ enum				e_ntree_order
 	LEVEL_ORDER
 };
 
-enum				e_ntree_part
+enum				e_tree_part
 {
 	LEAF,
 	NON_LEAF,
@@ -467,16 +467,21 @@ void				ef_atree_set(t_atree *tree, void *key, void *value);
 t_anode				*ef_anode_minimum(t_anode *node);
 t_anode				*ef_anode_maximum(t_anode *node);
 t_anode				*ef_atree_find(t_atree *tree, void *key);
+void				*ef_atree_get(t_atree *tree, void *key);
 
 // Remove
 void				ef_anode_free(t_anode *node, f_del del_key,
 									f_del del_value);
 void				ef_atree_delete(t_atree *tree, t_anode *node);
+void				ef_atree_remove(t_atree *tree, void *key);
+void				ef_atree_clear(t_atree *tree);
+void				ef_atree_free(t_atree *tree);
 
 // Traverse
-void				ef_atree_traverse(t_atree *tree, f_trw trw);
+void				ef_atree_traverse(t_atree *tree, f_trw trw, t_flag order);
 
 // Status
+int					ef_atree_size(t_atree *tree);
 int					ef_anode_height(t_anode *node);
 
 // Extra
@@ -540,7 +545,7 @@ void				*ef_rbtree_get(t_rbtree *tree, void *key);
 void				ef_rbnode_free(t_rbnode *tree, f_del del_key,
 									f_del del_value);
 void				ef_rbtree_delete(t_rbtree *tree, t_rbnode *node);
-void				*ef_rbtree_remove(t_rbtree *tree, void *key);
+void				ef_rbtree_remove(t_rbtree *tree, void *key);
 void				ef_rbtree_clear(t_rbtree *tree);
 void				ef_rbtree_free(t_rbtree *tree);
 
@@ -600,7 +605,7 @@ void				*ef_htable_get(t_htable *table, void *key);
 // Remove
 t_kvpair			*ef_htable_pop(t_htable *table);
 void				ef_htable_delete(t_htable *table, t_dlist *node);
-void				*ef_htable_remove(t_htable *table, void *key);
+void				ef_htable_remove(t_htable *table, void *key);
 void				ef_htable_clear(t_htable *table);
 void				ef_htable_free(t_htable *table);
 
@@ -629,7 +634,7 @@ int					ef_hash_integer(void *integer);
 # define LEFT_CHILD(i)		(2 * i)
 # define RIGHT_CHILD(i)		(2 * i + 1)
 
-enum				e_bheap_type
+enum				e_heap_type
 {
 	MIN_HEAP,
 	MAX_HEAP

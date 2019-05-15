@@ -6,7 +6,7 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 1019/05/03 14:27:44 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/08 13:44:19 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/05/14 23:12:57 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void	test(void)
 	t_kvpair	*pair;
 	t_darray	*pairs;
 
-	table = ef_htable_new(ef_hash_string, cmp_str, NULL, NULL);
+	table = ef_htable_create(ef_hash_string, cmp_str, NULL, NULL);
 
 	ef_htable_set(table, "Walker", "1");
 	ef_htable_set(table, "Reche", "2");

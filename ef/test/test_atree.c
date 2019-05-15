@@ -6,7 +6,7 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/12 23:08:11 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/13 23:09:33 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/05/15 09:50:57 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	btview(t_atree *tree, t_anode *node, int space)
 	btview(tree, node->right, space);
 	ft_putchar('\n');
 	ft_putnchar(' ', space - COUNT);
-	ft_printf("%d-%d", *(int *)node->key, node->height);
+	ft_printf("%d-%d-%d", *(int *)node->key, *(int *)node->value, node->height);
 	ft_putchar('\n');
 	btview(tree, node->left, space);
 }
@@ -30,7 +30,9 @@ void	btview(t_atree *tree, t_anode *node, int space)
 void	view_tree(t_atree *tree)
 {
 	btview(tree, tree->root, 0);
-	ft_printf("\n========================\n");
+	ft_printf("\nsize: %d, height: %d\n", ef_atree_size(tree),
+				ef_anode_height(tree->root));
+	ft_printf("========================\n");
 }
 
 int		cmp_int(void *n1, void *n2)
@@ -43,7 +45,13 @@ int		cmp_int(void *n1, void *n2)
 		return (0);
 }
 
-int		main(void)
+void	*print_key(void *key, void *value)
+{
+	ft_printf("%d, ", *(int *)key);
+	return (value);
+}
+
+void	test(void)
 {
 	t_atree	*tree;
 	t_anode	*node;
@@ -53,16 +61,30 @@ int		main(void)
 	tree = ef_atree_create(cmp_int, NULL, NULL);
 
 	for (i = 0; i < 16; i++)
-		ef_atree_insert(tree, ef_anode_create(&arr[i], &arr[i]));
-	
-//	view_tree(tree);
-
-	for (i = 0; i < 9; i++)
-		ef_atree_delete(tree, ef_atree_find(tree, &arr[i]));
+		ef_atree_set(tree, &arr[i], &arr[i]);
+	ef_atree_set(tree, &arr[3], &arr[6]);
+	ef_atree_set(tree, &arr[2], &arr[8]);
 	view_tree(tree);
+	ef_atree_traverse(tree, print_key, LEVEL_ORDER);
+	ft_printf("\n");
 
-	ef_atree_delete(tree, ef_atree_find(tree, &arr[9]));
+	ft_printf("%d\n", *(int *)ef_atree_get(tree, &arr[2]));
+	ft_printf("%d\n", *(int *)ef_atree_get(tree, &arr[3]));
+
+	for (i = 0; i < 10; i++)
+		ef_atree_remove(tree, &arr[i]);
 	view_tree(tree);
+	ef_atree_traverse(tree, print_key, LEVEL_ORDER);
+	ft_printf("\n");
+
+	ef_atree_free(tree);
+}
+
+int		main(void)
+{
+	test();
+
+//	while (1);
 
 	return (0);
 }

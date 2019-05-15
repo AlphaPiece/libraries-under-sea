@@ -6,7 +6,7 @@
 #    By: zwang <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/15 14:23:06 by zwang             #+#    #+#              #
-#    Updated: 2019/05/13 12:48:08 by Zexi Wang        ###   ########.fr        #
+#    Updated: 2019/05/15 09:58:44 by Zexi Wang        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -85,6 +85,14 @@ NTREE = ef_ntree_alloc.c               ef_ntree_is_leaf.c \
 		ef_ntree_is_ancestor.c         ef_ntree_unlink.c \
 		ef_ntree_is_descendant.c       ef_ntree_count_leaves.c
 
+ATREE = ef_anode_alloc.c        ef_anode_right_rotate.c ef_atree_get.c \
+		ef_anode_create.c       ef_atree_alloc.c        ef_atree_insert.c \
+		ef_anode_free.c         ef_atree_clear.c        ef_atree_remove.c \
+		ef_anode_height.c       ef_atree_create.c       ef_atree_set.c \
+		ef_anode_left_rotate.c  ef_atree_delete.c       ef_atree_size.c \
+		ef_anode_maximum.c      ef_atree_find.c         ef_atree_traverse.c \
+		ef_anode_minimum.c      ef_atree_free.c
+
 RBTREE = ef_rbnode_alloc.c   ef_rbtree_free.c         ef_rbtree_create.c \
 		 ef_rbnode_free.c    ef_rbtree_get.c          ef_rbtree_remove.c \
 		 ef_rbnode_create.c  ef_rbnode_height.c       ef_rbnode_right_rotate.c \
@@ -101,6 +109,11 @@ HTABLE = ef_hash_integer.c    ef_htable_find.c     ef_htable_pairs.c \
 		 ef_htable_delete.c   ef_htable_create.c   ef_htable_size.c \
 		 ef_htable_traverse.c
 
+BHEAP = ef_bheap_alloc.c        ef_bheap_heapify_up.c   ef_bheap_pop_top.c \
+		ef_bheap_change_key.c   ef_bheap_insert.c       ef_bheap_size.c \
+		ef_bheap_compare.c      ef_bheap_create.c          ef_bheap_traverse.c \
+		ef_bheap_heapify_down.c ef_bheap_peek_top.c
+
 OBJ = *.o
 
 KVPAIR_DIR = srcs/kvpair/
@@ -109,8 +122,10 @@ SLIST_DIR = srcs/slist/
 DLIST_DIR = srcs/dlist/
 DEQUE_DIR = srcs/deque/
 NTREE_DIR = srcs/ntree/
+ATREE_DIR = srcs/atree/
 RBTREE_DIR = srcs/rbtree/
 HTABLE_DIR = srcs/htable/
+BHEAP_DIR = srcs/bheap/
 
 OBJS_DIR = objs/
 
@@ -121,8 +136,10 @@ SRCS = $(addprefix $(KVPAIR_DIR), $(KVPAIR)) \
 	   $(addprefix $(DLIST_DIR), $(DLIST)) \
 	   $(addprefix $(DEQUE_DIR), $(DEQUE)) \
 	   $(addprefix $(NTREE_DIR), $(NTREE)) \
+	   $(addprefix $(ATREE_DIR), $(ATREE)) \
 	   $(addprefix $(RBTREE_DIR), $(RBTREE)) \
-	   $(addprefix $(HTABLE_DIR), $(HTABLE))
+	   $(addprefix $(HTABLE_DIR), $(HTABLE)) \
+	   $(addprefix $(BHEAP_DIR), $(BHEAP))
 
 OBJS = $(addprefix $(OBJS_DIR), $(OBJ))
 

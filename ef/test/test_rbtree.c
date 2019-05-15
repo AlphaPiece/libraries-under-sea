@@ -6,7 +6,7 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/03 09:23:07 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/14 11:42:19 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/05/15 00:13:09 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,6 +93,10 @@ void	test(void)
 	view_tree(tree);
 	ft_printf("size: %d\n", ef_rbtree_size(tree));
 	ft_printf("height: %d\n", ef_rbnode_height(tree, tree->root));
+	
+	ef_rbtree_traverse(tree, print_key, LEVEL_ORDER);
+	ft_printf("\n");
+
 
 //	ft_printf("%d\n", *(int *)ef_rbtree_get(tree, &arr[3]));
 //	ft_printf("%d\n", *(int *)ef_rbtree_get(tree, &arr[6]));
