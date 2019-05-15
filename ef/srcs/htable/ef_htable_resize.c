@@ -6,7 +6,7 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/04 22:13:25 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/08 13:35:24 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/05/14 22:46:06 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ void	ef_htable_resize(t_htable *table)
 	int			i;
 	t_dlist		*list;
 
+	if (!table)
+		return ;
 	factor = (double)table->size / table->capacity;
 	if (factor < LOAD_FACTOR)
 		return ;

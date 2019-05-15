@@ -6,7 +6,7 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/03 09:23:07 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/09 15:41:02 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/05/14 11:42:19 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,10 +78,10 @@ void	test(void)
 	int			arr[] = {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16};
 	int			i;
 
-	tree = ef_rbtree_new(cmp_int, NULL, NULL);
+	tree = ef_rbtree_create(cmp_int, NULL, NULL);
 	for (i = 0; i < 17; i++)
 		ef_rbtree_set(tree, &arr[i], &arr[i]);
-	print_tree(tree);
+//	print_tree(tree);
 
 /*	ef_rbtree_remove(tree, &arr[7]);
 	print_tree(tree);
@@ -92,7 +92,7 @@ void	test(void)
 */
 	view_tree(tree);
 	ft_printf("size: %d\n", ef_rbtree_size(tree));
-	ft_printf("height: %d\n", ef_rbtree_height(tree));
+	ft_printf("height: %d\n", ef_rbnode_height(tree, tree->root));
 
 //	ft_printf("%d\n", *(int *)ef_rbtree_get(tree, &arr[3]));
 //	ft_printf("%d\n", *(int *)ef_rbtree_get(tree, &arr[6]));

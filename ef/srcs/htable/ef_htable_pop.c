@@ -6,7 +6,7 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/08 09:52:15 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/08 13:36:52 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/05/14 22:44:09 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ t_kvpair	*ef_htable_pop(t_htable *table)
 	t_dlist		*list;
 	t_kvpair	*pair;
 
+	if (!table || ef_htable_size(table) <= 0)
+		return (NULL);
 	for (i = 0; i < table->capacity; i++)
 		if ((list = table->array[i]))
 		{
