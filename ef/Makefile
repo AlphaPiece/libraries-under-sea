@@ -6,7 +6,7 @@
 #    By: zwang <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/15 14:23:06 by zwang             #+#    #+#              #
-#    Updated: 2019/05/15 09:58:44 by Zexi Wang        ###   ########.fr        #
+#    Updated: 2019/05/17 15:11:41 by Zexi Wang        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ DARRAY = ef_darray_alloc.c           ef_darray_expand_capacity.c \
 		 ef_darray_reverse.c         ef_darray_copy.c \
 		 ef_darray_insert.c          ef_darray_set.c \
 		 ef_darray_delete.c          ef_darray_length.c \
-		 ef_darray_elem_index.c      ef_darray_create.c \
+		 ef_darray_index.c           ef_darray_create.c \
 		 ef_darray_sort.c            ef_darray_elem_size.c \
 		 ef_darray_partition.c       ef_darray_swap.c \
 		 ef_darray_traverse.c

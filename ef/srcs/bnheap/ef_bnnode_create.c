@@ -1,23 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ef_bheap_compare.c                                 :+:      :+:    :+:   */
+/*   ef_bnnode_create.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/09 15:57:23 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/17 11:25:22 by Zexi Wang        ###   ########.fr       */
+/*   Created: 2019/05/17 09:26:39 by Zexi Wang         #+#    #+#             */
+/*   Updated: 2019/05/17 09:28:39 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libef.h"
 
-int	ef_bheap_compare(t_bheap *heap, int index1, int index2)
+t_bnnode	*ef_bnnode_create(void *key, void *value)
 {
-	t_kvpair	*pair1;
-	t_kvpair	*pair2;
+	t_bnnode	*node;
 
-	pair1 = (t_kvpair *)ef_darray_get(heap->array, index1 + 1);
-	pair2 = (t_kvpair *)ef_darray_get(heap->array, index2 + 1);
-	return (heap->cmp_key(pair1->key, pair2->key));
+	node = ef_bnnode_alloc();
+	node->key = key;
+	node->value = value;
+	node->child = NULL;
+	node->sibling = NULL;
+	node->parent = NULL;
+	node->degree = 0;
+	return (node);
 }

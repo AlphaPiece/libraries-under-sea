@@ -6,7 +6,7 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/15 16:00:55 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/16 23:27:54 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/05/17 15:11:00 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ void				ef_darray_traverse(t_darray *array, f_trv trv);
 // Status
 int					ef_darray_length(t_darray *array);
 size_t				ef_darray_elem_size(t_darray *array);
-int					ef_darray_elem_index(t_darray *array, t_value value);
+int					ef_darray_index(t_darray *array, t_value value);
 
 // Extra
 void				ef_darray_swap(t_darray *array, int index1, int index2);
@@ -594,7 +594,7 @@ t_ntree				*ef_23tree_find(t_23tree *tree, void *key);
 void				ef_23tree_delete(t_23tree *tree, t_ntree *node);			
 
 // Traverse
-void				ef_23tree_traverse(t_23tree *tree, t_trw trw, t_flag order);
+void				ef_23tree_traverse(t_23tree *tree, f_trw trw, t_flag order);
 
 // Status
 void				ef_23tree_size(t_23tree *tree);
@@ -670,26 +670,22 @@ int					ef_hash_integer(void *integer);
 ** ===================
 */
 
-# define PARENT(i)			(i / 2)
-# define LEFT_CHILD(i)		(2 * i)
-# define RIGHT_CHILD(i)		(2 * i + 1)
-
-enum				e_heap_type
-{
-	MIN_HEAP,
-	MAX_HEAP
-};
+# define PARENT(i)			((i + 1) / 2 - 1)
+# define LEFT_CHILD(i)		(2 * (i + 1) - 1)
+# define RIGHT_CHILD(i)		(2 * (i + 1))
 
 typedef struct		s_bheap
 {
 	t_darray		*array;
 	f_cmp			cmp_key;
-	t_flag			heap_type;
+	f_del			del_key;
+	f_del			del_value;
 }					t_bheap;
 
 // Create
 t_bheap				*ef_bheap_alloc(void);
-t_bheap				*ef_bheap_create(f_cmp cmp, t_flag heap_type);
+t_bheap				*ef_bheap_create(f_cmp cmp_key, f_del del_key,
+										f_del del_value);
 
 // Set
 void				ef_bheap_insert(t_bheap *heap, t_kvpair *pair);
@@ -700,12 +696,14 @@ t_kvpair			*ef_bheap_peek_top(t_bheap *heap);
 
 // Remove
 t_kvpair			*ef_bheap_pop_top(t_bheap *heap);
+void				ef_bheap_delete(t_bheap *heap, int index);
 
 // Traverse
 void				ef_bheap_traverse(t_bheap *heap, f_trw trw);
 
 // Status
 int					ef_bheap_size(t_bheap *heap);
+int					ef_bheap_index(t_bheap *heap, void *key);
 
 // Extra
 int					ef_bheap_compare(t_bheap *heap, int index1, int index2);
@@ -736,6 +734,7 @@ typedef struct		s_bnheap
 	f_cmp			cmp_key;
 	f_del			del_key;
 	f_del			del_value;
+	int				size;
 }					t_bnheap;
 
 

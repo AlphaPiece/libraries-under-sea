@@ -6,22 +6,23 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/04 13:00:46 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/15 10:00:02 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/05/17 11:20:25 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libef.h"
 
-t_bheap	*ef_bheap_create(f_cmp cmp_key, t_flag heap_type)
+t_bheap	*ef_bheap_create(f_cmp cmp_key, f_del del_key, f_del del_value)
 {
 	t_bheap	*heap;
 
-	if (!cmp_key || (heap_type != MIN_HEAP && heap_type != MAX_HEAP))
+	if (!cmp_key)
 		return (NULL);
 	heap = ef_bheap_alloc();
 	heap->array = ef_darray_create(sizeof(t_kvpair *), 0);
 	ef_darray_append(heap->array, 0);
 	heap->cmp_key = cmp_key;
-	heap->heap_type = heap_type;
+	heap->del_key = del_key;
+	heap->del_value = del_value;
 	return (heap);
 }

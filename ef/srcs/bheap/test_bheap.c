@@ -6,7 +6,7 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/09 17:42:57 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/09 22:47:40 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/05/17 11:40:42 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,14 +38,14 @@ int		main(void)
 	t_bheap		*heap;
 	t_kvpair	*pair;
 
-	heap = ef_bheap_new(cmp_str, MIN_HEAP);
+	heap = ef_bheap_create(cmp_str, NULL, NULL);
 
-	ef_bheap_insert(heap, ef_kvpair_new("23", "Walker"));
-	ef_bheap_insert(heap, ef_kvpair_new("51", "Asta"));
-	ef_bheap_insert(heap, ef_kvpair_new("89", "Reche"));
-	ef_bheap_insert(heap, ef_kvpair_new("111", "Eve"));
-	ef_bheap_insert(heap, ef_kvpair_new("3", "Tio"));
-	ef_bheap_insert(heap, ef_kvpair_new("90", "Kyedae"));
+	ef_bheap_insert(heap, ef_kvpair_create("23", "Walker"));
+	ef_bheap_insert(heap, ef_kvpair_create("51", "Asta"));
+	ef_bheap_insert(heap, ef_kvpair_create("89", "Reche"));
+	ef_bheap_insert(heap, ef_kvpair_create("111", "Eve"));
+	ef_bheap_insert(heap, ef_kvpair_create("3", "Tio"));
+	ef_bheap_insert(heap, ef_kvpair_create("90", "Kyedae"));
 
 /*	pair = ef_bheap_peek_top(heap);
 	print_pair(pair->key, pair->value);
@@ -58,7 +58,7 @@ int		main(void)
 	ef_bheap_traverse(heap, print_pair);
 	ft_printf("=================\n");
 
-	ef_bheap_change_key(heap, 3, "1");
+	ef_bheap_change_key(heap, 2, "1");
 	ef_bheap_traverse(heap, print_pair);
 
 	return (0);
