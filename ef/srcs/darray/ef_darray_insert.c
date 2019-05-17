@@ -6,7 +6,7 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/06 20:12:27 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/06 22:23:25 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/05/17 16:01:33 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	ef_darray_insert(t_darray *array, t_value value, int index)
 			if (index < 0)
 				index = 0;
 			if (array->length + 1 > array->capacity)
-				ef_darray_expand_capacity(array);
+				ef_darray_resize(array);
 			ptr = array->data + array->elem_size * index;
 			ft_memmove(ptr + array->elem_size, ptr,
 						array->elem_size * (array->length - index));

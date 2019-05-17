@@ -1,32 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ef_bheap_delete.c                                  :+:      :+:    :+:   */
+/*   ef_bheap_clear.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/17 10:53:13 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/17 15:52:43 by Zexi Wang        ###   ########.fr       */
+/*   Created: 2019/05/17 16:03:38 by Zexi Wang         #+#    #+#             */
+/*   Updated: 2019/05/17 16:12:46 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libef.h"
 
-void	ef_bheap_delete(t_bheap *heap, int index)
+void	ef_bheap_clear(t_bheap *heap)
 {
-	int			parent;
-	t_kvpair	*pair;
+	int	i;
 
-	if (heap && 0 <= index && index < ef_bheap_size(heap))
+	if (heap && heap->array)
 	{
-		parent = PARENT(index);
-		while (parent >= 0)
-		{
-			ef_darray_swap(heap->array, index + 1, parent + 1);
-			index = parent;
-			parent = PARENT(index);
-		}
-		pair = ef_bheap_pop_top(heap);
-		ef_kvpair_free(pair, heap->del_key, heap->del_value);
+		for (i = 1; i < ef_darray_length(heap->array); i++)
+			ef_kvpair_free((t_kvpair *)ef_darray_get(heap->array, i),
+							heap->del_key, heap->del_value);
+		ef_darray_free(heap->array, NULL);
 	}
 }

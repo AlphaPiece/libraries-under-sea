@@ -6,7 +6,7 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/15 16:00:55 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/17 15:11:00 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/05/17 16:03:17 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ typedef struct		s_darray
 // Create
 t_darray			*ef_darray_alloc(size_t elem_size, int length);
 t_darray			*ef_darray_create(size_t elem_size, int length);
-void				ef_darray_expand_capacity(t_darray *array);
+void				ef_darray_resize(t_darray *array);
 
 // Set
 void				ef_darray_append(t_darray *array, t_value value);
@@ -690,13 +690,17 @@ t_bheap				*ef_bheap_create(f_cmp cmp_key, f_del del_key,
 // Set
 void				ef_bheap_insert(t_bheap *heap, t_kvpair *pair);
 void				ef_bheap_change_key(t_bheap *heap, int index, void *key);
+void				ef_bheap_set(t_bheap *heap, void *key, void *value);
 
 // Get
 t_kvpair			*ef_bheap_peek_top(t_bheap *heap);
+void				*ef_bheap_get(t_bheap *heap, int index);
 
 // Remove
 t_kvpair			*ef_bheap_pop_top(t_bheap *heap);
 void				ef_bheap_delete(t_bheap *heap, int index);
+void				ef_bheap_clear(t_bheap *heap);
+void				ef_bheap_free(t_bheap *heap);
 
 // Traverse
 void				ef_bheap_traverse(t_bheap *heap, f_trw trw);

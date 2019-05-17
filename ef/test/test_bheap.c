@@ -6,7 +6,7 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/09 17:42:57 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/17 11:40:42 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/05/17 16:19:06 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,33 +33,56 @@ void	*print_pair(void *key, void *value)
 	return (value);
 }
 
-int		main(void)
+void	print_heap(t_bheap *heap)
+{
+	ft_printf("======================\n");
+	ef_bheap_traverse(heap, print_pair);
+	ft_printf("size: %d\n", ef_bheap_size(heap));
+	ft_printf("======================\n");
+}
+
+void	test(void)
 {
 	t_bheap		*heap;
 	t_kvpair	*pair;
+	int			i;
 
 	heap = ef_bheap_create(cmp_str, NULL, NULL);
 
-	ef_bheap_insert(heap, ef_kvpair_create("23", "Walker"));
-	ef_bheap_insert(heap, ef_kvpair_create("51", "Asta"));
-	ef_bheap_insert(heap, ef_kvpair_create("89", "Reche"));
-	ef_bheap_insert(heap, ef_kvpair_create("111", "Eve"));
-	ef_bheap_insert(heap, ef_kvpair_create("3", "Tio"));
-	ef_bheap_insert(heap, ef_kvpair_create("90", "Kyedae"));
+	ef_bheap_set(heap, "23", "Walker");
+	ef_bheap_set(heap, "51", "Asta");
+	ef_bheap_set(heap, "89", "Reche");
+	ef_bheap_set(heap, "111", "Eve");
+	ef_bheap_set(heap, "3", "Tio");
+	ef_bheap_set(heap, "90", "Kyedae");
 
-/*	pair = ef_bheap_peek_top(heap);
+	for (i = -1; i < ef_bheap_size(heap) + 1; i++)
+		ft_printf("%s\n", (char *)ef_bheap_get(heap, i));
+	print_heap(heap);
+
+	pair = ef_bheap_peek_top(heap);
 	print_pair(pair->key, pair->value);
-*/
-//	ef_bheap_traverse(heap, print_pair);
+	print_heap(heap);
 
 	pair = ef_bheap_pop_top(heap);
 	ft_printf("poped: ");
 	print_pair(pair->key, pair->value);
-	ef_bheap_traverse(heap, print_pair);
-	ft_printf("=================\n");
+	print_heap(heap);
 
-	ef_bheap_change_key(heap, 2, "1");
-	ef_bheap_traverse(heap, print_pair);
+	ef_bheap_change_key(heap, ef_bheap_index(heap, "90"), "1");
+	print_heap(heap);
+
+	ef_bheap_delete(heap, ef_bheap_index(heap, "51"));
+	print_heap(heap);
+
+	ef_bheap_free(heap);
+}
+
+int		main(void)
+{
+	test();
+
+//	while (1);
 
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/17 15:09:02 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/17 15:17:48 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/05/17 15:53:40 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	ef_bheap_index(t_bheap *heap, void *key)
 		{
 			pair = (t_kvpair *)ef_darray_get(heap->array, i);
 			if (key == pair->key || heap->cmp_key(key, pair->key) == 0)
-				return (i);
+				return (i - 1);
 		}
 	return (-1);
 }

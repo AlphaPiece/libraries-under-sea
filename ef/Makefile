@@ -6,7 +6,7 @@
 #    By: zwang <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/15 14:23:06 by zwang             #+#    #+#              #
-#    Updated: 2019/05/17 15:11:41 by Zexi Wang        ###   ########.fr        #
+#    Updated: 2019/05/17 16:21:35 by Zexi Wang        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ CFLAGS = -Wall -Werror -Wextra
 
 KVPAIR = ef_kvpair_alloc.c ef_kvpair_create.c ef_kvpair_free.c
 
-DARRAY = ef_darray_alloc.c           ef_darray_expand_capacity.c \
+DARRAY = ef_darray_alloc.c           ef_darray_resize.c \
 		 ef_darray_pop.c             ef_darray_append.c \
 		 ef_darray_free.c            ef_darray_remove.c \
 		 ef_darray_clear.c           ef_darray_get.c \
@@ -109,10 +109,12 @@ HTABLE = ef_hash_integer.c    ef_htable_find.c     ef_htable_pairs.c \
 		 ef_htable_delete.c   ef_htable_create.c   ef_htable_size.c \
 		 ef_htable_traverse.c
 
-BHEAP = ef_bheap_alloc.c        ef_bheap_heapify_up.c   ef_bheap_pop_top.c \
-		ef_bheap_change_key.c   ef_bheap_insert.c       ef_bheap_size.c \
-		ef_bheap_compare.c      ef_bheap_create.c          ef_bheap_traverse.c \
-		ef_bheap_heapify_down.c ef_bheap_peek_top.c
+BHEAP = ef_bheap_alloc.c        ef_bheap_free.c         ef_bheap_peek_top.c \
+		ef_bheap_change_key.c   ef_bheap_get.c          ef_bheap_pop_top.c \
+		ef_bheap_clear.c        ef_bheap_heapify_down.c ef_bheap_set.c \
+		ef_bheap_compare.c      ef_bheap_heapify_up.c   ef_bheap_size.c \
+		ef_bheap_create.c       ef_bheap_index.c        ef_bheap_traverse.c \
+		ef_bheap_delete.c       ef_bheap_insert.c
 
 OBJ = *.o
 
