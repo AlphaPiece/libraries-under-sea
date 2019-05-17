@@ -6,7 +6,7 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/15 16:00:55 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/15 00:02:32 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/05/16 23:27:54 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,11 +45,11 @@ void				ef_kvpair_free(t_kvpair *pair, f_del del_key,
 									f_del del_value);
 
 /*
-** ======================
-** >                    <
-** >>> DYNAMIC ARRARY <<<
-** >                    <
-** ======================
+** =====================
+** >                   <
+** >>> DYNAMIC ARRAY <<<
+** >                   <
+** =====================
 */
 
 # define DARRAY_LEN		4
@@ -483,6 +483,7 @@ void				ef_atree_traverse(t_atree *tree, f_trw trw, t_flag order);
 // Status
 int					ef_atree_size(t_atree *tree);
 int					ef_anode_height(t_anode *node);
+int					ef_atree_height(t_atree *tree);
 
 // Extra
 void				ef_anode_left_rotate(t_atree *tree, t_anode *node);
@@ -555,12 +556,51 @@ void				ef_rbtree_traverse(t_rbtree *tree, f_trw trw, t_flag order);
 // Status
 int					ef_rbtree_size(t_rbtree *tree);
 int					ef_rbnode_height(t_rbtree *tree, t_rbnode *node);
+int					ef_rbtree_height(t_rbtree *tree);
 
 // Extra
 void				ef_rbnode_left_rotate(t_rbtree *tree, t_rbnode *node);
 void				ef_rbnode_right_rotate(t_rbtree *tree, t_rbnode *node);
 
+/*
+** ================
+** >              <
+** >>> 2-3 TREE <<<
+** >              <
+** ================
+*/
 
+typedef struct		s_23tree
+{
+	t_ntree			*root;
+	f_cmp			cmp_key;
+	f_del			del_key;
+	f_del			del_value;
+	int				size;
+}					t_23tree;
+
+// Create
+t_23tree			*ef_23tree_alloc(void);
+t_23tree			*ef_23tree_create(f_cmp cmp_key, f_del del_key,
+										f_del del_value);
+
+// Set
+void				ef_23tree_insert(t_23tree *tree, t_ntree *node);
+
+// Get
+t_ntree				*ef_23tree_find(t_23tree *tree, void *key);
+
+// Remove
+void				ef_23tree_delete(t_23tree *tree, t_ntree *node);			
+
+// Traverse
+void				ef_23tree_traverse(t_23tree *tree, t_trw trw, t_flag order);
+
+// Status
+void				ef_23tree_size(t_23tree *tree);
+int					ef_23tree_height(t_23tree *tree);
+
+// Extra
 
 /*
 ** ==================
@@ -671,5 +711,33 @@ int					ef_bheap_size(t_bheap *heap);
 int					ef_bheap_compare(t_bheap *heap, int index1, int index2);
 void				ef_bheap_heapify_up(t_bheap *heap, int index);
 void				ef_bheap_heapify_down(t_bheap *heap, int index);
+
+/*
+** =====================
+** >                   <
+** >>> BINOMIAL HEAP <<<
+** >                   <
+** =====================
+*/
+
+typedef struct		s_bnnode
+{
+	void			*key;
+	void			*value;
+	struct s_bnnode	*child;
+	struct s_bnnode	*sibling;
+	struct s_bnnode	*parent;
+	int				degree;
+}					t_bnnode;
+
+typedef struct		s_bnheap
+{
+	t_bnnode		*head;
+	f_cmp			cmp_key;
+	f_del			del_key;
+	f_del			del_value;
+}					t_bnheap;
+
+
 
 #endif
