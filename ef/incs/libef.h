@@ -6,7 +6,7 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/15 16:00:55 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/17 16:03:17 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/05/17 20:14:44 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -738,9 +738,33 @@ typedef struct		s_bnheap
 	f_cmp			cmp_key;
 	f_del			del_key;
 	f_del			del_value;
-	int				size;
 }					t_bnheap;
 
+// Create
+t_bnnode			*ef_bnnode_alloc(void);
+t_bnnode			*ef_bnnode_create(void *key, void *value);
+t_bnheap			*ef_bnheap_alloc(void);
+t_bnheap			*ef_bnheap_create(f_cmp cmp_key, f_del del_key,
+										f_del del_value);
 
+// Set
+t_bnnode			*ef_bnnode_merge(t_bnnode *node1, t_bnnode *node2,
+										f_cmp cmp_key);
+void				ef_bnheap_insert(t_bnheap *heap, t_bnnode *node);
+
+// Get
+
+
+// Remove
+void				ef_bnnode_free(t_bnnode *node, f_del del_key,
+									f_del del_value);
+
+// Traverse
+void				ef_bnheap_traverse(t_bnheap *heap, f_trw trw);
+
+// Status
+
+
+// Extra
 
 #endif

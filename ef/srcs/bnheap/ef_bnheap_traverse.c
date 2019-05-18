@@ -1,27 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ef_bnheap_create.c                                 :+:      :+:    :+:   */
+/*   ef_bnheap_traverse.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/17 09:32:42 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/17 20:14:10 by Zexi Wang        ###   ########.fr       */
+/*   Created: 2019/05/17 20:14:52 by Zexi Wang         #+#    #+#             */
+/*   Updated: 2019/05/17 20:59:59 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libef.h"
 
-t_bnheap	*ef_bnheap_create(f_cmp cmp_key, f_del del_key, f_del del_value)
+void	ef_bnheap_traverse(t_bnheap *heap, f_trw trw)
 {
-	t_bnheap	*heap;
+	t_deque		*queue;
+	t_bnnode	*node;
 
-	if (!cmp_key)
-		return (NULL);
-	heap = ef_bnheap_alloc();
-	heap->head = NULL;
-	heap->cmp_key = cmp_key;
-	heap->del_key = del_key;
-	heap->del_value = del_value;
-	return (heap);
+	if (!heap || !heap->head || !trw)
+		return ;
+	queue = ef_deque_create(ef_dlist_create(heap->head));
+	while (!ef_deque_is_empty(queue))
+		for (node = ef_deque_pop_head(queue); node; node = node->sibling)
+		{
+			node->value = trw(node->key, node->value);
+			if (node->child)
+				ef_deque_push_tail(queue, node->child);
+		}
 }

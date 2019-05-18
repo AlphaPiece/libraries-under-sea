@@ -1,27 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ef_bnheap_create.c                                 :+:      :+:    :+:   */
+/*   ef_bnnode_free.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/17 09:32:42 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/17 20:14:10 by Zexi Wang        ###   ########.fr       */
+/*   Created: 2019/05/17 19:20:52 by Zexi Wang         #+#    #+#             */
+/*   Updated: 2019/05/17 19:22:42 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libef.h"
 
-t_bnheap	*ef_bnheap_create(f_cmp cmp_key, f_del del_key, f_del del_value)
+void	ef_bnnode_free(t_bnnode *node, f_del del_key, f_del del_value)
 {
-	t_bnheap	*heap;
-
-	if (!cmp_key)
-		return (NULL);
-	heap = ef_bnheap_alloc();
-	heap->head = NULL;
-	heap->cmp_key = cmp_key;
-	heap->del_key = del_key;
-	heap->del_value = del_value;
-	return (heap);
+	if (node)
+	{
+		if (del_key)
+			del_key(node->key);
+		if (del_value)
+			del_value(node->value);
+		free(node);
+	}
 }
