@@ -6,7 +6,7 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/09 17:42:57 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/17 16:19:06 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/05/17 22:24:40 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,13 +51,14 @@ void	test(void)
 
 	ef_bheap_set(heap, "23", "Walker");
 	ef_bheap_set(heap, "51", "Asta");
-	ef_bheap_set(heap, "89", "Reche");
+	ef_bheap_set(heap, "89", "Riche");
 	ef_bheap_set(heap, "111", "Eve");
 	ef_bheap_set(heap, "3", "Tio");
 	ef_bheap_set(heap, "90", "Kyedae");
 
-	for (i = -1; i < ef_bheap_size(heap) + 1; i++)
-		ft_printf("%s\n", (char *)ef_bheap_get(heap, i));
+	ft_printf("%s\n", (char *)ef_bheap_get(heap, "23"));
+	ft_printf("%s\n", (char *)ef_bheap_get(heap, "51"));
+	ft_printf("%s\n", (char *)ef_bheap_get(heap, "89"));
 	print_heap(heap);
 
 	pair = ef_bheap_peek_top(heap);
@@ -72,7 +73,7 @@ void	test(void)
 	ef_bheap_change_key(heap, ef_bheap_index(heap, "90"), "1");
 	print_heap(heap);
 
-	ef_bheap_delete(heap, ef_bheap_index(heap, "51"));
+	ef_bheap_delete(heap, "51");
 	print_heap(heap);
 
 	ef_bheap_free(heap);
