@@ -6,7 +6,7 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/15 16:00:55 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/17 22:20:44 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/05/19 08:35:33 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -735,6 +735,7 @@ typedef struct		s_bnnode
 typedef struct		s_bnheap
 {
 	t_bnnode		*head;
+	t_bnnode		*top;
 	f_cmp			cmp_key;
 	f_del			del_key;
 	f_del			del_value;
@@ -751,20 +752,25 @@ t_bnheap			*ef_bnheap_create(f_cmp cmp_key, f_del del_key,
 t_bnnode			*ef_bnnode_merge(t_bnnode *node1, t_bnnode *node2,
 										f_cmp cmp_key);
 void				ef_bnheap_insert(t_bnheap *heap, t_bnnode *node);
+void				ef_bnheap_set(t_bnheap *heap, void *key, void *value);
+t_bnheap			*ef_bnheap_merge(t_bnheap *heap1, t_bnheap *heap2);
 
 // Get
-
+t_bnnode			*ef_bnheap_peek_top(t_bnheap *heap);
 
 // Remove
 void				ef_bnnode_free(t_bnnode *node, f_del del_key,
 									f_del del_value);
+t_bnnode			*ef_bnheap_pop_top(t_bnheap *heap);
 
 // Traverse
 void				ef_bnheap_traverse(t_bnheap *heap, f_trw trw);
 
 // Status
-
+int					ef_bnnode_size(t_bnnode *node);
+int					ef_bnheap_size(t_bnheap *heap);
 
 // Extra
+t_bnnode			*ef_bnnode_reverse(t_bnnode *node);
 
 #endif

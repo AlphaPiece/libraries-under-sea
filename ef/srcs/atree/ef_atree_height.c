@@ -1,19 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ef_bnheap_set.c                                    :+:      :+:    :+:   */
+/*   ef_atree_height.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/17 22:15:16 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/17 22:28:13 by Zexi Wang        ###   ########.fr       */
+/*   Created: 2019/05/19 08:32:36 by Zexi Wang         #+#    #+#             */
+/*   Updated: 2019/05/19 08:33:23 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libef.h"
 
-void	ef_bnheap_set(t_bnheap *heap, void *key, void *value)
+int	ef_atree_height(t_atree *tree)
 {
-	if (heap)
-		ef_bnheap_insert(heap, ef_bnnode_create(key, value));
+	return (ef_anode_height(tree->root));
 }

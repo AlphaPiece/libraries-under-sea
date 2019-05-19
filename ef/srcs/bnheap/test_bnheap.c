@@ -6,7 +6,7 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/17 20:55:24 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/17 21:18:38 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/05/18 22:36:56 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,15 +28,16 @@ void	*print_key(void *key, void *value)
 	return (value);
 }
 
-void	view_heap(t_bnheap *heap)
+void	view_heap(t_bnnode *head)
 {
 	t_deque		*queue;
 	t_bnnode	*node;
 	int			length;
 
-	if (!heap || !heap->head)
+	if (!head)
 		return ;
-	queue = ef_deque_create(ef_dlist_create(heap->head));
+	ft_printf("========================\n");
+	queue = ef_deque_create(ef_dlist_create(head));
 	while (!ef_deque_is_empty(queue))
 	{
 		length = ef_deque_length(queue);
@@ -49,18 +50,33 @@ void	view_heap(t_bnheap *heap)
 			}
 		ft_printf("\n");
 	}
+	ft_printf("========================\n");
 }
 
 int		main(void)
 {
 	t_bnheap	*heap;
+	t_bnnode	*node;
 	int			arr[] = {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16};
 	int			i;
 
 	heap = ef_bnheap_create(cmp_int, NULL, NULL);
-	for (i = 0; i < 16; i++)
+	for (i = 0; i < 15; i++)
 		ef_bnheap_insert(heap, ef_bnnode_create(&arr[i], &arr[i]));
-	view_heap(heap);
+	view_heap(heap->head);
+
+//	heap->top->child = ef_bnnode_reverse(heap->top->child);
+//	view_heap(heap);
+
+	node = ef_bnheap_pop_top(heap);
+	ft_printf("popped: %d\n", *(int *)node->key);
+	view_heap(heap->head);
+	node = ef_bnheap_pop_top(heap);
+	ft_printf("popped: %d\n", *(int *)node->key);
+	view_heap(heap->head);
+	node = ef_bnheap_pop_top(heap);
+	ft_printf("popped: %d\n", *(int *)node->key);
+	view_heap(heap->head);
 
 	return (0);
 }

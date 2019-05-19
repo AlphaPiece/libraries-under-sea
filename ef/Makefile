@@ -6,7 +6,7 @@
 #    By: zwang <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/15 14:23:06 by zwang             #+#    #+#              #
-#    Updated: 2019/05/17 16:21:35 by Zexi Wang        ###   ########.fr        #
+#    Updated: 2019/05/19 08:35:15 by Zexi Wang        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -91,7 +91,7 @@ ATREE = ef_anode_alloc.c        ef_anode_right_rotate.c ef_atree_get.c \
 		ef_anode_height.c       ef_atree_create.c       ef_atree_set.c \
 		ef_anode_left_rotate.c  ef_atree_delete.c       ef_atree_size.c \
 		ef_anode_maximum.c      ef_atree_find.c         ef_atree_traverse.c \
-		ef_anode_minimum.c      ef_atree_free.c
+		ef_anode_minimum.c      ef_atree_free.c         ef_atree_height.c
 
 RBTREE = ef_rbnode_alloc.c   ef_rbtree_free.c         ef_rbtree_create.c \
 		 ef_rbnode_free.c    ef_rbtree_get.c          ef_rbtree_remove.c \
@@ -99,7 +99,7 @@ RBTREE = ef_rbnode_alloc.c   ef_rbtree_free.c         ef_rbtree_create.c \
 		 ef_rbtree_alloc.c   ef_rbtree_insert.c       ef_rbtree_set.c \
 		 ef_rbtree_clear.c   ef_rbnode_left_rotate.c  ef_rbtree_size.c \
 		 ef_rbtree_delete.c  ef_rbnode_maximum.c      ef_rbtree_traverse.c \
-		 ef_rbtree_find.c    ef_rbnode_minimum.c
+		 ef_rbtree_find.c    ef_rbnode_minimum.c      ef_rbtree_height.c
 
 HTABLE = ef_hash_integer.c    ef_htable_find.c     ef_htable_pairs.c \
 		 ef_hash_pointer.c    ef_htable_free.c     ef_htable_pop.c \

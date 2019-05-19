@@ -6,7 +6,7 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/17 10:25:31 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/17 20:04:30 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/05/18 22:30:51 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ t_bnnode		*ef_bnnode_merge(t_bnnode *node1, t_bnnode *node2,
 									f_cmp cmp_key)
 {
 	t_bnnode	*head;
+	t_bnnode	*prev;
 	t_bnnode	*curr;
 	t_bnnode	*next;
 	t_bnnode	*sibling;
@@ -59,29 +60,31 @@ t_bnnode		*ef_bnnode_merge(t_bnnode *node1, t_bnnode *node2,
 		return (node2);
 	if (!node2)
 		return (node1);
+	prev = NULL;
 	curr = head = merge_sibling(node1, node2);
 	while (curr->sibling)
 	{
 		next = curr->sibling;
-		if (curr->degree != next->degree)
+		if (curr->degree != next->degree || (next->sibling &&
+				next->degree == next->sibling->degree))
+		{
+			prev = curr;
 			curr = next;
+		}
+		else if (cmp_key(curr->key, next->key) <= 0)
+		{
+			sibling = next->sibling;
+			prepend_child(curr, next);
+			curr->sibling = sibling;
+		}
 		else
 		{
-			if (next->sibling && next->degree == next->sibling->degree)
-				curr = next;
-			else if (cmp_key(curr->key, next->key) <= 0)
-			{
-				sibling = next->sibling;
-				prepend_child(curr, next);
-				curr->sibling = sibling;
-			}
-			else
-			{
-				prepend_child(next, curr);
-				if (curr == head)
-					head = next;
-				curr = next;
-			}
+			if (prev)
+				prev->sibling = next;
+			prepend_child(next, curr);
+			if (curr == head)
+				head = next;
+			curr = next;
 		}
 	}
 	return (head);

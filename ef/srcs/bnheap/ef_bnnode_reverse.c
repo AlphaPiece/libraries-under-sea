@@ -1,19 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ef_bnheap_set.c                                    :+:      :+:    :+:   */
+/*   ef_bnnode_reverse.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/17 22:15:16 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/17 22:28:13 by Zexi Wang        ###   ########.fr       */
+/*   Created: 2019/05/18 22:10:43 by Zexi Wang         #+#    #+#             */
+/*   Updated: 2019/05/18 22:12:32 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libef.h"
 
-void	ef_bnheap_set(t_bnheap *heap, void *key, void *value)
+t_bnnode	*ef_bnnode_reverse(t_bnnode *node)
 {
-	if (heap)
-		ef_bnheap_insert(heap, ef_bnnode_create(key, value));
+	t_bnnode	*prev;
+	t_bnnode	*next;
+
+	prev = NULL;
+	while (node)
+	{
+		next = node->sibling;
+		node->sibling = prev;
+		prev = node;
+		node = next;
+	}
+	return (prev);
 }
