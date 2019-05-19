@@ -6,7 +6,7 @@
 #    By: zwang <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/15 14:23:06 by zwang             #+#    #+#              #
-#    Updated: 2019/05/19 13:38:36 by Zexi Wang        ###   ########.fr        #
+#    Updated: 2019/05/19 16:54:16 by Zexi Wang        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -116,6 +116,14 @@ BHEAP = ef_bheap_alloc.c        ef_bheap_free.c         ef_bheap_peek_top.c \
 		ef_bheap_create.c       ef_bheap_index.c        ef_bheap_traverse.c \
 		ef_bheap_delete.c
 
+BNHEAP = ef_bnheap_alloc.c      ef_bnheap_insert.c     ef_bnnode_alloc.c \
+		 ef_bnheap_change_key.c ef_bnheap_merge.c      ef_bnnode_create.c \
+		 ef_bnheap_clear.c      ef_bnheap_peek_top.c   ef_bnnode_free.c \
+		 ef_bnheap_create.c     ef_bnheap_pop_top.c    ef_bnnode_merge.c \
+		 ef_bnheap_delete.c     ef_bnheap_set.c        ef_bnnode_reverse.c \
+		 ef_bnheap_find.c       ef_bnheap_size.c       ef_bnnode_size.c \
+		 ef_bnheap_free.c       ef_bnheap_traverse.c
+
 OBJ = *.o
 
 KVPAIR_DIR = srcs/kvpair/
@@ -128,6 +136,7 @@ ATREE_DIR = srcs/atree/
 RBTREE_DIR = srcs/rbtree/
 HTABLE_DIR = srcs/htable/
 BHEAP_DIR = srcs/bheap/
+BNHEAP_DIR = srcs/bnheap/
 
 OBJS_DIR = objs/
 
@@ -141,7 +150,8 @@ SRCS = $(addprefix $(KVPAIR_DIR), $(KVPAIR)) \
 	   $(addprefix $(ATREE_DIR), $(ATREE)) \
 	   $(addprefix $(RBTREE_DIR), $(RBTREE)) \
 	   $(addprefix $(HTABLE_DIR), $(HTABLE)) \
-	   $(addprefix $(BHEAP_DIR), $(BHEAP))
+	   $(addprefix $(BHEAP_DIR), $(BHEAP)) \
+	   $(addprefix $(BNHEAP_DIR), $(BNHEAP))
 
 OBJS = $(addprefix $(OBJS_DIR), $(OBJ))
 

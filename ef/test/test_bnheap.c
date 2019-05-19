@@ -6,7 +6,7 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/17 20:55:24 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/19 10:19:52 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/05/19 15:43:51 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,13 +80,25 @@ void	test(void)
 	ft_printf("popped: %d\n", *(int *)node->key);
 	view_heap(heap);
 */
-	heap2 = ef_bnheap_create(cmp_int, NULL, NULL);
+/*	heap2 = ef_bnheap_create(cmp_int, NULL, NULL);
 	for (i = 0; i < 10; i++)
 		ef_bnheap_set(heap2, &arr[i], &arr[i]);
 	view_heap(heap2);
 
 	heap = ef_bnheap_merge(heap, heap2);
 	view_heap(heap);
+*/
+	node = ef_bnheap_find(heap, &arr[13]);
+	ft_printf("%d-%d\n", *(int *)node->key, node->degree);
+
+//	ef_bnheap_change_key(heap, node, &arr[0]);
+//	view_heap(heap);
+
+	ef_bnheap_delete(heap, node);
+	view_heap(heap);
+
+	node = ef_bnheap_peek_top(heap);
+	ft_printf("%d-%d\n", *(int *)node->key, node->degree);
 
 	ef_bnheap_free(heap);
 }
@@ -96,7 +108,7 @@ int		main(void)
 {
 	test();
 
-//	while (1);
+	while (1);
 
 	return (0);
 }

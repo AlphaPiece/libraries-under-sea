@@ -1,31 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ef_bheap_change_key.c                              :+:      :+:    :+:   */
+/*   ef_bnheap_delete.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/09 20:32:00 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/19 13:58:54 by Zexi Wang        ###   ########.fr       */
+/*   Created: 2019/05/19 15:24:03 by Zexi Wang         #+#    #+#             */
+/*   Updated: 2019/05/19 15:34:23 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libef.h"
 
-void	ef_bheap_change_key(t_bheap *heap, int index, void *new_key)
+void	ef_bnheap_delete(t_bnheap *heap, t_bnnode *node)
 {
-	t_kvpair	*pair;
-
-	if (heap && 0 <= index && index < ef_bheap_size(heap))
+	if (heap && node)
 	{
-		pair = (t_kvpair *)ef_darray_get(heap->array, index + 1);
-		if (heap->cmp_key(new_key, pair->key) < 0)
+		while (node->parent)
 		{
-			if (heap->del_key)
-				heap->del_key(pair->key);
-			pair->key = new_key;
-			ef_bheap_heapify_up(heap, index);
+			ft_memswap(&node->key, &node->parent->key, sizeof(void *));
+			ft_memswap(&node->value, &node->parent->value, sizeof(void *));
+			node = node->parent;
 		}
+		heap->top = node;
+		node = ef_bnheap_pop_top(heap);
+		ef_bnnode_free(node, heap->del_key, heap->del_value);
 	}
 }
-

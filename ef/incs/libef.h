@@ -6,7 +6,7 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/15 16:00:55 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/19 13:36:32 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/05/19 15:21:23 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -698,7 +698,7 @@ t_kvpair			*ef_bheap_peek_top(t_bheap *heap);
 
 // Remove
 t_kvpair			*ef_bheap_pop_top(t_bheap *heap);
-void				ef_bheap_delete(t_bheap *heap, void *key);
+void				ef_bheap_delete(t_bheap *heap, int index);
 void				ef_bheap_clear(t_bheap *heap);
 void				ef_bheap_free(t_bheap *heap);
 
@@ -759,12 +759,13 @@ t_bnheap			*ef_bnheap_merge(t_bnheap *heap1, t_bnheap *heap2);
 
 // Get
 t_bnnode			*ef_bnheap_peek_top(t_bnheap *heap);
-t_bnnode			*ef_bnheap_find(t_bnheap *heap);
+t_bnnode			*ef_bnheap_find(t_bnheap *heap, void *key);
 
 // Remove
 void				ef_bnnode_free(t_bnnode *node, f_del del_key,
 									f_del del_value);
 t_bnnode			*ef_bnheap_pop_top(t_bnheap *heap);
+void				ef_bnheap_delete(t_bnheap *heap, t_bnnode *node);
 void				ef_bnheap_clear(t_bnheap *heap);
 void				ef_bnheap_free(t_bnheap *heap);
 
