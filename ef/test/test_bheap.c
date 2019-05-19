@@ -6,7 +6,7 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/09 17:42:57 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/17 22:24:40 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/05/19 10:32:48 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ void	test(void)
 	print_pair(pair->key, pair->value);
 	print_heap(heap);
 
-	ef_bheap_change_key(heap, ef_bheap_index(heap, "90"), "1");
+	ef_bheap_change_key(heap, "90", "2");
 	print_heap(heap);
 
 	ef_bheap_delete(heap, "51");

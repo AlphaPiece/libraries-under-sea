@@ -6,7 +6,7 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/17 20:55:24 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/18 22:36:56 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/05/19 10:19:52 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,16 +28,16 @@ void	*print_key(void *key, void *value)
 	return (value);
 }
 
-void	view_heap(t_bnnode *head)
+void	view_heap(t_bnheap *heap)
 {
 	t_deque		*queue;
 	t_bnnode	*node;
 	int			length;
 
-	if (!head)
+	if (!heap || !heap->head)
 		return ;
 	ft_printf("========================\n");
-	queue = ef_deque_create(ef_dlist_create(head));
+	queue = ef_deque_create(ef_dlist_create(heap->head));
 	while (!ef_deque_is_empty(queue))
 	{
 		length = ef_deque_length(queue);
@@ -50,12 +50,15 @@ void	view_heap(t_bnnode *head)
 			}
 		ft_printf("\n");
 	}
+	ft_printf("size: %d\n", ef_bnheap_size(heap));
 	ft_printf("========================\n");
+	ef_deque_free(queue, NULL);
 }
 
-int		main(void)
+void	test(void)
 {
 	t_bnheap	*heap;
+	t_bnheap	*heap2;
 	t_bnnode	*node;
 	int			arr[] = {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16};
 	int			i;
@@ -63,20 +66,37 @@ int		main(void)
 	heap = ef_bnheap_create(cmp_int, NULL, NULL);
 	for (i = 0; i < 15; i++)
 		ef_bnheap_insert(heap, ef_bnnode_create(&arr[i], &arr[i]));
-	view_heap(heap->head);
-
+	view_heap(heap);
 //	heap->top->child = ef_bnnode_reverse(heap->top->child);
 //	view_heap(heap);
 
+/*	node = ef_bnheap_pop_top(heap);
+	ft_printf("popped: %d\n", *(int *)node->key);
+	view_heap(heap);
 	node = ef_bnheap_pop_top(heap);
 	ft_printf("popped: %d\n", *(int *)node->key);
-	view_heap(heap->head);
+	view_heap(heap);
 	node = ef_bnheap_pop_top(heap);
 	ft_printf("popped: %d\n", *(int *)node->key);
-	view_heap(heap->head);
-	node = ef_bnheap_pop_top(heap);
-	ft_printf("popped: %d\n", *(int *)node->key);
-	view_heap(heap->head);
+	view_heap(heap);
+*/
+	heap2 = ef_bnheap_create(cmp_int, NULL, NULL);
+	for (i = 0; i < 10; i++)
+		ef_bnheap_set(heap2, &arr[i], &arr[i]);
+	view_heap(heap2);
+
+	heap = ef_bnheap_merge(heap, heap2);
+	view_heap(heap);
+
+	ef_bnheap_free(heap);
+}
+
+
+int		main(void)
+{
+	test();
+
+//	while (1);
 
 	return (0);
 }

@@ -1,37 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ef_atree_clear.c                                   :+:      :+:    :+:   */
+/*   ef_bnheap_clear.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/14 23:15:28 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/19 08:57:38 by Zexi Wang        ###   ########.fr       */
+/*   Created: 2019/05/19 08:51:56 by Zexi Wang         #+#    #+#             */
+/*   Updated: 2019/05/19 10:18:49 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libef.h"
 
-void	ef_atree_clear(t_atree *tree)
+void	ef_bnheap_clear(t_bnheap *heap)
 {
-	t_deque	*stack;
-	t_anode	*node;
+	t_deque		*stack;
+	t_bnnode	*node;
 
-	if (tree)
+	if (heap)
 	{
-		stack = ef_deque_create(ef_dlist_create(tree->root));
+		stack = ef_deque_create(ef_dlist_create(heap->head));
 		while (!ef_deque_is_empty(stack))
 		{
 			node = ef_deque_pop_head(stack);
-			ft_printf("%d\n", *(int *)node->key);
-			if (node->right)
-				ef_deque_push_head(stack, node->right);
-			if (node->left)
-				ef_deque_push_head(stack, node->left);
-			ef_anode_free(node, tree->del_key, tree->del_value);
+			if (node->child)
+				ef_deque_push_head(stack, node->child);
+			if (node->sibling)
+				ef_deque_push_head(stack, node->sibling);
+			ef_bnnode_free(node, heap->del_key, heap->del_value);
 		}
 		ef_deque_free(stack, NULL);
-		tree->root = NULL;
-		tree->size = 0;
+		heap->head = NULL;
+		heap->top = NULL;
 	}
 }

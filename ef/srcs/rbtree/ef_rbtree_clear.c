@@ -6,7 +6,7 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/08 17:47:26 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/14 23:47:54 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/05/19 08:58:41 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ void	ef_rbtree_clear(t_rbtree *tree)
 			ef_rbnode_free(node, tree->del_key, tree->del_value);
 		}
 		ef_deque_free(stack, NULL);
+		tree->root = NULL;
 		tree->size = 0;
 	}
 }
