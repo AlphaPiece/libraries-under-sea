@@ -1,31 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ef_bheap_get.c                                     :+:      :+:    :+:   */
+/*   ef_bnheap_change_key.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/17 15:34:16 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/17 22:20:32 by Zexi Wang        ###   ########.fr       */
+/*   Created: 2019/05/19 10:34:32 by Zexi Wang         #+#    #+#             */
+/*   Updated: 2019/05/19 10:38:07 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libef.h"
 
-void	*ef_bheap_get(t_bheap *heap, void *key)
+void	ef_bnheap_change_key(t_bnheap *heap, void *key, void *new_key)
 {
-	int			index;
-	t_kvpair	*pair;
+	t_bnnode	*node;
 
-	if (heap)
-	{
-		index = ef_bheap_index(heap, key);
-		if (0 <= index && index < ef_bheap_size(heap))
-		{
-			pair = (t_kvpair *)ef_darray_get(heap->array, index + 1);
-			if (pair)
-				return (pair->value);
-		}
-	}
-	return (NULL);
-}
+	if (heap && (

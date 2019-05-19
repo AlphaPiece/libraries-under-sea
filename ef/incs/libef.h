@@ -6,7 +6,7 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/15 16:00:55 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/19 10:31:42 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/05/19 13:36:32 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -690,12 +690,11 @@ t_bheap				*ef_bheap_create(f_cmp cmp_key, f_del del_key,
 // Set
 void				ef_bheap_insert(t_bheap *heap, t_kvpair *pair);
 void				ef_bheap_set(t_bheap *heap, void *key, void *value);
-void				ef_bheap_change_key(t_bheap *heap, void *key,
+void				ef_bheap_change_key(t_bheap *heap, int index,
 										void *new_key);
 
 // Get
 t_kvpair			*ef_bheap_peek_top(t_bheap *heap);
-void				*ef_bheap_get(t_bheap *heap, void *key);
 
 // Remove
 t_kvpair			*ef_bheap_pop_top(t_bheap *heap);
@@ -754,12 +753,13 @@ t_bnnode			*ef_bnnode_merge(t_bnnode *node1, t_bnnode *node2,
 										f_cmp cmp_key);
 void				ef_bnheap_insert(t_bnheap *heap, t_bnnode *node);
 void				ef_bnheap_set(t_bnheap *heap, void *key, void *value);
-void				ef_bnheap_change_key(t_bnheap *heap, void *key,
+void				ef_bnheap_change_key(t_bnheap *heap, t_bnnode *node,
 											void *new_key);
 t_bnheap			*ef_bnheap_merge(t_bnheap *heap1, t_bnheap *heap2);
 
 // Get
 t_bnnode			*ef_bnheap_peek_top(t_bnheap *heap);
+t_bnnode			*ef_bnheap_find(t_bnheap *heap);
 
 // Remove
 void				ef_bnnode_free(t_bnnode *node, f_del del_key,

@@ -6,7 +6,7 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/09 17:42:57 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/19 10:32:48 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/05/19 13:43:09 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,11 +56,6 @@ void	test(void)
 	ef_bheap_set(heap, "3", "Tio");
 	ef_bheap_set(heap, "90", "Kyedae");
 
-	ft_printf("%s\n", (char *)ef_bheap_get(heap, "23"));
-	ft_printf("%s\n", (char *)ef_bheap_get(heap, "51"));
-	ft_printf("%s\n", (char *)ef_bheap_get(heap, "89"));
-	print_heap(heap);
-
 	pair = ef_bheap_peek_top(heap);
 	print_pair(pair->key, pair->value);
 	print_heap(heap);
@@ -70,7 +65,7 @@ void	test(void)
 	print_pair(pair->key, pair->value);
 	print_heap(heap);
 
-	ef_bheap_change_key(heap, "90", "2");
+	ef_bheap_change_key(heap, ef_bheap_index(heap, "90"), "2");
 	print_heap(heap);
 
 	ef_bheap_delete(heap, "51");

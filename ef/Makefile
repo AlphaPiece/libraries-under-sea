@@ -6,7 +6,7 @@
 #    By: zwang <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/15 14:23:06 by zwang             #+#    #+#              #
-#    Updated: 2019/05/19 08:35:15 by Zexi Wang        ###   ########.fr        #
+#    Updated: 2019/05/19 13:38:36 by Zexi Wang        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -110,11 +110,11 @@ HTABLE = ef_hash_integer.c    ef_htable_find.c     ef_htable_pairs.c \
 		 ef_htable_traverse.c
 
 BHEAP = ef_bheap_alloc.c        ef_bheap_free.c         ef_bheap_peek_top.c \
-		ef_bheap_change_key.c   ef_bheap_get.c          ef_bheap_pop_top.c \
+		ef_bheap_change_key.c   ef_bheap_pop_top.c      ef_bheap_insert.c \
 		ef_bheap_clear.c        ef_bheap_heapify_down.c ef_bheap_set.c \
 		ef_bheap_compare.c      ef_bheap_heapify_up.c   ef_bheap_size.c \
 		ef_bheap_create.c       ef_bheap_index.c        ef_bheap_traverse.c \
-		ef_bheap_delete.c       ef_bheap_insert.c
+		ef_bheap_delete.c
 
 OBJ = *.o
 
