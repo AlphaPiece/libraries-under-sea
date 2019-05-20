@@ -6,7 +6,7 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/14 23:15:28 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/19 08:57:38 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/05/20 15:41:40 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ void	ef_atree_clear(t_atree *tree)
 		while (!ef_deque_is_empty(stack))
 		{
 			node = ef_deque_pop_head(stack);
-			ft_printf("%d\n", *(int *)node->key);
 			if (node->right)
 				ef_deque_push_head(stack, node->right);
 			if (node->left)

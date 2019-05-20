@@ -6,34 +6,38 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/12 20:36:14 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/13 23:02:14 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/05/20 15:39:18 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libef.h"
 
-void	ef_anode_right_rotate(t_atree *tree, t_anode *node)
-{
-	t_anode	*left;
+/*
+** x: the node getting rotated down
+** y: x's left child which is going to be rotated up to replace x
+*/
 
-	if (tree && node && node->left)
+void	ef_anode_right_rotate(t_atree *tree, t_anode *x)
+{
+	t_anode	*y;
+
+	if (tree && x && (y = x->left))
 	{
-		left = node->left;
-		node->left = left->right;
-		if (left->right)
-			left->right->parent = node;
-		left->parent = node->parent;
-		if (!node->parent)
-			tree->root = left;
-		else if (node == node->parent->left)
-			node->parent->left = left;
+		x->left = y->right;
+		if (y->right)
+			y->right->parent = x;
+		y->parent = x->parent;
+		if (!x->parent)
+			tree->root = y;
+		else if (x == x->parent->left)
+			x->parent->left = y;
 		else
-			node->parent->right = left;
-		left->right = node;
-		node->parent = left;
-		node->height = 1 + MAX(ef_anode_height(node->left),
-								ef_anode_height(node->right));
-		left->height = 1 + MAX(ef_anode_height(left->left),
-								ef_anode_height(left->right));
+			x->parent->right = y;
+		y->right = x;
+		x->parent = y;
+		x->height = 1 + MAX(ef_anode_height(x->left),
+							ef_anode_height(x->right));
+		y->height = 1 + MAX(ef_anode_height(y->left),
+							ef_anode_height(y->right));
 	}
 }
