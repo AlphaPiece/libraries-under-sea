@@ -1,6 +1,6 @@
 # libft
 
-*A C library constructed in 42 Silicon Valley. *
+*A C library constructed in 42 Silicon Valley.*
 
 ## Index
 * [Memory](#memory)
@@ -74,7 +74,7 @@
 | 9 | **ft_tolower** | Converts a uppercase alphabet character to a lowercase alphabet character. |
 | 10 | **ft_toupper** | Converts a lowercase alphabet character to a uppercase alphabet character. |
 
-## [ASCII Character Strings](https://github.com/AlphaPiece/LibrariesUnderSea/tree/master/libft/srcs/str)
+## [ASCII Character Strings](https://github.com/AlphaPiece/LibrariesUnderSea/tree/master/ft/srcs/str)
 
 | No. | Function | Description |
 | --- | --- | --- |
