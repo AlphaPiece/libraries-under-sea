@@ -9,7 +9,7 @@
 * [ASCII Character Strings](#ascii-character-strings)
 * [File Input/Output](#file-inputoutput)
 
-## [Memory](https://github.com/AlphaPiece/LibrariesUnderSea/tree/master/libft/srcs/mem)
+## [Memory](https://github.com/AlphaPiece/LibrariesUnderSea/tree/master/ft/srcs/mem)
 
 | No. | Function | Description |
 | --- | --- | --- |
@@ -30,7 +30,7 @@
 | 15 | **ft_putbits** | Puts an amount of bits from the address that x points to. |
 | 16 | **ft_swap** | Swaps an amount of bits at two memory addresses. The acceptable inputs for the amount of bits are 1, 2, 4, and 8. |
 
-## [Numbers](https://github.com/AlphaPiece/LibrariesUnderSea/tree/master/libft/srcs/num)
+## [Numbers](https://github.com/AlphaPiece/LibrariesUnderSea/tree/master/ft/srcs/num)
 
 | No. | Function | Description |
 | --- | --- | --- |
@@ -59,7 +59,7 @@
 | 23 | **ft_ftoa** | Converts double floating point number to an ascii character string. |
 | 24 | **ft_randintarr** | Gets an array of random integers. |
 
-## [ASCII Characters](https://github.com/AlphaPiece/LibrariesUnderSea/tree/master/libft/srcs/chr)
+## [ASCII Characters](https://github.com/AlphaPiece/LibrariesUnderSea/tree/master/ft/srcs/chr)
 
 | No. | Function | Description |
 | --- | --- | --- |
@@ -124,7 +124,7 @@
 | 44 | **ft_check_brackets** | Checks if the brackets in a string match correctly. |
 | 45 | **ft_count_subs** | Counts the number of substrings in the string s that are identical to subs. |
 
-## [File Input/Output](https://github.com/AlphaPiece/LibrariesUnderSea/tree/master/libft/srcs/fio)
+## [File Input/Output](https://github.com/AlphaPiece/LibrariesUnderSea/tree/master/ft/srcs/fio)
 
 | No. | Function | Description |
 | --- | --- | --- |
