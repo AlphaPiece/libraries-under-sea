@@ -6,7 +6,7 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/17 22:41:03 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/18 22:14:38 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/05/19 20:57:10 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,9 @@ t_bnnode	*ef_bnheap_pop_top(t_bnheap *heap)
 				node = node->sibling;
 			node->sibling = node->sibling->sibling;
 		}
-		heap->top->child->parent = NULL;
+		heap->top->children->parent = NULL;
 		heap->head = ef_bnnode_merge(heap->head,
-										ef_bnnode_reverse(heap->top->child),
+										ef_bnnode_reverse(heap->top->children),
 										heap->cmp_key);
 		for (new_top = node = heap->head; node; node = node->sibling)
 			if (heap->cmp_key(node->key, new_top->key) < 0)
@@ -38,7 +38,7 @@ t_bnnode	*ef_bnheap_pop_top(t_bnheap *heap)
 		node = heap->top;
 		heap->top = new_top;
 		node->sibling = NULL;
-		node->child = NULL;
+		node->children = NULL;
 		node->degree = 0;
 		return (node);
 	}

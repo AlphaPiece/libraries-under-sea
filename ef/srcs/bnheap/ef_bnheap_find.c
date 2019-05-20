@@ -6,7 +6,7 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/19 13:45:09 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/19 13:54:50 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/05/19 20:55:04 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ t_bnnode	*ef_bnheap_find(t_bnheap *heap, void *key)
 					ef_deque_free(queue, NULL);
 					return (node);
 				}
-				if (node->child)
-					ef_deque_push_tail(queue, node->child);
+				if (node->children)
+					ef_deque_push_tail(queue, node->children);
 			}
 		ef_deque_free(queue, NULL);
 	}

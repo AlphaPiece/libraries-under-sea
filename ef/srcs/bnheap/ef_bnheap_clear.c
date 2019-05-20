@@ -6,7 +6,7 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/19 08:51:56 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/19 10:18:49 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/05/19 20:55:17 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ void	ef_bnheap_clear(t_bnheap *heap)
 		while (!ef_deque_is_empty(stack))
 		{
 			node = ef_deque_pop_head(stack);
-			if (node->child)
-				ef_deque_push_head(stack, node->child);
+			if (node->children)
+				ef_deque_push_head(stack, node->children);
 			if (node->sibling)
 				ef_deque_push_head(stack, node->sibling);
 			ef_bnnode_free(node, heap->del_key, heap->del_value);

@@ -6,7 +6,7 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/17 20:14:52 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/17 20:59:59 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/05/19 20:58:16 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	ef_bnheap_traverse(t_bnheap *heap, f_trw trw)
 		for (node = ef_deque_pop_head(queue); node; node = node->sibling)
 		{
 			node->value = trw(node->key, node->value);
-			if (node->child)
-				ef_deque_push_tail(queue, node->child);
+			if (node->children)
+				ef_deque_push_tail(queue, node->children);
 		}
 }

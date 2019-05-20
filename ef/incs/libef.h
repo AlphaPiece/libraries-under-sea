@@ -6,7 +6,7 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/15 16:00:55 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/19 19:25:26 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/05/19 20:59:49 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -570,6 +570,11 @@ void				ef_rbnode_right_rotate(t_rbtree *tree, t_rbnode *node);
 ** ================
 */
 
+typedef struct		s_23node
+{
+	t_kvpair		*data;
+}					t_23node;
+
 typedef struct		s_23tree
 {
 	t_ntree			*root;
@@ -726,9 +731,9 @@ typedef struct		s_bnnode
 {
 	void			*key;
 	void			*value;
-	struct s_bnnode	*child;
-	struct s_bnnode	*sibling;
 	struct s_bnnode	*parent;
+	struct s_bnnode	*sibling;
+	struct s_bnnode	*children;
 	int				degree;
 }					t_bnnode;
 

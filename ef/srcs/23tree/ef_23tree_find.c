@@ -6,7 +6,7 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/19 19:15:43 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/19 19:22:33 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/05/19 20:53:33 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,4 +24,6 @@ t_ntree	*ef_23tree_find(t_23tree *tree, void *key)
 			switch (ef_ntree_count_children(node))
 			{
 				case 0:
+					if (tree->cmp_key(node->key, key) == 0)
+						
 					

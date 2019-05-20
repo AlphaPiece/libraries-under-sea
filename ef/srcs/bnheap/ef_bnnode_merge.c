@@ -6,7 +6,7 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/17 10:25:31 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/18 22:30:51 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/05/19 20:56:35 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,8 @@ static t_bnnode	*merge_sibling(t_bnnode *node1, t_bnnode *node2)
 static void		prepend_child(t_bnnode *node1, t_bnnode *node2)
 {
 	node2->parent = node1;
-	node2->sibling = node1->child;
-	node1->child = node2;
+	node2->sibling = node1->children;
+	node1->children = node2;
 	node1->degree++;
 }
 
