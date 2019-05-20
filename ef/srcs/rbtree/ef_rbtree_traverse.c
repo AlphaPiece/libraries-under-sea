@@ -6,7 +6,7 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/01 21:16:14 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/15 00:17:11 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/05/19 19:26:18 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,6 +116,9 @@ void	ef_rbtree_traverse(t_rbtree *tree, f_trw trw, t_flag order)
 				break ;
 			case LEVEL_ORDER:
 				ef_rbtree_level_order_traverse(tree, trw);
+				break ;
+			default:
+				ft_dprintf(2, "Warning: invalid order flag\n");
 				break ;
 		}
 }

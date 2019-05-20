@@ -6,7 +6,7 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/27 12:46:45 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/10 11:16:04 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/05/19 20:21:05 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -190,6 +190,8 @@ t_ntree	*ef_ntree_find(t_ntree *tree, void *data, f_cmp cmp, int depth,
 			return (ef_ntree_post_order_find(tree, data, cmp, depth, part));
 		case LEVEL_ORDER:
 			return (ef_ntree_level_order_find(tree, data, cmp, depth, part));
+		default:
+			ft_dprintf(2, "Warning: invalid order flag\n");
+			return (NULL);
 	}
-	return (NULL);
-}		
+}
