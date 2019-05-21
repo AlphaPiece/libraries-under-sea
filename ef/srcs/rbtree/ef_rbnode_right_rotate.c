@@ -6,7 +6,7 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/04 10:42:30 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/20 15:36:00 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/05/20 15:56:06 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 /*
 ** x: the node getting rotated down
-** y: x's left child which is going to be rotated up to replace x
+** y: x's left child which is going to be rotated up
 */
 
 void	ef_rbnode_right_rotate(t_rbtree *tree, t_rbnode *x)

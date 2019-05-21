@@ -6,7 +6,7 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/15 16:00:55 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/19 20:59:49 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/05/21 13:55:52 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,11 +45,11 @@ void				ef_kvpair_free(t_kvpair *pair, f_del del_key,
 									f_del del_value);
 
 /*
-** =====================
-** >                   <
-** >>> DYNAMIC ARRAY <<<
-** >                   <
-** =====================
+** ======================
+** >                    <
+** >>> DYNAMIC ARRAYS <<<
+** >                    <
+** ======================
 */
 
 # define DARRAY_LEN		4
@@ -99,11 +99,11 @@ t_darray			*ef_darray_partition(t_darray *array, int start, int end,
 											f_cpy cpy);
 
 /*
-** ==========================
-** >                        <
-** >>> SINGLY LINKED LIST <<<
-** >                        <
-** ==========================
+** ===========================
+** >                         <
+** >>> SINGLY LINKED LISTS <<<
+** >                         <
+** ===========================
 */
 
 typedef struct		s_slist
@@ -162,11 +162,11 @@ t_slist				*ef_slist_rotate(t_slist *list, int n);
 t_slist				*ef_slist_copy(t_slist *list, f_cpy cpy);
 
 /*
-** ==========================
-** >                        <
-** >>> DOUBLY LINKED LIST <<<
-** >                        <
-** ==========================
+** ===========================
+** >                         <
+** >>> DOUBLY LINKED LISTS <<<
+** >                         <
+** ===========================
 */
 
 typedef struct		s_dlist
@@ -235,11 +235,11 @@ t_dlist				*ef_dlist_rotate(t_dlist *list, int n);
 t_dlist				*ef_dlist_copy(t_dlist *list, f_cpy cpy);
 
 /*
-** =================
-** >               <
-** >>> SKIP LIST <<<
-** >               <
-** =================
+** ==================
+** >                <
+** >>> SKIP LISTS <<<
+** >                <
+** ==================
 */
 
 typedef struct		s_sknode
@@ -288,11 +288,11 @@ int					ef_sklist_level(t_sklist *list);
 // Extra
 
 /*
-** ==========================
-** >                        <
-** >>> DOUBLE-ENDED QUEUE <<<
-** >                        <
-** ==========================
+** ===========================
+** >                         <
+** >>> DOUBLE-ENDED QUEUES <<<
+** >                         <
+** ===========================
 */
 
 typedef struct		s_deque
@@ -338,11 +338,11 @@ void				ef_deque_rotate(t_deque *queue, int n);
 t_deque				*ef_deque_copy(t_deque *queue, f_cpy cpy);
 
 /*
-** ==================
-** >                <
-** >>> N-ARY TREE <<<
-** >                <
-** ==================
+** ===================
+** >                 <
+** >>> N-ARY TREES <<<
+** >                 <
+** ===================
 */
 
 typedef struct		s_ntree
@@ -426,11 +426,11 @@ void				ef_ntree_rotate_children(t_ntree *parent, int n);
 t_ntree				*ef_ntree_copy(t_ntree *tree, f_cpy cpy);
 
 /*
-** ================
-** >              <
-** >>> AVL TREE <<<
-** >              <
-** ================
+** =================
+** >               <
+** >>> AVL TREES <<<
+** >               <
+** =================
 */
 
 typedef struct		s_anode
@@ -478,7 +478,7 @@ void				ef_atree_clear(t_atree *tree);
 void				ef_atree_free(t_atree *tree);
 
 // Traverse
-void				ef_atree_traverse(t_atree *tree, f_trw trw, t_flag order);
+void				ef_atree_traverse(t_atree *tree, f_trw trw);
 
 // Status
 int					ef_atree_size(t_atree *tree);
@@ -490,11 +490,11 @@ void				ef_anode_left_rotate(t_atree *tree, t_anode *node);
 void				ef_anode_right_rotate(t_atree *tree, t_anode *node);
 
 /*
-** ======================
-** >                    <
-** >>> RED-BLACK TREE <<<
-** >                    <
-** ======================
+** =======================
+** >                     <
+** >>> RED-BLACK TREES <<<
+** >                     <
+** =======================
 */
 
 typedef t_flag		t_color;
@@ -543,7 +543,7 @@ t_rbnode			*ef_rbtree_find(t_rbtree *tree, void *key);
 void				*ef_rbtree_get(t_rbtree *tree, void *key);
 
 // Remove
-void				ef_rbnode_free(t_rbnode *tree, f_del del_key,
+void				ef_rbnode_free(t_rbnode *node, f_del del_key,
 									f_del del_value);
 void				ef_rbtree_delete(t_rbtree *tree, t_rbnode *node);
 void				ef_rbtree_remove(t_rbtree *tree, void *key);
@@ -551,7 +551,7 @@ void				ef_rbtree_clear(t_rbtree *tree);
 void				ef_rbtree_free(t_rbtree *tree);
 
 // Traverse
-void				ef_rbtree_traverse(t_rbtree *tree, f_trw trw, t_flag order);
+void				ef_rbtree_traverse(t_rbtree *tree, f_trw trw);
 
 // Status
 int					ef_rbtree_size(t_rbtree *tree);
@@ -563,56 +563,74 @@ void				ef_rbnode_left_rotate(t_rbtree *tree, t_rbnode *node);
 void				ef_rbnode_right_rotate(t_rbtree *tree, t_rbnode *node);
 
 /*
-** ================
-** >              <
-** >>> 2-3 TREE <<<
-** >              <
-** ================
+** ===================
+** >                 <
+** >>> SPLAY TREES <<<
+** >                 <
+** ===================
 */
 
-typedef struct		s_23node
+typedef struct		s_spnode
 {
-	t_kvpair		*data;
-}					t_23node;
+	void			*key;
+	void			*value;
+	struct s_spnode	*parent;
+	struct s_spnode	*left;
+	struct s_spnode	*right;
+}					t_spnode;
 
-typedef struct		s_23tree
+typedef struct		s_sptree
 {
-	t_ntree			*root;
+	t_spnode		*root;
 	f_cmp			cmp_key;
 	f_del			del_key;
 	f_del			del_value;
-	int				size;
-}					t_23tree;
+}					t_sptree;
 
 // Create
-t_23tree			*ef_23tree_alloc(void);
-t_23tree			*ef_23tree_create(f_cmp cmp_key, f_del del_key,
+t_spnode			*ef_spnode_alloc(void);
+t_spnode			*ef_spnode_create(void *key, void *value);
+t_sptree			*ef_sptree_alloc(void);
+t_sptree			*ef_sptree_create(f_cmp cmp_key, f_del del_key,
 										f_del del_value);
 
 // Set
-void				ef_23tree_insert(t_23tree *tree, t_ntree *node);
+void				ef_sptree_insert(t_sptree *tree, t_spnode *node);
+void				ef_sptree_set(t_sptree *tree, void *key, void *value);
 
 // Get
-t_ntree				*ef_23tree_find(t_23tree *tree, void *key);
+t_spnode			*ef_spnode_minimum(t_spnode *node);
+t_spnode			*ef_spnode_maximum(t_spnode *node);
+t_spnode			*ef_sptree_find(t_sptree *tree, void *key);
+void				*ef_sptree_get(t_sptree *tree, void *key);
 
 // Remove
-void				ef_23tree_delete(t_23tree *tree, t_ntree *node);			
+void				ef_spnode_free(t_spnode *node, f_del del_key,
+									f_del del_value);
+void				ef_sptree_delete(t_sptree *tree, t_spnode *node);
+void				ef_sptree_remove(t_sptree *tree, void *key);
+void				ef_sptree_clear(t_sptree *tree);
+void				ef_sptree_free(t_sptree *tree);
 
 // Traverse
-void				ef_23tree_traverse(t_23tree *tree, f_trw trw, t_flag order);
+void				ef_sptree_traverse(t_sptree *tree, f_trw trw);
 
 // Status
-void				ef_23tree_size(t_23tree *tree);
-int					ef_23tree_height(t_23tree *tree);
+int					ef_sptree_size(t_sptree *tree);
 
 // Extra
+void				ef_spnode_left_rotate(t_sptree *tree, t_spnode *node);
+void				ef_spnode_right_rotate(t_sptree *tree, t_spnode *node);
+void				ef_sptree_splay(t_sptree *tree, t_spnode *node);
+t_sptree			*ef_sptree_join(t_sptree *tree1, t_sptree *tree2);
+t_sptree			*ef_sptree_split(t_sptree *tree, void *key);
 
 /*
-** ==================
-** >                <
-** >>> HASH TABLE <<<
-** >                <
-** ==================
+** ===================
+** >                 <
+** >>> HASH TABLES <<<
+** >                 <
+** ===================
 */
 
 # define LOAD_FACTOR	0.7
@@ -668,11 +686,11 @@ int					ef_hash_string(void *string);
 int					ef_hash_integer(void *integer);
 
 /*
-** ===================
-** >                 <
-** >>> BINARY HEAP <<<
-** >                 <
-** ===================
+** ====================
+** >                  <
+** >>> BINARY HEAPS <<<
+** >                  <
+** ====================
 */
 
 # define PARENT(i)			((i + 1) / 2 - 1)
@@ -720,11 +738,11 @@ void				ef_bheap_heapify_up(t_bheap *heap, int index);
 void				ef_bheap_heapify_down(t_bheap *heap, int index);
 
 /*
-** =====================
-** >                   <
-** >>> BINOMIAL HEAP <<<
-** >                   <
-** =====================
+** ======================
+** >                    <
+** >>> BINOMIAL HEAPS <<<
+** >                    <
+** ======================
 */
 
 typedef struct		s_bnnode
@@ -754,13 +772,10 @@ t_bnheap			*ef_bnheap_create(f_cmp cmp_key, f_del del_key,
 										f_del del_value);
 
 // Set
-t_bnnode			*ef_bnnode_merge(t_bnnode *node1, t_bnnode *node2,
-										f_cmp cmp_key);
 void				ef_bnheap_insert(t_bnheap *heap, t_bnnode *node);
 void				ef_bnheap_set(t_bnheap *heap, void *key, void *value);
 void				ef_bnheap_change_key(t_bnheap *heap, t_bnnode *node,
 											void *new_key);
-t_bnheap			*ef_bnheap_merge(t_bnheap *heap1, t_bnheap *heap2);
 
 // Get
 t_bnnode			*ef_bnheap_peek_top(t_bnheap *heap);
@@ -782,6 +797,9 @@ int					ef_bnnode_size(t_bnnode *node);
 int					ef_bnheap_size(t_bnheap *heap);
 
 // Extra
+t_bnnode			*ef_bnnode_merge(t_bnnode *node1, t_bnnode *node2,
+										f_cmp cmp_key);
+t_bnheap			*ef_bnheap_merge(t_bnheap *heap1, t_bnheap *heap2);
 t_bnnode			*ef_bnnode_reverse(t_bnnode *node);
 
 #endif

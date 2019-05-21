@@ -1,38 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ef_atree_traverse.c                                :+:      :+:    :+:   */
+/*   ef_sptree_split.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/14 23:30:59 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/20 21:38:04 by Zexi Wang        ###   ########.fr       */
+/*   Created: 2019/05/20 21:20:35 by Zexi Wang         #+#    #+#             */
+/*   Updated: 2019/05/21 11:21:26 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libef.h"
 
-void	ef_atree_traverse(t_atree *tree, f_trw trw)
+t_sptree	*ef_sptree_split(t_sptree *tree, void *key)
 {
-	t_deque	*stack;
-	t_anode	*node;
+	t_spnode	*node;
+	t_sptree	*new_tree;
 
-	if (tree && trw)
+	if (!tree)
+		return (NULL);
+	new_tree = ef_sptree_create(tree->cmp_key, tree->del_key, tree->del_value);
+	node = ef_sptree_find(tree, key);
+	new_tree->root = node;
+	if (node)
 	{
-		stack = ef_deque_create(NULL);
-		node = tree->root;
-		while (!ef_deque_is_empty(stack) || node)
-			if (node)
-			{
-				ef_deque_push_head(stack, node);
-				node = node->left;
-			}
-			else
-			{
-				node = ef_deque_pop_head(stack);
-				node->value = trw(node->key, node->value);
-				node = node->right;
-			}
-		ef_deque_free(stack, NULL);
+		tree->root = node->left;
+		if (tree->root)
+			tree->root->parent = NULL;
+		node->left = NULL;
 	}
+	return (new_tree);
 }

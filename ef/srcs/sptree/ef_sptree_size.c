@@ -1,38 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ef_rbtree_traverse.c                               :+:      :+:    :+:   */
+/*   ef_sptree_size.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/01 21:16:14 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/20 21:35:28 by Zexi Wang        ###   ########.fr       */
+/*   Created: 2019/05/21 12:18:58 by Zexi Wang         #+#    #+#             */
+/*   Updated: 2019/05/21 12:37:27 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libef.h"
 
-void	ef_rbtree_traverse(t_rbtree *tree, f_trw trw)
+int	ef_sptree_size(t_sptree *tree)
 {
 	t_deque		*stack;
-	t_rbnode	*node;
+	t_spnode	*node;
+	int			size;
 
-	if (tree && trw)
-	{
-		stack = ef_deque_create(NULL);
-		node = tree->root;
-		while (!ef_deque_is_empty(stack) || node)
-			if (node != tree->nil)
-			{
-				ef_deque_push_head(stack, node);
-				node = node->left;
-			}
-			else
-			{
-				node = ef_deque_pop_head(stack);
-				node->value = trw(node->key, node->value);
-				node = node->right;
-			}
-		ef_deque_free(stack, NULL);
-	}
+	if (!tree)
+		return (0);
+	stack = ef_deque_create(NULL);
+	node = tree->root;
+	size = 0;
+	while (!ef_deque_is_empty(stack) || node)
+		if (node)
+		{
+			size++;
+			ef_deque_push_head(stack, node);
+			node = node->left;
+		}
+		else
+		{
+			node = ef_deque_pop_head(stack);
+			node = node->right;
+		}
+	ef_deque_free(stack, NULL);
+	return (size);
 }

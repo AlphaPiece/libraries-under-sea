@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ef_anode_left_rotate.c                             :+:      :+:    :+:   */
+/*   ef_spnode_left_rotate.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/12 20:30:09 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/20 15:56:22 by Zexi Wang        ###   ########.fr       */
+/*   Created: 2019/05/20 13:54:04 by Zexi Wang         #+#    #+#             */
+/*   Updated: 2019/05/20 15:55:06 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 /*
 ** x: the node getting rotated down
-** y: x's right child which is going to rotated up
+** y: x's right child which is going to be rotated up
 */
 
-void	ef_anode_left_rotate(t_atree *tree, t_anode *x)
+void	ef_spnode_left_rotate(t_sptree *tree, t_spnode *x)
 {
-	t_anode	*y;
+	t_spnode	*y;
 
 	if (tree && x && (y = x->right))
 	{
@@ -35,9 +35,5 @@ void	ef_anode_left_rotate(t_atree *tree, t_anode *x)
 			x->parent->right = y;
 		y->left = x;
 		x->parent = y;
-		x->height = 1 + MAX(ef_anode_height(x->left),
-							ef_anode_height(x->right));
-		y->height = 1 + MAX(ef_anode_height(y->left),
-							ef_anode_height(y->right));
 	}
 }

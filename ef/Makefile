@@ -6,7 +6,7 @@
 #    By: zwang <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/15 14:23:06 by zwang             #+#    #+#              #
-#    Updated: 2019/05/19 16:54:16 by Zexi Wang        ###   ########.fr        #
+#    Updated: 2019/05/21 14:02:45 by Zexi Wang        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -101,6 +101,15 @@ RBTREE = ef_rbnode_alloc.c   ef_rbtree_free.c         ef_rbtree_create.c \
 		 ef_rbtree_delete.c  ef_rbnode_maximum.c      ef_rbtree_traverse.c \
 		 ef_rbtree_find.c    ef_rbnode_minimum.c      ef_rbtree_height.c
 
+SPTREE = ef_spnode_alloc.c        ef_sptree_clear.c      ef_sptree_remove.c \
+		 ef_spnode_create.c       ef_sptree_create.c     ef_sptree_set.c \
+		 ef_spnode_free.c         ef_sptree_delete.c     ef_sptree_size.c \
+		 ef_spnode_left_rotate.c  ef_sptree_find.c       ef_sptree_splay.c \
+		 ef_spnode_maximum.c      ef_sptree_free.c       ef_sptree_split.c \
+		 ef_spnode_minimum.c      ef_sptree_get.c        ef_sptree_traverse.c \
+		 ef_spnode_right_rotate.c ef_sptree_insert.c     ef_sptree_alloc.c \
+		 ef_sptree_join.c
+
 HTABLE = ef_hash_integer.c    ef_htable_find.c     ef_htable_pairs.c \
 		 ef_hash_pointer.c    ef_htable_free.c     ef_htable_pop.c \
 		 ef_hash_string.c     ef_htable_get.c      ef_htable_remove.c \
@@ -134,6 +143,7 @@ DEQUE_DIR = srcs/deque/
 NTREE_DIR = srcs/ntree/
 ATREE_DIR = srcs/atree/
 RBTREE_DIR = srcs/rbtree/
+SPTREE_DIR = srcs/sptree/
 HTABLE_DIR = srcs/htable/
 BHEAP_DIR = srcs/bheap/
 BNHEAP_DIR = srcs/bnheap/
@@ -149,6 +159,7 @@ SRCS = $(addprefix $(KVPAIR_DIR), $(KVPAIR)) \
 	   $(addprefix $(NTREE_DIR), $(NTREE)) \
 	   $(addprefix $(ATREE_DIR), $(ATREE)) \
 	   $(addprefix $(RBTREE_DIR), $(RBTREE)) \
+	   $(addprefix $(SPTREE_DIR), $(SPTREE)) \
 	   $(addprefix $(HTABLE_DIR), $(HTABLE)) \
 	   $(addprefix $(BHEAP_DIR), $(BHEAP)) \
 	   $(addprefix $(BNHEAP_DIR), $(BNHEAP))

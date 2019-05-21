@@ -1,29 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ef_23tree_find.c                                   :+:      :+:    :+:   */
+/*   ef_sptree_clear.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/19 19:15:43 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/19 20:53:33 by Zexi Wang        ###   ########.fr       */
+/*   Created: 2019/05/21 12:39:07 by Zexi Wang         #+#    #+#             */
+/*   Updated: 2019/05/21 13:54:11 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libef.h"
 
-t_ntree	*ef_23tree_find(t_23tree *tree, void *key)
+void	ef_sptree_clear(t_sptree *tree)
 {
-	t_ntree	*node;
+	t_deque		*queue;
+	t_spnode	*node;
 
 	if (tree)
 	{
-		node = tree->root;
-		while (node)
+		queue = ef_deque_create(ef_dlist_create(tree->root));
+		while (!ef_deque_is_empty(queue))
 		{
-			switch (ef_ntree_count_children(node))
-			{
-				case 0:
-					if (tree->cmp_key(node->key, key) == 0)
-						
-					
+			node = ef_deque_pop_head(queue);
+			if (node->left)
+				ef_deque_push_tail(queue, node->left);
+			if (node->right)
+				ef_deque_push_tail(queue, node->right);
+			ef_spnode_free(node, tree->del_key, tree->del_value);
+		}
+		ef_deque_free(queue, NULL);
+	}
+}

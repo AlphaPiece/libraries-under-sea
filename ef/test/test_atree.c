@@ -6,7 +6,7 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/12 23:08:11 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/15 09:50:57 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/05/20 17:31:44 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,22 @@
 
 #define COUNT	10
 
-void	btview(t_atree *tree, t_anode *node, int space)
+void	btview(t_anode *node, int space)
 {
 	if (!node)
 		return ;
 	space += COUNT;
-	btview(tree, node->right, space);
+	btview(node->right, space);
 	ft_putchar('\n');
 	ft_putnchar(' ', space - COUNT);
 	ft_printf("%d-%d-%d", *(int *)node->key, *(int *)node->value, node->height);
 	ft_putchar('\n');
-	btview(tree, node->left, space);
+	btview(node->left, space);
 }
 
 void	view_tree(t_atree *tree)
 {
-	btview(tree, tree->root, 0);
+	btview(tree->root, 0);
 	ft_printf("\nsize: %d, height: %d\n", ef_atree_size(tree),
 				ef_anode_height(tree->root));
 	ft_printf("========================\n");

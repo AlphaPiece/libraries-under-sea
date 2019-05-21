@@ -6,7 +6,7 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/12 20:36:14 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/20 15:39:18 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/05/20 15:56:35 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 /*
 ** x: the node getting rotated down
-** y: x's left child which is going to be rotated up to replace x
+** y: x's left child which is going to be rotated up
 */
 
 void	ef_anode_right_rotate(t_atree *tree, t_anode *x)

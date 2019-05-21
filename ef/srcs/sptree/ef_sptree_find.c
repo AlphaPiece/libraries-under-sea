@@ -1,38 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ef_atree_traverse.c                                :+:      :+:    :+:   */
+/*   ef_sptree_find.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/14 23:30:59 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/20 21:38:04 by Zexi Wang        ###   ########.fr       */
+/*   Created: 2019/05/20 12:03:11 by Zexi Wang         #+#    #+#             */
+/*   Updated: 2019/05/20 21:14:56 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libef.h"
 
-void	ef_atree_traverse(t_atree *tree, f_trw trw)
+t_spnode	*ef_sptree_find(t_sptree *tree, void *key)
 {
-	t_deque	*stack;
-	t_anode	*node;
+	t_spnode	*node;
+	t_spnode	*parent;
+	int			flag;
 
-	if (tree && trw)
+	if (!tree || !tree->root)
+		return (NULL);
+	node = tree->root;
+	while (node)
 	{
-		stack = ef_deque_create(NULL);
-		node = tree->root;
-		while (!ef_deque_is_empty(stack) || node)
-			if (node)
-			{
-				ef_deque_push_head(stack, node);
-				node = node->left;
-			}
-			else
-			{
-				node = ef_deque_pop_head(stack);
-				node->value = trw(node->key, node->value);
-				node = node->right;
-			}
-		ef_deque_free(stack, NULL);
+		parent = node;
+		if ((flag = tree->cmp_key(key, node->key)) < 0)
+			node = node->left;
+		else if (flag > 0)
+			node = node->right;
+		else
+			break ;
 	}
+	if (node)
+		ef_sptree_splay(tree, node);
+	else
+		ef_sptree_splay(tree, parent);
+	return (node);
 }
