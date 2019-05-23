@@ -6,7 +6,7 @@
 /*   By: zwang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/11 11:20:28 by zwang             #+#    #+#             */
-/*   Updated: 2019/05/23 18:03:49 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/05/23 18:21:41 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,6 +124,7 @@ uint32_t			ft_ptrhash(void *p);
 
 int					ft_numlen(intmax_t n);
 int					ft_unumlen(uintmax_t un);
+
 char				*ft_itoa(int n);
 char				*ft_ltoa(long n);
 char				*ft_ntoa(intmax_t n);
@@ -131,27 +132,31 @@ char				*ft_untoa(uintmax_t un);
 char				*ft_ntoa_base(intmax_t n, int base, char hex_case_a);
 char				*ft_untoa_base(uintmax_t un, int base, char hex_case_a);
 char				*ft_ftoa(double n);
+
+void				ft_swap(int *a, int *b);
+
 double				ft_sqrt(double n);
 double				ft_pow(double n, int pow);
-void				ft_prime_factors(int n);
 double				ft_ceil(double n);
 double				ft_floor(double n);
-int					*ft_numarrcpy(int *dst, const int *src, size_t len);
-t_bool				ft_iselem(size_t byte, void *arr, size_t len, void *num);
+
 int					ft_max(int total_no, ...);
 int					ft_min(int total_no, ...);
 int					ft_sum(int total_no, ...);
+
 int					ft_intarrmax(int arr[], int len);
 int					ft_intarrmin(int arr[], int	len);
 int					ft_intarrsum(int arr[], int len);
+
 int                 ft_randint(int lower, int upper);
 int					*ft_randintarr(int lower, int upper, int len);
-long long			ft_factorial(int n);
-long long			ft_fibonacci(int n);
-long long			ft_uglynum(int n);
-void				ft_swap(int *a, int *b);
-uint32_t			ft_inthash(int h);
+
+long long			ft_fact(int n);
+long long			ft_fib(int n);
+long long			ft_uglyn(int n);
 int					ft_log(int n, int base);
+
+uint32_t			ft_inthash(int h);
 
 /*
 ** ========================
