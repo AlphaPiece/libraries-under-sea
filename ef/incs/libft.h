@@ -6,7 +6,7 @@
 /*   By: zwang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/11 11:20:28 by zwang             #+#    #+#             */
-/*   Updated: 2019/05/12 11:33:48 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/05/22 10:16:58 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <stddef.h>
 # include <fcntl.h>
 # include <stdint.h>
+# include <limits.h>
 # include <time.h>
 # include "ft_nextline.h"
 # include "ft_vdprintf.h"
@@ -95,11 +96,11 @@ void				ft_putbits(void *x, size_t bit);
 uint32_t			ft_hash_ptr(void *p);
 
 /*
-** ==============
-** >            <
-** >>> NUMBER <<<
-** >            <
-** ==============
+** ===============
+** >             <
+** >>> NUMBERS <<<
+** >             <
+** ===============
 */
 
 /*
@@ -160,11 +161,11 @@ uint32_t			ft_hash_int(int h);
 int					ft_log(int n, int base);
 
 /*
-** =======================
-** >                     <
-** >>> ASCII CHARACTER <<<
-** >                     <
-** =======================
+** ========================
+** >                      <
+** >>> ASCII CHARACTERS <<<
+** >                      <
+** ========================
 */
 
 t_bool				ft_isalnum(int c);
@@ -179,11 +180,11 @@ int					ft_tolower(int c);
 int					ft_toupper(int c);
 
 /*
-** ==============================
-** >                            <
-** >>> ASCII CHARACTER STRING <<<
-** >                            <
-** ==============================
+** ===============================
+** >                             <
+** >>> ASCII CHARACTER STRINGS <<<
+** >                             <
+** ===============================
 */
 
 int					ft_atoi(const char *str);

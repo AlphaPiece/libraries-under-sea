@@ -6,7 +6,7 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/07 21:51:53 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/07 23:31:46 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/05/23 15:08:27 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 int	ef_hash_pointer(void *key)
 {
-	return ((int)ft_hash_ptr(key));
+	return ((int)ft_ptrhash(key));
 }

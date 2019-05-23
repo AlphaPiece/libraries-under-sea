@@ -6,7 +6,7 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/15 16:00:55 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/21 13:55:52 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/05/23 15:10:31 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,14 +33,25 @@ enum				e_one_or_all
 	ALL
 };
 
+/*
+** =======================
+** >                     <
+** >>> KEY-VALUE PAIRS <<<
+** >                     <
+** =======================
+*/
+
 typedef struct		s_kvpair
 {
 	void			*key;
 	void			*value;
 }					t_kvpair;
 
+// Create
 t_kvpair			*ef_kvpair_alloc(void);
 t_kvpair			*ef_kvpair_create(void *key, void *value);
+
+// Remove
 void				ef_kvpair_free(t_kvpair *pair, f_del del_key,
 									f_del del_value);
 
@@ -624,6 +635,44 @@ void				ef_spnode_right_rotate(t_sptree *tree, t_spnode *node);
 void				ef_sptree_splay(t_sptree *tree, t_spnode *node);
 t_sptree			*ef_sptree_join(t_sptree *tree1, t_sptree *tree2);
 t_sptree			*ef_sptree_split(t_sptree *tree, void *key);
+
+/*
+** ==============
+** >            <
+** >>> TREAPS <<<
+** >            <
+** ==============
+*/
+
+typedef struct		s_trnode
+{
+	void			*key;
+	void			*value;
+	struct s_trnode	*parent;
+	struct s_trnode	*left;
+	struct s_trnode	*right;
+	int				priority;
+}					t_trnode;
+
+typedef struct		s_treap
+{
+	t_trnode		*root;
+	f_cmp			cmp_key;
+	f_del			del_key;
+	f_del			del_value;
+	int				size;
+}					t_treap;
+
+// Create
+t_trnode			*ef_trnode_alloc(void);
+t_trnode			*ef_trnode_create(void *key, void *value);
+t_treap				*ef_treap_alloc(void);
+t_treap				*ef_treap_create(f_cmp cmp_key, f_del del_key,
+										f_del del_value);
+
+// Set
+
+
 
 /*
 ** ===================
