@@ -1,22 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_hash_str.c                                      :+:      :+:    :+:   */
+/*   ft_ptrhash.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/07 11:36:24 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/07 21:26:27 by Zexi Wang        ###   ########.fr       */
+/*   Created: 2019/05/03 13:05:32 by Zexi Wang         #+#    #+#             */
+/*   Updated: 2019/05/22 15:51:00 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-uint32_t	ft_hash_str(char *s)
+uint32_t	ft_ptrhash(void *p)
 {
 	uint32_t	h;
-
-	for (h = 5381; *s; s++)
-		h = (h << 5) + h + *s;
-	return (h);
+	
+	h = (uint32_t)p;
+    h = h ^ (h >> 4);
+    h = (h ^ 0xdeadbeef) + (h << 5);
+    h = h ^ (h >> 11);
+    return (h);
 }

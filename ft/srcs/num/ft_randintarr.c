@@ -5,32 +5,22 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/02 20:55:31 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/04/07 15:09:53 by Zexi Wang        ###   ########.fr       */
+/*   Created: 2019/05/22 15:41:22 by Zexi Wang         #+#    #+#             */
+/*   Updated: 2019/05/22 15:52:34 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/*
-** Note: lower, upper are inclusive
-*/
-
-int *ft_randintarr(int lower, int upper, int len)
+int	*ft_randintarr(int lower, int upper, int len)
 {
-    int     range;
-    time_t  t;
-	int		i;
-	int		*arr;
+	int	*arr;
+	int	i;
 
 	if (!(arr = (int *)malloc(sizeof(int) * len)))
 		return (NULL);
-	if (lower > upper)
-		ft_swap(&lower, &upper);
-	range = upper - lower + 1;
-    srand((unsigned int)time(&t));
 	i = 0;
 	while (i < len)
-		arr[i++] = rand() % range + lower;
-    return (arr);
+		arr[i++] = ft_randint(lower, upper);
+	return (arr);
 }

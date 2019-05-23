@@ -6,13 +6,11 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/16 19:32:28 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/02/17 11:13:25 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/05/22 15:47:08 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-#include <stdio.h>
 
 static int	get_dec_len(double n)
 {

@@ -6,7 +6,7 @@
 #    By: zwang <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/15 14:23:06 by zwang             #+#    #+#              #
-#    Updated: 2019/05/12 11:34:12 by Zexi Wang        ###   ########.fr        #
+#    Updated: 2019/05/22 15:52:15 by Zexi Wang        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,13 +17,13 @@ CFLAGS = -Wall -Werror -Wextra
 MEM = ft_bzero.c ft_memalloc.c ft_memccpy.c ft_memchr.c ft_memcmp.c \
 	  ft_memcpy.c ft_memdel.c ft_memmove.c ft_memset.c ft_memswap.c \
 	  ft_getbits.c ft_setbits.c ft_invertbits.c ft_memrealloc.c ft_putbits.c \
-	  ft_memfree.c ft_hash_ptr.c
+	  ft_memfree.c ft_ptrhash.c
 NUM = ft_itoa.c ft_ltoa.c ft_ntoa.c ft_untoa.c ft_numlen.c ft_unumlen.c \
 	  ft_ntoa_base.c ft_untoa_base.c ft_sqrt.c ft_pow.c ft_ceil.c ft_floor.c \
 	  ft_numarrcpy.c ft_iselem.c ft_max.c ft_min.c ft_sum.c ft_intarrmin.c \
-	  ft_intarrmin.c ft_intarrsum.c ft_prime_factors.c ft_analyze_float.c \
+	  ft_intarrmin.c ft_intarrsum.c ft_prime_factors.c \
       ft_randint.c ft_ftoa.c ft_factorial.c ft_fibonacci.c ft_uglynum.c \
-	  ft_swap.c ft_hash_int.c ft_randintarr.c ft_log.c
+	  ft_swap.c ft_inthash.c ft_randintarr.c ft_log.c
 CHR = ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c ft_isspace.c \
 	  ft_isprint.c  ft_tolower.c ft_toupper.c ft_islower.c ft_isupper.c
 STR = ft_atoi.c ft_atol.c ft_atof.c ft_atoi_base.c ft_atol_base.c \
@@ -35,7 +35,7 @@ STR = ft_atoi.c ft_atol.c ft_atof.c ft_atoi_base.c ft_atol_base.c \
 	  ft_striteri.c ft_strmap.c ft_strmapi.c ft_strtrim.c ft_strjoin.c \
 	  ft_strcompose.c ft_strsub.c ft_strsepnum.c ft_strsplit.c ft_strarrlen.c \
 	  ft_strarrsort.c ft_strarrdel.c ft_check_brackets.c ft_count_subs.c \
-	  ft_strarrdup.c ft_strclen.c ft_hash_str.c
+	  ft_strarrdup.c ft_strclen.c ft_strhash.c
 FIO = ft_putchar.c  ft_putendl.c ft_putnbr.c  ft_putstr.c ft_putlstr.c \
 	  ft_putchar_fd.c ft_putendl_fd.c ft_putnbr_fd.c ft_putstr_fd.c \
 	  ft_putlstr_fd.c ft_putnchar_fd.c ft_putnchar.c ft_nextline.c \

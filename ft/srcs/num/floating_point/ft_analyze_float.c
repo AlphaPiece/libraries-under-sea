@@ -6,11 +6,25 @@
 /*   By: zwang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/29 09:33:37 by zwang             #+#    #+#             */
-/*   Updated: 2018/09/19 10:10:07 by zwang            ###   ########.fr       */
+/*   Updated: 2019/05/22 15:47:25 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+/*
+** t_fcompo:    contains all the parts of a single float type data
+** sign:        1 bit (0)
+** exponent:    8 bits (1 ~ 8) (the exponent of 2)
+** mantissa:    23 bits (9 ~ 31) (the presence of 2's power: 2^-1, 2^-2, ...)
+*/
+
+typedef struct      s_fcompo
+{
+    int             sign;
+    int             exponent;
+    long            mantissa;
+}                   t_fcompo;
 
 t_fcompo	*ft_analyze_float(float n)
 {

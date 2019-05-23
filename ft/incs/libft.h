@@ -6,7 +6,7 @@
 /*   By: zwang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/11 11:20:28 by zwang             #+#    #+#             */
-/*   Updated: 2019/05/20 11:51:42 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/05/22 10:16:58 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <stddef.h>
 # include <fcntl.h>
 # include <stdint.h>
+# include <limits.h>
 # include <time.h>
 # include "ft_nextline.h"
 # include "ft_vdprintf.h"
