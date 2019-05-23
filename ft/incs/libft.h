@@ -6,7 +6,7 @@
 /*   By: zwang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/11 11:20:28 by zwang             #+#    #+#             */
-/*   Updated: 2019/05/23 17:51:40 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/05/23 18:03:49 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,22 +77,28 @@ typedef union		u_ptr
 	uint64_t		*uint64p;
 }					t_ptr;
 
-void				ft_bzero(void *s, size_t n);
 void				*ft_memalloc(size_t size);
-void				ft_memfree(void **ptr);
-void				*ft_memccpy(void *dst, const void *src, int c, size_t n);
-void				*ft_memchr(const void *s, int c, size_t n);
+void				*ft_memrealloc(void **ptr, size_t oldsize, size_t newsize);
+void				ft_memfree(void **p);
+
 int					ft_memcmp(const void *s1, const void *s2, size_t n);
+
+void				*ft_memchr(const void *s, int c, size_t n);
+
 void				*ft_memcpy(void *dst, const void *src, size_t n);
-void				ft_memdel(void **ap);
+void				*ft_memccpy(void *dst, const void *src, int c, size_t n);
+
 void				*ft_memmove(void *dst, const void *src, size_t len);
+void				ft_memswap(void *p1, void *p2, size_t byte);
+
+void				ft_bzero(void *s, size_t n);
 void				*ft_memset(void *b, int c, size_t len);
+
 unsigned int		ft_getbits(unsigned int x, int p, int n);
 unsigned int		ft_setbits(unsigned int x, int p, int n, unsigned int y);
 unsigned int		ft_invertbits(unsigned int x, int p, int n);
-void				ft_memswap(void *p1, void *p2, size_t byte);
-void				*ft_memrealloc(void **ptr, size_t oldsize, size_t newsize);
 void				ft_putbits(void *x, size_t bit);
+
 uint32_t			ft_ptrhash(void *p);
 
 /*
@@ -174,6 +180,10 @@ int					ft_toupper(int c);
 ** ===============================
 */
 
+char				*ft_strnew(size_t size);
+void				ft_strclr(char *s);
+void				ft_strdel(char **p);
+
 int					ft_atoi(const char *str);
 long				ft_atol(const char *str);
 double				ft_atof(const char *str);
@@ -183,10 +193,6 @@ long				ft_atol_base(const char *str, int base);
 t_bool				ft_isnumeric(char *s);
 t_bool				ft_strstart(const char *str, const char *substr);
 t_bool				ft_strend(const char *str, const char *substr);
-
-char				*ft_strnew(size_t size);
-void				ft_strclr(char *s);
-void				ft_strdel(char **s_p);
 
 int					ft_strcmp(const char *s1, const char *s2);
 int					ft_strncmp(const char *s1, const char *s2, size_t n);
