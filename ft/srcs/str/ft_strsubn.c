@@ -1,34 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   next_save_clear_char.c                             :+:      :+:    :+:   */
+/*   ft_strsubn.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zwang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/17 09:59:33 by zwang             #+#    #+#             */
-/*   Updated: 2019/02/06 18:12:20 by Zexi Wang        ###   ########.fr       */
+/*   Created: 2018/09/20 16:13:17 by zwang             #+#    #+#             */
+/*   Updated: 2019/05/23 17:37:45 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /*
-** g_buf: buffer for ft_savechar
-** g_bufpos: next free position in g_buf
+** ft_strsubn: return # of substrings of str which matches s
 */
 
-static char	g_buf[BUF_SIZ];
-static int	g_bufpos = 0;
-
-int			ft_nextchar(void)
+int		ft_strsubn(const char *s, const char *sub)
 {
-	return ((g_bufpos > 0) ? g_buf[--g_bufpos] : ft_getchar());
-}
+	int		n;
+	int		i;
+	int		j;
 
-void		ft_savechar(int c)
-{
-	if (g_bufpos >= BUF_SIZ)
-		ft_printf("ft_savechar: too many characters\n");
-	else
-		g_buf[g_bufpos++] = c;
+	i = 0;
+	n = 0;
+	while (s[i])
+	{
+		if (s[i] == sub[0])
+		{
+			j = 1;
+			while (s[i + j] && sub[j] && s[i + j] == sub[j])
+				++j;
+			if (!sub[j])
+				++n;
+		}
+		++i;
+	}
+	return (n);
 }

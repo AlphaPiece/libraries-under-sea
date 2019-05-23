@@ -6,15 +6,16 @@
 /*   By: zwang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/09 12:42:34 by zwang             #+#    #+#             */
-/*   Updated: 2019/05/15 19:08:13 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/05/23 16:25:18 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_strcmp(const char *s1, const char *s2)
+int	ft_strcmp(const char *s1, const char *s2)
 {
-	if (!(*s1) && !(*s2))
-		return (0);
-	if (*s1 != *s2)
-		return (*((unsigned char *)s1) - *((unsigned char *)s2));
-	return (ft_strcmp(s1 + 1, s2 + 1));
+	int	i;
+
+	i = 0;
+	while (s1[i] && s2[i] && s1[i] == s2[i])
+		i++;
+	return (s1[i] - s2[i]);
 }

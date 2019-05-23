@@ -1,22 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnchar_fd.c                                   :+:      :+:    :+:   */
+/*   ft_dputchar.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zwang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/31 19:19:06 by zwang             #+#    #+#             */
-/*   Updated: 2018/09/19 20:56:09 by zwang            ###   ########.fr       */
+/*   Created: 2018/07/12 15:12:20 by zwang             #+#    #+#             */
+/*   Updated: 2019/05/23 15:30:10 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnchar_fd(char c, int n, int fd)
+void	ft_dputchar(int fd, char c)
 {
-	int		i;
-
-	i = -1;
-	while (++i < n)
-		ft_putchar_fd(c, fd);
+	if (fd >= 0)
+		write(fd, &c, 1);
 }

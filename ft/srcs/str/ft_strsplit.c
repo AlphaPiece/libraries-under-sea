@@ -6,7 +6,7 @@
 /*   By: zwang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/11 16:30:13 by zwang             #+#    #+#             */
-/*   Updated: 2018/10/26 13:19:52 by zwang            ###   ########.fr       */
+/*   Updated: 2019/05/23 17:46:35 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	**ft_strsplit(const char *s, char *delim)
 	int		k;
 	int		str_num;
 
-	str_num = ft_strsepnum(s, delim);
+	str_num = ft_strsepn(s, delim);
 	if (!s || !(arr = (char **)malloc(sizeof(char *) * (str_num + 1))))
 		return (NULL);
 	i = 0;

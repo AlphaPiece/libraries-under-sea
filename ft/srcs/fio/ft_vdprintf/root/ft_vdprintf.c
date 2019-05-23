@@ -6,7 +6,7 @@
 /*   By: zwang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/07 10:29:09 by zwang             #+#    #+#             */
-/*   Updated: 2019/03/09 17:15:30 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/05/23 16:08:25 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static void			pack_package(t_package **package, t_strblock *strchain)
 	(*package)->strchain = strchain;
 }
 
-static t_strblock	*black_box(const char *format, va_list args)
+static t_strblock	*black_box(const char *fmt, va_list args)
 {
 	char		*percent;
 	t_strblock	*strchain;
@@ -26,25 +26,25 @@ static t_strblock	*black_box(const char *format, va_list args)
 
 	strchain = create_strblock();
 	pack_package(&package, strchain);
-	while ((percent = ft_strchr(format, '%')))
+	while ((percent = ft_strchr(fmt, '%')))
 	{
-		if (*format != '%')
-			str_handler(strchain, format, percent);
-		format = fmt_handler(package, percent + 1, args);
+		if (*fmt != '%')
+			str_handler(strchain, fmt, percent);
+		fmt = fmt_handler(package, percent + 1, args);
 	}
-	if (*format)
-		str_handler(strchain, format, NULL);
+	if (*fmt)
+		str_handler(strchain, fmt, NULL);
 	free(package);
 	return (strchain);
 }
 
-int					ft_vdprintf(int fd, const char *format, va_list args)
+int					ft_vdprintf(int fd, const char *fmt, va_list args)
 {
 	t_strblock	*strchain;
 	int			total_char;
 	t_strblock	*tmp;
 
-	strchain = black_box(format, args);
+	strchain = black_box(fmt, args);
 	total_char = 0;
 	while (strchain)
 	{

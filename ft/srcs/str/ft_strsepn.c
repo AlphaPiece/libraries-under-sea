@@ -1,31 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strsqueeze.c                                    :+:      :+:    :+:   */
+/*   ft_strsepn.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zwang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/24 13:06:42 by zwang             #+#    #+#             */
-/*   Updated: 2018/09/24 13:35:06 by zwang            ###   ########.fr       */
+/*   Created: 2018/07/11 16:38:22 by zwang             #+#    #+#             */
+/*   Updated: 2019/05/23 17:37:36 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
 /*
-** precondition: str is an array of characters
+** ft_strsepn: return # of substrings of s separated by any character in delim
 */
 
-void	ft_strsqueeze(char s[], int c)
+int		ft_strsepn(const char *s, char *delim)
 {
-	int		i;
-	int		j;
+	int		n;
+	t_state	state;
 
-	i = 0;
-	j = 0;
-	while (s[i])
+	if (!s || !*s)
+		return (0);
+	state = OUT;
+	n = (ft_strchr(delim, *s)) ? 0 : 1;
+	while (*s)
 	{
-		if (s[i] != c)
-			s[j++] = s[i];
-		i++;
+		if (ft_strchr(delim, *s))
+			state = IN;
+		else if (state == IN)
+		{
+			state = OUT;
+			++n;
+		}
+		s++;
 	}
-	s[j] = '\0';
+	return (n);
 }

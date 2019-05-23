@@ -1,29 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_strcap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zwang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/07/12 15:19:45 by zwang             #+#    #+#             */
-/*   Updated: 2018/07/12 15:25:01 by zwang            ###   ########.fr       */
+/*   Created: 2018/07/16 13:37:57 by zwang             #+#    #+#             */
+/*   Updated: 2019/05/23 17:29:00 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr_fd(int n, int fd)
+char	*ft_strcap(char *s)
 {
-	unsigned int	nbr;
+	int i;
 
-	if (n < 0)
+	if (ft_isalpha(s[0]))
+		s[0] -= 32;
+	i = 1;
+	while (s[i])
 	{
-		ft_putchar_fd('-', fd);
-		nbr = -n;
+		if (ft_isupper(s[i]))
+			s[i] += 32;
+		if (ft_islower(s[i]) && (s[i - 1] >= ' ' && s[i - 1] <= '/'))
+			s[i] -= 32;
+		++i;
 	}
-	else
-		nbr = n;
-	if (nbr >= 10)
-		ft_putnbr_fd(nbr / 10, fd);
-	ft_putchar_fd(nbr % 10 + '0', fd);
+	return (s);
 }

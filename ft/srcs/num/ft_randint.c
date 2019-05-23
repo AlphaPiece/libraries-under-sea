@@ -6,7 +6,7 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/22 11:09:50 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/22 15:41:10 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/05/23 17:51:03 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	ft_randint(int lower, int upper)
 		n = (int)time(0);
 		seed_set = true;
 	}
-	n = ft_hash_int(n);
+	n = ft_inthash(n);
 	if (lower > upper)
 		ft_swap(&lower, &upper);
 	l = lower;

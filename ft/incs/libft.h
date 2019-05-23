@@ -6,7 +6,7 @@
 /*   By: zwang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/11 11:20:28 by zwang             #+#    #+#             */
-/*   Updated: 2019/05/22 10:16:58 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/05/23 17:51:40 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ unsigned int		ft_invertbits(unsigned int x, int p, int n);
 void				ft_memswap(void *p1, void *p2, size_t byte);
 void				*ft_memrealloc(void **ptr, size_t oldsize, size_t newsize);
 void				ft_putbits(void *x, size_t bit);
-uint32_t			ft_hash_ptr(void *p);
+uint32_t			ft_ptrhash(void *p);
 
 /*
 ** ===============
@@ -106,27 +106,15 @@ uint32_t			ft_hash_ptr(void *p);
 /*
 ** F_PREC:	double float decimal digits of precision
 ** ABS:		absolute value
+** MAX:		maximum value
+** MIN:		minimum value
 */
 
-# define F_PREC	15	
+# define F_PREC		15	
 
 # define ABS(x)		(((x) < 0) ? -(x) : (x))
 # define MAX(a,b)	(((a) > (b)) ? (a) : (b))
 # define MIN(a,b)	(((a) < (b)) ? (a) : (b))
-
-/*
-** t_fcompo:	contains all the parts of a single float type data
-** sign:		1 bit (0)
-** exponent:	8 bits (1 ~ 8) (the exponent of 2)
-** mantissa:	23 bits (9 ~ 31) (the presence of 2's power: 2^-1, 2^-2, ...)
-*/
-
-typedef struct		s_fcompo
-{
-	int				sign;
-	int				exponent;
-	long			mantissa;
-}					t_fcompo;
 
 int					ft_numlen(intmax_t n);
 int					ft_unumlen(uintmax_t un);
@@ -142,7 +130,6 @@ double				ft_pow(double n, int pow);
 void				ft_prime_factors(int n);
 double				ft_ceil(double n);
 double				ft_floor(double n);
-t_fcompo			*ft_analyze_float(float n);
 int					*ft_numarrcpy(int *dst, const int *src, size_t len);
 t_bool				ft_iselem(size_t byte, void *arr, size_t len, void *num);
 int					ft_max(int total_no, ...);
@@ -157,7 +144,7 @@ long long			ft_factorial(int n);
 long long			ft_fibonacci(int n);
 long long			ft_uglynum(int n);
 void				ft_swap(int *a, int *b);
-uint32_t			ft_hash_int(int h);
+uint32_t			ft_inthash(int h);
 int					ft_log(int n, int base);
 
 /*
@@ -192,49 +179,60 @@ long				ft_atol(const char *str);
 double				ft_atof(const char *str);
 int					ft_atoi_base(const char *str, int base);
 long				ft_atol_base(const char *str, int base);
+
 t_bool				ft_isnumeric(char *s);
-char				*ft_strcat(char *s1, const char *s2);
-char				*ft_strchr(const char *s, int c);
-void				ft_strclr(char *s);
-int					ft_strcmp(const char *s1, const char *s2);
-size_t				ft_strclen(const char *s, char *delim);
-int					ft_strsepnum(const char *s, char *delim);
-int					ft_count_subs(const char *str, const char *s);
-char				*ft_strcpy(char *dst, const char *src);
-void				ft_strdel(char **as);
-char				*ft_strdup(const char *s);
-t_bool				ft_strequ(const char *s1, const char *s2);
-void				ft_striter(char *s, void (*f)(char *));
-void				ft_striteri(char *s, void (*f)(unsigned int, char *));
-char				*ft_strjoin(const char *s1, char const *s2);
-size_t				ft_strlcat(char *dst, const char *src, size_t dstsize);
-size_t				ft_strlen(const char *s);
-char				*ft_strmap(const char *s, char (*f)(char));
-char				*ft_strmapi(const char *s, char (*f)(unsigned int, char));
-char				*ft_strncat(char *s1, const char *s2, size_t n);
-int					ft_strncmp(const char *s1, const char *s2, size_t n);
-char				*ft_strncpy(char *dst, const char *src, size_t len);
-t_bool				ft_strnequ(const char *s1, const char *s2, size_t n);
-char				*ft_strnew(size_t size);
-char				*ft_strnstr(const char *haystack, const char *needle,
-								size_t len);
-char				*ft_strrchr(const char *s, int c);
-char				**ft_strsplit(const char *s, char *delim);
-char				*ft_strstr(const char *haystack, const char *needle);
-char				*ft_strsub(const char *s, unsigned int start, size_t len);
-char				*ft_strtrim(const char *s);
-char				*ft_strcapitalize(char *s);
-t_bool				ft_check_brackets(const char *s);
-size_t				ft_strarrlen(const char *arr[]);
-char				**ft_strarrdup(char *dst[], const char *src[]);
-void				ft_strarrdel(char *arr[]);
 t_bool				ft_strstart(const char *str, const char *substr);
 t_bool				ft_strend(const char *str, const char *substr);
-void				ft_strsqueeze(char str[], int c);
+
+char				*ft_strnew(size_t size);
+void				ft_strclr(char *s);
+void				ft_strdel(char **s_p);
+
+int					ft_strcmp(const char *s1, const char *s2);
+int					ft_strncmp(const char *s1, const char *s2, size_t n);
+t_bool				ft_strequ(const char *s1, const char *s2);
+t_bool				ft_strnequ(const char *s1, const char *s2, size_t n);
+
+char				*ft_strchr(const char *s, int c);
+char				*ft_strrchr(const char *s, int c);
+char				*ft_strstr(const char *haystack, const char *needle);
+char				*ft_strnstr(const char *haystack, const char *needle,
+								size_t len);
+
+size_t				ft_strlen(const char *s);
+size_t				ft_strclen(const char *s, char *delim);
+
+char				*ft_strcat(char *s1, const char *s2);
+char				*ft_strncat(char *s1, const char *s2, size_t n);
+size_t				ft_strlcat(char *dst, const char *src, size_t dstsize);
+
+char				*ft_strcpy(char *dst, const char *src);
+char				*ft_strncpy(char *dst, const char *src, size_t len);
+char				*ft_strdup(const char *s);
+
+void				ft_striter(char *s, void (*f)(char *));
+void				ft_striteri(char *s, void (*f)(unsigned int, char *));
+char				*ft_strmap(const char *s, char (*f)(char));
+char				*ft_strmapi(const char *s, char (*f)(unsigned int, char));
+
+char				*ft_strtrim(const char *s);
+char				*ft_strcap(char *s);
+
+char				*ft_strjoin(const char *s1, char const *s2);
+char				*ft_strcompose(int str_num, ...);
+char				*ft_strsub(const char *s, unsigned int start, size_t len);
+char				**ft_strsplit(const char *s, char *delim);
+
+int					ft_strsepn(const char *s, char *delim);
+int					ft_strsubn(const char *str, const char *s);
+
+size_t				ft_strarrlen(const char *arr[]);
+char				**ft_strarrdup(char *dst[], const char *src[]);
 void				ft_strarrsort(char *arr[], int len,
 									int (*cmp)(const char *, const char *));
-char				*ft_strcompose(int str_num, ...);
-uint32_t			ft_hash_str(char *s);
+void				ft_strarrdel(char *arr[]);
+
+uint32_t			ft_strhash(char *s);
 
 /*
 ** =========================
@@ -244,31 +242,36 @@ uint32_t			ft_hash_str(char *s);
 ** =========================
 */
 
-# define BUF_SIZ	1024
+/*
+** BUF_SIZ:	used in ft_getchar
+*/
 
-void				ft_putchar_fd(char c, int fd);
+# define BUF_SIZ	128
+
 void				ft_putchar(char c);
-void				ft_putnchar_fd(char c, int n, int fd);
+void				ft_dputchar(int fd, char c);
+
 void				ft_putnchar(char c, int n);
 void				ft_putncharln(char c, int n);
-void				ft_putendl_fd(const char *s, int fd);
-void				ft_putendl(const char *s);
-void				ft_putnbr_fd(int n, int fd);
+void				ft_dputnchar(int fd, char c, int n);
+
 void				ft_putnbr(int n);
-void				ft_putstr_fd(const char *s, int fd);
+void				ft_dputnbr(int fd, int n);
+
 void				ft_putstr(const char *s);
-void				ft_putlstr_fd(const char *str, unsigned int start,
-									size_t len, int fd);
-void				ft_putlstr(const char *str, unsigned int start,
+void				ft_dputstr(int fd, const char *s);
+
+void				ft_putlstr(const char *s, unsigned int start, size_t len);
+void				ft_dputlstr(int fd, const char *s, unsigned int start,
 								size_t len);
+
+int					ft_printf(const char *fmt, ...);
+int					ft_dprintf(int fd, const char *fmt, ...);
+int					ft_vdprintf(int fd, const char *fmt, va_list args);
+
 int					ft_getchar(void);
 int					ft_getonechar(void);
-int					ft_nextchar(void);
-void				ft_savechar(int c);
-int					ft_nextword(char *word, int limit);
-int					ft_vdprintf(int fd, const char *format, va_list args);
-int					ft_printf(const char *format, ...);
-int					ft_dprintf(int fd, const char *format, ...);
+
 int					ft_nextline(const int fd, char **line);
 
 #endif

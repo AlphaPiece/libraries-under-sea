@@ -6,7 +6,7 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/03 12:34:56 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/02/03 12:36:17 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/05/23 17:50:01 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,6 @@
 
 void	ft_putncharln(char c, int n)
 {
-	ft_putnchar_fd(c, n, 1);
+	ft_putnchar(c, n);
 	ft_putchar('\n');
 }

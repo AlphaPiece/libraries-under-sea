@@ -6,7 +6,7 @@
 /*   By: zwang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/11 11:18:07 by zwang             #+#    #+#             */
-/*   Updated: 2018/07/11 12:03:16 by zwang            ###   ########.fr       */
+/*   Updated: 2019/05/23 15:57:07 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,5 @@
 
 void	ft_putnbr(int n)
 {
-	unsigned int	nbr;
-
-	if (n < 0)
-	{
-		ft_putchar('-');
-		nbr = -n;
-	}
-	else
-		nbr = n;
-	if (nbr >= 10)
-		ft_putnbr(nbr / 10);
-	ft_putchar(nbr % 10 + '0');
+	ft_dputnbr(1, n);
 }
