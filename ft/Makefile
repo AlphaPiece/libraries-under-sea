@@ -6,7 +6,7 @@
 #    By: zwang <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/15 14:23:06 by zwang             #+#    #+#              #
-#    Updated: 2019/05/23 18:23:21 by Zexi Wang        ###   ########.fr        #
+#    Updated: 2019/05/24 19:13:32 by Zexi Wang        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ NUM = ft_ceil.c       ft_intarrmin.c  ft_max.c        ft_randint.c \
 	  ft_floor.c      ft_itoa.c       ft_ntoa_base.c  ft_sum.c \
 	  ft_ftoa.c       ft_log.c        ft_numlen.c     ft_swap.c \
 	  ft_intarrmax.c  ft_ltoa.c       ft_pow.c        ft_uglyn.c \
-	  ft_untoa.c      ft_untoa_base.c ft_unumlen.c
+	  ft_untoa.c      ft_untoa_base.c ft_unumlen.c    ft_rand.c
 
 CHR = ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c ft_isspace.c \
 	  ft_isprint.c  ft_tolower.c ft_toupper.c ft_islower.c ft_isupper.c
