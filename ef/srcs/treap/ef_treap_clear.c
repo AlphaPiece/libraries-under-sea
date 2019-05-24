@@ -1,30 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ef_atree_set.c                                     :+:      :+:    :+:   */
+/*   ef_treap_clear.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/14 22:27:37 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/24 09:21:54 by Zexi Wang        ###   ########.fr       */
+/*   Created: 2019/05/24 09:35:50 by Zexi Wang         #+#    #+#             */
+/*   Updated: 2019/05/24 09:40:51 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libef.h"
 
-void	ef_atree_set(t_atree *tree, void *key, void *value)
+void	ef_treap_clear(t_treap *tree)
 {
-	t_anode	*node;
+	t_deque		*queue;
+	t_trnode	*node;
 
 	if (tree)
 	{
-		if ((node = ef_atree_find(tree, key)))
+		queue = ef_deque_create(ef_dlist_create(tree->root));
+		while (!ef_deque_is_empty(queue))
 		{
-			if (tree->del_value)
-				tree->del_value(node->value);
-			node->value = value;
+			node = ef_deque_pop_head(queue);
+			if (node->left)
+				ef_deque_push_tail(queue, node->left);
+			if (node->right)
+				ef_deque_push_tail(queue, node->right);
+			ef_trnode_free(node, tree->del_key, tree->del_value);
 		}
-		else
-			ef_atree_insert(tree, ef_anode_create(key, value));
+		ef_deque_free(queue, NULL);
+		tree->root = NULL;
+		tree->size = 0;
 	}
 }

@@ -6,7 +6,7 @@
 #    By: zwang <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/15 14:23:06 by zwang             #+#    #+#              #
-#    Updated: 2019/05/21 14:02:45 by Zexi Wang        ###   ########.fr        #
+#    Updated: 2019/05/24 10:54:10 by Zexi Wang        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -110,6 +110,16 @@ SPTREE = ef_spnode_alloc.c        ef_sptree_clear.c      ef_sptree_remove.c \
 		 ef_spnode_right_rotate.c ef_sptree_insert.c     ef_sptree_alloc.c \
 		 ef_sptree_join.c
 
+TREAP = ef_treap_alloc.c		ef_treap_set.c \
+		ef_treap_clear.c		ef_treap_size.c \
+		ef_treap_create.c		ef_treap_traverse.c \
+		ef_treap_delete.c		ef_trnode_alloc.c \
+		ef_treap_find.c			ef_trnode_create.c \
+		ef_treap_free.c			ef_trnode_free.c \
+		ef_treap_get.c			ef_trnode_left_rotate.c \
+		ef_treap_insert.c		ef_trnode_right_rotate.c \
+		ef_treap_remove.c
+
 HTABLE = ef_hash_integer.c    ef_htable_find.c     ef_htable_pairs.c \
 		 ef_hash_pointer.c    ef_htable_free.c     ef_htable_pop.c \
 		 ef_hash_string.c     ef_htable_get.c      ef_htable_remove.c \
@@ -144,6 +154,7 @@ NTREE_DIR = srcs/ntree/
 ATREE_DIR = srcs/atree/
 RBTREE_DIR = srcs/rbtree/
 SPTREE_DIR = srcs/sptree/
+TREAP_DIR = srcs/treap/
 HTABLE_DIR = srcs/htable/
 BHEAP_DIR = srcs/bheap/
 BNHEAP_DIR = srcs/bnheap/
@@ -160,6 +171,7 @@ SRCS = $(addprefix $(KVPAIR_DIR), $(KVPAIR)) \
 	   $(addprefix $(ATREE_DIR), $(ATREE)) \
 	   $(addprefix $(RBTREE_DIR), $(RBTREE)) \
 	   $(addprefix $(SPTREE_DIR), $(SPTREE)) \
+	   $(addprefix $(TREAP_DIR), $(TREAP)) \
 	   $(addprefix $(HTABLE_DIR), $(HTABLE)) \
 	   $(addprefix $(BHEAP_DIR), $(BHEAP)) \
 	   $(addprefix $(BNHEAP_DIR), $(BNHEAP))

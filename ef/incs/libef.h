@@ -6,7 +6,7 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/15 16:00:55 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/23 15:10:31 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/05/24 09:43:14 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -671,7 +671,31 @@ t_treap				*ef_treap_create(f_cmp cmp_key, f_del del_key,
 										f_del del_value);
 
 // Set
+void				ef_treap_insert(t_treap *tree, t_trnode *node);
+void				ef_treap_set(t_treap *tree, void *key, void *value);
 
+
+// Get
+t_trnode			*ef_treap_find(t_treap *tree, void *key);
+void				*ef_treap_get(t_treap *tree, void *key);
+
+// Remove
+void				ef_trnode_free(t_trnode *node, f_del del_key,
+									f_del del_value);
+void				ef_treap_delete(t_treap *tree, t_trnode *node);
+void				ef_treap_remove(t_treap *tree, void *key);
+void				ef_treap_clear(t_treap *tree);
+void				ef_treap_free(t_treap *tree);
+
+// Traverse
+void				ef_treap_traverse(t_treap *tree, f_trw trw);
+
+// Status
+int					ef_treap_size(t_treap *tree);
+
+// Extra
+void				ef_trnode_left_rotate(t_treap *tree, t_trnode *node);
+void				ef_trnode_right_rotate(t_treap *tree, t_trnode *node);
 
 
 /*

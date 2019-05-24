@@ -1,30 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ef_atree_set.c                                     :+:      :+:    :+:   */
+/*   ef_treap_find.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/14 22:27:37 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/24 09:21:54 by Zexi Wang        ###   ########.fr       */
+/*   Created: 2019/05/23 20:28:05 by Zexi Wang         #+#    #+#             */
+/*   Updated: 2019/05/23 20:30:29 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libef.h"
 
-void	ef_atree_set(t_atree *tree, void *key, void *value)
+t_trnode	*ef_treap_find(t_treap *tree, void *key)
 {
-	t_anode	*node;
+	t_trnode	*node;
+	int			flag;
 
-	if (tree)
-	{
-		if ((node = ef_atree_find(tree, key)))
-		{
-			if (tree->del_value)
-				tree->del_value(node->value);
-			node->value = value;
-		}
+	if (!tree)
+		return (NULL);
+	node = tree->root;
+	while (node)
+		if ((flag = tree->cmp_key(key, node->key)) < 0)
+			node = node->left;
+		else if (flag > 0)
+			node = node->right;
 		else
-			ef_atree_insert(tree, ef_anode_create(key, value));
-	}
+			break ;
+	return (node);
 }

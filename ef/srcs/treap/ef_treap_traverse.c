@@ -1,28 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ef_trnode_create.c                                 :+:      :+:    :+:   */
+/*   ef_treap_traverse.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/22 10:09:20 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/23 19:59:13 by Zexi Wang        ###   ########.fr       */
+/*   Created: 2019/05/24 09:29:29 by Zexi Wang         #+#    #+#             */
+/*   Updated: 2019/05/24 09:32:57 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libef.h"
 
-t_trnode	*ef_trnode_create(void *key, void *value)
+void	ef_treap_traverse(t_treap *tree, f_trw trw)
 {
+	t_deque		*stack;
 	t_trnode	*node;
 
-	node = ef_trnode_alloc();
-	node->key = key;
-	node->value = value;
-	node->parent = NULL;
-	node->left = NULL;
-	node->right = NULL;
-//	node->priority = ft_randint(INT_MIN + 1, INT_MAX);
-	node->priority = ft_randint(0, 100);
-	return (node);
+	if (tree && trw)
+	{
+		stack = ef_deque_create(NULL);
+		node = tree->root;
+		while (!ef_deque_is_empty(stack) || node)
+			if (node)
+			{
+				ef_deque_push_head(stack, node);
+				node = node->left;
+			}
+			else
+			{
+				node = ef_deque_pop_head(stack);
+				node->value = trw(node->key, node->value);
+				node = node->right;
+			}
+		ef_deque_free(stack, NULL);
+	}
 }
