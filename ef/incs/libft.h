@@ -6,7 +6,7 @@
 /*   By: zwang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/11 11:20:28 by zwang             #+#    #+#             */
-/*   Updated: 2019/05/23 18:21:41 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/05/24 19:12:27 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -148,6 +148,7 @@ int					ft_intarrmax(int arr[], int len);
 int					ft_intarrmin(int arr[], int	len);
 int					ft_intarrsum(int arr[], int len);
 
+double				ft_rand(void);
 int                 ft_randint(int lower, int upper);
 int					*ft_randintarr(int lower, int upper, int len);
 

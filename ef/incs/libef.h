@@ -6,7 +6,7 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/15 16:00:55 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/24 09:43:14 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/05/24 21:03:57 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,7 @@ void				ef_darray_set(t_darray *array, t_value value, int index);
 
 // Get
 t_value				ef_darray_get(t_darray *array, int index);
+t_value				ef_darray_peek(t_darray *array);
 
 // Remove
 t_value				ef_darray_pop(t_darray *array);
@@ -253,6 +254,9 @@ t_dlist				*ef_dlist_copy(t_dlist *list, f_cpy cpy);
 ** ==================
 */
 
+# define PROBABILITY	0.5
+# define MAX_LEVEL		32
+
 typedef struct		s_sknode
 {
 	void			*key;
@@ -263,11 +267,11 @@ typedef struct		s_sknode
 typedef struct		s_sklist
 {
 	t_sknode		*head;
-	int				size;
-	int				level;
 	f_cmp			cmp_key;
 	f_del			del_key;
 	f_del			del_value;
+	int				size;
+	int				level;
 }					t_sklist;
 
 // Create

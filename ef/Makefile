@@ -6,7 +6,7 @@
 #    By: zwang <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/15 14:23:06 by zwang             #+#    #+#              #
-#    Updated: 2019/05/24 10:54:10 by Zexi Wang        ###   ########.fr        #
+#    Updated: 2019/05/24 21:06:42 by Zexi Wang        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,7 @@ DARRAY = ef_darray_alloc.c           ef_darray_resize.c \
 		 ef_darray_index.c           ef_darray_create.c \
 		 ef_darray_sort.c            ef_darray_elem_size.c \
 		 ef_darray_partition.c       ef_darray_swap.c \
-		 ef_darray_traverse.c
+		 ef_darray_traverse.c        ef_darray_peek.c
 
 SLIST = ef_slist_alloc.c              ef_slist_last_node.c \
 		ef_slist_append.c             ef_slist_length.c \
