@@ -6,7 +6,7 @@
 #    By: zwang <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/15 14:23:06 by zwang             #+#    #+#              #
-#    Updated: 2019/05/24 19:13:32 by Zexi Wang        ###   ########.fr        #
+#    Updated: 2019/05/29 19:28:29 by Zexi Wang        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,13 +19,10 @@ MEM = ft_bzero.c      ft_memccpy.c    ft_memfree.c    ft_memswap.c \
 	  ft_invertbits.c ft_memcmp.c     ft_memrealloc.c ft_putbits.c \
 	  ft_memalloc.c   ft_memcpy.c     ft_memset.c     ft_setbits.c
 
-NUM = ft_ceil.c       ft_intarrmin.c  ft_max.c        ft_randint.c \
-	  ft_fact.c       ft_intarrsum.c  ft_min.c        ft_randintarr.c \
-	  ft_fib.c        ft_inthash.c    ft_ntoa.c       ft_sqrt.c \
-	  ft_floor.c      ft_itoa.c       ft_ntoa_base.c  ft_sum.c \
-	  ft_ftoa.c       ft_log.c        ft_numlen.c     ft_swap.c \
-	  ft_intarrmax.c  ft_ltoa.c       ft_pow.c        ft_uglyn.c \
-	  ft_untoa.c      ft_untoa_base.c ft_unumlen.c    ft_rand.c
+NUM = ft_ftoa.c  ft_inthash.c  ft_min.c       ft_rand.c       ft_swap.c \
+	  ft_intarrmax.c ft_itoa.c ft_ntoa.c      ft_randint.c    ft_untoa.c \
+	  ft_intarrmin.c ft_ltoa.c ft_ntoa_base.c ft_randintarr.c ft_untoa_base.c \
+	  ft_intarrsum.c ft_max.c  ft_numlen.c    ft_sum.c        ft_unumlen.c
 
 CHR = ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c ft_isspace.c \
 	  ft_isprint.c  ft_tolower.c ft_toupper.c ft_islower.c ft_isupper.c

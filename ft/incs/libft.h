@@ -6,7 +6,7 @@
 /*   By: zwang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/11 11:20:28 by zwang             #+#    #+#             */
-/*   Updated: 2019/05/24 19:12:27 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/05/29 19:24:29 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 # include <time.h>
 # include "ft_nextline.h"
 # include "ft_vdprintf.h"
+# include <math.h>
 
 typedef enum		e_bool
 {
@@ -135,11 +136,6 @@ char				*ft_ftoa(double n);
 
 void				ft_swap(int *a, int *b);
 
-double				ft_sqrt(double n);
-double				ft_pow(double n, int pow);
-double				ft_ceil(double n);
-double				ft_floor(double n);
-
 int					ft_max(int total_no, ...);
 int					ft_min(int total_no, ...);
 int					ft_sum(int total_no, ...);
@@ -151,11 +147,6 @@ int					ft_intarrsum(int arr[], int len);
 double				ft_rand(void);
 int                 ft_randint(int lower, int upper);
 int					*ft_randintarr(int lower, int upper, int len);
-
-long long			ft_fact(int n);
-long long			ft_fib(int n);
-long long			ft_uglyn(int n);
-int					ft_log(int n, int base);
 
 uint32_t			ft_inthash(int h);
 
