@@ -113,13 +113,11 @@
 | char \* | **ft_strcompose** | (int str_num, ...) | Allocates (with malloc(3)) and returns a "fresh" string ending with '\0', result of the concatenation of all strings that are passed in as arguments after str_num. If the allocation fails the function returns NULL. |
 | char \* | **ft_strsub** | (const char \*s, unsigned int start, size_t len) | Allocates (with malloc(3)) and returns a "fresh" substring from the string given as argument. The substring begins at indexstart and is of size len. If start and len aren’t refering to a valid substring, the behavior is undefined. If the allocation fails, the function returns NULL. |
 | char \*\* | **ft_strsplit** | (const char \*s, char \*delim) | Splits s to an array of substrings that are seperated by any character in delim. The array and the substrings in the array are allocated (with malloc(3)). If the allocation fails, the function returns NULL. |
-
-| 40 | **ft_strarrlen** | Counts the number of elements in an array. |
-| 41 | **ft_strarrdup** | Copies an array of strings (with malloc(3)). |
-| 42 | **ft_strarrsort** | Sorts a string array by using the comparing function passed in as argument. |
-| 43 | **ft_strarrdel** | Frees an array and the strings in the array (with free(3)). |
-| 44 | **ft_check_brackets** | Checks if the brackets in a string match correctly. |
-
+| size_t | **ft_strarrlen** | (consrt char \*arr\[\]) | Counts the number of elements in an array. |
+| char \*\* | **ft_strarrdup** | (char \*dst\[\], consrt char \*src\[\]) | Copies an array of strings (with malloc(3)). |
+| void | **ft_strarrsort** | char \*arr[], int len, int (\*cmp)(const char \*, const char \*)) | Sorts a string array by using the comparing function passed in as argument. |
+| void | **ft_strarrdel** | (char \*arr\[\]) | Frees an array and the strings in the array (with free(3)). |
+| uint32_t | **ft_strhash** | (char \*s) | Returns a 32-bit hash integer by hashing the string s. |
 
 ## [File Input/Output](https://github.com/AlphaPiece/LibrariesUnderSea/tree/master/ft/srcs/fio)
 
