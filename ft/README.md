@@ -11,7 +11,7 @@
 
 ## [Memory](https://github.com/AlphaPiece/LibrariesUnderSea/tree/master/ft/srcs/mem)
 
-| Return Type | Function Name | Parameters | Description |
+| Return Type | Function Name | Parameter List | Description |
 | --- | --- | --- | --- |
 | void * | **ft_memalloc** | (size_t size) | Allocates (with malloc(3)) and returns a "fresh" memory area. The memory allocated is initialized to 0. If the allocation fails, the function returns NULL. |
 | void * | **ft_memrealloc** | (void \*\*ptr, size_t oldsize, size_t newsize) | Frees (with free(3)) and allocates (with malloc(3)) and returns a "fresh" memory area with the new size. The data in the previous memory location will be copied to the new one. The rest of the memory allocated is initialized to 0. If the allocation fails, the function returns NULL. |
@@ -32,7 +32,7 @@
 
 ## [Numbers](https://github.com/AlphaPiece/LibrariesUnderSea/tree/master/ft/srcs/num)
 
-| Return Type | Function Name | Parameters | Description |
+| Return Type | Function Name | Parameter List | Description |
 | --- | --- | --- | --- |
 | int | **ft_numlen** | (intmax_t n) | Counts the number of digits of a signed integer. |
 | int | **ft_unumlen** | (uintmax_t un) | Counts the number of digits of an unsigned integer. |
@@ -57,18 +57,18 @@
 
 ## [ASCII Characters](https://github.com/AlphaPiece/LibrariesUnderSea/tree/master/ft/srcs/chr)
 
-| No. | Function | Description |
-| --- | --- | --- |
-| 1 | **ft_isalpha** | Checks if a character is an alphabet character. |
-| 2 | **ft_isdigit** | Checks if a character is a digit character. |
-| 3 | **ft_isalnum** | Checks if a character either an alphabet character or a digit character. |
-| 4 | **ft_isascii** | Checks if a character is in ascii table. |
-| 5 | **ft_isspace** | Checks if a character is a white-space character. |
-| 6 | **ft_isprint** | Checks if a character is a printable character. |
-| 7 | **ft_islower** | Checks if a character is an lowercase alphabet character. |
-| 8 | **ft_isupper** | Checks if a character is an uppercase alphabet character. |
-| 9 | **ft_tolower** | Converts a uppercase alphabet character to a lowercase alphabet character. |
-| 10 | **ft_toupper** | Converts a lowercase alphabet character to a uppercase alphabet character. |
+| Return Type | Function Name | Parameter List | Description |
+| --- | --- | --- | --- |
+| t_bool | **ft_islower** | (int c) | Checks if a character is an lowercase alphabet character. |
+| t_bool | **ft_isupper** | (int c) | Checks if a character is an uppercase alphabet character. |
+| t_bool | **ft_isalpha** | (int c) | Checks if a character is an alphabet character. |
+| t_bool | **ft_isdigit** | (int c) | Checks if a character is a digit character. |
+| t_bool | **ft_isalnum** | (int c) | Checks if a character either an alphabet character or a digit character. |
+| t_bool | **ft_isspace** | (int c) | Checks if a character is a white-space character. |
+| t_bool | **ft_isprint** | (int c) | Checks if a character is a printable character. |
+| t_bool | **ft_isascii** | (int c) | Checks if a character is in ascii table. |
+| int | **ft_tolower** | (int c) | Converts a uppercase alphabet character to a lowercase alphabet character. |
+| int | **ft_toupper** | (int c) | Converts a lowercase alphabet character to a uppercase alphabet character. |
 
 ## [ASCII Character Strings](https://github.com/AlphaPiece/LibrariesUnderSea/tree/master/ft/srcs/str)
 
