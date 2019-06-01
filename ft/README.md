@@ -14,7 +14,6 @@
 | Return Type | Function Name | Parameter List | Description |
 | --- | --- | --- | --- |
 | void * | **ft_memalloc** | (size_t size) | Allocates (with malloc(3)) and returns a "fresh" memory area. The memory allocated is initialized to 0. If the allocation fails, the function returns NULL. |
-| void * | **ft_memrealloc** | (void \*\*ptr, size_t oldsize, size_t newsize) | Frees (with free(3)) and allocates (with malloc(3)) and returns a "fresh" memory area with the new size. The data in the previous memory location will be copied to the new one. The rest of the memory allocated is initialized to 0. If the allocation fails, the function returns NULL. |
 | void | **ft_memfree** | (void \*\*p) | Deallocates the memory allocation pointed to by the pointer that ptr points to, and set that pointer to point to NULL. |
 | int | **ft_memcmp** | (void \*dst, const void \*src, size_t n) | Compares byte string s1 against byte string s2. Both strings are assumed to be n bytes long. |
 | void \* | **ft_memchr** | (const void \*s, int c, size_t n) | Locates the first occurrence of c (converted to an unsigned char) in string s. |
@@ -78,38 +77,34 @@
 | void | **ft_strclr** | (char \*s) | Sets every character of the string to the value '\0'. |
 | void | **ft_strdel** | (char \*\*p) | Takes as a parameter the address of a string that need to be freed with free(3), then sets its pointer to NULL.
 | int | **ft_atoi** | (const char \*s ) | Converts the initial portion of the string pointed to by str to int representation. |
-| 2 | **ft_atol** | Converts the initial portion of the string pointed to by str to long integer representation. |
-| 3 | **ft_atof** | Converts the initial portion of the string pointed to by str to double representation. |
-| 4 | **ft_atoi_base** | Converts the initial portion of the string pointed to by str to int represention based on the given base (2 ~ 16). |
-| 5 | **ft_atol_base** | Converts the initial portion of the string pointed to by str to long represention based on the given base (2 ~ 16). |
-| 6 | **ft_isnumeric** | Checks if a string is an integer. |
+| long | **ft_atol** | (const char \*s) | Converts the initial portion of the string pointed to by str to long integer representation. |
+| int | **ft_atoi_base** | (const char \*s, int base) | Converts the initial portion of the string pointed to by str to int represention based on the given base (2 ~ 16). |
+| long | **ft_atol_base** | (const char \*s, int base) | Converts the initial portion of the string pointed to by str to long represention based on the given base (2 ~ 16). |
+| double | **ft_atof** | (const char \*s) | Converts the initial portion of the string pointed to by str to double representation. |
+| t_bool | **ft_isnumeric** | (char \*s) | Checks if a string is an integer. |
+| t_bool | **ft_strstart** | (const char \*s, const char \*subs) | Determines whether a string begins with the characters of a specified string, returning true or false as appropriate. |
+| t_bool | **ft_strend** | (const char \*s, const char \*subs) | Determines whether a string ends with the characters of a specified string, returning true or false as appropriate. |
+| int | **ft_strcmp** | (const char \*s1, const char \*s2) | Compares lexicographically the null-terminated strings s1 and s2. |
+| int | **ft_strncmp** | (const char \*s1, const char \*s2, size_t n) | Performs the same as ft_strcmp, except it compares not more than n characters. Because ft_strncmp is designed for comparing strings rather than binary data, characters that appear after a '\0' character are not compared. |
+| t_bool | **ft_strequ** | (const char \*s1, const char \*s2) | Compares lexicographically s1 and s2. If the two strings are identical the function return true, or false otherwise. |
+| t_bool | **ft_strnequ** | (const char \*s1, const char \*s2, size_t n) | Compares lexicographically s1 and s2 up to n characters or until a '\0' is reached. If the two strings are identical, the function returns true, or false otherwise. |
+| char \* | **ft_strchr** | (const char \*s, int c) | Locates the first occurrence of c (converted to a char) in the string pointed to by s. The terminating null character is considered to be part of the string; therefore if c is '\0', the functions locate the terminating '\0'. |
+| char \* | **ft_strrchr** | (const char \*s, int c) | Performs the same as ft_strchr, except it locates the last occurrence of c. |
+| char \* | **ft_strstr** | (const char \*haystack, const char \* needle) | Locates the first occurrence of the null-terminated string needle in the null-terminated string haystack. |
+| char \* | **ft_strnstr** | (const char \*haystack, const char \* needle, size_t len) | Locates the first occurrence of the null-terminated string needle in the string haystack, where not more than len characters are searched. Characters that appear after a '\0' character are not searched. | 
+| size_t | **ft_strlen** | (const char \*s) | Computes the length of the string s. |
+| size_t | **ft_strclen** | (const char \*s, char \*delim) | Counts the number of characters before any of the characters in delim is met in the string s. |
+| char \* | **ft_strcat** | (char \*dst, const char \*src) | Appends a copy of the null-terminated string s2 to the end of the null-terminated string s1, then add a terminating '\0'. The string s1 must have sufficient space to hold the result. The source and destination strings should not overlap, as the behavior is undefined.|
+| char \* | **ft_strncat** | (char \*s1, const char \*s2, size_t n) | Appends not more than n characters from s2, and then adds a terminating '\0'. |
+| size_t | **ft_strlcat** | (char \*dst, cosnt char \*src, size_t dstsize) | Appends string src to the end of dst. It will append at most dstsize - strlen(dst) - 1 characters. It will then NUL-terminate, unless dstsize is 0 or the original dst string was longer than dstsize (in practice this should not happen as it means that either dstsize is incorrect or that dst is not a proper string). |
+| char \* | **ft_strcpy** | (char \*dst, const char \*src) | Copies the string src to dst (including the terminating '\0' character.) |
+| char \* | **ft_strncpy** | (char \*dst, const char \*srcs, size_t len) | Copies at most len characters from src into dst. If src is less than len characters long, the remainder of dst is filled with '\0' characters. Otherwise, dst is not terminated. |
+| char \* | **ft_strdup** | (const char \*s) | Allocates sufficient memory for a copy of the string s1, does the copy, and returns a pointer to it. |
+| void | **ft_striter** | (char \*s, void (\*f)(char \*)) | Applies the function f to each character of the string passed as argument. Each character is passed by address to f to be modified if necessary. |
+| void | **ft_striteri** | (char \*s, void (\*f)(unsigned int, char \*)) | Applies the function f to each character of the string passed as argument, and passing its index as first argument. Each character is passed by address to f to be modified if necessary. |
+| void | **ft_strmap** | (const char \*s, char (\*f)(char)) | Applies the function f to each character of the string given as argument to create a "fresh" new string (with malloc(3)) resulting from the successive applications of f. |
+| char \* | **ft_strmapi** | (const char \*s, char (\*f)(unsigned int, char)) | Applies the function f to each character of the string passed as argument by giving its index as first argument to create a "fresh" new string (with malloc(3)) resulting from the successive applications of f. |
 
-| 8 | **ft_strcapitalize** | Capitalizes the first letter of each word and transforms all other letters to lowercase. |
-| 9 | **ft_strsqueeze** | Delete all the occurrences of character c in the string s. |
-| 10 | **ft_strcat** | Appends a copy of the null-terminated string s2 to the end of the null-terminated string s1, then add a terminating '\0'. The string s1 must have sufficient space to hold the result. The source and destination strings should not overlap, as the behavior is undefined.|
-| 11 | **ft_strlcat** | Appends string src to the end of dst. It will append at most dstsize - strlen(dst) - 1 characters. It will then NUL-terminate, unless dstsize is 0 or the original dst string was longer than dstsize (in practice this should not happen as it means that either dstsize is incorrect or that dst is not a proper string). |
-| 12 | **ft_strncat** | Appends not more than n characters from s2, and then adds a terminating '\0'. |
-| 13 | **ft_strchr** | Locates the first occurrence of c (converted to a char) in the string pointed to by s. The terminating null character is considered to be part of the string; therefore if c is '\0', the functions locate the terminating '\0'. |
-| 14 | **ft_strrchr** | Performs the same as ft_strchr, except it locates the last occurrence of c. |
-| 15 | **ft_strstr** | Locates the first occurrence of the null-terminated string needle in the null-terminated string haystack. |
-| 16 | **ft_strnstr** | Locates the first occurrence of the null-terminated string needle in the string haystack, where not more than len characters are searched. Characters that appear after a '\0' character are not searched. | 
-
-
-| 19 | **ft_strlen** | Computes the length of the string s. |
-| 20 | **ft_strclen** | Counts the number of characters before the first character c in the string s. |
-| 21 | **ft_strcmp** | Compares lexicographically the null-terminated strings s1 and s2. |
-| 22 | **ft_strncmp** | Performs the same as ft_strcmp, except it compares not more than n characters. Because ft_strncmp is designed for comparing strings rather than binary data, characters that appear after a '\0' character are not compared. |
-| 23 | **ft_strequ** | Compares lexicographically s1 and s2. If the two strings are identical the function return true (1), or false (0) otherwise. |
-| 24 | **ft_strnequ** | Compares lexicographically s1 and s2 up to n characters or until a '\0' is reached. If the two strings are identical, the function returns true (1), or false (0) otherwise. |
-| 25 | **ft_strcpy** | Copies the string src to dst (including the terminating '\0' character.) |
-| 26 | **ft_strncpy** | Copies at most len characters from src into dst. If src is less than len characters long, the remainder of dst is filled with '\0' characters. Otherwise, dst is not terminated. |
-| 27 | **ft_strdup** | Allocates sufficient memory for a copy of the string s1, does the copy, and returns a pointer to it. |
-| 28 | **ft_strstart** | Determines whether a string begins with the characters of a specified string, returning true or false as appropriate. |
-| 29 | **ft_strend** | Determines whether a string ends with the characters of a specified string, returning true or false as appropriate. |
-| 30 | **ft_striter** | Applies the function f to each character of the string passed as argument. Each character is passed by address to f to be modified if necessary. |
-| 31 | **ft_striteri** | Applies the function f to each character of the string passed as argument, and passing its index as first argument. Each character is passed by address to f to be modified if necessary. |
-| 32 | **ft_strmap** | Applies the function f to each character of the string given as argument to create a "fresh" new string (with malloc(3)) resulting from the successive applications of f. |
-| 33 | **ft_strmapi** | Applies the function f to each character of the string passed as argument by giving its index as first argument to create a "fresh" new string (with malloc(3)) resulting from the successive applications of f. |
 | 34 | **ft_strtrim** | Allocates (with malloc(3)) and returns a copy of the string given as argument without white-spaces at the beginning or at the end of the string. If s has no white-spaces at the beginning or at the end, the function returns a copy of s. If the allocation fails the function returns NULL. |
 | 35 | **ft_strjoin** | Allocates (with malloc(3)) and returns a "fresh" string ending with '\0', result of the concatenation of s1 and s2. If the allocation fails the function returns NULL. |
 | 36 | **ft_strcompose** | Allocates (with malloc(3)) and returns a "fresh" string ending with '\0', result of the concatenation of all strings that are passed in as arguments after str_num. If the allocation fails the function returns NULL. |
