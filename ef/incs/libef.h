@@ -6,7 +6,7 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/15 16:00:55 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/24 21:03:57 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/05/30 11:18:39 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -701,6 +701,59 @@ int					ef_treap_size(t_treap *tree);
 void				ef_trnode_left_rotate(t_treap *tree, t_trnode *node);
 void				ef_trnode_right_rotate(t_treap *tree, t_trnode *node);
 
+/*
+** =======================
+** >                     <
+** >>> SCAPEGOAT TREES <<<
+** >                     <
+** =======================
+*/
+
+typedef struct		s_sgnode
+{
+	void			*key;
+	void			*value;
+	struct s_sgnode	*parent;
+	struct s_sgnode	*left;
+	struct s_sgnode	*right;
+}					t_sgnode;
+
+typedef struct		s_sgtree
+{
+	t_sgnode		*root;
+	f_cmp			cmp_key;
+	f_del			del_key;
+	f_del			del_value;
+	int				size;
+}					t_sgtree;
+
+// Create
+t_sgnode			*ef_sgnode_alloc(void);
+t_sgnode			*ef_sgnode_create(void *key, void *value);
+t_sgtree			*ef_sgtree_alloc(void);
+t_sgtree			*ef_sgtree_create(f_cmp cmp_key, f_del del_key,
+										f_del del_value);
+
+// Set
+void				ef_sgtree_insert(t_sgtree *tree, t_sgnode *node);
+
+// Get
+
+
+// Remove
+
+
+// Traverse
+void				ef_sgtree_traverse(t_sgtree *tree, f_trw trw);
+
+// Status
+int					ef_sgnode_size(t_sgnode *node);
+int					ef_sgtree_size(t_sgtree *tree);
+int					ef_sgnode_depth(t_sgnode *node);
+
+// Extra
+void				ef_sgnode_rebuild(t_sgtree *tree, t_sgnode *node);
+
 
 /*
 ** ===================
@@ -878,5 +931,55 @@ t_bnnode			*ef_bnnode_merge(t_bnnode *node1, t_bnnode *node2,
 										f_cmp cmp_key);
 t_bnheap			*ef_bnheap_merge(t_bnheap *heap1, t_bnheap *heap2);
 t_bnnode			*ef_bnnode_reverse(t_bnnode *node);
+
+/*
+** =======================
+** >                     <
+** >>> FIBONACCI HEAPS <<<
+** >                     <
+** =======================
+*/
+
+typedef struct		s_finode
+{
+	void			*key;
+	void			*value;
+	struct s_finode	*parent;
+	struct s_finode	*left;
+	struct s_finode	*right;
+	struct s_finode	*children;
+}					t_finode;
+
+typedef struct		s_fiheap
+{
+	t_finode		*top;
+	f_cmp			cmp_key;
+	f_del			del_key;
+	f_del			del_value;
+}					t_fiheap;
+
+// Create
+t_finode			*ef_finode_alloc(void);
+t_finode			*ef_finode_create(void *key, void *value);
+t_fiheap			*ef_fiheap_alloc(void);
+t_fiheap			*ef_fiheap_create(f_cmp cmp_key, f_del del_key,
+										f_del del_value);
+
+// Set
+
+
+// Get
+
+
+// Remove
+
+
+// Traverse
+
+
+// Status
+
+
+// Extra
 
 #endif
