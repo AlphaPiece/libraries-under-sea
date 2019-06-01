@@ -6,7 +6,7 @@
 #    By: zwang <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/15 14:23:06 by zwang             #+#    #+#              #
-#    Updated: 2019/05/29 19:28:29 by Zexi Wang        ###   ########.fr        #
+#    Updated: 2019/06/01 13:55:36 by Zexi Wang        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,8 +16,8 @@ CFLAGS = -Wall -Werror -Wextra
 
 MEM = ft_bzero.c      ft_memccpy.c    ft_memfree.c    ft_memswap.c \
 	  ft_getbits.c    ft_memchr.c     ft_memmove.c    ft_ptrhash.c \
-	  ft_invertbits.c ft_memcmp.c     ft_memrealloc.c ft_putbits.c \
-	  ft_memalloc.c   ft_memcpy.c     ft_memset.c     ft_setbits.c
+	  ft_invertbits.c ft_memcmp.c     ft_putbits.c    ft_memalloc.c \
+	  ft_memcpy.c     ft_memset.c     ft_setbits.c
 
 NUM = ft_ftoa.c  ft_inthash.c  ft_min.c       ft_rand.c       ft_swap.c \
 	  ft_intarrmax.c ft_itoa.c ft_ntoa.c      ft_randint.c    ft_untoa.c \
@@ -35,7 +35,7 @@ STR = ft_atof.c   ft_strarrsort.c ft_strdel.c    ft_strlen.c    ft_strrchr.c \
 	  ft_isnumeric.c  ft_strclr.c  ft_striter.c    ft_strncpy.c  ft_strsub.c \
 	  ft_strarrdel.c  ft_strcmp.c  ft_striteri.c   ft_strnequ.c  ft_strsubn.c \
 	  ft_strarrdup.c  ft_strcompose.c ft_strjoin.c  ft_strnew.c  ft_strtrim.c \
-	  ft_strarrlen.c  ft_strcpy.c  ft_strlcat.c    ft_strnstr.c
+	  ft_strarrlen.c  ft_strcpy.c  ft_strlcat.c    ft_strnstr.c  ft_strsqz.c
 	  
 FIO = ft_vdprintf/leaf/flag_handler.c ft_vdprintf/leaf/length_handler.c \
 	  ft_vdprintf/branch/signed_integer.c \

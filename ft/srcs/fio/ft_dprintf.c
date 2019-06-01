@@ -6,13 +6,13 @@
 /*   By: zwang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/18 21:54:39 by zwang             #+#    #+#             */
-/*   Updated: 2019/05/23 16:07:17 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/06/01 14:30:15 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_dprintf(int fd, const char *fmt, ...)
+int		ft_dprintf(const int fd, const char *fmt, ...)
 {
 	va_list	args;
 	int		total_char;

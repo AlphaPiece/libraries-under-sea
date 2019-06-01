@@ -6,7 +6,7 @@
 /*   By: zwang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/26 19:34:47 by zwang             #+#    #+#             */
-/*   Updated: 2018/10/26 14:15:10 by zwang            ###   ########.fr       */
+/*   Updated: 2019/06/01 09:16:33 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,30 +68,30 @@ static void	putb(void *x, size_t byte, t_ptr *p, t_uint *un)
 		}
 }
 
-void		ft_putbits(void *x, size_t bit)
+void		ft_putbits(void *x, size_t n)
 {
 	t_ptr	p;
 	t_uint	un;
 
-	if (bit >= BIT64 * BYTE)
+	if (n >= BIT64 * BYTE)
 	{
 		putb(x, BIT64, &p, &un);
-		ft_putbits(++p.uint64p, bit - BIT64 * BYTE);
+		ft_putbits(++p.uint64p, n - BIT64 * BYTE);
 	}
-	else if (bit >= BIT32 * BYTE)
+	else if (n >= BIT32 * BYTE)
 	{
 		putb(x, BIT32, &p, &un);
-		ft_putbits(++p.uint32p, bit - BIT32 * BYTE);
+		ft_putbits(++p.uint32p, n - BIT32 * BYTE);
 	}
-	else if (bit >= BIT16 * BYTE)
+	else if (n >= BIT16 * BYTE)
 	{
 		putb(x, BIT16, &p, &un);
-		ft_putbits(++p.uint16p, bit - BIT16 * BYTE);
+		ft_putbits(++p.uint16p, n - BIT16 * BYTE);
 	}
-	else if (bit >= BIT8 * BYTE)
+	else if (n >= BIT8 * BYTE)
 	{
 		putb(x, BIT8, &p, &un);
-		ft_putbits(++p.uint8p, bit - BIT8 * BYTE);
+		ft_putbits(++p.uint8p, n - BIT8 * BYTE);
 	}
 	else
 		ft_putchar('\n');

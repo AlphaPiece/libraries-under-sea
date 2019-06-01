@@ -6,13 +6,13 @@
 /*   By: zwang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/31 19:19:06 by zwang             #+#    #+#             */
-/*   Updated: 2019/05/23 17:48:22 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/06/01 14:30:59 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_dputnchar(int fd, char c, int n)
+void	ft_dputnchar(const int fd, char c, int n)
 {
 	int		i;
 

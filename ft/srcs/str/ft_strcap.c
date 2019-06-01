@@ -6,13 +6,13 @@
 /*   By: zwang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/16 13:37:57 by zwang             #+#    #+#             */
-/*   Updated: 2019/05/23 17:29:00 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/06/01 12:46:23 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strcap(char *s)
+void	ft_strcap(char s[])
 {
 	int i;
 
@@ -27,5 +27,4 @@ char	*ft_strcap(char *s)
 			s[i] -= 32;
 		++i;
 	}
-	return (s);
 }

@@ -6,7 +6,7 @@
 /*   By: zwang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/07 10:29:09 by zwang             #+#    #+#             */
-/*   Updated: 2019/05/23 16:08:25 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/06/01 14:32:05 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ static t_strblock	*black_box(const char *fmt, va_list args)
 	return (strchain);
 }
 
-int					ft_vdprintf(int fd, const char *fmt, va_list args)
+int					ft_vdprintf(const int fd, const char *fmt, va_list args)
 {
 	t_strblock	*strchain;
 	int			total_char;

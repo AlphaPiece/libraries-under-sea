@@ -6,13 +6,13 @@
 /*   By: zwang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/12 15:19:45 by zwang             #+#    #+#             */
-/*   Updated: 2019/05/23 15:56:41 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/06/01 14:30:49 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_dputnbr(int fd, int n)
+void	ft_dputnbr(const int fd, int n)
 {
 	unsigned int	nbr;
 

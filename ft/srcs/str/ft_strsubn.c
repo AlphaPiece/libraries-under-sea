@@ -6,7 +6,7 @@
 /*   By: zwang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/20 16:13:17 by zwang             #+#    #+#             */
-/*   Updated: 2019/05/23 17:37:45 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/06/01 12:15:39 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 ** ft_strsubn: return # of substrings of str which matches s
 */
 
-int		ft_strsubn(const char *s, const char *sub)
+int		ft_strsubn(const char *s, const char *subs)
 {
 	int		n;
 	int		i;
@@ -26,12 +26,12 @@ int		ft_strsubn(const char *s, const char *sub)
 	n = 0;
 	while (s[i])
 	{
-		if (s[i] == sub[0])
+		if (s[i] == subs[0])
 		{
 			j = 1;
-			while (s[i + j] && sub[j] && s[i + j] == sub[j])
+			while (s[i + j] && subs[j] && s[i + j] == subs[j])
 				++j;
-			if (!sub[j])
+			if (!subs[j])
 				++n;
 		}
 		++i;

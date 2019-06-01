@@ -6,7 +6,7 @@
 /*   By: zwang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/11 11:20:28 by zwang             #+#    #+#             */
-/*   Updated: 2019/05/29 19:24:29 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/06/01 14:29:49 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,6 @@ typedef union		u_ptr
 }					t_ptr;
 
 void				*ft_memalloc(size_t size);
-void				*ft_memrealloc(void **ptr, size_t oldsize, size_t newsize);
 void				ft_memfree(void **p);
 
 int					ft_memcmp(const void *s1, const void *s2, size_t n);
@@ -98,7 +97,7 @@ void				*ft_memset(void *b, int c, size_t len);
 unsigned int		ft_getbits(unsigned int x, int p, int n);
 unsigned int		ft_setbits(unsigned int x, int p, int n, unsigned int y);
 unsigned int		ft_invertbits(unsigned int x, int p, int n);
-void				ft_putbits(void *x, size_t bit);
+void				ft_putbits(void *x, size_t n);
 
 uint32_t			ft_ptrhash(void *p);
 
@@ -148,7 +147,7 @@ double				ft_rand(void);
 int                 ft_randint(int lower, int upper);
 int					*ft_randintarr(int lower, int upper, int len);
 
-uint32_t			ft_inthash(int h);
+uint32_t			ft_inthash(int n);
 
 /*
 ** ========================
@@ -158,14 +157,16 @@ uint32_t			ft_inthash(int h);
 ** ========================
 */
 
-t_bool				ft_isalnum(int c);
-t_bool				ft_isalpha(int c);
-t_bool				ft_isascii(int c);
-t_bool				ft_isdigit(int c);
-t_bool				ft_isspace(int c);
-t_bool				ft_isprint(int c);
 t_bool				ft_islower(int c);
 t_bool				ft_isupper(int c);
+t_bool				ft_isalpha(int c);
+t_bool				ft_isdigit(int c);
+t_bool				ft_isalnum(int c);
+t_bool				ft_isspace(int c);
+
+t_bool				ft_isprint(int c);
+t_bool				ft_isascii(int c);
+
 int					ft_tolower(int c);
 int					ft_toupper(int c);
 
@@ -181,15 +182,15 @@ char				*ft_strnew(size_t size);
 void				ft_strclr(char *s);
 void				ft_strdel(char **p);
 
-int					ft_atoi(const char *str);
-long				ft_atol(const char *str);
-double				ft_atof(const char *str);
-int					ft_atoi_base(const char *str, int base);
-long				ft_atol_base(const char *str, int base);
+int					ft_atoi(const char *s);
+long				ft_atol(const char *s);
+int					ft_atoi_base(const char *s, int base);
+long				ft_atol_base(const char *s, int base);
+double				ft_atof(const char *s);
 
 t_bool				ft_isnumeric(char *s);
-t_bool				ft_strstart(const char *str, const char *substr);
-t_bool				ft_strend(const char *str, const char *substr);
+t_bool				ft_strstart(const char *s, const char *subs);
+t_bool				ft_strend(const char *s, const char *subs);
 
 int					ft_strcmp(const char *s1, const char *s2);
 int					ft_strncmp(const char *s1, const char *s2, size_t n);
@@ -219,15 +220,16 @@ char				*ft_strmap(const char *s, char (*f)(char));
 char				*ft_strmapi(const char *s, char (*f)(unsigned int, char));
 
 char				*ft_strtrim(const char *s);
-char				*ft_strcap(char *s);
+void				ft_strcap(char s[]);
+void				ft_strsqz(char s[], char c);
+
+int					ft_strsepn(const char *s, char *delim);
+int					ft_strsubn(const char *s, const char *subs);
 
 char				*ft_strjoin(const char *s1, char const *s2);
 char				*ft_strcompose(int str_num, ...);
 char				*ft_strsub(const char *s, unsigned int start, size_t len);
 char				**ft_strsplit(const char *s, char *delim);
-
-int					ft_strsepn(const char *s, char *delim);
-int					ft_strsubn(const char *str, const char *s);
 
 size_t				ft_strarrlen(const char *arr[]);
 char				**ft_strarrdup(char *dst[], const char *src[]);
@@ -252,25 +254,25 @@ uint32_t			ft_strhash(char *s);
 # define BUF_SIZ	128
 
 void				ft_putchar(char c);
-void				ft_dputchar(int fd, char c);
+void				ft_dputchar(const int fd, char c);
 
 void				ft_putnchar(char c, int n);
 void				ft_putncharln(char c, int n);
-void				ft_dputnchar(int fd, char c, int n);
-
-void				ft_putnbr(int n);
-void				ft_dputnbr(int fd, int n);
+void				ft_dputnchar(const int fd, char c, int n);
 
 void				ft_putstr(const char *s);
-void				ft_dputstr(int fd, const char *s);
+void				ft_dputstr(const int fd, const char *s);
 
 void				ft_putlstr(const char *s, unsigned int start, size_t len);
-void				ft_dputlstr(int fd, const char *s, unsigned int start,
+void				ft_dputlstr(const int fd, const char *s, unsigned int start,
 								size_t len);
 
+void				ft_putnbr(int n);
+void				ft_dputnbr(const int fd, int n);
+
 int					ft_printf(const char *fmt, ...);
-int					ft_dprintf(int fd, const char *fmt, ...);
-int					ft_vdprintf(int fd, const char *fmt, va_list args);
+int					ft_dprintf(const int fd, const char *fmt, ...);
+int					ft_vdprintf(const int fd, const char *fmt, va_list args);
 
 int					ft_getchar(void);
 int					ft_getonechar(void);

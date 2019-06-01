@@ -6,7 +6,7 @@
 /*   By: zwang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/11 16:30:13 by zwang             #+#    #+#             */
-/*   Updated: 2019/05/23 17:46:35 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/06/01 14:09:51 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,11 @@ char	**ft_strsplit(const char *s, char *delim)
 	while (i < str_num)
 	{
 		arr[i] = ft_strnew(ft_strclen(&s[k], delim) + 1);
+		if (!arr[i])
+		{
+			ft_strarrdel(arr);
+			return (NULL);
+		}
 		while (s[k] && ft_strchr(delim, s[k]))
 			k++;
 		j = 0;

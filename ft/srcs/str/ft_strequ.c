@@ -6,7 +6,7 @@
 /*   By: zwang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/11 12:11:39 by zwang             #+#    #+#             */
-/*   Updated: 2018/09/11 10:29:59 by zwang            ###   ########.fr       */
+/*   Updated: 2019/06/01 12:13:06 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,5 @@
 
 t_bool	ft_strequ(const char *s1, const char *s2)
 {
-	if (!s1 || !s2 || *s1 != *s2)
-		return (false);
-	if (!(*s1) && !(*s2))
-		return (true);
-	return (ft_strequ(s1 + 1, s2 + 1));
+	return (ft_strcmp(s1, s2) == 0);
 }

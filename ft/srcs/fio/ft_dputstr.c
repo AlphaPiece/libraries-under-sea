@@ -6,13 +6,13 @@
 /*   By: zwang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/12 15:14:21 by zwang             #+#    #+#             */
-/*   Updated: 2019/05/23 17:52:24 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/06/01 14:31:09 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_dputstr(int fd, const char *s)
+void	ft_dputstr(const int fd, const char *s)
 {
 	if (s && fd >= 0)
 		while (*s)
