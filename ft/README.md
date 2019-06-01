@@ -124,19 +124,19 @@
 | Return Type | Function Name | Parameter List | Description |
 | --- | --- | --- | --- |
 | void | **ft_putchar** | (char c) | Outputs the character c to the standard output. |
-| void | **ft_dputchar** | (int fd, char c) | Outputs the char c to the file descriptor fd. |
+| void | **ft_dputchar** | (const int fd, char c) | Outputs the char c to the file descriptor fd. |
 | void | **ft_putnchar** | (char c, int n) | Outputs the character c to the standard output n times. |
 | void | **ft_putncharln** | (char c, int n) | Outputs the character c to the standard output n times with a newline character at the end. |
-| void | **ft_dputnchar** | (int fd, char c, int n) | Outpus the character c to the file descriptor n times. |
-| void | **ft_putstr** | (consrt char \*s) | Outputs the string s to the standard output. |
-| void | **ft_dputstr** | (int fd, const char \*s) | Outputs the string s to the file descriptor fd. |
+| void | **ft_dputnchar** | (const int fd, char c, int n) | Outpus the character c to the file descriptor n times. |
+| void | **ft_putstr** | (const char \*s) | Outputs the string s to the standard output. |
+| void | **ft_dputstr** | (const int fd, const char \*s) | Outputs the string s to the file descriptor fd. |
 | void | **ft_putlstr** | (const char \*s, unsigned int start, size_t len) | Outputs a portion of a string to the standard output. |
-| void | **ft_dputlstr** | (int fd, const char \*s, unsigned int start, size_t len) | Outputs a portion of a string to a file descriptor. |
+| void | **ft_dputlstr** | (const int fd, const char \*s, unsigned int start, size_t len) | Outputs a portion of a string to a file descriptor. |
 | void | **ft_putnbr** | (int n) | Outputs the integer n to the standard output. |
-| void | **ft_dputnbr** | (int fd, int n) | Outputs the integer n to the file descriptor fd. |
-| int | **ft_printf** | (consrt char \*fmt, ...) | Writes output to stdout, the standard output stream, under the control of a format string that specifies how subsequent arguments (or arguments accessed via the variable-length argument facilities of stdarg(3)) are converted for output. |
-| int | **ft_dprintf** | (int fd, const char \*fmt, ...) | Performs the same as ft_printf, except it writes output to the given file descriptor. |
-| int | **ft_vdprintf** | (int fd, const char \*fmt, va_list args) | Performs the same as ft_dprintf, except it expects a va_list argument instead of variable-length argument after the string format. |
+| void | **ft_dputnbr** | (const int fd, int n) | Outputs the integer n to the file descriptor fd. |
+| int | **ft_printf** | (const char \*fmt, ...) | Writes output to stdout, the standard output stream, under the control of a format string that specifies how subsequent arguments (or arguments accessed via the variable-length argument facilities of stdarg(3)) are converted for output. |
+| int | **ft_dprintf** | (const int fd, const char \*fmt, ...) | Performs the same as ft_printf, except it writes output to the given file descriptor. |
+| int | **ft_vdprintf** | (const int fd, const char \*fmt, va_list args) | Performs the same as ft_dprintf, except it expects a va_list argument instead of variable-length argument after the string format. |
 | int | **ft_getchar** | (void) | Obtains the next input character from the standard input. |
 | int | **ft_getonechar** | (void) | Gets only the first character in a line of standard input. |
-| int | **ft_nextline** | (int fd, char \*\*line) | Obtains and saves a line in the argument pointer line without '\n'. A line is a succession of characters that end with '\n' (ascii code 0x0a) or with End Of File (EOF). The return value can be 1, 0 or -1 depending on whether a line has been read, when the reading has been completed, or if an error has happened respectively. |
+| int | **ft_nextline** | (const int fd, char \*\*line) | Obtains and saves a line in the argument pointer line without '\n'. A line is a succession of characters that end with '\n' (ascii code 0x0a) or with End Of File (EOF). The return value can be 1, 0 or -1 depending on whether a line has been read, when the reading has been completed, or if an error has happened respectively. |
