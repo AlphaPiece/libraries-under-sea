@@ -72,15 +72,18 @@
 
 ## [ASCII Character Strings](https://github.com/AlphaPiece/LibrariesUnderSea/tree/master/ft/srcs/str)
 
-| No. | Function | Description |
-| --- | --- | --- |
-| 1 | **ft_atoi** | Converts the initial portion of the string pointed to by str to int representation. |
+| Return Type | Function Name | Parameter List | Description |
+| --- | --- | --- | --- |
+| char \* | **ft_strnew** | (size_t size) | Allocates (with malloc(3)) and returns a "fresh" string end- ing with '\0'. Each character of the string is initialized at '\0'. If the allocation fails the function returns NULL.
+| void | **ft_strclr** | (char \*s) | Sets every character of the string to the value '\0'. |
+| void | **ft_strdel** | (char \*\*p) | Takes as a parameter the address of a string that need to be freed with free(3), then sets its pointer to NULL.
+| int | **ft_atoi** | (const char \*s ) | Converts the initial portion of the string pointed to by str to int representation. |
 | 2 | **ft_atol** | Converts the initial portion of the string pointed to by str to long integer representation. |
 | 3 | **ft_atof** | Converts the initial portion of the string pointed to by str to double representation. |
 | 4 | **ft_atoi_base** | Converts the initial portion of the string pointed to by str to int represention based on the given base (2 ~ 16). |
 | 5 | **ft_atol_base** | Converts the initial portion of the string pointed to by str to long represention based on the given base (2 ~ 16). |
 | 6 | **ft_isnumeric** | Checks if a string is an integer. |
-| 7 | **ft_strnew** | Allocates (with malloc(3)) and returns a "fresh" string end- ing with '\0'. Each character of the string is initialized at '\0'. If the allocation fails the function returns NULL.
+
 | 8 | **ft_strcapitalize** | Capitalizes the first letter of each word and transforms all other letters to lowercase. |
 | 9 | **ft_strsqueeze** | Delete all the occurrences of character c in the string s. |
 | 10 | **ft_strcat** | Appends a copy of the null-terminated string s2 to the end of the null-terminated string s1, then add a terminating '\0'. The string s1 must have sufficient space to hold the result. The source and destination strings should not overlap, as the behavior is undefined.|
@@ -90,8 +93,8 @@
 | 14 | **ft_strrchr** | Performs the same as ft_strchr, except it locates the last occurrence of c. |
 | 15 | **ft_strstr** | Locates the first occurrence of the null-terminated string needle in the null-terminated string haystack. |
 | 16 | **ft_strnstr** | Locates the first occurrence of the null-terminated string needle in the string haystack, where not more than len characters are searched. Characters that appear after a '\0' character are not searched. | 
-| 17 | **ft_strdel** | Takes as a parameter the address of a string that need to be freed with free(3), then sets its pointer to NULL.
-| 18 | **ft_strclr** | Sets every character of the string to the value '\0'. |
+
+
 | 19 | **ft_strlen** | Computes the length of the string s. |
 | 20 | **ft_strclen** | Counts the number of characters before the first character c in the string s. |
 | 21 | **ft_strcmp** | Compares lexicographically the null-terminated strings s1 and s2. |
