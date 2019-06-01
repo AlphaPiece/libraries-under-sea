@@ -104,19 +104,22 @@
 | void | **ft_striteri** | (char \*s, void (\*f)(unsigned int, char \*)) | Applies the function f to each character of the string passed as argument, and passing its index as first argument. Each character is passed by address to f to be modified if necessary. |
 | void | **ft_strmap** | (const char \*s, char (\*f)(char)) | Applies the function f to each character of the string given as argument to create a "fresh" new string (with malloc(3)) resulting from the successive applications of f. |
 | char \* | **ft_strmapi** | (const char \*s, char (\*f)(unsigned int, char)) | Applies the function f to each character of the string passed as argument by giving its index as first argument to create a "fresh" new string (with malloc(3)) resulting from the successive applications of f. |
+| char \* | **ft_strtrim** | (const char \*s) | Allocates (with malloc(3)) and returns a copy of the string given as argument without white-spaces at the beginning or at the end of the string. If s has no white-spaces at the beginning or at the end, the function returns a copy of s. If the allocation fails the function returns NULL. |
+| void | **ft_strcap** | (char s\[\]) | Converts every capital letter to uppercase, and others to lowercase. |
+| void | **ft_strsqz** | (char s\[\], char c) | Removes all occurrences of c in s. |
+| int | **ft_strsepn** | (const char \*s, char \*delim) | Counts the number of substrings that are seperated by any character in delim. |
+| int | **ft_strsubn** | (const char \*s, consrt char \*subs) | Counts the number of substrings in s that are identical to subs. |
+| char \* | **ft_strjoin** | (consrt char \*s1, char consrt \*s2) | Allocates (with malloc(3)) and returns a "fresh" string ending with '\0', result of the concatenation of s1 and s2. If the allocation fails the function returns NULL. |
+| char \* | **ft_strcompose** | (int str_num, ...) | Allocates (with malloc(3)) and returns a "fresh" string ending with '\0', result of the concatenation of all strings that are passed in as arguments after str_num. If the allocation fails the function returns NULL. |
+| char \* | **ft_strsub** | (const char \*s, unsigned int start, size_t len) | Allocates (with malloc(3)) and returns a "fresh" substring from the string given as argument. The substring begins at indexstart and is of size len. If start and len aren’t refering to a valid substring, the behavior is undefined. If the allocation fails, the function returns NULL. |
+| char \*\* | **ft_strsplit** | (const char \*s, char \*delim) | Splits s to an array of substrings that are seperated by any character in delim. The array and the substrings in the array are allocated (with malloc(3)). If the allocation fails, the function returns NULL. |
 
-| 34 | **ft_strtrim** | Allocates (with malloc(3)) and returns a copy of the string given as argument without white-spaces at the beginning or at the end of the string. If s has no white-spaces at the beginning or at the end, the function returns a copy of s. If the allocation fails the function returns NULL. |
-| 35 | **ft_strjoin** | Allocates (with malloc(3)) and returns a "fresh" string ending with '\0', result of the concatenation of s1 and s2. If the allocation fails the function returns NULL. |
-| 36 | **ft_strcompose** | Allocates (with malloc(3)) and returns a "fresh" string ending with '\0', result of the concatenation of all strings that are passed in as arguments after str_num. If the allocation fails the function returns NULL. |
-| 37 | **ft_strsub** | Allocates (with malloc(3)) and returns a "fresh" substring from the string given as argument. The substring begins at indexstart and is of size len. If start and len aren’t refering to a valid substring, the behavior is undefined. If the allocation fails, the function returns NULL. |
-| 38 | **ft_strsepnum** | Counts the number of substrings that are seperated by any character in the string delim. |
-| 39 | **ft_strsplit** | Splits a string to an array of substrings that are seperated by any character in the string delim. The array and the substrings in the array are allocated (with malloc(3)). If the allocation fails, the function returns NULL. |
 | 40 | **ft_strarrlen** | Counts the number of elements in an array. |
 | 41 | **ft_strarrdup** | Copies an array of strings (with malloc(3)). |
 | 42 | **ft_strarrsort** | Sorts a string array by using the comparing function passed in as argument. |
 | 43 | **ft_strarrdel** | Frees an array and the strings in the array (with free(3)). |
 | 44 | **ft_check_brackets** | Checks if the brackets in a string match correctly. |
-| 45 | **ft_count_subs** | Counts the number of substrings in the string s that are identical to subs. |
+
 
 ## [File Input/Output](https://github.com/AlphaPiece/LibrariesUnderSea/tree/master/ft/srcs/fio)
 
