@@ -11,53 +11,49 @@
 
 ## [Memory](https://github.com/AlphaPiece/LibrariesUnderSea/tree/master/ft/srcs/mem)
 
-| Return Type | Function | Parameter | Description |
+| Return Type | Function Name | Parameters | Description |
 | --- | --- | --- | --- |
 | void * | **ft_memalloc** | (size_t size) | Allocates (with malloc(3)) and returns a "fresh" memory area. The memory allocated is initialized to 0. If the allocation fails, the function returns NULL. |
-| void * | **ft_memrealloc** | (void *\*ptr, size_t oldsize, size_t newsize) | Frees (with free(3)) and allocates (with malloc(3)) and returns a "fresh" memory area with the new size. The data in the previous memory location will be copied to the new one. The rest of the memory allocated is initialized to 0. If the allocation fails, the function returns NULL. |
-| void | **ft_memfree** | (void *\*p) | Deallocates the memory allocation pointed to by the pointer that ptr points to, and set that pointer to point to NULL. |
-| int | **ft_memcmp** | (void *dst, const void *src, size_t n) | Compares byte string s1 against byte string s2. Both strings are assumed to be n bytes long. |
-| void * | **ft_memchr** | (const void *s, int c, size_t n) | Locates the first occurrence of c (converted to an unsigned char) in string s. |
-| void * | **ft_memcpy** | (void *dst, const void *src, size_t n) | Copies n bytes from memory area src to memory area dst. If dst and src overlap, behavior is undefined. Applications in which dst and src might overlap should use ft_memmove instead. |
-| void * | **ft_memccpy** | (void *dst, const void *src, size_t n) | Copies bytes from string src to string dst. If the character c (as converted to an unsigned char) occurs in the string src, the copy stops and a pointer to the byte after the copy of c in the string dstis returned. Otherwise, n bytes are copied, and a NULL pointer is returned. |
-| void * | **ft_memmove** | (void *dst, consrt void *srcs, size_t len) | Copies len bytes from string src to string dst. The two strings may overlap; the copy is always done in a non-destructive manner. |
-| void | **ft_swap** | void *p1, void *p2, size_t byte) | Swaps a number of bytes at two memory addresses. The acceptable inputs for the number of bytes are 1, 2, 4, and 8. |
-| void | **ft_bzero** | (void *s, size_t n) | Writes n zeroed bytes to the string s. If n is zero, it does nothing. |
-| void * | **ft_memset** | (void *b, int c, size_t len) | Writes len bytes of value c (converted to an unsigned char) to the string b. |
+| void * | **ft_memrealloc** | (void \*\*ptr, size_t oldsize, size_t newsize) | Frees (with free(3)) and allocates (with malloc(3)) and returns a "fresh" memory area with the new size. The data in the previous memory location will be copied to the new one. The rest of the memory allocated is initialized to 0. If the allocation fails, the function returns NULL. |
+| void | **ft_memfree** | (void \*\*p) | Deallocates the memory allocation pointed to by the pointer that ptr points to, and set that pointer to point to NULL. |
+| int | **ft_memcmp** | (void \*dst, const void \*src, size_t n) | Compares byte string s1 against byte string s2. Both strings are assumed to be n bytes long. |
+| void \* | **ft_memchr** | (const void \*s, int c, size_t n) | Locates the first occurrence of c (converted to an unsigned char) in string s. |
+| void \* | **ft_memcpy** | (void \*dst, const void \*src, size_t n) | Copies n bytes from memory area src to memory area dst. If dst and src overlap, behavior is undefined. Applications in which dst and src might overlap should use ft_memmove instead. |
+| void \* | **ft_memccpy** | (void \*dst, const void \*src, size_t n) | Copies bytes from string src to string dst. If the character c (as converted to an unsigned char) occurs in the string src, the copy stops and a pointer to the byte after the copy of c in the string dstis returned. Otherwise, n bytes are copied, and a NULL pointer is returned. |
+| void \* | **ft_memmove** | (void \*dst, const void \*srcs, size_t len) | Copies len bytes from string src to string dst. The two strings may overlap; the copy is always done in a non-destructive manner. |
+| void | **ft_swap** | void \*p1, void \*p2, size_t byte) | Swaps a number of bytes at two memory addresses. The acceptable inputs for the number of bytes are 1, 2, 4, and 8. |
+| void | **ft_bzero** | (void \*s, size_t n) | Writes n zeroed bytes to the string s. If n is zero, it does nothing. |
+| void \* | **ft_memset** | (void \*b, int c, size_t len) | Writes len bytes of value c (converted to an unsigned char) to the string b. |
 | unsigned int | **ft_getbits** | (unsigned int x, int p, int n) |Returns the (right-adjusted) n-bit field of x from position p. Bit position 0 is at the right end. |
 | unsigned int | **ft_setbits** | (unsigned int x, int p, int n, unsigned int y) | Returns with the n bits that begin at position p set to the rightmost n bits of y, leaving the other bits unchanged. Bit position 0 is at the right end. |
 | unsigned int | **ft_invertbits** | (unsigned int x, int p, int n) | Inverts the n bits that begin at position p. Bit position 0 is at the right end. |
-| void | **ft_putbits** | (void *x, size_t n) | Puts n bits from the address that x points to. |
-| uint32_t | **ft_ptrhash** | (void *p) | Returns a 32-bit long hash integer by hashing the pointer (virtual address) p. |
+| void | **ft_putbits** | (void \*x, size_t n) | Prints n bits from the address that x points to. |
+| uint32_t | **ft_ptrhash** | (void \*p) | Returns a 32-bit long hash integer by hashing the pointer (virtual address) p. |
 
 ## [Numbers](https://github.com/AlphaPiece/LibrariesUnderSea/tree/master/ft/srcs/num)
 
-| No. | Function | Description |
-| --- | --- | --- |
-| 1 | **ft_itoa** | Converts an integer with type int to an ascii character string. |
-| 2 | **ft_ltoa** | Converts an integer with type long to an ascii character string. |
-| 3 | **ft_ntoa** | Converts a signed integer with type intmax_t (which should be the largest signed integer type on the current using computer) defined in stddef.h to an ascii character string. |
-| 4 | **ft_untoa** | Converts an unsigned integer with type uintmax_t (which should be the largest unsigned integer type on the current using computer) defined in stddef.h to an ascii character string. |
-| 5 | **ft_numlen** | Counts the number of digits of a signed integer. |
-| 6 | **ft_unumlen** | Counts the number of digits of an unsigned integer. |
-| 7 | **ft_ntoa_base** | Performs the same as ft_ntoa, but the string is in the given base (2 ~ 16). The acceptable inputs for the third parameter is 'a' and 'A' (which decides the case of the letters in the string). |
-| 8 | **ft_untoa_base** | Performs the same as ft_untoa, but the string is in the given base (2 ~ 16). The acceptable inputs for the third parameter is 'a' and 'A' (which decides the case of the letters in the string). |
-| 9 | **ft_sqrt** | Gets the square root of a floating point number. |
-| 10 | **ft_pow** | Gets the power of a floating point number. |
-| 11 | **ft_ceil** | Gets the ceiling of a floating point number. |
-| 12 | **ft_floor** | Gets the floor of a floating point number. |
-| 13 | **ft_max** | Gets the maximum number among input numbers. The first parameter expects the number of input numbers. |
-| 14 | **ft_min** | Gets the minimum number among input numbers. The first parameter expects the number of input numbers. |
-| 15 | **ft_sum** | Gets the sum of input numbers. The first parameter expects the number of input numbers. |
-| 16 | **ft_max_intarr** | Gets the maximum number in a integer array. |
-| 17 | **ft_min_intarr** | Gets the minimum number in a integer array. |
-| 18 | **ft_sum_intarr** | Gets the sum of all integers in a integer array. |
-| 19 | **ft_iselem** | Checks if a integer is an element of an array. The acceptable inputs for byte is 1, 2, 4, and 8. |
-| 20 | **ft_numarrcpy** | Copies all integers from src to dst. |
-| 21 | **ft_prime_factors** | Gets a prime factors representation of a natual number. |
-| 22 | **ft_analyze_float** | Analyzes the inner representation of a floating number in IEEE 754 standard. |
-| 23 | **ft_ftoa** | Converts double floating point number to an ascii character string. |
-| 24 | **ft_randintarr** | Gets an array of random integers. |
+| Return Type | Function Name | Parameters | Description |
+| --- | --- | --- | --- |
+| int | **ft_numlen** | (intmax_t n) | Counts the number of digits of a signed integer. |
+| int | **ft_unumlen** | (uintmax_t un) | Counts the number of digits of an unsigned integer. |
+| char \* | **ft_itoa** | (int n) | Converts an integer with type int to an ascii character string. |
+| char \* | **ft_ltoa** | (long n) | Converts an integer with type long to an ascii character string. |
+| char \* | **ft_ntoa** | (intmax_t n) | Converts a signed integer with type intmax_t (which should be the largest signed integer type on the current using computer) defined in stddef.h to an ascii character string. |
+| char \* | **ft_untoa** | (uintmax_t un) | Converts an unsigned integer with type uintmax_t (which should be the largest unsigned integer type on the current using computer) defined in stddef.h to an ascii character string. |
+| char \* | **ft_ntoa_base** | (intmax_t n, int base, char hex_case_a) | Performs the same as ft_ntoa, but the string is in the given base (2 ~ 16). The acceptable inputs for the third parameter is 'a' and 'A' (which decides the case of the letters in the string). |
+| char \* | **ft_untoa_base** | (uintmax_t un, int base, char hex_case_a) | Performs the same as ft_untoa, but the string is in the given base (2 ~ 16). The acceptable inputs for the third parameter is 'a' and 'A' (which decides the case of the letters in the string). |
+| char \* | **ft_ftoa** | (double n) | Converts double floating point number to an ascii character string. |
+| void | **ft_swap** | (int \*a, int \*b) | Swaps the integers on address a and b. |
+| int | **ft_max** | (int total_no, ...) | Gets the maximum number among input numbers. The first parameter expects the number of input numbers. |
+| int | **ft_min** | (int total_no, ...) | Gets the minimum number among input numbers. The first parameter expects the number of input numbers. |
+| int | **ft_sum** | (int total_no, ...) | Gets the sum of input numbers. The first parameter expects the number of input numbers. |
+| int | **ft_max_intarr** | (int arr\[\], int len) | Gets the maximum number in a integer array. |
+| int | **ft_min_intarr** | (int arr\[\], int len) | Gets the minimum number in a integer array. |
+| int | **ft_sum_intarr** | (int arr\[\], int len) | Gets the sum of all integers in a integer array. |
+| double | **ft_rand** | (void) | Returns a random floating point number between 0 and 1. |
+| int | **ft_randint** | (int lower, int upper) | Returns a random integer between lower and upper. |
+| int | **ft_randintarr** | (int lower, int upper, int len) | Returns an array of random integers (between lower and upper) of length len. |
+| uint32_t | **ft_inthash** | (int n) | Returns a 32-bit hash integer by hashing the integer n. |
 
 ## [ASCII Characters](https://github.com/AlphaPiece/LibrariesUnderSea/tree/master/ft/srcs/chr)
 
