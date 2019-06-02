@@ -2,24 +2,41 @@
 
 *A data structure library written in C.*
 
-## Dynamic Arrays
+## Contents
+* [Dynamic Arrays](#dynamic-arrays)
+* [Singly Linked Lists](#singly-linked-lists)
+* [Doubly Linked Lists](#doubly-linked-lists)
+* [Double-ended Queues](#double-ended-queues)
+* [N-ary Trees](#n-ary-trees)
+* [AVL Trees](#avl-trees)
+* [Red-Black Trees](#red-black-trees)
+* [Splay Trees](#splay-trees)
+* [Treaps](#treaps)
+* [Hash Tables](#hash-tables)
+* [Binary Heaps](#binary-heaps)
+* [Binomial Heaps](#binomial-heaps)
 
-## Singly Linked Lists
+## [Dynamic Arrays](https://github.com/AlphaPiece/LibrariesUnderSea/tree/master/ef/srcs/darray)
+A dynamic array is a random access, variable-size list data structure that allows elements to be added or removed.
 
-## Doubly Linked Lists
+## [Singly Linked Lists](https://github.com/AlphaPiece/LibrariesUnderSea/tree/master/ef/srcs/slist)
 
-## Double-ended Queues
+## [Doubly Linked Lists](https://github.com/AlphaPiece/LibrariesUnderSea/tree/master/ef/srcs/dlist)
 
-## N-ary Trees
+## [Double-ended Queues](https://github.com/AlphaPiece/LibrariesUnderSea/tree/master/ef/srcs/deque)
 
-## AVL Trees
+## [N-ary Trees](https://github.com/AlphaPiece/LibrariesUnderSea/tree/master/ef/srcs/ntree)
 
-## Red Black Trees
+## [AVL Trees](https://github.com/AlphaPiece/LibrariesUnderSea/tree/master/ef/srcs/atree)
 
-## Splay Trees
+## [Red-Black Trees](https://github.com/AlphaPiece/LibrariesUnderSea/tree/master/ef/srcs/rbtree)
 
-## Hash Tables
+## [Splay Trees](https://github.com/AlphaPiece/LibrariesUnderSea/tree/master/ef/srcs/sptree)
 
-## Binary Heaps
+## [Treaps](https://github.com/AlphaPiece/LibrariesUnderSea/tree/master/ef/srcs/treap)
 
-## Binomial Heaps
+## [Hash Tables](https://github.com/AlphaPiece/LibrariesUnderSea/tree/master/ef/srcs/htable)
+
+## [Binary Heaps](https://github.com/AlphaPiece/LibrariesUnderSea/tree/master/ef/srcs/bheap)
+
+## [Binomial Heaps](https://github.com/AlphaPiece/LibrariesUnderSea/tree/master/ef/srcs/bnheap)
