@@ -6,7 +6,7 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/15 16:00:55 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/30 11:18:39 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2019/06/05 15:59:25 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -966,13 +966,14 @@ t_fiheap			*ef_fiheap_create(f_cmp cmp_key, f_del del_key,
 										f_del del_value);
 
 // Set
-
+void				ef_fiheap_insert(t_fiheap *heap, t_finode *node);
 
 // Get
 
 
 // Remove
-
+void				ef_finode_free(t_finode *node, f_del del_key,
+									f_del del_value);
 
 // Traverse
 
@@ -981,5 +982,7 @@ t_fiheap			*ef_fiheap_create(f_cmp cmp_key, f_del del_key,
 
 
 // Extra
+t_fiheap			*ef_fiheap_merge(t_fiheap *heap1, t_fiheap *heap2);
+
 
 #endif

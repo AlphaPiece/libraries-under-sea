@@ -1,30 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ef_bnheap_merge.c                                  :+:      :+:    :+:   */
+/*   ef_fiheap_insert.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/18 20:10:19 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/06/05 12:04:58 by Zexi Wang        ###   ########.fr       */
+/*   Created: 2019/06/05 09:45:39 by Zexi Wang         #+#    #+#             */
+/*   Updated: 2019/06/05 09:52:46 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libef.h"
 
-t_bnheap	*ef_bnheap_merge(t_bnheap *heap1, t_bnheap *heap2)
+void	ef_fiheap_insert(t_fiheap *heap, t_finode *node)
 {
-	t_bnnode	*node;
-
-	if (!heap1)
-		return (heap2);
-	if (!heap2)
-		return (heap1);
-	heap1->head = ef_bnnode_merge(heap1->head, heap2->head, heap1->cmp_key);
-	heap1->top = heap1->head;
-	for (node = heap1->head; node; node = node->sibling)
-		if (heap1->cmp_key(node->key, heap1->top->key) < 0)
-			heap1->top = node;
-	free(heap2);
-	return (heap1);
+	if (heap && node)
+	{
+		if (!heap->top)
+			heap->top = node;
+		else
+		{
+			heap->top->left->right = node;
+			node->left = heap->top->left;
+			node->right = heap->top;
+			heap->top->left = node;
+			if (heap->cmp_key(node->key, heap->top->key) < 0)
+				heap->top = node;
+		}
+	}
 }
