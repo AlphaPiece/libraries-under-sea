@@ -6,7 +6,7 @@
 #    By: zwang <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/15 14:23:06 by zwang             #+#    #+#              #
-#    Updated: 2019/05/24 21:06:42 by Zexi Wang        ###   ########.fr        #
+#    Updated: 2019/09/11 20:43:50 by Zexi Wang        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -143,26 +143,26 @@ BNHEAP = ef_bnheap_alloc.c      ef_bnheap_insert.c     ef_bnnode_alloc.c \
 		 ef_bnheap_find.c       ef_bnheap_size.c       ef_bnnode_size.c \
 		 ef_bnheap_free.c       ef_bnheap_traverse.c
 
-OBJ = *.o
+OBJ_FILES = *.o
 
-KVPAIR_DIR = srcs/kvpair/
-DARRAY_DIR = srcs/darray/
-SLIST_DIR = srcs/slist/
-DLIST_DIR = srcs/dlist/
-DEQUE_DIR = srcs/deque/
-NTREE_DIR = srcs/ntree/
-ATREE_DIR = srcs/atree/
-RBTREE_DIR = srcs/rbtree/
-SPTREE_DIR = srcs/sptree/
-TREAP_DIR = srcs/treap/
-HTABLE_DIR = srcs/htable/
-BHEAP_DIR = srcs/bheap/
-BNHEAP_DIR = srcs/bnheap/
+KVPAIR_DIR = src/kvpair/
+DARRAY_DIR = src/darray/
+SLIST_DIR = src/slist/
+DLIST_DIR = src/dlist/
+DEQUE_DIR = src/deque/
+NTREE_DIR = src/ntree/
+ATREE_DIR = src/atree/
+RBTREE_DIR = src/rbtree/
+SPTREE_DIR = src/sptree/
+TREAP_DIR = src/treap/
+HTABLE_DIR = src/htable/
+BHEAP_DIR = src/bheap/
+BNHEAP_DIR = src/bnheap/
 
-OBJS_DIR = objs/
+OBJ_DIR = obj/
 
-INCS = -I incs
-SRCS = $(addprefix $(KVPAIR_DIR), $(KVPAIR)) \
+INCLUDES = -I includes
+SRC = $(addprefix $(KVPAIR_DIR), $(KVPAIR)) \
 	   $(addprefix $(DARRAY_DIR), $(DARRAY)) \
 	   $(addprefix $(SLIST_DIR), $(SLIST)) \
 	   $(addprefix $(DLIST_DIR), $(DLIST)) \
@@ -176,7 +176,7 @@ SRCS = $(addprefix $(KVPAIR_DIR), $(KVPAIR)) \
 	   $(addprefix $(BHEAP_DIR), $(BHEAP)) \
 	   $(addprefix $(BNHEAP_DIR), $(BNHEAP))
 
-OBJS = $(addprefix $(OBJS_DIR), $(OBJ))
+OBJ = $(addprefix $(OBJ_DIR), $(OBJ_FILES))
 
 RESET = \033[0m
 GREEN = \033[1;32m
@@ -186,16 +186,16 @@ all: $(NAME)
 
 $(NAME): 
 	@make -C ../ft compile
-	@mv ../ft/$(OBJS_DIR) .
-	@$(CC) $(CFLAGS) -c $(SRCS) $(INCS)
-	@mv $(OBJ) $(OBJS_DIR)
-	@ar rc $(NAME) $(OBJS)
+	@mv ../ft/$(OBJ_DIR) .
+	@$(CC) $(CFLAGS) -c $(SRC) $(INCLUDES)
+	@mv $(OBJ_FILES) $(OBJ_DIR)
+	@ar rc $(NAME) $(OBJ)
 	@ranlib $(NAME)
 	@printf "\n$(GREEN)[✓] $(RESET)\x1B[32m$(NAME) ready!\n\x1b[37m"
 
 clean:
-	@rm -rf $(OBJ)
-	@rm -rf $(OBJS_DIR)
+	@rm -rf $(OBJ_FILES)
+	@rm -rf $(OBJ_DIR)
 	@printf "$(RED)[x] $(RESET)\x1B[31m$(NAME) object files deleted\n"
 
 fclean: clean
