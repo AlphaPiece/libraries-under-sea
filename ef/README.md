@@ -16,13 +16,13 @@
 * [Binary Heaps](#binary-heaps)
 * [Binomial Heaps](#binomial-heaps)
 
-## [Dynamic Arrays](https://github.com/AlphaPiece/LibrariesUnderSea/tree/master/ef/srcs/darray)
+## [Dynamic Arrays](https://github.com/AlphaPiece/libraries-under-sea/tree/master/ef/src/darray)
 A dynamic array is a random access, variable-size list data structure that allows elements to be added or removed.
 
 
 
 
-## [Singly Linked Lists](https://github.com/AlphaPiece/LibrariesUnderSea/tree/master/ef/src/slist)
+## [Singly Linked Lists](https://github.com/AlphaPiece/libraries-under-sea/tree/master/ef/src/slist)
 
 Each element in a singly linked list contains a piece of data, together with a pointer which links to the next element in the list. Using this pointer it is possible to move through the list in one direction only (unlike the double-linked lists, which allow movement in both directions).
 
@@ -89,7 +89,7 @@ ef_slist_copy()
 ```
 
 
-## [Doubly Linked Lists](https://github.com/AlphaPiece/LibrariesUnderSea/tree/master/ef/srcs/dlist)
+## [Doubly Linked Lists](https://github.com/AlphaPiece/libraries-under-sea/tree/master/ef/src/dlist)
 
 Each element in a doubly linked list contains a piece of data, together with pointers which link to the previous and next elements in the list. Using these pointers it is possible to move through the list in both directions (unlike the singly-linked GSList, which only allows movement through the list in the forward direction).
 
@@ -156,22 +156,22 @@ ef_dlist_copy()
 ```
 
 
-## [Double-ended Queues](https://github.com/AlphaPiece/LibrariesUnderSea/tree/master/ef/srcs/deque)
+## [Double-ended Queues](https://github.com/AlphaPiece/libraries-under-sea/tree/master/ef/srcs/deque)
 
 
 
-## [N-ary Trees](https://github.com/AlphaPiece/LibrariesUnderSea/tree/master/ef/srcs/ntree)
+## [N-ary Trees](https://github.com/AlphaPiece/libraries-under-sea/tree/master/ef/srcs/ntree)
 
-## [AVL Trees](https://github.com/AlphaPiece/LibrariesUnderSea/tree/master/ef/srcs/atree)
+## [AVL Trees](https://github.com/AlphaPiece/libraries-under-sea/tree/master/ef/srcs/atree)
 
-## [Red-Black Trees](https://github.com/AlphaPiece/LibrariesUnderSea/tree/master/ef/srcs/rbtree)
+## [Red-Black Trees](https://github.com/AlphaPiece/libraries-under-sea/tree/master/ef/srcs/rbtree)
 
-## [Splay Trees](https://github.com/AlphaPiece/LibrariesUnderSea/tree/master/ef/srcs/sptree)
+## [Splay Trees](https://github.com/AlphaPiece/libraries-under-sea/tree/master/ef/srcs/sptree)
 
-## [Treaps](https://github.com/AlphaPiece/LibrariesUnderSea/tree/master/ef/srcs/treap)
+## [Treaps](https://github.com/AlphaPiece/libraries-under-sea/tree/master/ef/srcs/treap)
 
-## [Hash Tables](https://github.com/AlphaPiece/LibrariesUnderSea/tree/master/ef/srcs/htable)
+## [Hash Tables](https://github.com/AlphaPiece/libraries-under-sea/tree/master/ef/srcs/htable)
 
-## [Binary Heaps](https://github.com/AlphaPiece/LibrariesUnderSea/tree/master/ef/srcs/bheap)
+## [Binary Heaps](https://github.com/AlphaPiece/libraries-under-sea/tree/master/ef/srcs/bheap)
 
-## [Binomial Heaps](https://github.com/AlphaPiece/LibrariesUnderSea/tree/master/ef/srcs/bnheap)
+## [Binomial Heaps](https://github.com/AlphaPiece/libraries-under-sea/tree/master/ef/srcs/bnheap)
