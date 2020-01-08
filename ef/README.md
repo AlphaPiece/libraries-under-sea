@@ -22,7 +22,7 @@ A dynamic array is a random access, variable-size list data structure that allow
 
 
 
-## [Singly Linked Lists](https://github.com/AlphaPiece/LibrariesUnderSea/tree/master/ef/srcs/slist)
+## [Singly Linked Lists](https://github.com/AlphaPiece/LibrariesUnderSea/tree/master/ef/src/slist)
 
 Each element in a singly linked list contains a piece of data, together with a pointer which links to the next element in the list. Using this pointer it is possible to move through the list in one direction only (unlike the double-linked lists, which allow movement in both directions).
 
