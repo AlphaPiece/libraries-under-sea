@@ -1,4 +1,4 @@
-# LibrariesUnderSea
+# Libraries Under Sea
 
 ## *Long live the C programming language!*
 
