@@ -156,22 +156,22 @@ ef_dlist_copy()
 ```
 
 
-## [Double-ended Queues](https://github.com/AlphaPiece/libraries-under-sea/tree/master/ef/srcs/deque)
+## [Double-ended Queues](https://github.com/AlphaPiece/libraries-under-sea/tree/master/ef/src/deque)
 
 
 
-## [N-ary Trees](https://github.com/AlphaPiece/libraries-under-sea/tree/master/ef/srcs/ntree)
+## [N-ary Trees](https://github.com/AlphaPiece/libraries-under-sea/tree/master/ef/src/ntree)
 
-## [AVL Trees](https://github.com/AlphaPiece/libraries-under-sea/tree/master/ef/srcs/atree)
+## [AVL Trees](https://github.com/AlphaPiece/libraries-under-sea/tree/master/ef/src/atree)
 
-## [Red-Black Trees](https://github.com/AlphaPiece/libraries-under-sea/tree/master/ef/srcs/rbtree)
+## [Red-Black Trees](https://github.com/AlphaPiece/libraries-under-sea/tree/master/ef/src/rbtree)
 
-## [Splay Trees](https://github.com/AlphaPiece/libraries-under-sea/tree/master/ef/srcs/sptree)
+## [Splay Trees](https://github.com/AlphaPiece/libraries-under-sea/tree/master/ef/src/sptree)
 
-## [Treaps](https://github.com/AlphaPiece/libraries-under-sea/tree/master/ef/srcs/treap)
+## [Treaps](https://github.com/AlphaPiece/libraries-under-sea/tree/master/ef/src/treap)
 
-## [Hash Tables](https://github.com/AlphaPiece/libraries-under-sea/tree/master/ef/srcs/htable)
+## [Hash Tables](https://github.com/AlphaPiece/libraries-under-sea/tree/master/ef/src/htable)
 
-## [Binary Heaps](https://github.com/AlphaPiece/libraries-under-sea/tree/master/ef/srcs/bheap)
+## [Binary Heaps](https://github.com/AlphaPiece/libraries-under-sea/tree/master/ef/src/bheap)
 
-## [Binomial Heaps](https://github.com/AlphaPiece/libraries-under-sea/tree/master/ef/srcs/bnheap)
+## [Binomial Heaps](https://github.com/AlphaPiece/libraries-under-sea/tree/master/ef/src/bnheap)
