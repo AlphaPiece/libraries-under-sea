@@ -54,7 +54,7 @@
 | int | **ft_randintarr** | (int lower, int upper, int len) | Returns an array of random integers (between lower and upper) of length len. |
 | uint32_t | **ft_inthash** | (int n) | Returns a 32-bit hash integer by hashing the integer n. |
 
-## [ASCII Characters](https://github.com/AlphaPiece/libraries-under-sea/tree/master/ft/src/char)
+## [ASCII Characters](https://github.com/AlphaPiece/libraries-under-sea/tree/master/ft/src/chr)
 
 | Return Type | Function Name | Parameter List | Description |
 | --- | --- | --- | --- |
