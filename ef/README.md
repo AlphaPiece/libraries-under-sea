@@ -229,6 +229,18 @@ ef_deque_pop_tail()
 ef_deque_pop_nth()
 ```
 
+Example
+```
+char *alphabet[] = {"a", "b", "c", "d"};
+t_deque *queue = ef_deque_create(NULL);
+
+for (int i = 0; i < 4; i++)
+	ef_deque_push_head(queue, alphabet[i]);
+printf("%s\n", ef_deque_pop_head(queue));
+
+// The output is "d".
+```
+
 To remove all the elements or even destroy the deque, use
 ```
 ef_deque_clear()
