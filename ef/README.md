@@ -200,9 +200,76 @@ ef_dlist_copy()
 
 ## [Double-ended Queues](https://github.com/AlphaPiece/libraries-under-sea/tree/master/ef/src/deque)
 
+A double-ended queue is a queue (internally a doubly linked list), for which elements can be added to or removed from either the front (head) or back (tail). Also known as deque.
 
+To create a deque, use
+```
+ef_deque_alloc()
+ef_deque_create()
+```
+
+To push an element, use
+```
+ef_deque_push_head()
+ef_deque_push_tail()
+ef_deque_push_nth()
+```
+
+To peek an element, use
+```
+ef_deque_peek_head()
+ef_deque_peek_tail()
+ef_deque_peek_nth()
+```
+
+To pop an element, use
+```
+ef_deque_pop_head()
+ef_deque_pop_tail()
+ef_deque_pop_nth()
+```
+
+To remove all the elements or even destroy the deque, use
+```
+ef_deque_clear()
+ef_deque_free()
+```
+
+To call a function for each element in the list, use
+```
+ef_deque_traverse()
+```
+
+To get some information about the list, use
+```
+ef_deque_is_empty()
+ef_deque_length()
+```
+
+Some other useful functions
+```
+ef_deque_sort()
+ef_deque_reverse()
+ef_deque_rotate()
+ef_deque_copy()
+```
 
 ## [N-ary Trees](https://github.com/AlphaPiece/libraries-under-sea/tree/master/ef/src/ntree)
+
+To create a t_dlist node, use
+
+To add a single element, use
+
+To find an elements, use
+
+To remove an element, use
+
+To call a function for each element in the list, use
+
+To get some information about the list, use
+
+Some other useful functions
+
 
 ## [AVL Trees](https://github.com/AlphaPiece/libraries-under-sea/tree/master/ef/src/atree)
 
