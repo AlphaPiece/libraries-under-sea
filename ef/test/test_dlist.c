@@ -6,7 +6,7 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/24 14:21:07 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/04/28 09:42:00 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2020/01/08 22:32:04 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,12 +130,15 @@ void	test(void)
 /*	n = ef_dlist_length(new_list);
 	ft_printf("%d\n", n);
 */
-	print_list(list);
+/*	print_list(list);
 	list = ef_dlist_rotate(list, 12);
 	print_list(list);
+*/
+	print_list(list);
+	ef_dlist_traverse(list, add_one, 9, FORWARD);
+	print_list(list);
 
-//	ef_dlist_free_list(new_list);
-	ef_dlist_free_list(list);
+	ef_dlist_free(list, NULL, ALL);
 }
 
 

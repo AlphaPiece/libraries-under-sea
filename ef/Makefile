@@ -6,7 +6,7 @@
 #    By: zwang <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/15 14:23:06 by zwang             #+#    #+#              #
-#    Updated: 2019/09/11 20:43:50 by Zexi Wang        ###   ########.fr        #
+#    Updated: 2020/01/08 23:22:19 by Zexi Wang        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -176,7 +176,8 @@ SRC = $(addprefix $(KVPAIR_DIR), $(KVPAIR)) \
 	   $(addprefix $(BHEAP_DIR), $(BHEAP)) \
 	   $(addprefix $(BNHEAP_DIR), $(BNHEAP))
 
-OBJ = $(addprefix $(OBJ_DIR), $(OBJ_FILES))
+OBJ = $(addprefix $(OBJ_DIR), $(OBJ_FILES)) \
+		libft_obj/*.o
 
 RESET = \033[0m
 GREEN = \033[1;32m
@@ -184,10 +185,10 @@ RED = \033[1;31m
 
 all: $(NAME)
 
-$(NAME): 
-	@make -C ../ft compile
-	@mv ../ft/$(OBJ_DIR) .
+$(NAME):
+	@printf "\n\x1B[38;5;208mCompiling...\n\x1b[37m"
 	@$(CC) $(CFLAGS) -c $(SRC) $(INCLUDES)
+	@mkdir $(OBJ_DIR)
 	@mv $(OBJ_FILES) $(OBJ_DIR)
 	@ar rc $(NAME) $(OBJ)
 	@ranlib $(NAME)

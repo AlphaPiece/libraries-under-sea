@@ -6,7 +6,7 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/15 16:00:55 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/06/05 15:59:25 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2020/01/08 22:30:04 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ typedef void		(*f_del)(void *);
 typedef void		*(*f_cpy)(void *);
 typedef void		*(*f_trv)(void *);
 typedef void		*(*f_trw)(void *, void *);
-
 
 typedef int8_t		t_flag;
 typedef uint64_t	t_value;

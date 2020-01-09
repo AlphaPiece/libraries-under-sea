@@ -6,7 +6,7 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/28 09:53:41 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/07 10:28:40 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2020/01/08 23:07:25 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ void	test(void)
 	int		arr[] = {0,1,2,3,4,5,6};
 	void	*var;
 
-	queue = ef_deque_new(NULL);
+	queue = ef_deque_create(NULL);
 	assert(queue->head == NULL);
 	assert(queue->tail == NULL);
 	assert(queue->length == 0);
@@ -88,7 +88,7 @@ void	test(void)
 	ef_deque_push_nth(queue, &arr[5], 4);
 //	print_queue(queue);
 
-	empty_queue = ef_deque_new(NULL);
+	empty_queue = ef_deque_create(NULL);
 
 /*	var = ef_deque_pop_head(empty_queue);
 	print_queue(empty_queue);
@@ -120,11 +120,12 @@ void	test(void)
 	if (var)
 		ft_printf("%d\n", *(int *)var);
 */
-	ef_deque_sort(queue, cmp_int);
+/*	ef_deque_sort(queue, cmp_int);
 	print_queue(queue);
-	
-//	ef_deque_reverse(NULL);
-//	print_queue(queue);
+*/
+	print_queue(queue);
+	ef_deque_reverse(queue);
+	print_queue(queue);
 
 //	ef_deque_rotate(queue, 10);
 //	print_queue(queue);
