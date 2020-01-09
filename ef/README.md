@@ -235,7 +235,7 @@ char *alphabet[] = {"a", "b", "c", "d"};
 t_deque *queue = ef_deque_create(NULL);
 
 for (int i = 0; i < 4; i++)
-	ef_deque_push_head(queue, alphabet[i]);
+    ef_deque_push_head(queue, alphabet[i]);
 printf("%s\n", ef_deque_pop_head(queue));
 
 // The output is "d".
