@@ -44,6 +44,20 @@ ef_slist_insert_after()
 ef_slist_insert_sorted()
 ```
 
+Example
+```
+t_slist *list = NULL;
+char *alphabet[] = {"a", "b", "c", "d"};
+
+for (int i = 0; i < 4; i++)
+    list = ef_slist_append(list, alphabet[i]);
+
+for (t_slist *node = list; node; node = node->next)
+    printf("%s", node->data);
+
+// The output is "abcd".
+```
+
 To add a list of elements, use
 ```
 ef_slist_append_list()
@@ -87,6 +101,7 @@ ef_slist_reverse()
 ef_slist_rotate()
 ef_slist_copy()
 ```
+
 
 
 ## [Doubly Linked Lists](https://github.com/AlphaPiece/libraries-under-sea/tree/master/ef/src/dlist)
