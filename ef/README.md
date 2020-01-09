@@ -155,6 +155,33 @@ To call a function for each element in the list, use
 ef_dlist_traverse()
 ```
 
+Example
+```
+/*
+** void *print(void *data)
+** {
+**     printf("%s", (char *)data);
+**     return (data);
+** }
+*/
+
+t_dlist *list = NULL;
+char *alphabet[] = {"a", "b", "c", "d"};
+
+for (int i = 0; i < 4; i++)
+    list = ef_dlist_append(list, alphabet[i]);
+
+// Now the list is a->b->c->d->|.
+
+ef_dlist_traverse(list, print, ef_dlist_length(list), FORWARD);
+
+// The output is "abcd".
+
+ef_dlist_traverse(list, print, ef_dlist_length(list), BACKWARD);
+
+// The output is "dcba".
+```
+
 To get some information about the list, use
 ```
 ef_dlist_length()
