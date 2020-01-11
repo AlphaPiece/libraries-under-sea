@@ -299,6 +299,36 @@ ef_ntree_next_sibling()
 ef_ntree_find()
 ```
 
+Example
+```
+/*
+** int  cmp_int(void *n1, void *n2)
+** {
+**     if (*(int *)n1 > *(int *)n2)
+**         return (1);
+**     else if (*(int *)n1 < *(int *)n2)
+**         return (-1);
+**     else
+**         return (0);
+** }
+*/
+
+t_ntree *nodes[4];
+int     arr[] = {0, 1, 2, 3};
+
+for (int i = 0; i < 4; i++)
+    nodes[i] = ef_ntree_create(&arr[i]);
+ef_ntree_prepend_child(nodes[0], nodes[1]);
+ef_ntree_append_child(nodes[0], nodes[3]);
+ef_ntree_insert_child(nodes[0], nodes[2], 1);
+
+int n = 2;
+t_ntree *node = ef_ntree_find(nodes[0], &n, cmp_int, -1, POST_ORDER, WHOLE);
+printf("%d", *(int *)(node->data));
+
+// The output is "2".
+```
+
 To remove an element, use
 ```
 ef_ntree_unlink()
