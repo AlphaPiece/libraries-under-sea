@@ -200,9 +200,140 @@ ef_dlist_copy()
 
 ## [Double-ended Queues](https://github.com/AlphaPiece/libraries-under-sea/tree/master/ef/src/deque)
 
+A double-ended queue is a queue (internally a doubly linked list), for which elements can be added to or removed from either the front (head) or back (tail). Also known as deque.
 
+To create a deque, use
+```
+ef_deque_alloc()
+ef_deque_create()
+```
+
+To push an element, use
+```
+ef_deque_push_head()
+ef_deque_push_tail()
+ef_deque_push_nth()
+```
+
+To peek an element, use
+```
+ef_deque_peek_head()
+ef_deque_peek_tail()
+ef_deque_peek_nth()
+```
+
+To pop an element, use
+```
+ef_deque_pop_head()
+ef_deque_pop_tail()
+ef_deque_pop_nth()
+```
+
+Example
+```
+char *alphabet[] = {"a", "b", "c", "d"};
+t_deque *queue = ef_deque_create(NULL);
+
+for (int i = 0; i < 4; i++)
+    ef_deque_push_head(queue, alphabet[i]);
+printf("%s\n", ef_deque_pop_head(queue));
+
+// The output is "d".
+```
+
+To remove all the elements or even destroy the deque, use
+```
+ef_deque_clear()
+ef_deque_free()
+```
+
+To call a function for each element in the list, use
+```
+ef_deque_traverse()
+```
+
+To get some information about the list, use
+```
+ef_deque_is_empty()
+ef_deque_length()
+```
+
+Some other useful functions
+```
+ef_deque_sort()
+ef_deque_reverse()
+ef_deque_rotate()
+ef_deque_copy()
+```
 
 ## [N-ary Trees](https://github.com/AlphaPiece/libraries-under-sea/tree/master/ef/src/ntree)
+
+An n-ary tree is a rooted tree in which each node has no more than n children. A binary tree is the special case where n = 2, and a ternary tree is another case with n = 3 that limits its children to three.
+
+
+To create a t_ntree node, use
+```
+ef_ntree_alloc()
+ef_ntree_create()
+```
+
+To add a single element, use
+```
+ef_ntree_append_child()
+ef_ntree_prepend_child()
+ef_ntree_insert_child()
+ef_ntree_insert_child_before()
+ef_ntree_insert_child_after()
+```
+
+To find an elements, use
+```
+ef_ntree_root()
+ef_ntree_first_child()
+ef_ntree_last_child()
+ef_ntree_nth_child()
+ef_ntree_first_sibling()
+ef_ntree_last_sibling()
+ef_ntree_prev_sibling()
+ef_ntree_next_sibling()
+ef_ntree_find()
+```
+
+To remove an element, use
+```
+ef_ntree_unlink()
+ef_ntree_remove()
+ef_ntree_free()
+```
+
+To call a function for each element in the list, use
+```
+ef_ntree_traverse()
+```
+
+To get some information about the list, use
+```
+ef_ntree_is_root()
+ef_ntree_is_leaf()
+ef_ntree_is_ancestor()
+ef_ntree_is_descendant()
+ef_ntree_depth()
+ef_ntree_height()
+ef_ntree_count_children()
+ef_ntree_count_nodes()
+ef_ntree_count_leaves()
+ef_ntree_child_index()
+```
+
+Some other useful functions
+```
+ef_ntree_sort_children()
+ef_ntree_reverse_children()
+ef_ntree_rotate_children()
+ef_ntree_copy()
+```
+
+
 
 ## [AVL Trees](https://github.com/AlphaPiece/libraries-under-sea/tree/master/ef/src/atree)
 
