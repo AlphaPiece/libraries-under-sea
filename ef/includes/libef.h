@@ -6,7 +6,7 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/15 16:00:55 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2020/01/08 22:30:04 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2020/01/10 21:21:52 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -244,62 +244,6 @@ t_dlist				*ef_dlist_sort(t_dlist *list, f_cmp cmp);
 t_dlist				*ef_dlist_reverse(t_dlist *list);
 t_dlist				*ef_dlist_rotate(t_dlist *list, int n);
 t_dlist				*ef_dlist_copy(t_dlist *list, f_cpy cpy);
-
-/*
-** ==================
-** >                <
-** >>> SKIP LISTS <<<
-** >                <
-** ==================
-*/
-
-# define PROBABILITY	0.5
-# define MAX_LEVEL		32
-
-typedef struct		s_sknode
-{
-	void			*key;
-	void			*value;
-	t_darray		*forward;
-}					t_sknode;
-
-typedef struct		s_sklist
-{
-	t_sknode		*head;
-	f_cmp			cmp_key;
-	f_del			del_key;
-	f_del			del_value;
-	int				size;
-	int				level;
-}					t_sklist;
-
-// Create
-t_sknode			*ef_sknode_alloc(void);
-t_sknode			*ef_sknode_create(void *key, void *value);
-t_sklist			*ef_sklist_alloc(void);
-t_sklist			*ef_sklist_create(f_cmp cmp_key, f_del del_key,
-										f_del del_value);
-
-// Set
-void				ef_sklist_insert(t_sknode *node);
-void				ef_sklist_set(void *key, void *value);
-
-// Get
-t_sknode			*ef_sklist_find(t_sklist *list, void *key);
-void				*ef_sklist_get(t_sklist *list, void *key);
-
-// Remove
-void				ef_sklist_delete(t_sklist *list, void *key);
-void				*ef_sklist_remove(t_sklist *list, void *key);
-
-// Traverse
-void				ef_sklist_traverse(t_sklist *list, f_trw trw);
-
-// Status
-int					ef_sklist_size(t_sklist *list);
-int					ef_sklist_level(t_sklist *list);
-
-// Extra
 
 /*
 ** ===========================
@@ -701,60 +645,6 @@ void				ef_trnode_left_rotate(t_treap *tree, t_trnode *node);
 void				ef_trnode_right_rotate(t_treap *tree, t_trnode *node);
 
 /*
-** =======================
-** >                     <
-** >>> SCAPEGOAT TREES <<<
-** >                     <
-** =======================
-*/
-
-typedef struct		s_sgnode
-{
-	void			*key;
-	void			*value;
-	struct s_sgnode	*parent;
-	struct s_sgnode	*left;
-	struct s_sgnode	*right;
-}					t_sgnode;
-
-typedef struct		s_sgtree
-{
-	t_sgnode		*root;
-	f_cmp			cmp_key;
-	f_del			del_key;
-	f_del			del_value;
-	int				size;
-}					t_sgtree;
-
-// Create
-t_sgnode			*ef_sgnode_alloc(void);
-t_sgnode			*ef_sgnode_create(void *key, void *value);
-t_sgtree			*ef_sgtree_alloc(void);
-t_sgtree			*ef_sgtree_create(f_cmp cmp_key, f_del del_key,
-										f_del del_value);
-
-// Set
-void				ef_sgtree_insert(t_sgtree *tree, t_sgnode *node);
-
-// Get
-
-
-// Remove
-
-
-// Traverse
-void				ef_sgtree_traverse(t_sgtree *tree, f_trw trw);
-
-// Status
-int					ef_sgnode_size(t_sgnode *node);
-int					ef_sgtree_size(t_sgtree *tree);
-int					ef_sgnode_depth(t_sgnode *node);
-
-// Extra
-void				ef_sgnode_rebuild(t_sgtree *tree, t_sgnode *node);
-
-
-/*
 ** ===================
 ** >                 <
 ** >>> HASH TABLES <<<
@@ -930,58 +820,5 @@ t_bnnode			*ef_bnnode_merge(t_bnnode *node1, t_bnnode *node2,
 										f_cmp cmp_key);
 t_bnheap			*ef_bnheap_merge(t_bnheap *heap1, t_bnheap *heap2);
 t_bnnode			*ef_bnnode_reverse(t_bnnode *node);
-
-/*
-** =======================
-** >                     <
-** >>> FIBONACCI HEAPS <<<
-** >                     <
-** =======================
-*/
-
-typedef struct		s_finode
-{
-	void			*key;
-	void			*value;
-	struct s_finode	*parent;
-	struct s_finode	*left;
-	struct s_finode	*right;
-	struct s_finode	*children;
-}					t_finode;
-
-typedef struct		s_fiheap
-{
-	t_finode		*top;
-	f_cmp			cmp_key;
-	f_del			del_key;
-	f_del			del_value;
-}					t_fiheap;
-
-// Create
-t_finode			*ef_finode_alloc(void);
-t_finode			*ef_finode_create(void *key, void *value);
-t_fiheap			*ef_fiheap_alloc(void);
-t_fiheap			*ef_fiheap_create(f_cmp cmp_key, f_del del_key,
-										f_del del_value);
-
-// Set
-void				ef_fiheap_insert(t_fiheap *heap, t_finode *node);
-
-// Get
-
-
-// Remove
-void				ef_finode_free(t_finode *node, f_del del_key,
-									f_del del_value);
-
-// Traverse
-
-
-// Status
-
-
-// Extra
-t_fiheap			*ef_fiheap_merge(t_fiheap *heap1, t_fiheap *heap2);
-
 
 #endif
