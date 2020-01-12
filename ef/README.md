@@ -46,9 +46,16 @@ ef_darray_delete()
 ef_darray_remove()
 ```
 
-To call a function for each element in the list, use
+To remove all the elements or even destroy the array, use
+```
+ef_darray_clear()
+ef_darray_free()
+```
 
-To get some information about the list, use
+To call a function for each element in the array, use
+
+
+To get some information about the array, use
 
 Some other useful functions
 
@@ -278,12 +285,12 @@ ef_deque_clear()
 ef_deque_free()
 ```
 
-To call a function for each element in the list, use
+To call a function for each element in the deque, use
 ```
 ef_deque_traverse()
 ```
 
-To get some information about the list, use
+To get some information about the deque, use
 ```
 ef_deque_is_empty()
 ef_deque_length()
@@ -367,12 +374,12 @@ ef_ntree_remove()
 ef_ntree_free()
 ```
 
-To call a function for each element in the list, use
+To call a function for each element in the tree, use
 ```
 ef_ntree_traverse()
 ```
 
-To get some information about the list, use
+To get some information about the tree, use
 ```
 ef_ntree_is_root()
 ef_ntree_is_leaf()
@@ -406,9 +413,9 @@ To find an elements, use
 
 To remove an element, use
 
-To call a function for each element in the list, use
+To call a function for each element in the tree, use
 
-To get some information about the list, use
+To get some information about the tree, use
 
 Some other useful functions
 
@@ -422,9 +429,9 @@ To find an elements, use
 
 To remove an element, use
 
-To call a function for each element in the list, use
+To call a function for each element in the tree, use
 
-To get some information about the list, use
+To get some information about the tree, use
 
 Some other useful functions
 
@@ -438,9 +445,9 @@ To find an elements, use
 
 To remove an element, use
 
-To call a function for each element in the list, use
+To call a function for each element in the tree, use
 
-To get some information about the list, use
+To get some information about the tree, use
 
 Some other useful functions
 
@@ -454,9 +461,9 @@ To find an elements, use
 
 To remove an element, use
 
-To call a function for each element in the list, use
+To call a function for each element in the treap, use
 
-To get some information about the list, use
+To get some information about the treap, use
 
 Some other useful functions
 
@@ -470,9 +477,9 @@ To find an elements, use
 
 To remove an element, use
 
-To call a function for each element in the list, use
+To call a function for each element in the table, use
 
-To get some information about the list, use
+To get some information about the table, use
 
 Some other useful functions
 
@@ -486,9 +493,9 @@ To find an elements, use
 
 To remove an element, use
 
-To call a function for each element in the list, use
+To call a function for each element in the heap, use
 
-To get some information about the list, use
+To get some information about the heap, use
 
 Some other useful functions
 
@@ -502,8 +509,8 @@ To find an elements, use
 
 To remove an element, use
 
-To call a function for each element in the list, use
+To call a function for each element in the heap, use
 
-To get some information about the list, use
+To get some information about the heap, use
 
 Some other useful functions
