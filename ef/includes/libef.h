@@ -6,7 +6,7 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/15 16:00:55 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2020/01/10 21:21:52 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2020/01/11 23:37:32 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ void				ef_kvpair_free(t_kvpair *pair, f_del del_key,
 ** ======================
 */
 
-# define DARRAY_LEN		4
+# define DARRAY_LEN		16
 
 typedef struct		s_darray
 {
