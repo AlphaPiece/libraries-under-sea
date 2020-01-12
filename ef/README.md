@@ -17,9 +17,40 @@
 * [Binomial Heaps](#binomial-heaps)
 
 ## [Dynamic Arrays](https://github.com/AlphaPiece/libraries-under-sea/tree/master/ef/src/darray)
-A dynamic array is a random access, variable-size list data structure that allows elements to be added or removed.
 
+A dynamic array is a random access, variable-size list data structure that allows elements to be added or removed. All the elements in the array must be of the same type. The dynamic array will be initialized with 16 spaces (the actually size of the array depends on the element size i.e. an int array is initialized with size 16 * 4 = 64 bytes). If the number of elements are equal to the capacity of the array when adding a new element, the capacity will be automatically doubled.
 
+To create a dynamic array, use
+```
+ef_darray_alloc()
+ef_darray_create()
+```
+
+To add a single element, use
+```
+ef_darray_append()
+ef_darray_insert()
+ef_darray_set()
+```
+
+To find an elements, use
+```
+ef_darray_get()
+ef_darray_peek()
+```
+
+To remove an element, use
+```
+ef_darray_pop()
+ef_darray_delete()
+ef_darray_remove()
+```
+
+To call a function for each element in the list, use
+
+To get some information about the list, use
+
+Some other useful functions
 
 
 ## [Singly Linked Lists](https://github.com/AlphaPiece/libraries-under-sea/tree/master/ef/src/slist)
@@ -75,7 +106,7 @@ ef_slist_nth_node()
 ef_slist_nth_data()
 ```
 
-To remove an element, use
+To remove elements, use
 ```
 ef_slist_unlink()
 ef_slist_delete()
@@ -143,7 +174,7 @@ ef_dlist_nth_node()
 ef_dlist_nth_data()
 ```
 
-To remove an element, use
+To remove elements, use
 ```
 ef_dlist_unlink()
 ef_dlist_delete()
@@ -329,7 +360,7 @@ printf("%d", *(int *)(node->data));
 // The output is "2".
 ```
 
-To remove an element, use
+To remove elements, use
 ```
 ef_ntree_unlink()
 ef_ntree_remove()
@@ -367,14 +398,112 @@ ef_ntree_copy()
 
 ## [AVL Trees](https://github.com/AlphaPiece/libraries-under-sea/tree/master/ef/src/atree)
 
+To create a t_slist node, use
+
+To add a single element, use
+
+To find an elements, use
+
+To remove an element, use
+
+To call a function for each element in the list, use
+
+To get some information about the list, use
+
+Some other useful functions
+
 ## [Red-Black Trees](https://github.com/AlphaPiece/libraries-under-sea/tree/master/ef/src/rbtree)
+
+To create a t_slist node, use
+
+To add a single element, use
+
+To find an elements, use
+
+To remove an element, use
+
+To call a function for each element in the list, use
+
+To get some information about the list, use
+
+Some other useful functions
 
 ## [Splay Trees](https://github.com/AlphaPiece/libraries-under-sea/tree/master/ef/src/sptree)
 
+To create a t_slist node, use
+
+To add a single element, use
+
+To find an elements, use
+
+To remove an element, use
+
+To call a function for each element in the list, use
+
+To get some information about the list, use
+
+Some other useful functions
+
 ## [Treaps](https://github.com/AlphaPiece/libraries-under-sea/tree/master/ef/src/treap)
+
+To create a t_slist node, use
+
+To add a single element, use
+
+To find an elements, use
+
+To remove an element, use
+
+To call a function for each element in the list, use
+
+To get some information about the list, use
+
+Some other useful functions
 
 ## [Hash Tables](https://github.com/AlphaPiece/libraries-under-sea/tree/master/ef/src/htable)
 
+To create a t_slist node, use
+
+To add a single element, use
+
+To find an elements, use
+
+To remove an element, use
+
+To call a function for each element in the list, use
+
+To get some information about the list, use
+
+Some other useful functions
+
 ## [Binary Heaps](https://github.com/AlphaPiece/libraries-under-sea/tree/master/ef/src/bheap)
 
+To create a t_slist node, use
+
+To add a single element, use
+
+To find an elements, use
+
+To remove an element, use
+
+To call a function for each element in the list, use
+
+To get some information about the list, use
+
+Some other useful functions
+
 ## [Binomial Heaps](https://github.com/AlphaPiece/libraries-under-sea/tree/master/ef/src/bnheap)
+
+To create a t_slist node, use
+
+To add a single element, use
+
+To find an elements, use
+
+To remove an element, use
+
+To call a function for each element in the list, use
+
+To get some information about the list, use
+
+Some other useful functions
