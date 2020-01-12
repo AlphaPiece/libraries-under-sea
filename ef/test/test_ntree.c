@@ -6,7 +6,7 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 14:08:22 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/01 11:46:46 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2020/01/10 23:21:01 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,22 +72,22 @@ void	test(void)
 	int		arr[] = {0,1,2,3,4,5,6,7,8};
 	int		n;
 
-	tree = ef_ntree_new(&arr[0]);
+	tree = ef_ntree_create(&arr[0]);
 	assert(tree->data == &arr[0]);
 	assert(tree->prev == NULL);
 	assert(tree->next == NULL);
 	assert(tree->parent == NULL);
 	assert(tree->children == NULL);
 
-	ef_ntree_append_child(tree, ef_ntree_new(&arr[1]));
-	ef_ntree_prepend_child(tree, ef_ntree_new(&arr[2]));
-	ef_ntree_append_child(tree, ef_ntree_new(&arr[4]));
-	ef_ntree_insert_child(tree, ef_ntree_new(&arr[5]), 1);
-	ef_ntree_append_child(tree->children, ef_ntree_new(&arr[3]));
-	ef_ntree_insert_child_before(tree, ef_ntree_new(&arr[6]), NULL);
-	ef_ntree_insert_child_after(tree, ef_ntree_new(&arr[7]), tree->children);
-	ef_ntree_append_child(tree->children, ef_ntree_new(&arr[1]));
-	ef_ntree_prepend_child(tree->children->next, ef_ntree_new(&arr[3]));
+	ef_ntree_append_child(tree, ef_ntree_create(&arr[1]));
+	ef_ntree_prepend_child(tree, ef_ntree_create(&arr[2]));
+	ef_ntree_append_child(tree, ef_ntree_create(&arr[4]));
+	ef_ntree_insert_child(tree, ef_ntree_create(&arr[5]), 1);
+	ef_ntree_append_child(tree->children, ef_ntree_create(&arr[3]));
+	ef_ntree_insert_child_before(tree, ef_ntree_create(&arr[6]), NULL);
+	ef_ntree_insert_child_after(tree, ef_ntree_create(&arr[7]), tree->children);
+	ef_ntree_append_child(tree->children, ef_ntree_create(&arr[1]));
+	ef_ntree_prepend_child(tree->children->next, ef_ntree_create(&arr[3]));
 
 	ef_ntree_traverse(tree, print, -1, IN_ORDER, WHOLE);
 	ft_printf("\n");
