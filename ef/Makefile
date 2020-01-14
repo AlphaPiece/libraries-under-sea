@@ -6,7 +6,7 @@
 #    By: zwang <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/15 14:23:06 by zwang             #+#    #+#              #
-#    Updated: 2020/01/08 23:22:19 by Zexi Wang        ###   ########.fr        #
+#    Updated: 2020/01/13 22:00:05 by Zexi Wang        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -91,7 +91,7 @@ ATREE = ef_anode_alloc.c        ef_anode_right_rotate.c ef_atree_get.c \
 		ef_anode_height.c       ef_atree_create.c       ef_atree_set.c \
 		ef_anode_left_rotate.c  ef_atree_delete.c       ef_atree_size.c \
 		ef_anode_maximum.c      ef_atree_find.c         ef_atree_traverse.c \
-		ef_anode_minimum.c      ef_atree_free.c         ef_atree_height.c
+		ef_anode_minimum.c      ef_atree_free.c         ef_atree_root.c
 
 RBTREE = ef_rbnode_alloc.c   ef_rbtree_free.c         ef_rbtree_create.c \
 		 ef_rbnode_free.c    ef_rbtree_get.c          ef_rbtree_remove.c \

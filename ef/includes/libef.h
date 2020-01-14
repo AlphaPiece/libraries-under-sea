@@ -6,7 +6,7 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/15 16:00:55 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2020/01/11 23:37:32 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2020/01/13 22:00:09 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -422,6 +422,7 @@ void				ef_atree_insert(t_atree *tree, t_anode *node);
 void				ef_atree_set(t_atree *tree, void *key, void *value);
 
 // Get
+t_anode				*ef_atree_root(t_atree *tree);
 t_anode				*ef_anode_minimum(t_anode *node);
 t_anode				*ef_anode_maximum(t_anode *node);
 t_anode				*ef_atree_find(t_atree *tree, void *key);
@@ -441,7 +442,6 @@ void				ef_atree_traverse(t_atree *tree, f_trw trw);
 // Status
 int					ef_atree_size(t_atree *tree);
 int					ef_anode_height(t_anode *node);
-int					ef_atree_height(t_atree *tree);
 
 // Extra
 void				ef_anode_left_rotate(t_atree *tree, t_anode *node);

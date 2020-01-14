@@ -1,18 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ef_atree_height.c                                  :+:      :+:    :+:   */
+/*   ef_atree_root.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/19 08:32:36 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/19 08:33:23 by Zexi Wang        ###   ########.fr       */
+/*   Created: 2020/01/13 21:58:06 by Zexi Wang         #+#    #+#             */
+/*   Updated: 2020/01/13 21:59:46 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libef.h"
 
-int	ef_atree_height(t_atree *tree)
+t_anode	*ef_atree_root(t_atree *tree)
 {
-	return (ef_anode_height(tree->root));
+	if (tree)
+		return (tree->root);
+	return (NULL);
 }
