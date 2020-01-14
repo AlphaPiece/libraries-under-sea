@@ -425,19 +425,66 @@ ef_ntree_copy()
 
 ## [AVL Trees](https://github.com/AlphaPiece/libraries-under-sea/tree/master/ef/src/atree)
 
-To create a t_slist node, use
+An AVL tree is a self-balancing binary search tree. It was the first such data structure to be invented. In an AVL tree, the heights of the two child subtrees of any node differ by at most one; if at any time they differ by more than one, rebalancing is done to restore this property. 
 
-To add a single element, use
+To create a t_anode, use
+```
+ef_anode_alloc()
+ef_anode_create()
+```
+
+To create a t_atree, use
+```
+ef_atree_alloc()
+ef_atree_create()
+```
+
+To add a single element or modify the value of a node, use
+```
+ef_atree_insert()
+ef_atree_set()
+```
 
 To find an elements, use
+```
+ef_atree_root()
+ef_anode_minimum()
+ef_anode_maximum()
+ef_atree_find()
+ef_atree_get()
+```
 
 To remove an element, use
+```
+ef_anode_free()
+ef_atree_delete()
+ef_atree_remove()
+```
+
+To remove all the elements or even destroy the tree, use
+```
+ef_atree_clear()
+ef_atree_free()
+```
 
 To call a function for each element in the tree, use
+```
+ef_atree_traverse()
+```
 
 To get some information about the tree, use
+```
+ef_atree_size()
+ef_anode_height()
+```
 
 Some other useful functions
+```
+ef_anode_left_rotate()
+ef_anode_right_rotate()
+```
+
+
 
 ## [Red-Black Trees](https://github.com/AlphaPiece/libraries-under-sea/tree/master/ef/src/rbtree)
 
