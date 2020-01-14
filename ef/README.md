@@ -425,7 +425,9 @@ ef_ntree_copy()
 
 ## [AVL Trees](https://github.com/AlphaPiece/libraries-under-sea/tree/master/ef/src/atree)
 
-An AVL tree is a self-balancing binary search tree. It was the first such data structure to be invented. In an AVL tree, the heights of the two child subtrees of any node differ by at most one; if at any time they differ by more than one, rebalancing is done to restore this property. 
+An AVL tree is a self-balancing binary search tree. It was the first such data structure to be invented. In an AVL tree, the heights of the two child subtrees of any node differ by at most one; if at any time they differ by more than one, rebalancing is done to restore this property.
+
+In libef, each node of AVL trees is of type t_anode, which contains the data; and the root of the tree of t_anode nodes is stored in a t_atree struct, which is the external representation of AVL trees.
 
 To create a t_anode, use
 ```
