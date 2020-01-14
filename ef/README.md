@@ -16,9 +16,11 @@
 * [Binary Heaps](#binary-heaps)
 * [Binomial Heaps](#binomial-heaps)
 
+
+
 ## [Dynamic Arrays](https://github.com/AlphaPiece/libraries-under-sea/tree/master/ef/src/darray)
 
-A dynamic array is a random access, variable-size list data structure that allows elements to be added or removed. All the elements in the array must be of the same type. The dynamic array will be initialized with 16 spaces (the actually size of the array depends on the element size i.e. an int array is initialized with size 16 * 4 = 64 bytes). If the number of elements are equal to the capacity of the array when adding a new element, the capacity will be automatically doubled.
+A dynamic array is a random access, variable-size list data structure that allows elements to be added or removed. All the elements in the array must be of the same type. The dynamic array will be initialized with 16 spaces (the actually size of the array depends on the element size e.g. an int array is initialized with size 16 * 4 = 64 bytes). If the number of elements are equal to the capacity of the array when adding a new element, the capacity will be automatically doubled.
 
 To create a dynamic array, use
 ```
@@ -53,11 +55,26 @@ ef_darray_free()
 ```
 
 To call a function for each element in the array, use
-
+```
+ef_darray_traverse()
+```
 
 To get some information about the array, use
+```
+ef_darray_length()
+ef_darray_elem_size()
+ef_darray_index()
+```
 
 Some other useful functions
+```
+ef_darray_swap()
+ef_darray_sort()
+ef_darray_reverse()
+ef_darray_copy()
+ef_darray_partition()
+```
+
 
 
 ## [Singly Linked Lists](https://github.com/AlphaPiece/libraries-under-sea/tree/master/ef/src/slist)
@@ -236,6 +253,7 @@ ef_dlist_copy()
 ```
 
 
+
 ## [Double-ended Queues](https://github.com/AlphaPiece/libraries-under-sea/tree/master/ef/src/deque)
 
 A double-ended queue is a queue (internally a doubly linked list), for which elements can be added to or removed from either the front (head) or back (tail). Also known as deque.
@@ -303,6 +321,8 @@ ef_deque_reverse()
 ef_deque_rotate()
 ef_deque_copy()
 ```
+
+
 
 ## [N-ary Trees](https://github.com/AlphaPiece/libraries-under-sea/tree/master/ef/src/ntree)
 
