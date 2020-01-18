@@ -427,15 +427,19 @@ ef_ntree_copy()
 
 An AVL tree is a self-balancing binary search tree. It was the first such data structure to be invented. In an AVL tree, the heights of the two child subtrees of any node differ by at most one; if at any time they differ by more than one, rebalancing is done to restore this property.
 
-In libef, each node of AVL trees is of type t_anode, which contains the data; and the root of the tree of t_anode nodes is stored in a t_atree struct, which is the external representation of AVL trees.
+AVL trees store **balance factors** or **heights** with each node, thus requires storage for an integer per node. (In the libef's implementation, heights are stored.)
 
-To create a t_anode, use
+Compare to red-black trees, AVL trees provides **faster lookups** than red-black trees because they are more strictly balanced.
+
+In libef, each node of AVL trees is of type *t_anode*, which contains the data; and the root of the tree of *t_anode* nodes is stored in a *t_atree* struct, which is the external representation of AVL trees.
+
+To create a *t_anode*, use
 ```
 ef_anode_alloc()
 ef_anode_create()
 ```
 
-To create a t_atree, use
+To create a *t_atree*, use
 ```
 ef_atree_alloc()
 ef_atree_create()
@@ -489,6 +493,23 @@ ef_anode_right_rotate()
 
 
 ## [Red-Black Trees](https://github.com/AlphaPiece/libraries-under-sea/tree/master/ef/src/rbtree)
+
+A red-black tree is a balanced binary search tree with one extra bit of storage per node: its color, which can be either RED or BLACK. (The implementation of libef's red black tree actually use a byte (char, 8 bits) to store the color. This will be improved in the future.)
+
+A red-black tree is a binary tree that satisfies the following **red-black properties**:
+```
+1. Every node is either red or black.
+2. The root is black.
+3. Every leaf (NIL) is black.
+4. If a node is red, then both its children are black.
+5. For each node, all simple paths from the node to descendant leaves contain the same number of black nodes.
+```
+
+By constraining the node colors on any simple path from the root to a leaf, read-black trees ensure that no such path is more than twice as long as any other, so that the tree is approximately balanced.
+
+Compare to AVL trees, red-black trees provide faster insertion and removal operations than AVL trees as fewer rotations are done due to relatively relaxed balancing.
+
+In libef, each node of red-black trees is of type *t_rbnode*, which contains the data; and the root of the tree of *t_rbnode* nodes is stored in a *t_rbtree* struct, which is the external representation of red-black trees.
 
 To create a t_slist node, use
 
