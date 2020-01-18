@@ -22,6 +22,8 @@
 
 A dynamic array is a random access, variable-size list data structure that allows elements to be added or removed. All the elements in the array must be of the same type. The dynamic array will be initialized with 16 spaces (the actually size of the array depends on the element size e.g. an int array is initialized with size 16 * 4 = 64 bytes). If the number of elements are equal to the capacity of the array when adding a new element, the capacity will be automatically doubled.
 
+---
+
 To create a dynamic array, use
 ```
 ef_darray_alloc()
@@ -82,6 +84,8 @@ ef_darray_partition()
 Each element in a singly linked list contains a piece of data, together with a pointer which links to the next element in the list. Using this pointer it is possible to move through the list in one direction only (unlike the double-linked lists, which allow movement in both directions).
 
 NULL is considered to be the empty list. That is, a *t_slist* which contains NULL is an empty list.
+
+---
 
 To create a *t_slist* node, use
 ```
@@ -164,6 +168,8 @@ ef_slist_copy()
 Each element in a doubly linked list contains a piece of data, together with pointers which link to the previous and next elements in the list. Using these pointers it is possible to move through the list in both directions (unlike the singly-linked GSList, which only allows movement through the list in the forward direction).
 
 NULL is considered to be the empty list. That is, a *t_dlist* which contains NULL is an empty list.
+
+---
 
 To create a *t_dlist* node, use
 ```
@@ -258,6 +264,8 @@ ef_dlist_copy()
 
 A double-ended queue is a queue (internally a doubly linked list), for which elements can be added to or removed from either the front (head) or back (tail). Also known as deque.
 
+---
+
 To create a deque, use
 ```
 ef_deque_alloc()
@@ -328,6 +336,7 @@ ef_deque_copy()
 
 An n-ary tree is a rooted tree in which each node has no more than n children. A binary tree is the special case where n = 2, and a ternary tree is another case with n = 3 that limits its children to three.
 
+---
 
 To create a *t_ntree* node, use
 ```
@@ -433,6 +442,8 @@ Compare to red-black trees, AVL trees provides **faster lookups** than red-black
 
 In libef, each node of AVL trees is of type *t_anode*, which contains the data; and the root of the tree of *t_anode* nodes is stored in a *t_atree* struct, which is the external representation of AVL trees.
 
+---
+
 To create a *t_anode*, use
 ```
 ef_anode_alloc()
@@ -510,6 +521,8 @@ By constraining the node colors on any simple path from the root to a leaf, read
 Compare to AVL trees, red-black trees provide faster insertion and removal operations than AVL trees as fewer rotations are done due to relatively relaxed balancing.
 
 In libef, each node of red-black trees is of type *t_rbnode*, which contains the data; and the root of the tree of *t_rbnode* nodes is stored in a *t_rbtree* struct, which is the external representation of red-black trees.
+
+---
 
 To create a *t_rbnode*, use
 
