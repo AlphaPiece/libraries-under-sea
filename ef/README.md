@@ -81,9 +81,9 @@ ef_darray_partition()
 
 Each element in a singly linked list contains a piece of data, together with a pointer which links to the next element in the list. Using this pointer it is possible to move through the list in one direction only (unlike the double-linked lists, which allow movement in both directions).
 
-NULL is considered to be the empty list. That is, a t_slist which contains NULL is an empty list.
+NULL is considered to be the empty list. That is, a *t_slist* which contains NULL is an empty list.
 
-To create a t_slist node, use
+To create a *t_slist* node, use
 ```
 ef_slist_alloc()
 ef_slist_create()
@@ -163,9 +163,9 @@ ef_slist_copy()
 
 Each element in a doubly linked list contains a piece of data, together with pointers which link to the previous and next elements in the list. Using these pointers it is possible to move through the list in both directions (unlike the singly-linked GSList, which only allows movement through the list in the forward direction).
 
-NULL is considered to be the empty list. That is, a t_dlist which contains NULL is an empty list.
+NULL is considered to be the empty list. That is, a *t_dlist* which contains NULL is an empty list.
 
-To create a t_dlist node, use
+To create a *t_dlist* node, use
 ```
 ef_dlist_alloc()
 ef_dlist_create()
@@ -329,7 +329,7 @@ ef_deque_copy()
 An n-ary tree is a rooted tree in which each node has no more than n children. A binary tree is the special case where n = 2, and a ternary tree is another case with n = 3 that limits its children to three.
 
 
-To create a t_ntree node, use
+To create a *t_ntree* node, use
 ```
 ef_ntree_alloc()
 ef_ntree_create()
@@ -511,7 +511,9 @@ Compare to AVL trees, red-black trees provide faster insertion and removal opera
 
 In libef, each node of red-black trees is of type *t_rbnode*, which contains the data; and the root of the tree of *t_rbnode* nodes is stored in a *t_rbtree* struct, which is the external representation of red-black trees.
 
-To create a t_slist node, use
+To create a *t_rbnode*, use
+
+To create a *t_rbtree*, use
 
 To add a single element, use
 
