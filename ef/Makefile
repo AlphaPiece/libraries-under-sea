@@ -6,7 +6,7 @@
 #    By: zwang <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/15 14:23:06 by zwang             #+#    #+#              #
-#    Updated: 2020/01/13 22:00:05 by Zexi Wang        ###   ########.fr        #
+#    Updated: 2020/01/18 23:59:15 by Zexi Wang        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -99,7 +99,7 @@ RBTREE = ef_rbnode_alloc.c   ef_rbtree_free.c         ef_rbtree_create.c \
 		 ef_rbtree_alloc.c   ef_rbtree_insert.c       ef_rbtree_set.c \
 		 ef_rbtree_clear.c   ef_rbnode_left_rotate.c  ef_rbtree_size.c \
 		 ef_rbtree_delete.c  ef_rbnode_maximum.c      ef_rbtree_traverse.c \
-		 ef_rbtree_find.c    ef_rbnode_minimum.c      ef_rbtree_height.c
+		 ef_rbtree_find.c    ef_rbnode_minimum.c      ef_rbtree_root.c
 
 SPTREE = ef_spnode_alloc.c        ef_sptree_clear.c      ef_sptree_remove.c \
 		 ef_spnode_create.c       ef_sptree_create.c     ef_sptree_set.c \

@@ -1,18 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ef_rbtree_height.c                                 :+:      :+:    :+:   */
+/*   ef_rbtree_root.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/19 08:30:56 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/19 08:31:49 by Zexi Wang        ###   ########.fr       */
+/*   Created: 2020/01/18 23:57:55 by Zexi Wang         #+#    #+#             */
+/*   Updated: 2020/01/18 23:58:31 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libef.h"
 
-int	ef_rbtree_height(t_rbtree *tree)
+t_rbnode	*ef_rbtree_root(t_rbtree *tree)
 {
-	return (ef_rbnode_height(tree, tree->root));
+	if (tree)
+		return (tree->root);
+	return (NULL);
 }

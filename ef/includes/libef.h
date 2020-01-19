@@ -6,7 +6,7 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/15 16:00:55 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2020/01/13 22:00:09 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2020/01/18 23:57:10 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -495,6 +495,7 @@ void				ef_rbtree_insert(t_rbtree *tree, t_rbnode *node);
 void				ef_rbtree_set(t_rbtree *tree, void *key, void *value);
 
 // Get
+t_rbnode			*ef_rbtree_root(t_rbtree *tree);
 t_rbnode			*ef_rbnode_minimum(t_rbtree *tree, t_rbnode *node);
 t_rbnode			*ef_rbnode_maximum(t_rbtree *tree, t_rbnode *node);
 t_rbnode			*ef_rbtree_find(t_rbtree *tree, void *key);
@@ -514,7 +515,6 @@ void				ef_rbtree_traverse(t_rbtree *tree, f_trw trw);
 // Status
 int					ef_rbtree_size(t_rbtree *tree);
 int					ef_rbnode_height(t_rbtree *tree, t_rbnode *node);
-int					ef_rbtree_height(t_rbtree *tree);
 
 // Extra
 void				ef_rbnode_left_rotate(t_rbtree *tree, t_rbnode *node);
