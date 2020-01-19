@@ -525,20 +525,63 @@ In libef, each node of red-black trees is of type *t_rbnode*, which contains the
 ---
 
 To create a *t_rbnode*, use
+```
+ef_rbnode_alloc()
+ef_rbnode_create()
+```
 
 To create a *t_rbtree*, use
+```
+ef_rbtree_alloc()
+ef_rbtree_create()
+```
 
-To add a single element, use
+To add a single element or modify the value of a node, use
+```
+ef_rbtree_insert()
+ef_rbtree_set()
+```
 
 To find an elements, use
+```
+ef_rbtree_root()
+ef_rbnode_minimum()
+ef_rbnode_maximum()
+ef_rbtree_find()
+ef_rbtree_get()
+```
 
 To remove an element, use
+```
+ef_rbnode_free()
+ef_rbtree_delete()
+ef_rbtree_remove()
+```
+
+To remove all the elements or even destroy the tree, use
+```
+ef_rbtree_clear()
+ef_rbtree_free()
+```
 
 To call a function for each element in the tree, use
+```
+ef_rbtree_traverse()
+```
 
 To get some information about the tree, use
+```
+ef_rbtree_size()
+ef_rbnode_height()
+```
 
 Some other useful functions
+```
+ef_rbnode_left_rotate()
+ef_rbnode_right_rotate()
+```
+
+
 
 ## [Splay Trees](https://github.com/AlphaPiece/libraries-under-sea/tree/master/ef/src/sptree)
 
