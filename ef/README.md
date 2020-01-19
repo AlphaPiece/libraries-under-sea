@@ -22,6 +22,8 @@
 
 A dynamic array is a random access, variable-size list data structure that allows elements to be added or removed. All the elements in the array must be of the same type. The dynamic array will be initialized with 16 spaces (the actually size of the array depends on the element size e.g. an int array is initialized with size 16 * 4 = 64 bytes). If the number of elements are equal to the capacity of the array when adding a new element, the capacity will be automatically doubled.
 
+---
+
 To create a dynamic array, use
 ```
 ef_darray_alloc()
@@ -81,9 +83,11 @@ ef_darray_partition()
 
 Each element in a singly linked list contains a piece of data, together with a pointer which links to the next element in the list. Using this pointer it is possible to move through the list in one direction only (unlike the double-linked lists, which allow movement in both directions).
 
-NULL is considered to be the empty list. That is, a t_slist which contains NULL is an empty list.
+NULL is considered to be the empty list. That is, a *t_slist* which contains NULL is an empty list.
 
-To create a t_slist node, use
+---
+
+To create a *t_slist* node, use
 ```
 ef_slist_alloc()
 ef_slist_create()
@@ -163,9 +167,11 @@ ef_slist_copy()
 
 Each element in a doubly linked list contains a piece of data, together with pointers which link to the previous and next elements in the list. Using these pointers it is possible to move through the list in both directions (unlike the singly-linked GSList, which only allows movement through the list in the forward direction).
 
-NULL is considered to be the empty list. That is, a t_dlist which contains NULL is an empty list.
+NULL is considered to be the empty list. That is, a *t_dlist* which contains NULL is an empty list.
 
-To create a t_dlist node, use
+---
+
+To create a *t_dlist* node, use
 ```
 ef_dlist_alloc()
 ef_dlist_create()
@@ -258,6 +264,8 @@ ef_dlist_copy()
 
 A double-ended queue is a queue (internally a doubly linked list), for which elements can be added to or removed from either the front (head) or back (tail). Also known as deque.
 
+---
+
 To create a deque, use
 ```
 ef_deque_alloc()
@@ -328,8 +336,9 @@ ef_deque_copy()
 
 An n-ary tree is a rooted tree in which each node has no more than n children. A binary tree is the special case where n = 2, and a ternary tree is another case with n = 3 that limits its children to three.
 
+---
 
-To create a t_ntree node, use
+To create a *t_ntree* node, use
 ```
 ef_ntree_alloc()
 ef_ntree_create()
@@ -425,35 +434,154 @@ ef_ntree_copy()
 
 ## [AVL Trees](https://github.com/AlphaPiece/libraries-under-sea/tree/master/ef/src/atree)
 
-To create a t_slist node, use
+An AVL tree is a self-balancing binary search tree. It was the first such data structure to be invented. In an AVL tree, the heights of the two child subtrees of any node differ by at most one; if at any time they differ by more than one, rebalancing is done to restore this property.
 
-To add a single element, use
+AVL trees store **balance factors** or **heights** with each node, thus requires storage for an integer per node. (In the libef's implementation, heights are stored.)
+
+Compare to red-black trees, AVL trees provides **faster lookups** than red-black trees because they are more strictly balanced.
+
+In libef, each node of AVL trees is of type *t_anode*, which contains the data; and the root of the tree of *t_anode* nodes is stored in a *t_atree* struct, which is the external representation of AVL trees.
+
+---
+
+To create a *t_anode*, use
+```
+ef_anode_alloc()
+ef_anode_create()
+```
+
+To create a *t_atree*, use
+```
+ef_atree_alloc()
+ef_atree_create()
+```
+
+To add a single element or modify the value of a node, use
+```
+ef_atree_insert()
+ef_atree_set()
+```
 
 To find an elements, use
+```
+ef_atree_root()
+ef_anode_minimum()
+ef_anode_maximum()
+ef_atree_find()
+ef_atree_get()
+```
 
 To remove an element, use
+```
+ef_anode_free()
+ef_atree_delete()
+ef_atree_remove()
+```
+
+To remove all the elements or even destroy the tree, use
+```
+ef_atree_clear()
+ef_atree_free()
+```
 
 To call a function for each element in the tree, use
+```
+ef_atree_traverse()
+```
 
 To get some information about the tree, use
+```
+ef_atree_size()
+ef_anode_height()
+```
 
 Some other useful functions
+```
+ef_anode_left_rotate()
+ef_anode_right_rotate()
+```
+
+
 
 ## [Red-Black Trees](https://github.com/AlphaPiece/libraries-under-sea/tree/master/ef/src/rbtree)
 
-To create a t_slist node, use
+A red-black tree is a balanced binary search tree with one extra bit of storage per node: its color, which can be either RED or BLACK. (The implementation of libef's red black tree actually use a byte (char, 8 bits) to store the color. This will be improved in the future.)
 
-To add a single element, use
+A red-black tree is a binary tree that satisfies the following **red-black properties**:
+```
+1. Every node is either red or black.
+2. The root is black.
+3. Every leaf (NIL) is black.
+4. If a node is red, then both its children are black.
+5. For each node, all simple paths from the node to descendant leaves contain the same number of black nodes.
+```
+
+By constraining the node colors on any simple path from the root to a leaf, read-black trees ensure that no such path is more than twice as long as any other, so that the tree is approximately balanced.
+
+Compare to AVL trees, red-black trees provide faster insertion and removal operations than AVL trees as fewer rotations are done due to relatively relaxed balancing.
+
+In libef, each node of red-black trees is of type *t_rbnode*, which contains the data; and the root of the tree of *t_rbnode* nodes is stored in a *t_rbtree* struct, which is the external representation of red-black trees.
+
+---
+
+To create a *t_rbnode*, use
+```
+ef_rbnode_alloc()
+ef_rbnode_create()
+```
+
+To create a *t_rbtree*, use
+```
+ef_rbtree_alloc()
+ef_rbtree_create()
+```
+
+To add a single element or modify the value of a node, use
+```
+ef_rbtree_insert()
+ef_rbtree_set()
+```
 
 To find an elements, use
+```
+ef_rbtree_root()
+ef_rbnode_minimum()
+ef_rbnode_maximum()
+ef_rbtree_find()
+ef_rbtree_get()
+```
 
 To remove an element, use
+```
+ef_rbnode_free()
+ef_rbtree_delete()
+ef_rbtree_remove()
+```
+
+To remove all the elements or even destroy the tree, use
+```
+ef_rbtree_clear()
+ef_rbtree_free()
+```
 
 To call a function for each element in the tree, use
+```
+ef_rbtree_traverse()
+```
 
 To get some information about the tree, use
+```
+ef_rbtree_size()
+ef_rbnode_height()
+```
 
 Some other useful functions
+```
+ef_rbnode_left_rotate()
+ef_rbnode_right_rotate()
+```
+
+
 
 ## [Splay Trees](https://github.com/AlphaPiece/libraries-under-sea/tree/master/ef/src/sptree)
 
