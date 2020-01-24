@@ -508,13 +508,13 @@ ef_anode_right_rotate()
 A red-black tree is a balanced binary search tree with one extra bit of storage per node: its color, which can be either RED or BLACK. (The implementation of libef's red black tree actually use a byte (char, 8 bits) to store the color. This will be improved in the future.)
 
 A red-black tree is a binary tree that satisfies the following **red-black properties**:
-```
-1. Every node is either red or black.
-2. The root is black.
-3. Every leaf (NIL) is black.
-4. If a node is red, then both its children are black.
-5. For each node, all simple paths from the node to descendant leaves contain the same number of black nodes.
-```
+
+> 1. Every node is either red or black.
+> 2. The root is black.
+> 3. Every leaf (NIL) is black.
+> 4. If a node is red, then both its children are black.
+> 5. For each node, all simple paths from the node to descendant leaves contain the same number of black nodes.
+
 
 By constraining the node colors on any simple path from the root to a leaf, read-black trees ensure that no such path is more than twice as long as any other, so that the tree is approximately balanced.
 
@@ -585,7 +585,22 @@ ef_rbnode_right_rotate()
 
 ## [Splay Trees](https://github.com/AlphaPiece/libraries-under-sea/tree/master/ef/src/sptree)
 
-To create a t_slist node, use
+A splay tree is a self-balancing binary search tree with the additional property that recently accessed elements are quick to access again. It performs basic operations such as insertion, look-up and removal in O(log n) amortized time.
+
+*Can we do better than AVL or Red-Black trees in practical situations?*
+
+Below is an answer from GeeksForGeeks:
+
+> Like AVL and Red-Black Trees, Splay tree is also self-balancing BST. The main idea of splay tree is to bring the recently accessed item to root of the tree, this makes the recently searched item to be accessible in O(1) time if accessed again. The idea is to use locality of reference (In a typical application, 80% of the access are to 20% of the items). Imagine a situation where we have millions or billions of keys and only few of them are accessed frequently, which is very likely in many practical applications.
+
+
+Splay trees have a special operation called "splay", which can move a node to the root. It is used in operation insert, search, and delete. The important thing to note is, the splay operation not only brings the searched node to root, but also balances the BST.
+
+---
+
+To create a t_spnode, use
+
+To create a t_sptree, use
 
 To add a single element, use
 
