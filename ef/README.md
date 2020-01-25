@@ -599,20 +599,64 @@ Splay trees have a special operation called "splay", which can move a node to th
 ---
 
 To create a t_spnode, use
+```
+ef_spnode_alloc()
+ef_spnode_create()
+```
 
 To create a t_sptree, use
+```
+ef_sptree_alloc()
+ef_sptree_create()
+```
 
-To add a single element, use
+To add a single element or modify the value of a node, use
+```
+ef_sptree_insert()
+ef_sptree_set()
+```
 
 To find an elements, use
+```
+ef_spnode_minimum()
+ef_spnode_maximum()
+ef_sptree_find()
+ef_sptree_get()
+```
 
 To remove an element, use
+```
+ef_spnode_free()
+ef_sptree_delete()
+ef_sptree_remove()
+```
+
+To remove all the elements or even destroy the tree, use
+```
+ef_sptree_clear()
+ef_sptree_free()
+```
 
 To call a function for each element in the tree, use
+```
+ef_sptree_traverse()
+```
 
 To get some information about the tree, use
+```
+ef_sptree_size()
+```
 
 Some other useful functions
+```
+ef_spnode_left_rotate()
+ef_spnode_right_rotate()
+ef_sptree_splay()
+ef_sptree_join()
+ef_sptree_split()
+```
+
+
 
 ## [Treaps](https://github.com/AlphaPiece/libraries-under-sea/tree/master/ef/src/treap)
 
