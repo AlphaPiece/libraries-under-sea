@@ -598,13 +598,13 @@ Splay trees have a special operation called "splay", which can move a node to th
 
 ---
 
-To create a t_spnode, use
+To create a *t_spnode*, use
 ```
 ef_spnode_alloc()
 ef_spnode_create()
 ```
 
-To create a t_sptree, use
+To create a *t_sptree*, use
 ```
 ef_sptree_alloc()
 ef_sptree_create()
