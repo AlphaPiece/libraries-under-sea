@@ -585,7 +585,7 @@ ef_rbnode_right_rotate()
 
 ## [Splay Trees](https://github.com/AlphaPiece/libraries-under-sea/tree/master/ef/src/sptree)
 
-A splay tree is a self-balancing binary search tree with the additional property that recently accessed elements are quick to access again. It performs basic operations such as insertion, look-up and removal in O(log n) amortized time.
+The splay tree is a self-balancing binary search tree with the additional property that recently accessed elements are quick to access again. It performs basic operations such as insertion, look-up and removal in O(log n) amortized time.
 
 *Can we do better than AVL or Red-Black trees in practical situations?*
 
@@ -660,7 +660,19 @@ ef_sptree_split()
 
 ## [Treaps](https://github.com/AlphaPiece/libraries-under-sea/tree/master/ef/src/treap)
 
-To create a t_slist node, use
+The treap is a randomized binary search tree, and it's not guaranteed to have height as O(log(n)). A node in a treap is like a node in a binary search tree in that it has a data value, but it also contains a unique numerical priority that is assigned at random.
+
+A treap is like a combination of a binary search tree and a binary heap. As with any binary search tree, the inorder traversal order of the nodes is the same as the sorted order of the keys. The structure of the tree is determined by the requirement that it be heap-ordered: that is, the priority number for any non-leaf node must be greater than or equal to the priority of its children.
+
+Since priorities are assigned at random, the shape of a treap has the same probability distribution as the shape of a random binary search tree, a search tree formed by inserting the nodes without rebalancing in a randomly chosen insertion order. Because random binary search trees are known to have logarithmic height with high probability, the same is true for treaps.
+
+Therefore, the expected time complexity of insert, search, and delete is O(log(n)).
+
+---
+
+To create a *t_trnode*, use
+
+To create a *t_treap*, use
 
 To add a single element, use
 
