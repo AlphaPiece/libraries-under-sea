@@ -585,9 +585,9 @@ ef_rbnode_right_rotate()
 
 ## [Splay Trees](https://github.com/AlphaPiece/libraries-under-sea/tree/master/ef/src/sptree)
 
-The splay tree is a self-balancing binary search tree with the additional property that recently accessed elements are quick to access again. It performs basic operations such as insertion, look-up and removal in O(log n) amortized time.
+The splay tree is a self-balancing binary search tree with the additional property that recently accessed elements are quick to access again. It performs basic operations such as insertion, look-up and removal in O(log(n)) amortized time.
 
-*Can we do better than AVL or Red-Black trees in practical situations?*
+***Can we do better than AVL or red-black trees in practical situations?***
 
 Below is an answer from GeeksForGeeks:
 
