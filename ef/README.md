@@ -662,29 +662,68 @@ ef_sptree_split()
 
 The treap is a randomized binary search tree, and it's not guaranteed to have height as O(log(n)). A node in a treap is like a node in a binary search tree in that it has a data value, but it also contains a unique numerical priority that is assigned at random.
 
-A treap is like a combination of a binary search tree and a binary heap. As with any binary search tree, the inorder traversal order of the nodes is the same as the sorted order of the keys. The structure of the tree is determined by the requirement that it be heap-ordered: that is, the priority number for any non-leaf node must be greater than or equal to the priority of its children.
+A treap is basically a combination of a binary search tree and a binary heap. As with any binary search tree, the inorder traversal order of the nodes is the same as the sorted order of the keys. The structure of the tree is determined by the requirement that it be heap-ordered: that is, the priority number for any non-leaf node must be greater than or equal to the priority of its children.
 
-Since priorities are assigned at random, the shape of a treap has the same probability distribution as the shape of a random binary search tree, a search tree formed by inserting the nodes without rebalancing in a randomly chosen insertion order. Because random binary search trees are known to have logarithmic height with high probability, the same is true for treaps.
+Since priorities are assigned at random, **the shape of a treap has the same probability distribution as the shape of a random binary search tree**, a search tree formed by inserting the nodes without rebalancing in a randomly chosen insertion order. Because random binary search trees are known to have logarithmic height with high probability, the same is true for treaps.
 
 Therefore, the expected time complexity of insert, search, and delete is O(log(n)).
 
 ---
 
 To create a *t_trnode*, use
+```
+ef_trnode_alloc()
+ef_trnode_create()
+```
 
 To create a *t_treap*, use
+```
+ef_treap_alloc()
+ef_treap_create()
+```
 
-To add a single element, use
+To add a single element or modify the value of a node, use
+```
+ef_treap_insert()
+ef_treap_set()
+```
 
 To find an elements, use
+```
+ef_treap_find()
+ef_treap_get()
+```
 
 To remove an element, use
+```
+ef_trnode_free()
+ef_treap_delete()
+ef_treap_remove()
+```
+
+To remove all the elements or even destroy the treap, use
+```
+ef_treap_clear()
+ef_treap_free()
+```
 
 To call a function for each element in the treap, use
+```
+ef_treap_traverse()
+```
 
 To get some information about the treap, use
+```
+ef_treap_size()
+```
 
 Some other useful functions
+```
+ef_trnode_left_rotate()
+ef_trnode_right_rotate()
+```
+
+
 
 ## [Hash Tables](https://github.com/AlphaPiece/libraries-under-sea/tree/master/ef/src/htable)
 
