@@ -727,19 +727,62 @@ ef_trnode_right_rotate()
 
 ## [Hash Tables](https://github.com/AlphaPiece/libraries-under-sea/tree/master/ef/src/htable)
 
-To create a t_slist node, use
+A hash table (hash map) is a data structure that implements an associative array abstract data type, a structure that can map keys to values. A hash table uses a hash function to compute an index, also called a hash code, into an array of buckets or slots, from which the desired value can be found.
 
-To add a single element, use
+---
+
+To create a hash table, use
+```
+ef_htable_alloc()
+ef_htable_create()
+```
+
+To add a single element or modify the value of a node, use
+```
+ef_htable_insert()
+ef_htable_set()
+```
 
 To find an elements, use
+```
+ef_htable_find()
+ef_htable_get()
+```
 
 To remove an element, use
+```
+ef_htable_pop()
+ef_htable_delete()
+ef_htable_remove()
+```
+
+To remove all the elements or even destroy the hash table, use
+```
+ef_htable_clear()
+ef_htable_free()
+```
 
 To call a function for each element in the table, use
+```
+ef_htable_traverse()
+```
 
 To get some information about the table, use
+```
+ef_htable_size()
+```
 
 Some other useful functions
+```
+ef_htable_resize()
+ef_htable_hash()
+ef_hash_pointer()
+ef_hash_string()
+ef_hash_integer()
+ef_htable_pairs()
+```
+
+
 
 ## [Binary Heaps](https://github.com/AlphaPiece/libraries-under-sea/tree/master/ef/src/bheap)
 
