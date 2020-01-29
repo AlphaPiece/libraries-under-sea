@@ -6,7 +6,7 @@
 #    By: zwang <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/15 14:23:06 by zwang             #+#    #+#              #
-#    Updated: 2020/01/18 23:59:15 by Zexi Wang        ###   ########.fr        #
+#    Updated: 2020/01/29 09:31:32 by Zexi Wang        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -143,6 +143,9 @@ BNHEAP = ef_bnheap_alloc.c      ef_bnheap_insert.c     ef_bnnode_alloc.c \
 		 ef_bnheap_find.c       ef_bnheap_size.c       ef_bnnode_size.c \
 		 ef_bnheap_free.c       ef_bnheap_traverse.c
 
+DSET = ef_dset_alloc.c         ef_dset_create.c       ef_dset_free.c \
+	   ef_dset_clear_record.c  ef_dset_find.c         ef_dset_union.c \
+
 OBJ_FILES = *.o
 
 KVPAIR_DIR = src/kvpair/
@@ -158,6 +161,7 @@ TREAP_DIR = src/treap/
 HTABLE_DIR = src/htable/
 BHEAP_DIR = src/bheap/
 BNHEAP_DIR = src/bnheap/
+DSET_DIR = src/dset/
 
 OBJ_DIR = obj/
 
@@ -174,7 +178,8 @@ SRC = $(addprefix $(KVPAIR_DIR), $(KVPAIR)) \
 	   $(addprefix $(TREAP_DIR), $(TREAP)) \
 	   $(addprefix $(HTABLE_DIR), $(HTABLE)) \
 	   $(addprefix $(BHEAP_DIR), $(BHEAP)) \
-	   $(addprefix $(BNHEAP_DIR), $(BNHEAP))
+	   $(addprefix $(BNHEAP_DIR), $(BNHEAP)) \
+	   $(addprefix $(DSET_DIR), $(DSET))
 
 OBJ = $(addprefix $(OBJ_DIR), $(OBJ_FILES)) \
 		libft_obj/*.o

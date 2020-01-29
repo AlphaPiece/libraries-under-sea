@@ -6,7 +6,7 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/15 16:00:55 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2020/01/18 23:57:10 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2020/01/29 09:36:17 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -696,13 +696,13 @@ void				ef_htable_traverse(t_htable *table, f_trw trw);
 
 // Status
 int					ef_htable_size(t_htable *table);
-t_darray			*ef_htable_pairs(t_htable *table);
 
 // Extra
 int					ef_htable_hash(t_htable *table, void *key);
 int					ef_hash_pointer(void *pointer);
 int					ef_hash_string(void *string);
 int					ef_hash_integer(void *integer);
+t_darray			*ef_htable_pairs(t_htable *table);
 
 /*
 ** ====================
@@ -820,5 +820,37 @@ t_bnnode			*ef_bnnode_merge(t_bnnode *node1, t_bnnode *node2,
 										f_cmp cmp_key);
 t_bnheap			*ef_bnheap_merge(t_bnheap *heap1, t_bnheap *heap2);
 t_bnnode			*ef_bnnode_reverse(t_bnnode *node);
+
+/*
+** ============================
+** >                          <
+** >>> DISJOINT-SET FORESTS <<<
+** >                          <
+** ============================
+*/
+
+typedef struct		s_dset
+{
+	void			*key;
+	void			*value;
+	struct s_dset	*parent;
+	int				rank;
+}					t_dset;
+	
+
+// Create
+t_dset				*ef_dset_alloc(void);
+t_dset				*ef_dset_create(void *key, void *value, t_deque *record);
+
+// Union
+t_dset				*ef_dset_union(t_dset *set1, t_dset *set2);
+
+// Find
+t_dset				*ef_dset_find(t_dset *set);
+
+// Remove
+void				ef_dset_free(t_dset *set, f_del del_key, f_del del_value);
+void				ef_dset_clear_record(t_deque *record, f_del del_key,
+											f_del del_value);
 
 #endif
