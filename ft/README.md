@@ -1,6 +1,6 @@
 # libft
 
-![Intro Image](https://user-images.githubusercontent.com/30487160/73509017-b6966680-43ab-11ea-8955-68753e1cd165.jpg)
+![Intro Image](https://user-images.githubusercontent.com/30487160/73509069-e9405f00-43ab-11ea-8e2f-73799afa7d60.jpg)
 
 *A basic C library constructed in 42 Silicon Valley.*
 
