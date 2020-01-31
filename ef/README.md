@@ -1,6 +1,6 @@
 # libef
 
-![Intro Image](https://user-images.githubusercontent.com/30487160/73417816-74a3ec80-42e7-11ea-8c65-b4ff7bbf8c21.png)
+![Intro Image](https://user-images.githubusercontent.com/30487160/73508822-28ba7b80-43ab-11ea-9cd4-acf37ccf8d83.jpg)
 
 *A data structure library written in C.*
 
