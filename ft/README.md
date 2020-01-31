@@ -1,6 +1,8 @@
 # libft
 
-*A C library constructed in 42 Silicon Valley.*
+![Intro Image](https://user-images.githubusercontent.com/30487160/73508357-ab423b80-43a9-11ea-886a-872e292ca60e.jpg)
+
+*A basic C library constructed in 42 Silicon Valley.*
 
 ## Index
 * [Memory](#memory)
