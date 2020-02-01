@@ -829,7 +829,9 @@ It supports the following operations:
 
 > **union**(x, y), which merges the sets containing x and y into a single set.
 
-In order to keep the data structure simple and to use least possible spaces, the nodes of disjoint-sets do not know who are their children. Thus, it is impossible to free the memory from the root to the leaves. To solve this problem, libef uses a deque to keep track of every disjoint-set node.
+In order to support traversal and deletion of the set, an additional pointer *next* is added to the struct t_dset. Each node have a *next* pointer to the next node in the set it is in. The nodes in a set form a circular linked list.
+
+When a singleton set is first created, the node's next pointer points to itself. When merging two sets (say their representitive is *X* and *Y* respectively), the circular linked-lists are merged, which is done by swapping *X.next* and *Y.next*. This only takes O(1) steps.
 
 ---
 
@@ -849,8 +851,17 @@ To find the representitive of a node, use
 ef_dset_find()
 ```
 
-To destroy one or all nodes ever created, use
+To destroy one or all nodes in a set, use
 ```
 ef_dset_free()
-ef_dset_clear_record()
+```
+
+To call a function for each element in the set, use
+```
+ef_dset_traverse()
+```
+
+To get some information about the heap, use
+```
+ef_dset_size()
 ```
