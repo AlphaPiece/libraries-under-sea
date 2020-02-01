@@ -861,7 +861,7 @@ To call a function for each element in the set, use
 ef_dset_traverse()
 ```
 
-To get some information about the heap, use
+To get some information about the set, use
 ```
 ef_dset_size()
 ```
