@@ -6,7 +6,7 @@
 #    By: zwang <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/15 14:23:06 by zwang             #+#    #+#              #
-#    Updated: 2020/01/29 09:31:32 by Zexi Wang        ###   ########.fr        #
+#    Updated: 2020/02/01 07:53:50 by Zexi Wang        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -143,8 +143,9 @@ BNHEAP = ef_bnheap_alloc.c      ef_bnheap_insert.c     ef_bnnode_alloc.c \
 		 ef_bnheap_find.c       ef_bnheap_size.c       ef_bnnode_size.c \
 		 ef_bnheap_free.c       ef_bnheap_traverse.c
 
-DSET = ef_dset_alloc.c         ef_dset_create.c       ef_dset_free.c \
-	   ef_dset_clear_record.c  ef_dset_find.c         ef_dset_union.c \
+DSET = ef_dset_alloc.c       ef_dset_create.c       ef_dset_free.c \
+	   ef_dset_traverse.c    ef_dset_find.c         ef_dset_union.c \
+	   ef_dset_size.c
 
 OBJ_FILES = *.o
 

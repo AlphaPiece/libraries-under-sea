@@ -6,7 +6,7 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/29 07:48:36 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2020/01/29 09:34:05 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2020/01/31 22:03:20 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ t_dset	*ef_dset_link(t_dset *x, t_dset *y)
 	if (x->rank > y->rank)
 	{
 		y->parent = x;
+		ft_memswap(&x->next, &y->next, sizeof(x->next));
 		return (x);
 	}
 	else
@@ -24,6 +25,7 @@ t_dset	*ef_dset_link(t_dset *x, t_dset *y)
 		x->parent = y;
 		if (x->rank == y->rank)
 			y->rank++;
+		ft_memswap(&x->next, &y->next, sizeof(x->next));
 		return (y);
 	}
 }

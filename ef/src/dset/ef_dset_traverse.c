@@ -1,24 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ef_dset_clear_record.c                             :+:      :+:    :+:   */
+/*   ef_dset_traverse.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/29 09:10:45 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2020/01/29 09:17:54 by Zexi Wang        ###   ########.fr       */
+/*   Created: 2020/02/01 07:46:32 by Zexi Wang         #+#    #+#             */
+/*   Updated: 2020/02/01 08:22:53 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libef.h"
 
-void	ef_dset_clear_record(t_deque *record, f_del del_key, f_del del_value)
+void	ef_dset_traverse(t_dset *set, f_trv trv)
 {
-	t_dset	*set;
+	t_dset	*curr;
 
-	while (!ef_deque_is_empty(record))
+	if (set && trv)
 	{
-		set = ef_deque_pop_head(record);
-		ef_dset_free(set, del_key, del_value);
+		set = ef_dset_find(set);
+		set->data = trv(set->data);
+		curr = set->next;
+		for (curr = set->next; curr != set; curr = curr->next)
+			curr->data = trv(curr->data);
 	}
 }
