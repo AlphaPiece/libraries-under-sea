@@ -829,7 +829,7 @@ It supports the following operations:
 
 > **union**(x, y), which merges the sets containing x and y into a single set.
 
-In order to support traversal and deletion of the set, an additional pointer *next* is added to the struct t_dset. Each node have a *next* pointer to the next node in the set it is in. The nodes in a set form a circular linked list.
+In order to support traversal and deletion of the set, an additional pointer *next* is added to the struct *t_dset*. Each node have a *next* pointer to the next node in the set it is in. The nodes in a set form a circular linked list.
 
 When a singleton set is first created, the node's next pointer points to itself. When merging two sets (say their representitive is *X* and *Y* respectively), the circular linked-lists are merged, which is done by swapping *X.next* and *Y.next*. This only takes O(1) steps.
 
