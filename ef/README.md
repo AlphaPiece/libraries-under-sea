@@ -1,5 +1,7 @@
 # libef
 
+![Intro Image](https://user-images.githubusercontent.com/30487160/73508822-28ba7b80-43ab-11ea-9cd4-acf37ccf8d83.jpg)
+
 *A data structure library written in C.*
 
 ## Contents
@@ -15,6 +17,7 @@
 * [Hash Tables](#hash-tables)
 * [Binary Heaps](#binary-heaps)
 * [Binomial Heaps](#binomial-heaps)
+* [Disjoint-set Forests](#disjoint-set-forests)
 
 
 
@@ -815,3 +818,39 @@ To call a function for each element in the heap, use
 To get some information about the heap, use
 
 Some other useful functions
+
+## [Disjoint-set Forests](https://github.com/AlphaPiece/libraries-under-sea/tree/master/ef/src/dset)
+
+A disjoint-set data structure (also called a union–find data structure or merge–find set) is a data structure that tracks a set of elements partitioned into a number of disjoint (non-overlapping) subsets.
+
+It supports the following operations:
+
+> **find**(x), which returns the representative of the set containing node x, and
+
+> **union**(x, y), which merges the sets containing x and y into a single set.
+
+In order to keep the data structure simple and to use least possible spaces, the nodes of disjoint-sets do not know who are their children. Thus, it is impossible to free the memory from the root to the leaves. To solve this problem, libef uses a deque to keep track of every disjoint-set node.
+
+---
+
+To make a disjoint-set, use
+```
+ef_dset_alloc()
+ef_dset_create()
+```
+
+To union two disjoint-sets, use
+```
+ef_dset_union()
+```
+
+To find the representitive of a node, use
+```
+ef_dset_find()
+```
+
+To destroy one or all nodes ever created, use
+```
+ef_dset_free()
+ef_dset_clear_record()
+```
