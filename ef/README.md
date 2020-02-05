@@ -498,7 +498,7 @@ ef_atree_size()
 ef_anode_height()
 ```
 
-Some other useful functions
+Some auxiliary functions
 ```
 ef_anode_left_rotate()
 ef_anode_right_rotate()
@@ -578,7 +578,7 @@ ef_rbtree_size()
 ef_rbnode_height()
 ```
 
-Some other useful functions
+Some auxiliary functions
 ```
 ef_rbnode_left_rotate()
 ef_rbnode_right_rotate()
@@ -650,11 +650,15 @@ To get some information about the tree, use
 ef_sptree_size()
 ```
 
-Some other useful functions
+Some auxiliary functions
 ```
 ef_spnode_left_rotate()
 ef_spnode_right_rotate()
 ef_sptree_splay()
+```
+
+Some other useful functions
+```
 ef_sptree_join()
 ef_sptree_split()
 ```
@@ -720,7 +724,7 @@ To get some information about the treap, use
 ef_treap_size()
 ```
 
-Some other useful functions
+Some auxiliary functions
 ```
 ef_trnode_left_rotate()
 ef_trnode_right_rotate()
@@ -775,13 +779,17 @@ To get some information about the table, use
 ef_htable_size()
 ```
 
-Some other useful functions
+Some auxiliary functions
 ```
 ef_htable_resize()
 ef_htable_hash()
 ef_hash_pointer()
 ef_hash_string()
 ef_hash_integer()
+```
+
+Some other useful functions
+```
 ef_htable_pairs()
 ```
 
@@ -810,18 +818,62 @@ right_child(i):
 ---
 
 To create a binary heap, use
+```
+ef_bheap_alloc()
+ef_bheap_create()
+```
 
 To add a single element, use
+```
+ef_bheap_insert()
+ef_bheap_set()
+```
 
-To find an elements, use
+To change the key of an element, use
+```
+ef_bheap_change_key()
+```
 
-To remove an element, use
+To peek the top element of the heap (maximum element in max-heap; minimum element in min-heap), use
+```
+ef_bheap_peek_top()
+```
+
+To extract the maximum/minimum element in the max-heap/min-heap, use
+```
+ef_bheap_pop_top()
+```
+
+To delete an element by using index (the heap property will still be preserved), use
+```
+ef_bheap_delete()
+```
+
+To remove all the elements or even destroy the heap, use
+```
+ef_bheap_clear()
+ef_bheap_free()
+```
 
 To call a function for each element in the heap, use
+```
+ef_bheap_traverse()
+```
 
 To get some information about the heap, use
+```
+ef_bheap_size()
+ef_bheap_index()
+```
 
-Some other useful functions
+Some auxiliary functions
+```
+ef_bheap_compare()
+ef_bheap_heapify_up()
+ef_bheap_heapify_down()
+```
+
+
 
 ## [Binomial Heaps](https://github.com/AlphaPiece/libraries-under-sea/tree/master/ef/src/bnheap)
 
