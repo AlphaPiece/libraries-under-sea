@@ -498,7 +498,7 @@ ef_atree_size()
 ef_anode_height()
 ```
 
-Some other useful functions
+Some auxiliary functions
 ```
 ef_anode_left_rotate()
 ef_anode_right_rotate()
@@ -578,7 +578,7 @@ ef_rbtree_size()
 ef_rbnode_height()
 ```
 
-Some other useful functions
+Some auxiliary functions
 ```
 ef_rbnode_left_rotate()
 ef_rbnode_right_rotate()
@@ -650,11 +650,15 @@ To get some information about the tree, use
 ef_sptree_size()
 ```
 
-Some other useful functions
+Some auxiliary functions
 ```
 ef_spnode_left_rotate()
 ef_spnode_right_rotate()
 ef_sptree_splay()
+```
+
+Some other useful functions
+```
 ef_sptree_join()
 ef_sptree_split()
 ```
@@ -720,7 +724,7 @@ To get some information about the treap, use
 ef_treap_size()
 ```
 
-Some other useful functions
+Some auxiliary functions
 ```
 ef_trnode_left_rotate()
 ef_trnode_right_rotate()
@@ -775,13 +779,17 @@ To get some information about the table, use
 ef_htable_size()
 ```
 
-Some other useful functions
+Some auxiliary functions
 ```
 ef_htable_resize()
 ef_htable_hash()
 ef_hash_pointer()
 ef_hash_string()
 ef_hash_integer()
+```
+
+Some other useful functions
+```
 ef_htable_pairs()
 ```
 
@@ -789,19 +797,83 @@ ef_htable_pairs()
 
 ## [Binary Heaps](https://github.com/AlphaPiece/libraries-under-sea/tree/master/ef/src/bheap)
 
-To create a t_slist node, use
+A binary heap is a heap data structure that takes the form of a binary tree. It is defined with two additional constraints:
+
+> Shape property: a binary heap is a complete binary tree; that is, all levels of the tree, except possibly the last one (deepest) are fully filled, and, if the last level of the tree is not complete, the nodes of that level are filled from left to right.
+
+> Heap property: the key stored in each node is either greater than or equal to (≥) or less than or equal to (≤) the keys in the node's children, according to some total order.
+
+A binary heap is typically represented as an array. Let an array A represent a heap (a complete binary tree). The root of the tree is A[0], and given the index i of a node, we can easily compute the indices of its parent, left child, and right child.
+```
+parent(i):
+    return (i - 1) / 2
+    
+left_child(i):
+    return (2 * i) + 1
+
+right_child(i):
+    return (2 * i) + 2
+```
+
+---
+
+To create a binary heap, use
+```
+ef_bheap_alloc()
+ef_bheap_create()
+```
 
 To add a single element, use
+```
+ef_bheap_insert()
+ef_bheap_set()
+```
 
-To find an elements, use
+To change the key of an element, use
+```
+ef_bheap_change_key()
+```
 
-To remove an element, use
+To peek the top element of the heap (maximum element in max-heap; minimum element in min-heap), use
+```
+ef_bheap_peek_top()
+```
+
+To extract the maximum/minimum element in the max-heap/min-heap, use
+```
+ef_bheap_pop_top()
+```
+
+To delete an element by using index (the heap property will still be preserved), use
+```
+ef_bheap_delete()
+```
+
+To remove all the elements or even destroy the heap, use
+```
+ef_bheap_clear()
+ef_bheap_free()
+```
 
 To call a function for each element in the heap, use
+```
+ef_bheap_traverse()
+```
 
 To get some information about the heap, use
+```
+ef_bheap_size()
+ef_bheap_index()
+```
 
-Some other useful functions
+Some auxiliary functions
+```
+ef_bheap_compare()
+ef_bheap_heapify_up()
+ef_bheap_heapify_down()
+```
+
+
 
 ## [Binomial Heaps](https://github.com/AlphaPiece/libraries-under-sea/tree/master/ef/src/bnheap)
 
@@ -829,7 +901,9 @@ It supports the following operations:
 
 > **union**(x, y), which merges the sets containing x and y into a single set.
 
-In order to keep the data structure simple and to use least possible spaces, the nodes of disjoint-sets do not know who are their children. Thus, it is impossible to free the memory from the root to the leaves. To solve this problem, libef uses a deque to keep track of every disjoint-set node.
+In order to support traversal and deletion of the set, an additional pointer *next* is added to the struct *t_dset*. Each node have a *next* pointer to the next node in the set it is in. The nodes in a set form a circular linked list.
+
+When a singleton set is first created, the node's next pointer points to itself. When merging two sets (say their representitive is *X* and *Y* respectively), the circular linked-lists are merged, which is done by swapping *X.next* and *Y.next*. This only takes O(1) steps.
 
 ---
 
@@ -849,8 +923,17 @@ To find the representitive of a node, use
 ef_dset_find()
 ```
 
-To destroy one or all nodes ever created, use
+To destroy one or all nodes in a set, use
 ```
 ef_dset_free()
-ef_dset_clear_record()
+```
+
+To call a function for each element in the set, use
+```
+ef_dset_traverse()
+```
+
+To get some information about the set, use
+```
+ef_dset_size()
 ```

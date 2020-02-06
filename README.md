@@ -12,4 +12,4 @@ Here are some libraries written in C:
 *My fundamental C library which was built at 42 Silicon Valley.*
     
 - ### Libef
-*A C library which provides advanced data structrues, such as linked lists, hash tables, trees, and graphs.*
+*A C library which provides advanced data structrues, such as linked lists, hash tables, heaps, trees, and graphs.*
