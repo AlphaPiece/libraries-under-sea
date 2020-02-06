@@ -6,12 +6,12 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/15 16:00:55 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2020/02/01 07:55:48 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2020/02/05 07:59:11 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBDS_H
-# define LIBDS_H
+#ifndef LIBEF_H
+# define LIBEF_H
 
 # include "libft.h"
 
@@ -858,3 +858,4 @@ void				ef_dset_traverse(t_dset *set, f_trv trv);
 int					ef_dset_size(t_dset *set);
 
 #endif
+

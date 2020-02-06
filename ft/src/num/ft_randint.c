@@ -6,11 +6,11 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/22 11:09:50 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/23 17:51:03 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2020/02/05 08:28:38 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_num.h"
 
 int	ft_randint(int lower, int upper)
 {

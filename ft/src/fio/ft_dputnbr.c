@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_fio.h"
 
 void	ft_dputnbr(const int fd, int n)
 {

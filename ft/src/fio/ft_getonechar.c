@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_fio.h"
 
 /*
 ** ft_getonechar: get only the first char in a line of stdin

@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_str.h"
 
 static void	swap_arr_mbr(char *arr[], int i, int j)
 {

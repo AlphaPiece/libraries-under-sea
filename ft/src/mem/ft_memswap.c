@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_mem.h"
 
 static void	swap8b(t_ptr *ptr1, t_ptr *ptr2, void *p1, void *p2)
 {

@@ -1,27 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strarrlen.c                                     :+:      :+:    :+:   */
+/*   ft_type.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zwang <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/31 21:02:57 by zwang             #+#    #+#             */
-/*   Updated: 2018/11/03 21:12:21 by zwang            ###   ########.fr       */
+/*   Created: 2020/02/05 08:03:22 by Zexi Wang         #+#    #+#             */
+/*   Updated: 2020/02/05 08:04:00 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_str.h"
+#ifndef FT_TYPE_H
+# define FT_TYPE_H
 
-/*
-** Precondition: arr is null-terminated
-*/
-
-size_t	ft_strarrlen(const char *arr[])
+typedef enum        e_bool
 {
-	size_t	i;
+    false,
+    true
+}                   t_bool;
 
-	i = 0;
-	while (arr[i])
-		i++;
-	return (i);
-}
+typedef enum        e_state
+{
+    OUT,
+    IN
+}                   t_state;
+
+#endif

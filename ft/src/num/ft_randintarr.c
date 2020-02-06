@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_num.h"
 
 int	*ft_randintarr(int lower, int upper, int len)
 {

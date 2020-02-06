@@ -6,16 +6,15 @@
 /*   By: zwang <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/15 09:43:53 by zwang             #+#    #+#             */
-/*   Updated: 2018/10/26 13:58:55 by zwang            ###   ########.fr       */
+/*   Updated: 2020/02/05 08:19:21 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_VDPRINTF_H
 # define FT_VDPRINTF_H
 
-# include <stdarg.h>
-# include "libft.h"
-# define STR_LEN 1000000
+# include "ft_fio.h"
+# define STR_LEN	1000000
 
 # define RED		"\x1B[31m"
 # define GREEN		"\x1B[32m"

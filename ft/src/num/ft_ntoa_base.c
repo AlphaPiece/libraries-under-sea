@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_num.h"
 
 static void	inner_process(intmax_t n, int base, char **ptr, char hex_case_a)
 {

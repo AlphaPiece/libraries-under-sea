@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_mem.h"
 
 static void	setb(void *x, size_t byte, t_ptr *p, t_uint *un)
 {
