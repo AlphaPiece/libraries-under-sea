@@ -6,7 +6,7 @@
 #    By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/02/06 08:20:00 by Zexi Wang         #+#    #+#              #
-#    Updated: 2020/02/06 21:09:31 by Zexi Wang        ###   ########.fr        #
+#    Updated: 2020/02/06 21:15:27 by Zexi Wang        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,5 +27,5 @@ OBJ = $(SRC:.c=.o)
 all: $(OBJ)
 	@mv $(OBJ) ../../../
 
-%.o: %.c $(INCLUDES)
+%.o: %.c $(INCLUDES)/*.h
 	@$(CC) $(CFLAGS) -c $< -I $(INCLUDES)

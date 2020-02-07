@@ -6,7 +6,7 @@
 #    By: zwang <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/15 14:23:06 by zwang             #+#    #+#              #
-#    Updated: 2020/02/06 14:49:52 by Zexi Wang        ###   ########.fr        #
+#    Updated: 2020/02/06 21:16:39 by Zexi Wang        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -98,7 +98,7 @@ $(FIO_OBJ): $(FIO) includes/*.h
 
 clean:
 	@rm -rf *.o
-	@printf "$(RED)[x] $(RESET)\x1B[31m$(NAME) object files deleted\n"
+	@printf "$(RED)[x] $(RESET)\x1B[31mobject files deleted\n"
 
 fclean: clean
 	@rm -f $(NAME)
