@@ -10,8 +10,8 @@ Here is the *Kraken Under Sea*. I just could not find a nice image for our title
 
 Here are some libraries written in C:
 
-- ### Libft
+- ### [Libft](https://github.com/AlphaPiece/libraries-under-sea/tree/master/ft)
 *My fundamental C library which was built at 42 Silicon Valley.*
     
-- ### Libef
+- ### [Libef](https://github.com/AlphaPiece/libraries-under-sea/tree/master/ef)
 *A C library which provides advanced data structrues, such as linked lists, hash tables, heaps, trees, and graphs.*
