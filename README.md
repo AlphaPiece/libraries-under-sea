@@ -2,7 +2,7 @@
 
 ## *Long live the C programming language!*
 
-![Kraken Under Sea](https://user-images.githubusercontent.com/30487160/72489118-0f2d0780-37e1-11ea-87f8-9694690403a7.jpg)
+![Kraken Under Sea](https://user-images.githubusercontent.com/30487160/74077897-f1bf1800-49f1-11ea-8bb0-d40f7926a182.jpg)
 
 (This is actually "Kraken Under Sea", but whatever. ╮(￣▽￣)╭)
 
