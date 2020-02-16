@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libef.h"
+#include "ef_slist.h"
 
 int	ef_slist_data_index(t_slist *list, void *data)
 {

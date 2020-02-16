@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libef.h"
+#include "ef_bnheap.h"
 
 void	ef_bnheap_insert(t_bnheap *heap, t_bnnode *node)
 {

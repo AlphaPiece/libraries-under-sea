@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libef.h"
+#include "ef_htable.h"
 
 void	ef_htable_delete(t_htable *table, t_dlist *node)
 {

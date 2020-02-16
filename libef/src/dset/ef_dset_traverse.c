@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libef.h"
+#include "ef_dset.h"
 
 void	ef_dset_traverse(t_dset *set, f_trv trv)
 {

@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libef.h"
+#include "ef_rbtree.h"
 
 void	ef_rbnode_free(t_rbnode *node, f_del del_key, f_del del_value)
 {

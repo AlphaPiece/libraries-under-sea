@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libef.h"
+#include "ef_bheap.h"
 
 void	ef_bheap_heapify_up(t_bheap *heap, int index)
 {

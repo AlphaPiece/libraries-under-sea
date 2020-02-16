@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libef.h"
+#include "ef_ntree.h"
 
 int	ef_ntree_height(t_ntree *tree)
 {

@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libef.h"
+#include "ef_ntree.h"
 
 t_ntree		*ef_ntree_copy(t_ntree *tree, f_cpy cpy)
 {

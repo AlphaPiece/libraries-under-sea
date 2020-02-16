@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libef.h"
+#include "ef_rbtree.h"
 
 t_rbnode	*ef_rbnode_create(t_rbtree *tree, void *key, void *value)
 {

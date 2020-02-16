@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libef.h"
+#include "ef_atree.h"
 
 void	ef_anode_free(t_anode *node, f_del del_key, f_del del_value)
 {

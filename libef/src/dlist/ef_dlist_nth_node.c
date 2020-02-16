@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libef.h"
+#include "ef_dlist.h"
 
 t_dlist	*ef_dlist_nth_node(t_dlist *list, int n)
 {

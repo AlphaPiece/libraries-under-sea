@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libef.h"
+#include "ef_treap.h"
 
 /*
 ** z: the node that just got inserted into the tree

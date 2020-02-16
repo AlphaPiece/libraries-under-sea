@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libef.h"
+#include "ef_atree.h"
 
 /*
 ** z: the first unbalanced node

@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libef.h"
+#include "ef_slist.h"
 
 t_slist	*ef_slist_prepend(t_slist *list, void *data)
 {

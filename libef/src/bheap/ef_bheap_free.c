@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libef.h"
+#include "ef_bheap.h"
 
 void	ef_bheap_free(t_bheap *heap)
 {

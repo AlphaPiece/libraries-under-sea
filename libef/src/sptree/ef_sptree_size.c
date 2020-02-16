@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libef.h"
+#include "ef_sptree.h"
 
 int	ef_sptree_size(t_sptree *tree)
 {

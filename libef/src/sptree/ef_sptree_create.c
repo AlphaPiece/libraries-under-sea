@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libef.h"
+#include "ef_sptree.h"
 
 t_sptree	*ef_sptree_create(f_cmp cmp_key, f_del del_key, f_del del_value)
 {

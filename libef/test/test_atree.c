@@ -6,11 +6,11 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/12 23:08:11 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/20 17:31:44 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2020/02/16 10:41:18 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libef.h"
+#include "ef_atree.h"
 
 #define COUNT	10
 
@@ -65,7 +65,7 @@ void	test(void)
 	ef_atree_set(tree, &arr[3], &arr[6]);
 	ef_atree_set(tree, &arr[2], &arr[8]);
 	view_tree(tree);
-	ef_atree_traverse(tree, print_key, LEVEL_ORDER);
+	ef_atree_traverse(tree, print_key);
 	ft_printf("\n");
 
 	ft_printf("%d\n", *(int *)ef_atree_get(tree, &arr[2]));
@@ -74,7 +74,7 @@ void	test(void)
 	for (i = 0; i < 10; i++)
 		ef_atree_remove(tree, &arr[i]);
 	view_tree(tree);
-	ef_atree_traverse(tree, print_key, LEVEL_ORDER);
+	ef_atree_traverse(tree, print_key);
 	ft_printf("\n");
 
 	ef_atree_free(tree);

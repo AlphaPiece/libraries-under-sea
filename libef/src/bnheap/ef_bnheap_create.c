@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libef.h"
+#include "ef_bnheap.h"
 
 t_bnheap	*ef_bnheap_create(f_cmp cmp_key, f_del del_key, f_del del_value)
 {

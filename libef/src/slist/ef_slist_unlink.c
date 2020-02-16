@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libef.h"
+#include "ef_slist.h"
 
 t_slist	*ef_slist_unlink(t_slist *list, t_slist *node)
 {

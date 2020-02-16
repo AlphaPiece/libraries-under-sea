@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libef.h"
+#include "ef_ntree.h"
 
 void	ef_ntree_rotate_children(t_ntree *parent, int n)
 {

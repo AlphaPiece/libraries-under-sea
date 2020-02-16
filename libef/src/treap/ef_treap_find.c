@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libef.h"
+#include "ef_treap.h"
 
 t_trnode	*ef_treap_find(t_treap *tree, void *key)
 {

@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libef.h"
+#include "ef_sptree.h"
 
 void	ef_spnode_free(t_spnode *node, f_del del_key, f_del del_value)
 {

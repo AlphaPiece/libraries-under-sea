@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libef.h"
+#include "ef_dlist.h"
 
 int	ef_dlist_node_index(t_dlist *list, t_dlist *node)
 {

@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libef.h"
+#include "ef_bheap.h"
 
 t_bheap	*ef_bheap_create(f_cmp cmp_key, f_del del_key, f_del del_value)
 {

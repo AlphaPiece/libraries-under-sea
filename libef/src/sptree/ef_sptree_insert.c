@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libef.h"
+#include "ef_sptree.h"
 
 /*
 ** z: the node to be inserted

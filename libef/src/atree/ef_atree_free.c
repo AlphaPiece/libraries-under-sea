@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libef.h"
+#include "ef_atree.h"
 
 void	ef_atree_free(t_atree *tree)
 {

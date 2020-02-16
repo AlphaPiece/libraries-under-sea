@@ -6,11 +6,11 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/25 13:34:17 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/07 10:08:41 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2020/02/16 11:08:51 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libef.h"
+#include "ef_darray.h"
 
 int		cmp_int(void *n1, void *n2)
 {
@@ -66,7 +66,7 @@ void	test(void)
 	void		*ptr;
 	t_darray	*partition;
 
-	array = ef_darray_sized_new(sizeof(char *), 10);
+	array = ef_darray_create(sizeof(char *), 10);
 
 	strarr = ft_strsplit(s, " ");
 	for (i = 0; strarr[i]; i++)
@@ -151,7 +151,7 @@ int		main()
 {
 	test();
 
-	while (1);
+//	while (1);
 
 	return (0);
 }

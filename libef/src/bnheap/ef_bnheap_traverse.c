@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libef.h"
+#include "ef_bnheap.h"
 
 void	ef_bnheap_traverse(t_bnheap *heap, f_trw trw)
 {

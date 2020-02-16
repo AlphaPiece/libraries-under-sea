@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libef.h"
+#include "ef_htable.h"
 
 t_darray	*ef_htable_pairs(t_htable *table)
 {

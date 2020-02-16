@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libef.h"
+#include "ef_treap.h"
 
 /*
 ** x: the node getting rotated down

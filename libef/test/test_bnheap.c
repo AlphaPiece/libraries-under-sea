@@ -6,11 +6,11 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/17 20:55:24 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/19 15:43:51 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2020/02/16 12:19:37 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libef.h"
+#include "ef_bnheap.h"
 
 int		cmp_int(void *n1, void *n2)
 {
@@ -45,8 +45,8 @@ void	view_heap(t_bnheap *heap)
 			for (node = ef_deque_pop_head(queue); node; node = node->sibling)
 			{
 				ft_printf("%d-%d, ", *(int *)node->key, node->degree);
-				if (node->child)
-					ef_deque_push_tail(queue, node->child);
+				if (node->children)
+					ef_deque_push_tail(queue, node->children);
 			}
 		ft_printf("\n");
 	}
@@ -67,7 +67,7 @@ void	test(void)
 	for (i = 0; i < 15; i++)
 		ef_bnheap_insert(heap, ef_bnnode_create(&arr[i], &arr[i]));
 	view_heap(heap);
-//	heap->top->child = ef_bnnode_reverse(heap->top->child);
+//	heap->top->children = ef_bnnode_reverse(heap->top->children);
 //	view_heap(heap);
 
 /*	node = ef_bnheap_pop_top(heap);
@@ -108,7 +108,7 @@ int		main(void)
 {
 	test();
 
-	while (1);
+//	while (1);
 
 	return (0);
 }

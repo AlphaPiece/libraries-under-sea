@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libef.h"
+#include "ef_treap.h"
 
 int	ef_treap_size(t_treap *tree)
 {

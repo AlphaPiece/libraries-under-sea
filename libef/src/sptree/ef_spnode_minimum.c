@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libef.h"
+#include "ef_sptree.h"
 
 t_spnode	 *ef_spnode_minimum(t_spnode *node)
 {

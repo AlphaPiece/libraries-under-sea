@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libef.h"
+#include "ef_treap.h"
 
 void	ef_trnode_free(t_trnode *node, f_del del_key, f_del del_value)
 {

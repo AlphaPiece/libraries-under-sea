@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libef.h"
+#include "ef_atree.h"
 
 t_anode	*ef_atree_find(t_atree *tree, void *key)
 {

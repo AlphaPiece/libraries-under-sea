@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libef.h"
+#include "ef_bheap.h"
 
 void	ef_bheap_insert(t_bheap *heap, t_kvpair *pair)
 {

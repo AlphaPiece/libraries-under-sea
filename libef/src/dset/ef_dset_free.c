@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libef.h"
+#include "ef_dset.h"
 
 void	ef_dset_free(t_dset *set, f_del del, t_flag one_or_all)
 {

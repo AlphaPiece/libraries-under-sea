@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libef.h"
+#include "ef_atree.h"
 
 t_atree	*ef_atree_create(f_cmp cmp_key, f_del del_key, f_del del_value)
 {

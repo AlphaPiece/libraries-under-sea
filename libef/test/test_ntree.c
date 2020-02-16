@@ -6,11 +6,11 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 14:08:22 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2020/01/10 23:21:01 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2020/02/16 10:26:13 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libef.h"
+#include "ef_ntree.h"
 #include <assert.h>
 
 void	_print_tree(t_ntree *tree)

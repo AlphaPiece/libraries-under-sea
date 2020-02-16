@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libef.h"
+#include "ef_deque.h"
 
 t_bool	ef_deque_is_empty(t_deque *queue)
 {

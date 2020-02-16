@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libef.h"
+#include "ef_ntree.h"
 
 t_ntree	*ef_ntree_in_order_find(t_ntree *tree, void *data, f_cmp cmp,
 								int depth, t_flag part)

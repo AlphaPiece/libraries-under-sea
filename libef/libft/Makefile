@@ -6,7 +6,7 @@
 #    By: zwang <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/15 14:23:06 by zwang             #+#    #+#              #
-#    Updated: 2020/02/06 21:16:39 by Zexi Wang        ###   ########.fr        #
+#    Updated: 2020/02/16 08:42:24 by Zexi Wang        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,69 +39,71 @@ STR_FILES = ft_atof.c  ft_strarrsort.c ft_strdel.c  ft_strlen.c  ft_strrchr.c \
 			ft_strtrim.c ft_strarrlen.c  ft_strcpy.c  ft_strlcat.c \
 			ft_strnstr.c  ft_strsqz.c
 
-FIO_FILES = ft_dprintf.c     ft_dputstr.c     ft_printf.c      ft_putnchar.c \
-	  ft_dputchar.c    ft_getchar.c     ft_putchar.c     ft_dputnchar.c \
-	  ft_dputlstr.c    ft_getonechar.c  ft_putlstr.c     ft_putncharln.c \
-	  ft_dputnbr.c     ft_nextline.c    ft_putnbr.c      ft_putstr.c
+FIO_FILES =	ft_dprintf.c     ft_dputstr.c     ft_printf.c      ft_putnchar.c \
+			ft_dputchar.c    ft_getchar.c     ft_putchar.c     ft_dputnchar.c \
+			ft_dputlstr.c    ft_getonechar.c  ft_putlstr.c     ft_putncharln.c \
+			ft_dputnbr.c     ft_nextline.c    ft_putnbr.c      ft_putstr.c
+
+PRINTF_FILES = fmt_helper.c       signed_integer.c   unsigned_integer.c \
+			   character.c        ft_vdprintf.c      strblock.c \
+			   fmt_handler.c      length_handler.c   string.c
 
 MEM_DIR = src/mem/
 NUM_DIR = src/num/
 CHR_DIR = src/chr/
 STR_DIR = src/str/
 FIO_DIR = src/fio/
+PRINTF_DIR = src/fio/ft_vdprintf/
 
 MEM = $(addprefix $(MEM_DIR), $(MEM_FILES))
 NUM = $(addprefix $(NUM_DIR), $(NUM_FILES))
 CHR = $(addprefix $(CHR_DIR), $(CHR_FILES))
 STR = $(addprefix $(STR_DIR), $(STR_FILES))
-FIO = $(addprefix $(FIO_DIR), $(FIO_FILES)) 
+FIO = $(addprefix $(FIO_DIR), $(FIO_FILES))
+PRINTF = $(addprefix $(PRINTF_DIR), $(PRINTF_FILES))
 
 MEM_OBJ = $(MEM_FILES:.c=.o)
 NUM_OBJ = $(NUM_FILES:.c=.o)
 CHR_OBJ = $(CHR_FILES:.c=.o)
 STR_OBJ = $(STR_FILES:.c=.o)
 FIO_OBJ = $(FIO_FILES:.c=.o)
+PRINTF_OBJ = $(PRINTF_FILES:.c=.o)
 
-RESET = \033[0m
-GREEN = \033[1;32m
-RED = \033[1;31m
+OBJ = $(MEM_OBJ) $(NUM_OBJ) $(CHR_OBJ) $(STR_OBJ) $(FIO_OBJ) $(PRINTF_OBJ)
 
+INCLUDES = includes/*.h
 
 
 .PHONY: all clean fclean re
 
-all: $(MEM_OBJ) $(NUM_OBJ) $(CHR_OBJ) $(STR_OBJ) $(FIO_OBJ)
-	@make -C src/fio/ft_vdprintf/
-	@ar rcs $(NAME) *.o
-	@ranlib $(NAME)
-	@printf "$(GREEN)[✓] $(RESET)\x1B[32m$(NAME) ready!\n\x1b[37m"
+all: $(NAME)
 
-$(MEM_OBJ): $(MEM) includes/*.h
-	@printf "\x1B[38;5;208mCompiling mem...\n\x1b[37m"
-	@$(CC) -c $(MEM) -I includes
+$(NAME): $(OBJ)
+	ar rcs $(NAME) *.o
+	ranlib $(NAME)
 
-$(NUM_OBJ): $(NUM) includes/*.h
-	@printf "\x1B[38;5;208mCompiling num...\n\x1b[37m"
-	@$(CC) -c $(NUM) -I includes
+$(MEM_OBJ): $(MEM) $(INCLUDES)
+	$(CC) -c $(MEM) -I includes
 
-$(CHR_OBJ): $(CHR) includes/*.h
-	@printf "\x1B[38;5;208mCompiling chr...\n\x1b[37m"
-	@$(CC) -c $(CHR) -I includes
+$(NUM_OBJ): $(NUM) $(INCLUDES)
+	$(CC) -c $(NUM) -I includes
 
-$(STR_OBJ): $(STR) includes/*.h
-	@printf "\x1B[38;5;208mCompiling str...\n\x1b[37m"
-	@$(CC) -c $(STR) -I includes
+$(CHR_OBJ): $(CHR) $(INCLUDES)
+	$(CC) -c $(CHR) -I includes
 
-$(FIO_OBJ): $(FIO) includes/*.h
-	@printf "\x1B[38;5;208mCompiling fio...\n\x1b[37m"
-	@$(CC) -c $(FIO) -I includes
+$(STR_OBJ): $(STR) $(INCLUDES)
+	$(CC) -c $(STR) -I includes
+
+$(FIO_OBJ): $(FIO) $(INCLUDES)
+	$(CC) -c $(FIO) -I includes
+
+$(PRINTF_OBJ): $(PRINTF) $(INCLUDES)
+	make -C src/fio/ft_vdprintf/
 
 clean:
-	@rm -rf *.o
-	@printf "$(RED)[x] $(RESET)\x1B[31mobject files deleted\n"
+	rm -rf *.o
 
 fclean: clean
-	@rm -f $(NAME)
-	@printf "$(RED)[x] $(RESET)\x1B[31m$(NAME) deleted\n"
+	rm -f $(NAME)
 
 re: fclean all

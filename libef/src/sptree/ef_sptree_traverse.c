@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libef.h"
+#include "ef_sptree.h"
 
 void	ef_sptree_traverse(t_sptree *tree, f_trw trw)
 {

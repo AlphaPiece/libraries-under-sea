@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libef.h"
+#include "ef_ntree.h"
 
 t_ntree	*ef_ntree_last_sibling(t_ntree *tree)
 {

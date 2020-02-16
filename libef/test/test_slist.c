@@ -6,11 +6,11 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/15 17:37:30 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/04/28 09:27:13 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2020/02/16 09:14:23 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libef.h"
+#include "ef_slist.h"
 #include <assert.h>
 #include <stdio.h>
 
@@ -119,7 +119,7 @@ void	test(void)
 	list = ef_slist_rotate(list, 0);
 	print_list(list);
 
-	ef_slist_free_list(list);
+	ef_slist_free(list, NULL, ALL);
 }
 
 int		main(void)

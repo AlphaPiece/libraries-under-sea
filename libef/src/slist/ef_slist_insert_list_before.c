@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libef.h"
+#include "ef_slist.h"
 
 t_slist	*ef_slist_insert_list_before(t_slist *list1, t_slist *list2,
 										t_slist *node)

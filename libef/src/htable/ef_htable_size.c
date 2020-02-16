@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libef.h"
+#include "ef_htable.h"
 
 int	ef_htable_size(t_htable *table)
 {

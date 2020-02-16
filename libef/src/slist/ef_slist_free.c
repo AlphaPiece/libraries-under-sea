@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libef.h"
+#include "ef_slist.h"
 
 void	ef_slist_free(t_slist *list, f_del del, t_flag one_or_all)
 {

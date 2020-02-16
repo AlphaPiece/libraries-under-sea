@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libef.h"
+#include "ef_rbtree.h"
 
 void	ef_rbtree_remove(t_rbtree *tree, void *key)
 {

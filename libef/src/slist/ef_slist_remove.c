@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libef.h"
+#include "ef_slist.h"
 
 t_slist	*ef_slist_remove(t_slist *list, void *data, f_cmp cmp, f_del del,
 							t_flag one_or_all)

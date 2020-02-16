@@ -6,7 +6,7 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/03 13:21:44 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/07 22:31:13 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2020/02/12 09:30:30 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,9 @@ t_darray	*ef_darray_alloc(size_t elem_size, int length)
 	array_size = MAX(length * elem_size, DARRAY_LEN * elem_size);
 	if (!(array = (t_darray *)malloc(sizeof(t_darray))) ||
 			!(array->data = malloc(array_size)))
-		exit(MALLOC_ERROR);
+	{
+		perror("malloc");
+		exit(1);
+	}
 	return (array);
 }

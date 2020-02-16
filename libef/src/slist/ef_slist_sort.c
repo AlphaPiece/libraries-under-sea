@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libef.h"
+#include "ef_slist.h"
 
 static t_slist	*merge_slist(t_slist *list1, t_slist *list2, f_cmp cmp)
 {

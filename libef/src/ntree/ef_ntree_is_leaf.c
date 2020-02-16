@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libef.h"
+#include "ef_ntree.h"
 
 t_bool	ef_ntree_is_leaf(t_ntree *node)
 {

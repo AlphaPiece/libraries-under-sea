@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libef.h"
+#include "ef_rbtree.h"
 
 int	ef_rbtree_size(t_rbtree *tree)
 {

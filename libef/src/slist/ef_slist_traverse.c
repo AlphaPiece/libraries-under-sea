@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libef.h"
+#include "ef_slist.h"
 
 void	ef_slist_traverse(t_slist *list, f_trv trv, int length)
 {

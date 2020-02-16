@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libef.h"
+#include "ef_bnheap.h"
 
 t_bnheap	*ef_bnheap_merge(t_bnheap *heap1, t_bnheap *heap2)
 {

@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libef.h"
+#include "ef_bheap.h"
 
 int	ef_bheap_index(t_bheap *heap, void *key)
 {

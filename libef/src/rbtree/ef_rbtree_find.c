@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libef.h"
+#include "ef_rbtree.h"
 
 t_rbnode	*ef_rbtree_find(t_rbtree *tree, void *key)
 {

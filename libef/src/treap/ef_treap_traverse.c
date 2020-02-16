@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libef.h"
+#include "ef_treap.h"
 
 void	ef_treap_traverse(t_treap *tree, f_trw trw)
 {

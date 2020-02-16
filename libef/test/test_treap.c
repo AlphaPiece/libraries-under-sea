@@ -6,11 +6,11 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/12 23:08:11 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/24 09:44:10 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2020/02/16 11:16:45 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libef.h"
+#include "ef_treap.h"
 
 #define COUNT	10
 
@@ -102,7 +102,7 @@ int		main(void)
 {
 	test();
 
-	while (1);
+//	while (1);
 
 	return (0);
 }

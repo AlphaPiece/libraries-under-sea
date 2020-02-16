@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libef.h"
+#include "ef_bheap.h"
 
 int	ef_bheap_compare(t_bheap *heap, int index1, int index2)
 {

@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libef.h"
+#include "ef_bnheap.h"
 
 t_bnnode	*ef_bnnode_reverse(t_bnnode *node)
 {

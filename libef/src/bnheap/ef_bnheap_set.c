@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libef.h"
+#include "ef_bnheap.h"
 
 void	ef_bnheap_set(t_bnheap *heap, void *key, void *value)
 {

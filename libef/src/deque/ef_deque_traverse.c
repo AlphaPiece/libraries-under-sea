@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libef.h"
+#include "ef_deque.h"
 
 void	ef_deque_traverse(t_deque *queue, f_trv trv, int length, t_flag order)
 {

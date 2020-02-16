@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libef.h"
+#include "ef_sptree.h"
 
 t_sptree	*ef_sptree_split(t_sptree *tree, void *key)
 {

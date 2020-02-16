@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libef.h"
+#include "ef_rbtree.h"
 
 t_rbnode	*ef_rbnode_maximum(t_rbtree *tree, t_rbnode *node)
 {

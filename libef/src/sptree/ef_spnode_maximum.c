@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libef.h"
+#include "ef_sptree.h"
 
 t_spnode	*ef_spnode_maximum(t_spnode *node)
 {

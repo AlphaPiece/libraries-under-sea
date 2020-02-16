@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libef.h"
+#include "ef_htable.h"
 
 void	ef_htable_traverse(t_htable *table, f_trw trw)
 {

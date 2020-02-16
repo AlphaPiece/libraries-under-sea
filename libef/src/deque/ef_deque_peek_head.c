@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libef.h"
+#include "ef_deque.h"
 
 void	*ef_deque_peek_head(t_deque *queue)
 {

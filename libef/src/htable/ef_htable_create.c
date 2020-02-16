@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libef.h"
+#include "ef_htable.h"
 
 t_htable	*ef_htable_create(f_hsh hsh_key, f_cmp cmp_key, f_del del_key,
 								f_del del_value)

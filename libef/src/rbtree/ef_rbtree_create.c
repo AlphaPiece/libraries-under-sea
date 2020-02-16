@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libef.h"
+#include "ef_rbtree.h"
 
 t_rbtree	*ef_rbtree_create(f_cmp cmp_key, f_del del_key, f_del del_value)
 {

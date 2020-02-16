@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libef.h"
+#include "ef_deque.h"
 
 t_deque	*ef_deque_copy(t_deque *queue, f_cpy cpy)
 {

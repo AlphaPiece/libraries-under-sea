@@ -6,11 +6,11 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/12 23:08:11 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/21 13:55:23 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2020/02/16 11:08:22 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libef.h"
+#include "ef_sptree.h"
 
 #define COUNT	10
 
@@ -72,13 +72,13 @@ void	test(void)
 		ef_sptree_insert(tree2, ef_spnode_create(&arr[i], &arr[i]));
 	view_tree(tree);
 */
-/*	ef_sptree_set(tree, &arr[3], &arr[3]);
+	ef_sptree_set(tree, &arr[3], &arr[3]);
 	view_tree(tree);
 	ef_sptree_set(tree, &arr[4], &arr[4]);
 	view_tree(tree);
 	ef_sptree_set(tree, &arr[3], &arr[3]);
 	view_tree(tree);
-*/
+
 /*	ef_sptree_delete(tree, tree->root->left->left);
 	view_tree(tree);
 	ef_sptree_delete(tree, tree->root->left->left);
@@ -111,7 +111,7 @@ int		main(void)
 {
 	test();
 
-	while (1);
+//	while (1);
 
 	return (0);
 }

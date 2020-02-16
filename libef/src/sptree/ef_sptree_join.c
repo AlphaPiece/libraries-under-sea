@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libef.h"
+#include "ef_sptree.h"
 
 t_sptree	*ef_sptree_join(t_sptree *tree1, t_sptree *tree2)
 {

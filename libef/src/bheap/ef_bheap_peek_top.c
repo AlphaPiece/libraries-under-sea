@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libef.h"
+#include "ef_bheap.h"
 
 t_kvpair	*ef_bheap_peek_top(t_bheap *heap)
 {

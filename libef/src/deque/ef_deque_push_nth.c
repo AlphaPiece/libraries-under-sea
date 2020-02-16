@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libef.h"
+#include "ef_deque.h"
 
 void	ef_deque_push_nth(t_deque *queue, void *data, int n)
 {

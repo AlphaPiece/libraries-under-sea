@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libef.h"
+#include "ef_sptree.h"
 
 t_spnode	*ef_sptree_find(t_sptree *tree, void *key)
 {

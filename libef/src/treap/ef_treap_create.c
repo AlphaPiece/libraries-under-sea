@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libef.h"
+#include "ef_treap.h"
 
 t_treap	*ef_treap_create(f_cmp cmp_key, f_del del_key, f_del del_value)
 {

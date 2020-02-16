@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libef.h"
+#include "ef_htable.h"
 
 t_dlist	*ef_htable_find(t_htable *table, void *key)
 {

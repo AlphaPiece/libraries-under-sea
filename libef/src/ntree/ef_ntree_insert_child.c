@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libef.h"
+#include "ef_ntree.h"
 
 void	ef_ntree_insert_child(t_ntree *parent, t_ntree *child, int index)
 {

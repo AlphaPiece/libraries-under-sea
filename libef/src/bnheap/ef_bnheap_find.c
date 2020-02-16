@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libef.h"
+#include "ef_bnheap.h"
 
 t_bnnode	*ef_bnheap_find(t_bnheap *heap, void *key)
 {

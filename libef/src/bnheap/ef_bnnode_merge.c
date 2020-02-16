@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libef.h"
+#include "ef_bnheap.h"
 
 static t_bnnode	*merge_sibling(t_bnnode *node1, t_bnnode *node2)
 {

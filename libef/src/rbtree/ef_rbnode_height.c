@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libef.h"
+#include "ef_rbtree.h"
 
 int	ef_rbnode_height(t_rbtree *tree, t_rbnode *node)
 {

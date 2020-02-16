@@ -6,17 +6,20 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/01 13:31:36 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2019/05/09 15:09:03 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2020/02/16 10:47:14 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libef.h"
+#include "ef_rbtree.h"
 
 t_rbtree	*ef_rbtree_alloc(void)
 {
 	t_rbtree	*tree;
 
 	if (!(tree = (t_rbtree *)malloc(sizeof(t_rbtree))))
-		exit(MALLOC_ERROR);
+	{
+		perror("malloc");
+		exit(1);
+	}
 	return (tree);
 }
