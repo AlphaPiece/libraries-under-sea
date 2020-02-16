@@ -6,7 +6,7 @@
 #    By: zwang <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/15 14:23:06 by zwang             #+#    #+#              #
-#    Updated: 2020/02/12 07:54:53 by Zexi Wang        ###   ########.fr        #
+#    Updated: 2020/02/16 08:42:24 by Zexi Wang        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -69,50 +69,41 @@ STR_OBJ = $(STR_FILES:.c=.o)
 FIO_OBJ = $(FIO_FILES:.c=.o)
 PRINTF_OBJ = $(PRINTF_FILES:.c=.o)
 
+OBJ = $(MEM_OBJ) $(NUM_OBJ) $(CHR_OBJ) $(STR_OBJ) $(FIO_OBJ) $(PRINTF_OBJ)
+
 INCLUDES = includes/*.h
-
-RESET = \033[0m
-GREEN = \033[1;32m
-RED = \033[1;31m
-
 
 
 .PHONY: all clean fclean re
 
-all: $(MEM_OBJ) $(NUM_OBJ) $(CHR_OBJ) $(STR_OBJ) $(FIO_OBJ) $(PRINTF_OBJ)
-	@ar rcs $(NAME) *.o
-	@ranlib $(NAME)
-	@printf "$(GREEN)[✓] $(RESET)\x1B[32m$(NAME) ready!\n\x1b[37m"
+all: $(NAME)
+
+$(NAME): $(OBJ)
+	ar rcs $(NAME) *.o
+	ranlib $(NAME)
 
 $(MEM_OBJ): $(MEM) $(INCLUDES)
-	@printf "\x1B[38;5;208mCompiling mem...\n\x1b[37m"
-	@$(CC) -c $(MEM) -I includes
+	$(CC) -c $(MEM) -I includes
 
 $(NUM_OBJ): $(NUM) $(INCLUDES)
-	@printf "\x1B[38;5;208mCompiling num...\n\x1b[37m"
-	@$(CC) -c $(NUM) -I includes
+	$(CC) -c $(NUM) -I includes
 
 $(CHR_OBJ): $(CHR) $(INCLUDES)
-	@printf "\x1B[38;5;208mCompiling chr...\n\x1b[37m"
-	@$(CC) -c $(CHR) -I includes
+	$(CC) -c $(CHR) -I includes
 
 $(STR_OBJ): $(STR) $(INCLUDES)
-	@printf "\x1B[38;5;208mCompiling str...\n\x1b[37m"
-	@$(CC) -c $(STR) -I includes
+	$(CC) -c $(STR) -I includes
 
 $(FIO_OBJ): $(FIO) $(INCLUDES)
-	@printf "\x1B[38;5;208mCompiling fio...\n\x1b[37m"
-	@$(CC) -c $(FIO) -I includes
+	$(CC) -c $(FIO) -I includes
 
 $(PRINTF_OBJ): $(PRINTF) $(INCLUDES)
-	@make -C src/fio/ft_vdprintf/
+	make -C src/fio/ft_vdprintf/
 
 clean:
-	@rm -rf *.o
-	@printf "$(RED)[x] $(RESET)\x1B[31mobject files deleted\n"
+	rm -rf *.o
 
 fclean: clean
-	@rm -f $(NAME)
-	@printf "$(RED)[x] $(RESET)\x1B[31m$(NAME) deleted\n"
+	rm -f $(NAME)
 
 re: fclean all

@@ -6,20 +6,21 @@
 /*   By: Zexi Wang <twopieces0921@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/05 07:36:27 by Zexi Wang         #+#    #+#             */
-/*   Updated: 2020/02/05 08:36:14 by Zexi Wang        ###   ########.fr       */
+/*   Updated: 2020/02/16 08:19:25 by Zexi Wang        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_FIO_H
 # define FT_FIO_H
 
-//# include <stddef.h>
 # include <unistd.h>
 # include <stdarg.h>
 # include <stdint.h>
 # include <stdlib.h>
 # include "ft_type.h"
 # include "ft_str.h"
+# include "ft_vdprintf.h"
+# include "ft_nextline.h"
 
 /*
 ** =========================
