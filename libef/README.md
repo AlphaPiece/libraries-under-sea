@@ -901,19 +901,75 @@ A **bnomial heap** is a set of binomial trees that satisfies the following **bin
 
 ---
 
-To create a t_slist node, use
+To create a t_bnnode, use
+```
+ef_bnnode_alloc()
+ef_bnnode_create()
+```
+
+To create a t_bnheap, use
+```
+ef_bnheap_alloc()
+ef_bnheap_create()
+```
 
 To add a single element, use
+```
+ef_bnheap_insert()
+ef_bnheap_set()
+```
 
-To find an elements, use
+To change the key of an element, use
+```
+ef_bnheap_change_key()
+```
 
-To remove an element, use
+To peek the top element of the heap (maximum element in max-heap; minimum element in min-heap) or to find an element by key, use
+```
+ef_bnheap_peek_top()
+ef_bnheap_find()
+```
+
+To extract the maximum/minimum element in the max-heap/min-heap, use
+```
+ef_bnheap_pop_top()
+```
+
+To merge two heaps, use
+```
+ef_bnnode_merge()
+ef_bnheap_merge()
+```
+
+To delete an element, use
+```
+ef_bnnode_free()
+ef_bnheap_delete()
+```
+
+To remove all the elements or even destroy the heap, use
+```
+ef_bnheap_clear()
+ef_bnheap_free()
+```
 
 To call a function for each element in the heap, use
+```
+ef_bnheap_traverse()
+```
 
 To get some information about the heap, use
+```
+ef_bnnode_size()
+ef_bnheap_size()
+```
 
-Some other useful functions
+Some auxiliary functions
+```
+ef_bnnode_reverse()
+```
+
+
 
 ## [Disjoint-set Forests](https://github.com/AlphaPiece/libraries-under-sea/tree/master/ef/src/dset)
 
