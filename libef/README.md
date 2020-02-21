@@ -877,6 +877,30 @@ ef_bheap_heapify_down()
 
 ## [Binomial Heaps](https://github.com/AlphaPiece/libraries-under-sea/tree/master/ef/src/bnheap)
 
+A binomial heap is a data structure that acts as a priority queue but also allows pairs of heaps to be merged together. It is implemented as a heap similar to a binary heap but using a special tree structure that is different from the complete binary trees used by binary heaps.
+
+A binomial heap is a collection of binomial trees.
+
+***What is a binomial tree?***
+
+A binomial tree with degree k (>= 0) is an ordered tree defined recursively. If k = 0, the tree consists of a single node. Otherwise, it consists of two binomial trees with degree k - 1 that are linked together: the root of one is the leftmost child of the root of the other.
+
+**Properties of binomial trees**
+
+For a binomial tree with degree k,
+
+> 1. there are 2^k nodes,
+> 2. the height of the tree is k,
+> 3. there are exactly "k choose i" nodes at depth i for i = 0, 1, ..., k, and
+> 4. the root has degree k, which is greater than that of any other node; moreover if the children of the root are numbered from left to right by k − 1, k − 2, ..., 0, child i is the root of a subtree with degree i.
+
+A **bnomial heap** is a set of binomial trees that satisfies the following **binomial heap properties**:
+
+> 1. Each binomial tree in the set obeys the min-heap/max-heap property: the key of a node is greater/less than or equal to the key of its parent. We say that each such tree is min-heap-ordered/max-heap-ordered.
+> 2. For any nonnegative integer k, there is at most one binomial tree in H whose root has degree k.
+
+---
+
 To create a t_slist node, use
 
 To add a single element, use
