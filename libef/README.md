@@ -804,6 +804,8 @@ A binary heap is a heap data structure that takes the form of a binary tree. It 
 > Heap property: the key stored in each node is either greater than or equal to (≥) or less than or equal to (≤) the keys in the node's children, according to some total order.
 
 A binary heap is typically represented as an array. Let an array A represent a heap (a complete binary tree). The root of the tree is A[0], and given the index i of a node, we can easily compute the indices of its parent, left child, and right child.
+
+The number of internal nodes in a complete binary tree is always floor(n/2).
 ```
 parent(i):
     return (i - 1) / 2
