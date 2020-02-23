@@ -804,6 +804,8 @@ A binary heap is a heap data structure that takes the form of a binary tree. It 
 > Heap property: the key stored in each node is either greater than or equal to (≥) or less than or equal to (≤) the keys in the node's children, according to some total order.
 
 A binary heap is typically represented as an array. Let an array A represent a heap (a complete binary tree). The root of the tree is A[0], and given the index i of a node, we can easily compute the indices of its parent, left child, and right child.
+
+The number of internal nodes in a complete binary tree is always floor(n/2).
 ```
 parent(i):
     return (i - 1) / 2
@@ -877,19 +879,99 @@ ef_bheap_heapify_down()
 
 ## [Binomial Heaps](https://github.com/AlphaPiece/libraries-under-sea/tree/master/ef/src/bnheap)
 
-To create a t_slist node, use
+A binomial heap is a data structure that acts as a priority queue but also allows pairs of heaps to be merged together. It is implemented as a heap similar to a binary heap but using a special tree structure that is different from the complete binary trees used by binary heaps.
+
+A binomial heap is a collection of binomial trees.
+
+***What is a binomial tree?***
+
+A binomial tree with degree k (>= 0) is an ordered tree defined recursively. If k = 0, the tree consists of a single node. Otherwise, it consists of two binomial trees with degree k - 1 that are linked together: the root of one is the leftmost child of the root of the other.
+
+**Properties of binomial trees**
+
+For a binomial tree with degree k,
+
+> 1. there are 2^k nodes,
+> 2. the height of the tree is k,
+> 3. there are exactly "k choose i" nodes at depth i for i = 0, 1, ..., k, and
+> 4. the root has degree k, which is greater than that of any other node; moreover if the children of the root are numbered from left to right by k − 1, k − 2, ..., 0, child i is the root of a subtree with degree i.
+
+A **bnomial heap** is a set of binomial trees that satisfies the following **binomial heap properties**:
+
+> 1. Each binomial tree in the set obeys the min-heap/max-heap property: the key of a node is greater/less than or equal to the key of its parent. We say that each such tree is min-heap-ordered/max-heap-ordered.
+> 2. For any nonnegative integer k, there is at most one binomial tree in H whose root has degree k.
+
+---
+
+To create a t_bnnode, use
+```
+ef_bnnode_alloc()
+ef_bnnode_create()
+```
+
+To create a t_bnheap, use
+```
+ef_bnheap_alloc()
+ef_bnheap_create()
+```
 
 To add a single element, use
+```
+ef_bnheap_insert()
+ef_bnheap_set()
+```
 
-To find an elements, use
+To change the key of an element, use
+```
+ef_bnheap_change_key()
+```
 
-To remove an element, use
+To peek the top element of the heap (maximum element in max-heap; minimum element in min-heap) or to find an element by key, use
+```
+ef_bnheap_peek_top()
+ef_bnheap_find()
+```
+
+To extract the maximum/minimum element in the max-heap/min-heap, use
+```
+ef_bnheap_pop_top()
+```
+
+To merge two heaps, use
+```
+ef_bnnode_merge()
+ef_bnheap_merge()
+```
+
+To delete an element, use
+```
+ef_bnnode_free()
+ef_bnheap_delete()
+```
+
+To remove all the elements or even destroy the heap, use
+```
+ef_bnheap_clear()
+ef_bnheap_free()
+```
 
 To call a function for each element in the heap, use
+```
+ef_bnheap_traverse()
+```
 
 To get some information about the heap, use
+```
+ef_bnnode_size()
+ef_bnheap_size()
+```
 
-Some other useful functions
+Some auxiliary functions
+```
+ef_bnnode_reverse()
+```
+
+
 
 ## [Disjoint-set Forests](https://github.com/AlphaPiece/libraries-under-sea/tree/master/ef/src/dset)
 
