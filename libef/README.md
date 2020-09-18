@@ -21,7 +21,7 @@
 
 
 
-## [Dynamic Arrays](https://github.com/AlphaPiece/libraries-under-sea/tree/master/ef/src/darray)
+## [Dynamic Arrays](https://github.com/AlphaPiece/libraries-under-sea/tree/master/libef/src/darray)
 
 A dynamic array is a random access, variable-size list data structure that allows elements to be added or removed. All the elements in the array must be of the same type. The dynamic array will be initialized with 16 spaces (the actually size of the array depends on the element size e.g. an int array is initialized with size 16 * 4 = 64 bytes). If the number of elements are equal to the capacity of the array when adding a new element, the capacity will be automatically doubled.
 
@@ -82,7 +82,7 @@ ef_darray_partition()
 
 
 
-## [Singly Linked Lists](https://github.com/AlphaPiece/libraries-under-sea/tree/master/ef/src/slist)
+## [Singly Linked Lists](https://github.com/AlphaPiece/libraries-under-sea/tree/master/libef/src/slist)
 
 Each element in a singly linked list contains a piece of data, together with a pointer which links to the next element in the list. Using this pointer it is possible to move through the list in one direction only (unlike the double-linked lists, which allow movement in both directions).
 
@@ -166,7 +166,7 @@ ef_slist_copy()
 
 
 
-## [Doubly Linked Lists](https://github.com/AlphaPiece/libraries-under-sea/tree/master/ef/src/dlist)
+## [Doubly Linked Lists](https://github.com/AlphaPiece/libraries-under-sea/tree/master/libef/src/dlist)
 
 Each element in a doubly linked list contains a piece of data, together with pointers which link to the previous and next elements in the list. Using these pointers it is possible to move through the list in both directions (unlike the singly-linked GSList, which only allows movement through the list in the forward direction).
 
@@ -263,7 +263,7 @@ ef_dlist_copy()
 
 
 
-## [Double-ended Queues](https://github.com/AlphaPiece/libraries-under-sea/tree/master/ef/src/deque)
+## [Double-ended Queues](https://github.com/AlphaPiece/libraries-under-sea/tree/master/libef/src/deque)
 
 A double-ended queue is a queue (internally a doubly linked list), for which elements can be added to or removed from either the front (head) or back (tail). Also known as deque.
 
@@ -335,7 +335,7 @@ ef_deque_copy()
 
 
 
-## [N-ary Trees](https://github.com/AlphaPiece/libraries-under-sea/tree/master/ef/src/ntree)
+## [N-ary Trees](https://github.com/AlphaPiece/libraries-under-sea/tree/master/libef/src/ntree)
 
 An n-ary tree is a rooted tree in which each node has no more than n children. A binary tree is the special case where n = 2, and a ternary tree is another case with n = 3 that limits its children to three.
 
@@ -435,7 +435,7 @@ ef_ntree_copy()
 
 
 
-## [AVL Trees](https://github.com/AlphaPiece/libraries-under-sea/tree/master/ef/src/atree)
+## [AVL Trees](https://github.com/AlphaPiece/libraries-under-sea/tree/master/libef/src/atree)
 
 An AVL tree is a self-balancing binary search tree. It was the first such data structure to be invented. In an AVL tree, the heights of the two child subtrees of any node differ by at most one; if at any time they differ by more than one, rebalancing is done to restore this property.
 
@@ -506,7 +506,7 @@ ef_anode_right_rotate()
 
 
 
-## [Red-Black Trees](https://github.com/AlphaPiece/libraries-under-sea/tree/master/ef/src/rbtree)
+## [Red-Black Trees](https://github.com/AlphaPiece/libraries-under-sea/tree/master/libef/src/rbtree)
 
 A red-black tree is a balanced binary search tree with one extra bit of storage per node: its color, which can be either RED or BLACK. (The implementation of libef's red black tree actually use a byte (char, 8 bits) to store the color. This will be improved in the future.)
 
@@ -586,7 +586,7 @@ ef_rbnode_right_rotate()
 
 
 
-## [Splay Trees](https://github.com/AlphaPiece/libraries-under-sea/tree/master/ef/src/sptree)
+## [Splay Trees](https://github.com/AlphaPiece/libraries-under-sea/tree/master/libef/src/sptree)
 
 The splay tree is a self-balancing binary search tree with the additional property that recently accessed elements are quick to access again. It performs basic operations such as insertion, look-up and removal in O(log(n)) amortized time.
 
@@ -665,7 +665,7 @@ ef_sptree_split()
 
 
 
-## [Treaps](https://github.com/AlphaPiece/libraries-under-sea/tree/master/ef/src/treap)
+## [Treaps](https://github.com/AlphaPiece/libraries-under-sea/tree/master/libef/src/treap)
 
 The treap is a randomized binary search tree, and it's not guaranteed to have height as O(log(n)). A node in a treap is like a node in a binary search tree in that it has a data value, but it also contains a unique numerical priority that is assigned at random.
 
@@ -732,7 +732,7 @@ ef_trnode_right_rotate()
 
 
 
-## [Hash Tables](https://github.com/AlphaPiece/libraries-under-sea/tree/master/ef/src/htable)
+## [Hash Tables](https://github.com/AlphaPiece/libraries-under-sea/tree/master/libef/src/htable)
 
 A hash table (hash map) is a data structure that implements an associative array abstract data type, a structure that can map keys to values. A hash table uses a hash function to compute an index, also called a hash code, into an array of buckets or slots, from which the desired value can be found.
 
@@ -795,7 +795,7 @@ ef_htable_pairs()
 
 
 
-## [Binary Heaps](https://github.com/AlphaPiece/libraries-under-sea/tree/master/ef/src/bheap)
+## [Binary Heaps](https://github.com/AlphaPiece/libraries-under-sea/tree/master/libef/src/bheap)
 
 A binary heap is a heap data structure that takes the form of a binary tree. It is defined with two additional constraints:
 
@@ -877,7 +877,7 @@ ef_bheap_heapify_down()
 
 
 
-## [Binomial Heaps](https://github.com/AlphaPiece/libraries-under-sea/tree/master/ef/src/bnheap)
+## [Binomial Heaps](https://github.com/AlphaPiece/libraries-under-sea/tree/master/libef/src/bnheap)
 
 A binomial heap is a data structure that acts as a priority queue but also allows pairs of heaps to be merged together. It is implemented as a heap similar to a binary heap but using a special tree structure that is different from the complete binary trees used by binary heaps.
 
@@ -973,7 +973,7 @@ ef_bnnode_reverse()
 
 
 
-## [Disjoint-set Forests](https://github.com/AlphaPiece/libraries-under-sea/tree/master/ef/src/dset)
+## [Disjoint-set Forests](https://github.com/AlphaPiece/libraries-under-sea/tree/master/libef/src/dset)
 
 A disjoint-set data structure (also called a union–find data structure or merge–find set) is a data structure that tracks a set of elements partitioned into a number of disjoint (non-overlapping) subsets.
 
