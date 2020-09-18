@@ -11,7 +11,7 @@
 * [ASCII Character Strings](#ascii-character-strings)
 * [File Input/Output](#file-inputoutput)
 
-## [Memory](https://github.com/AlphaPiece/libraries-under-sea/tree/master/ft/src/mem)
+## [Memory](https://github.com/AlphaPiece/libraries-under-sea/tree/master/libft/src/mem)
 
 | Return Type | Function Name | Parameter List | Description |
 | --- | --- | --- | --- |
@@ -31,7 +31,7 @@
 | void | **ft_putbits** | (void \*x, size_t n) | Prints n bits from the address that x points to. |
 | uint32_t | **ft_ptrhash** | (void \*p) | Returns a 32-bit long hash integer by hashing the pointer (virtual address) p. |
 
-## [Numbers](https://github.com/AlphaPiece/libraries-under-sea/tree/master/ft/src/num)
+## [Numbers](https://github.com/AlphaPiece/libraries-under-sea/tree/master/libft/src/num)
 
 | Return Type | Function Name | Parameter List | Description |
 | --- | --- | --- | --- |
@@ -56,7 +56,7 @@
 | int | **ft_randintarr** | (int lower, int upper, int len) | Returns an array of random integers (between lower and upper) of length len. |
 | uint32_t | **ft_inthash** | (int n) | Returns a 32-bit hash integer by hashing the integer n. |
 
-## [ASCII Characters](https://github.com/AlphaPiece/libraries-under-sea/tree/master/ft/src/chr)
+## [ASCII Characters](https://github.com/AlphaPiece/libraries-under-sea/tree/master/libft/src/chr)
 
 | Return Type | Function Name | Parameter List | Description |
 | --- | --- | --- | --- |
@@ -71,7 +71,7 @@
 | int | **ft_tolower** | (int c) | Converts a uppercase alphabet character to a lowercase alphabet character. |
 | int | **ft_toupper** | (int c) | Converts a lowercase alphabet character to a uppercase alphabet character. |
 
-## [ASCII Character Strings](https://github.com/AlphaPiece/libraries-under-sea/tree/master/ft/src/str)
+## [ASCII Character Strings](https://github.com/AlphaPiece/libraries-under-sea/tree/master/libft/src/str)
 
 | Return Type | Function Name | Parameter List | Description |
 | --- | --- | --- | --- |
@@ -121,7 +121,7 @@
 | void | **ft_strarrdel** | (char \*arr\[\]) | Frees an array and the strings in the array (with free(3)). |
 | uint32_t | **ft_strhash** | (char \*s) | Returns a 32-bit hash integer by hashing the string s. |
 
-## [File Input/Output](https://github.com/AlphaPiece/libraries-under-sea/tree/master/ft/src/fio)
+## [File Input/Output](https://github.com/AlphaPiece/libraries-under-sea/tree/master/libft/src/fio)
 
 | Return Type | Function Name | Parameter List | Description |
 | --- | --- | --- | --- |
