@@ -1,10 +1,6 @@
-# Libraries Under Sea
+# Libraries Under Sea (C)
 
 ## *Long live the C programming language!*
-
-![Kraken Under Sea](https://user-images.githubusercontent.com/30487160/74077897-f1bf1800-49f1-11ea-8bb0-d40f7926a182.jpg)
-
-*(Picture source: **Northgard**)*
 
 ---
 
