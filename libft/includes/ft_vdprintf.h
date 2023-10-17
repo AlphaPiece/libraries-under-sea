@@ -34,7 +34,7 @@ typedef struct			s_strblock
 
 typedef struct			s_package
 {
-	char				collection[127];
+	char				collection[128];
 	va_list				args;
 	char				fmt_spfr;
 	int					width;

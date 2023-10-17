@@ -33,10 +33,10 @@ void				ft_strclr(char *s);
 void				ft_strdel(char **p);
 
 int					ft_atoi(const char *str);
-long				ft_atol(const char *str);
+long long			ft_atol(const char *str);
 double				ft_atof(const char *str);
 int					ft_atoi_base(const char *str, int base);
-long				ft_atol_base(const char *str, int base);
+long long			ft_atol_base(const char *str, int base);
 
 t_bool				ft_isnumeric(char *s);
 t_bool				ft_strstart(const char *str, const char *substr);

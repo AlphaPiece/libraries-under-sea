@@ -12,22 +12,22 @@
 
 #include "ft_str.h"
 
-static long	atol_base_result(int sign, unsigned long n)
+static long long	atol_base_result(int sign, unsigned long long n)
 {
-	long	long_lim;
+	long long	long_lim;
 
 	long_lim = 9223372036854775807;
-	if (sign > 0 && n >= (unsigned long)long_lim)
+	if (sign > 0 && n >= (unsigned long long)long_lim)
 		return (long_lim);
-	if (sign < 0 && n - 1 >= (unsigned long)long_lim)
+	if (sign < 0 && n - 1 >= (unsigned long long)long_lim)
 		return (-long_lim - 1);
-	return ((long)n * sign);
+	return ((long long)n * sign);
 }
 
-long		ft_atol_base(const char *s, int base)
+long long			ft_atol_base(const char *s, int base)
 {
-	unsigned long	n;
-	int				sign;
+	unsigned long long	n;
+	int					sign;
 
 	if (base < 2 || base > 16)
 		return (0);

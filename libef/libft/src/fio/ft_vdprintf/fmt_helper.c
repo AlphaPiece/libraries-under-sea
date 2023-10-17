@@ -12,7 +12,7 @@
 
 #include "ft_vdprintf.h"
 
-void	initialize_zero(char collection[127])
+void	initialize_zero(char collection[128])
 {
 	collection['#'] = 0;
 	collection['+'] = 0;

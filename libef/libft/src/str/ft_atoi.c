@@ -12,9 +12,9 @@
 
 #include "ft_str.h"
 
-static int	atoi_result(long n)
+static int	atoi_result(long long n)
 {
-	long	long_lim;
+	long long	long_lim;
 
 	long_lim = 9223372036854775807;
 	if (n == long_lim)
@@ -26,7 +26,7 @@ static int	atoi_result(long n)
 
 int			ft_atoi(const char *s)
 {
-	long	n;
+	long long	n;
 
 	n = ft_atol(s);
 	return (atoi_result(n));

@@ -16,7 +16,7 @@ uint32_t	ft_ptrhash(void *p)
 {
 	uint32_t	h;
 	
-	h = (uint32_t)p;
+	h = (uint64_t)p & 0x00000000ffffffff;
     h = h ^ (h >> 4);
     h = (h ^ 0xdeadbeef) + (h << 5);
     h = h ^ (h >> 11);

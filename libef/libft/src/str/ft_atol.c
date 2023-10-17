@@ -12,9 +12,9 @@
 
 #include "ft_str.h"
 
-static long	atol_result(int neg, unsigned long n)
+static long long	atol_result(int neg, unsigned long n)
 {
-	long	long_lim;
+	long long	long_lim;
 
 	long_lim = 9223372036854775807;
 	if (!neg && n >= (unsigned long)long_lim)
@@ -24,10 +24,10 @@ static long	atol_result(int neg, unsigned long n)
 	return ((neg) ? (long)(~n + 1) : (long)n);
 }
 
-long		ft_atol(const char *s)
+long long			ft_atol(const char *s)
 {
-	unsigned long	n;
-	t_bool			neg;
+	unsigned long long	n;
+	t_bool				neg;
 
 	while (*s == 32 || (*s >= 9 && *s <= 13))
 		s++;
